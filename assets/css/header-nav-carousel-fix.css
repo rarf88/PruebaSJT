@@ -14,3 +14,20 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
 #sjt-mobile-drawer a{color:#fff;text-decoration:none;display:block;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.12)}
 #sjt-mobile-scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:9997}
 #sjt-mobile-scrim.show{opacity:1;pointer-events:auto}
+/* v4 fixes */
+/* Logo same height as header */
+header .logo img, .navbar .logo img, .site-logo img, .brand img, .logo img{
+  height:100% !important; width:auto !important; max-height:none !important; object-fit:contain !important; padding:0 !important; margin:0 !important;
+}
+header, .navbar, .site-header{ height:64px !important; }
+@media (max-width:991px){
+  header, .navbar, .site-header{ height:64px !important; padding:0 !important; }
+  header .logo, .navbar .logo, .site-logo, .brand{ height:100% !important; }
+  .nav-inline, header nav ul, .top-menu, .main-menu, nav ul{ display:none !important; }
+}
+#sjt-mobile-drawer{ background:#376777 !important; }
+#sjt-mobile-drawer a:hover{ background:rgba(255,255,255,.08); }
+/* Close drawer initial */
+#sjt-mobile-drawer{ transform:translateX(100%); opacity:0; visibility:hidden; pointer-events:none; }
+#sjt-mobile-drawer.open{ transform:translateX(0); opacity:1; visibility:visible; pointer-events:auto; }
+@media (min-width:992px){ #sjt-hamburger{ display:none !important; } #sjt-mobile-drawer,#sjt-mobile-scrim{ display:none !important; } }

@@ -1,0 +1,25 @@
+
+/* Layout fixes: remove top cut on initial scroll-to-top */
+html, body{scroll-snap-type:none !important; overscroll-behavior-y: auto !important;}
+body, main, .page, .content{padding-top:0 !important; margin-top:0 !important;}
+main > *:first-child{margin-top:0 !important;}
+/* Ensure sticky header doesn't transform (which can cause visual glitch) */
+header, .site-header, .navbar{position: sticky; top:0; transform:none !important; backface-visibility:hidden; will-change: auto;}
+/* Avoid phantom spacer heights */
+.header-spacer{height:0 !important;}
+
+/* v15: Strong scroll-to-top fix */
+html, body{scroll-behavior:auto !important; scroll-snap-type:none !important; scroll-padding-top:0 !important;}
+*{scroll-margin-top:0 !important;}
+/* Header fixed height to avoid jump */
+@media (min-width:992px){
+  header, .site-header, .navbar{height:72px !important; position:sticky; top:0; transform:none !important}
+  header.is-scrolled, .site-header.is-scrolled, .navbar.is-scrolled{height:72px !important}
+}
+/* Remove any first-section offset/padding hacks */
+main, .page, .content{padding-top:0 !important; margin-top:0 !important;}
+main > section:first-child, main > div:first-child{margin-top:0 !important; padding-top:0 !important;}
+/* Disable section-level snap */
+section, [class*="section"]{scroll-snap-align:none !important}
+/* Kill any JS-added spacer */
+.header-spacer, .js-header-spacer{height:0 !important; min-height:0 !important; padding:0 !important; margin:0 !important;}

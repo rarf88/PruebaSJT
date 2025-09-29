@@ -134,3 +134,8 @@ img, video { max-width: 100%; height: auto; }
   .cta-floating .btn + .btn{margin-top:5px;}
 }
 /* === End Floating CTA === */
+
+/* v4 hero no-gap */
+.hero, .hero-section, .hero-wrap, .carousel-container, .carousel, .slider, .hero-carousel, .main-carousel{
+  margin-top:0 !important; padding-top:0 !important;
+}
