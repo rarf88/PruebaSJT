@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Módulos ERP SJT – Finanzas, Tesorería, Compras, Talento Humano</title>
+<link as="image" href="assets/img/slide-1.png" rel="preload"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<link href="assets/css/brand-sjt.css" rel="stylesheet"/></head><style>
+/* Spacing between Pillars grid and Segmentos title */
+.segmentos-title { margin-top: clamp(36px, 5vw, 72px) !important; }
+</style><style>
+/* Extra spacing after Pilares grid */
+.pillars-grid { margin-bottom: clamp(48px, 6vw, 96px) !important; }
+</style><style>
+/* Override solo para productos: compactar barra "PRODUCTOS" */
+.page-hero { padding-top: 0 !important; padding-bottom: 0 !important; }
+.page-hero h1 { margin: 0 !important; line-height: 1.0 !important; }
+.page-hero p { margin: 2px 0 0 0 !important; line-height: 1.15 !important; }
+
+
+/* Espacio extra bajo el subtítulo del hero en Productos */
+.page-hero p { margin-bottom: 12px !important; }
+</style><style>
+/* FINAL override: espacio bajo el subtítulo del hero en Productos */
+.page-hero { padding-bottom: 16px !important; }  /* asegura respiración dentro de la barra */
+.page-hero p { margin-bottom: 12px !important; } /* separa el texto del borde inferior */
+</style><style>
+    /* Centrar todo el contenido del footer */
+    footer { text-align: center !important; }
+    footer .grid { justify-items: center !important; }
+    footer h4, footer p, footer li, footer a { text-align: center !important; margin-left: auto; margin-right: auto; }
+    </style><style>
+        /* Floating 'Volver a inicio' button (hidden on index) */
+        .back-home-btn{
+          position: fixed;
+          right: 18px;
+          bottom: 18px;
+          background: var(--sjt-brand, #0f4e52);
+          color: var(--sjt-text-on-brand, #ffffff);
+          padding: 12px 16px;
+          border-radius: 9999px;
+          box-shadow: 0 10px 20px rgba(0,0,0,.15);
+          font-weight: 800;
+          font-size: 0.95rem;
+          z-index: 9999;
+          text-decoration: none;
+          transition: transform .08s ease, box-shadow .2s ease, background-color .2s ease;
+        }
+        .back-home-btn:hover{ background: var(--sjt-brand-hover, #0b3c3f); transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.18); }
+        @media (max-width: 640px){
+          .back-home-btn{ right: 12px; bottom: 12px; padding: 10px 14px; font-size: .9rem; }
+        }
+        </style><meta content="Descubra módulos ERP SJT para el sector público: finanzas, tesorería, compras, inventarios, talento humano y más." name="description"/></head><body><div aria-label="Acciones principales" class="cta-floating" role="complementary"><h2>ERP para Entidades Públicas</h2><p>Trazabilidad, cumplimiento y eficiencia operativa.</p><a class="btn btn-primary" href="mailto:atencionalcliente@sjterp.com?subject=Solicitud%20de%20demo%20SJT%20ERP">Solicitar demo</a><a class="btn btn-secondary" href="https://wa.me/573118477257">Hablar con un asesor</a></div>
+<header class="site-header">
+<div class="container">
+<nav aria-label="Principal" class="nav">
+<a aria-label="Inicio" class="logo" href="index.html"><picture><source srcset="assets/img/sjt-logo-transparent.webp 1x, assets/img/sjt-logo-transparent@2x.webp 2x, assets/img/sjt-logo-transparent@3x.webp 3x, assets/img/sjt-logo-transparent@4x.webp 4x" type="image/webp"/><source srcset="assets/img/sjt-logo-transparent.png 1x, assets/img/sjt-logo-transparent@2x.png 2x, assets/img/sjt-logo-transparent@3x.png 3x, assets/img/sjt-logo-transparent@4x.png 4x" type="image/png"/><img alt="SJT" class="brand-sjt" decoding="async" fetchpriority="high" loading="eager" sizes="92px" src="assets/img/sjt-logo-transparent@2x.png" srcset="assets/img/sjt-logo-transparent.png 1x, assets/img/sjt-logo-transparent@2x.png 2x, assets/img/sjt-logo-transparent@3x.png 3x, assets/img/sjt-logo-transparent@4x.png 4x"/></picture></a>
+<div class="nav-links">
+<a href="productos.html">PRODUCTOS</a>
+<a href="servicios.html">SERVICIOS</a>
+<a href="nosotros.html">NOSOTROS</a>
+<a href="aliados.html">ALIADOS</a><a href="index.html#contacto">CONTÁCTENOS</a>
+</div>
+</nav>
+</div>
+</header>
+<section class="page-hero"><div class="hero-wrap" style="padding:0"><h1 style="margin:0">PRODUCTOS</h1><p style="margin:0">Explora todos los módulos y servicios por pilar o segmento.</p></div></section><section class="section-productos" id="productos" style="scroll-margin-top:96px; padding: 0;"><div class="prod-wrap"><h2 class="prod-section-title">Pilares</h2><p class="prod-intro prod-intro">Selecciona un pilar para ver los módulos y servicios. Puedes volver a las tarjetas en cualquier momento.</p><div class="pillars-grid" id="grid"><a class="pillar-card" href="#p1"><h3>ERP Financiero</h3><p>Contabilidad, Tesorería y Presupuesto.</p></a><a class="pillar-card" href="#p2"><h3>Gestión Humana</h3><p>Nómina y Recursos Humanos.</p></a><a class="pillar-card" href="#p3"><h3>Logística</h3><p>Almacén, Inventarios y Activos Fijos.</p></a><a class="pillar-card" href="#p4"><h3>Cumplimiento</h3><p>Facturación, Firma y Riesgos.</p></a><a class="pillar-card" href="#p5"><h3>Especializados</h3><p>Servicios Públicos y Propiedad Horizontal.</p></a></div><section class="pillar-panel" id="p1"><div class="panel-head"><h2>ERP Financiero</h2><p>Contabilidad, Tesorería y Presupuesto.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Contabilidad</td><td>Módulo Contable y Reportes CGN</td><td>Contabilidad conforme a CGN, NIIF y COLGAAP, con reportes a entes de control.</td></tr><tr><td>Tesorería</td><td>Gestión de Tesorería y Flujo de Caja</td><td>Recaudo y pagos; conciliación bancaria y control de Flujo de Caja.</td></tr><tr><td>Presupuesto</td><td>Ejecución y Control Presupuestal</td><td>Ejecución y seguimiento del Presupuesto con reportes en tiempo real.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><section class="pillar-panel" id="p2"><div class="panel-head"><h2>Gestión Humana</h2><p>Nómina y Recursos Humanos.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Nómina y RRHH</td><td>Módulo Integral de Nómina y Talento Humano</td><td>Liquidación de nómina, turnos, contratos y reportes UGPP.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><section class="pillar-panel" id="p3"><div class="panel-head"><h2>Logística</h2><p>Almacén, Inventarios y Activos Fijos.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Almacén e Inventarios</td><td>Control de Almacén e Inventarios</td><td>Control físico, valoración y trazabilidad de Inventarios y consumibles.</td></tr><tr><td>Activos Fijos</td><td>Gestión de Activos Fijos</td><td>Registro, depreciación y administración del ciclo de vida de los Bienes y Activos Fijos.</td></tr><tr><td>Compras y Adquisiciones</td><td>Módulo de Compras y Contratación</td><td>Soporte a Adquisiciones y Compras, integradas con Presupuesto/Inventarios.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><section class="pillar-panel" id="p4"><div class="panel-head"><h2>Cumplimiento</h2><p>Facturación Electrónica, Firma y Riesgos.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Facturación Electrónica</td><td>Facturación y Documentos Electrónicos DIAN</td><td>Emisión de Facturación y Nómina Electrónica y Documento Soporte (DIAN).</td></tr><tr><td>Firma Electrónica</td><td>Suministro de Firma Electrónica Digital</td><td>Validez y autenticidad de documentos electrónicos.</td></tr><tr><td>Gestión de Riesgos</td><td>Módulo de Riesgos y Cumplimiento</td><td>Apoyo para Gestión de Riesgos y cumplimiento de protocolos.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><section class="pillar-panel" id="p5"><div class="panel-head"><h2>Especializados</h2><p>Servicios Públicos, Redes y Propiedad Horizontal.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Gestión Comercial (ESDs)</td><td>Gestión de Servicios Públicos y Comercial (ESDs)</td><td>Cálculo de intereses y gestión comercial en empresas de servicios.</td></tr><tr><td>Propiedad Horizontal / Arrendamiento</td><td>Administración de Propiedad Horizontal e Inmuebles</td><td>Procesos de vivienda, liquidación de expensas y arrendamientos.</td></tr><tr><td>Mantenimiento y Sostenibilidad</td><td>Mantenimiento de Redes y Servicios</td><td>Mantenimiento de redes de acueducto, alcantarillado y aseo.</td></tr><tr><td>Salud y Bienestar</td><td>Manejo de Activos Biológicos y HSEQ</td><td>Gestión de activos biológicos y sistemas HSEQ.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><h2 class="prod-section-title segmentos-title">Segmentos</h2><p class="prod-intro prod-intro">Selecciona un segmento para ver los módulos y servicios. Puedes volver a las tarjetas en cualquier momento.</p><div class="segments-grid" id="segments-grid"><a class="segment-card" href="#seg1"><h3 class="seg-title"><span class="seg-label">1. Segmento:</span> <span class="seg-rest">Gestión Financiera y Contable (ERP Core)</span></h3></a><a class="segment-card" href="#seg2"><h3 class="seg-title"><span class="seg-label">2. Segmento:</span> <span class="seg-rest">Gestión Administrativa y de Talento Humano</span></h3></a><a class="segment-card" href="#seg3"><h3 class="seg-title"><span class="seg-label">3. Segmento:</span> <span class="seg-rest">Módulos Especializados y de Servicios Públicos</span></h3></a><a class="segment-card" href="#seg4"><h3 class="seg-title"><span class="seg-label">4. Segmento:</span> <span class="seg-rest">Soporte y Servicios Transversales</span></h3></a></div><section class="seg-panel" id="seg1"><div class="seg-head"><h3>1. Segmento: Gestión Financiera y Contable (ERP Core)</h3></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre Propuesto en la Web</th><th>Descripción Esencial para Entidades Públicas</th></tr></thead><tbody><tr><td>Contabilidad</td><td>Módulo Contable y Reportes CGN</td><td>Contabilidad conforme a CGN, NIIF y COLGAAP, con reportes a entes de control.</td></tr><tr><td>Tesorería</td><td>Gestión de Tesorería y Flujo de Caja</td><td>Recaudo y pagos; conciliación bancaria y control de Flujo de Caja.</td></tr><tr><td>Presupuesto</td><td>Ejecución y Control Presupuestal</td><td>Ejecución y seguimiento del Presupuesto con reportes en tiempo real.</td></tr></tbody></table><div class="seg-actions"><a class="volver" href="#segments-grid">← Volver</a></div></section><section class="seg-panel" id="seg2"><div class="seg-head"><h3>2. Segmento: Gestión Administrativa y de Talento Humano</h3></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre Propuesto en la Web</th><th>Descripción Esencial para Entidades Públicas</th></tr></thead><tbody><tr><td>Nómina y RRHH</td><td>Módulo Integral de Nómina y Talento Humano</td><td>Liquidación de nómina, turnos, contratos y reportes UGPP.</td></tr><tr><td>Almacén e Inventarios</td><td>Control de Almacén e Inventarios</td><td>Control físico, valoración y trazabilidad de Inventarios y consumibles.</td></tr><tr><td>Activos Fijos</td><td>Gestión de Activos Fijos</td><td>Registro, depreciación y administración del ciclo de vida de los Activos Fijos.</td></tr></tbody></table><div class="seg-actions"><a class="volver" href="#segments-grid">← Volver</a></div></section><section class="seg-panel" id="seg3"><div class="seg-head"><h3>3. Segmento: Módulos Especializados y de Servicios Públicos</h3></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre Propuesto en la Web</th><th>Descripción Esencial para Entidades Públicas</th></tr></thead><tbody><tr><td>Gestión Comercial (ESDs)</td><td>Gestión de Servicios Públicos y Comercial (ESDs)</td><td>Cálculo de intereses y gestión comercial en empresas de servicios.</td></tr><tr><td>Propiedad Horizontal / Arrendamiento</td><td>Administración de Propiedad Horizontal e Inmuebles</td><td>Procesos de vivienda, liquidación de expensas y arrendamientos.</td></tr></tbody></table><div class="seg-actions"><a class="volver" href="#segments-grid">← Volver</a></div></section><section class="seg-panel" id="seg4"><div class="seg-head"><h3>4. Segmento: Soporte y Servicios Transversales</h3></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre Propuesto en la Web</th><th>Descripción Esencial para Entidades Públicas</th></tr></thead><tbody><tr><td>Capacitación y Asesoría</td><td>Asesoría Profesional y Capacitación Continua</td><td>Capacitación y asesoría para manejo óptimo y correcto registro financiero.</td></tr><tr><td>Soporte SaaS y WEB</td><td>Mantenimiento, Soporte Técnico y Actualización</td><td>Mantenimiento y actualización para asegurar cumplimiento normativo.</td></tr><tr><td>Ventanilla Única</td><td>Gestión de Cobro y Documentación</td><td>Gestión de documentos, ventanilla única y cobro con trazabilidad.</td></tr></tbody></table><div class="seg-actions"><a class="volver" href="#segments-grid">← Volver</a></div></section></div></section><section class="cta-final" id="cta-final"><h3>¿Listo para modernizar su entidad?</h3><p>Integre procesos, cumpla normativas y gane trazabilidad con SJT.</p><a class="btn btn-primary" href="index.html#contacto">Solicitar demo</a></section><footer class="footer">
+<div class="container">
+<div class="grid">
+<div>
+<h4 style="margin:0 0 8px">Grupo AAA ASESORES</h4>
+<p style="margin:0;opacity:.9"><a href="mailto:atencionalcliente@sjterp.com">atencionalcliente@sjterp.com</a></p>
+</div>
+<div>
+<h4 style="margin:0 0 8px">Compañía</h4>
+<p style="margin:0;opacity:.9">
+<a href="index.html">Inicio</a> ·
+          <a href="servicios.html">Soluciones y Servicios</a> ·
+          <a href="nosotros.html">Nosotros</a> ·
+          <a href="index.html#contacto">Contáctenos</a>
+ · <a href="aliados.html">Aliados</a></p>
+</div>
+<div>
+<h4 style="margin:0 0 8px">Síguenos</h4>
+<div class="social"><a aria-label="Linkedin" class="social-btn" href="https://www.linkedin.com/company/grupo-aaa-asesores-s-a-s/" rel="noopener" target="_blank">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M19 3A2.94 2.94 0 0 1 22 6v12a2.94 2.94 0 0 1-3 3H5a2.94 2.94 0 0 1-3-3V6a2.94 2.94 0 0 1 3-3h14ZM8.338 18.338v-8H5.662v8h2.676Zm-.01-9.27c.84 0 1.362-.556 1.362-1.252-.016-.71-.522-1.252-1.349-1.252-.827 0-1.362.542-1.362 1.252 0 .696.522 1.252 1.33 1.252h.02Zm10.008 9.27V13c0-2.334-1.246-3.418-2.908-3.418-1.343 0-1.944.738-2.284 1.257v-1.068h-2.676s.036.69 0 8.567h2.676v-4.786c0-.256.019-.512.095-.696.207-.512.68-1.042 1.474-1.042 1.039 0 1.456.786 1.456 1.94v4.584h2.667Z" fill="currentColor"></path>
+</svg>
+</a><a aria-label="Youtube" class="social-btn" href="https://www.youtube.com/@grupoaaaasesores9214" rel="noopener" target="_blank">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M23.5 6.2a4.2 4.2 0 0 0-3-3C18.7 2.5 12 2.5 12 2.5s-6.7 0-8.5.7a4.2 4.2 0 0 0-3 3A43.9 43.9 0 0 0 0 12a43.9 43.9 0 0 0 .5 5.8 4.2 4.2 0 0 0 3 3c1.8.7 8.5.7 8.5.7s6.7 0 8.5-.7a4.2 4.2 0 0 0 3-3A43.9 43.9 0 0 0 24 12a43.9 43.9 0 0 0-.5-5.8ZM9.5 15.5v-7L16 12l-6.5 3.5Z" fill="currentColor"></path>
+</svg>
+</a><a aria-label="X" class="social-btn" href="https://x.com/SJT_erp" rel="noopener" target="_blank">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M18.244 2H21l-6.546 7.48L22 22h-6.828l-5.34-6.652L3.6 22H1l7.108-8.12L2 2h6.953l4.893 5.993L18.244 2Zm-2.393 18h1.58L7.24 4H5.554l10.297 16Z" fill="currentColor"></path>
+</svg>
+</a><a aria-label="Facebook" class="social-btn" href="https://www.facebook.com/ERPSJT" rel="noopener" target="_blank">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M13.5 8H16V5h-2.5C11.6 5 10 6.6 10 8.5V11H8v3h2v7h3v-7h2.1l.9-3H13v-1.6c0-.5.4-.9.9-.9Z" fill="currentColor"></path>
+</svg>
+</a></div>
+</div>
+</div>
+<small class="copyright">© 2025 Grupo AAA. Todos los derechos reservados.</small>
+</div>
+</footer><script src="assets/js/brand-sjt.js"></script><a aria-label="Volver a inicio" class="back-home-btn" href="index.html" title="Volver a inicio">Volver a inicio</a><script>
+// Google Analytics 4 (insert your Measurement ID)
+(function(){
+  var gid = 'G-XXXXXXXXXX'; // TODO: Replace with your GA4 Measurement ID
+  if(!gid || gid.indexOf('G-XXXX')===0) return;
+  var s = document.createElement('script'); s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id='+gid;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date()); gtag('config', gid);
+})();
+</script><script>
+// Microsoft Clarity (insert your Project ID)
+(function(c,l,a,r,i,t,y){
+  i='CLARITY_PROJECT_ID'; // TODO: Replace with your Clarity Project ID
+  if(!i || i.indexOf('CLARITY')===0) return;
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script");
+</script></body></html>
