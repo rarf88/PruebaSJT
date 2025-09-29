@@ -160,3 +160,22 @@ header.site-header .nav{ position: relative !important; }
   header.site-header.shrink .nav{ height:46px !important; }
   header.site-header.shrink .logo img.brand-sjt{ max-height:46px !important; }
 }
+
+/* v11: FORCE logo anchor visible inside nav on mobile/tablet */
+@media (max-width: 1024px){
+  header.site-header .nav > a.logo{ 
+    display: flex !important; align-items: center !important; height: 100% !important; 
+    visibility: visible !important; pointer-events: auto !important; 
+    position: relative !important; z-index: 1001 !important;
+  }
+  header.site-header .nav > a.logo picture{ display:block !important; height:100% !important; }
+  header.site-header .nav > a.logo img.brand-sjt{
+    display:block !important; height:100% !important; max-height:64px !important; width:auto !important;
+    mix-blend-mode: normal !important; filter: none !important; opacity: 1 !important; visibility: visible !important;
+  }
+  header.site-header.shrink .nav > a.logo img.brand-sjt{ max-height:46px !important; }
+  /* Neutralize any generic 'nav a{display:none}' that might be present elsewhere */
+  header.site-header .nav a{ display:inline-flex !important; }
+  /* Keep only the link-list hidden, not the logo anchor */
+  header.site-header .nav .nav-links a{ display:block !important; } /* internal; drawer logic will handle visibility */
+}
