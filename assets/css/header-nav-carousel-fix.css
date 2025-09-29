@@ -194,3 +194,10 @@ header.site-header .nav{ position: relative !important; }
   header.site-header.shrink .nav{ height:46px !important; }
   header.site-header.shrink .nav > a.logo img.brand-sjt{ max-height:46px !important; }
 }
+
+/* v14 enforce hide desktop link list */
+@media (max-width:1024px){
+  header.site-header .nav-links, header.site-header .nav > ul, header.site-header .nav .links{ 
+    display:none !important; visibility:hidden !important; pointer-events:none !important;
+  }
+}

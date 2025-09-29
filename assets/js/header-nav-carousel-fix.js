@@ -4,7 +4,7 @@
   if(!_isMobile.matches){ /* Do NOT create hamburger/nav drawer on desktop */ return; }
   if(!document.getElementById('sjt-hamburger')){
     var btn=document.createElement('button'); btn.id='sjt-hamburger'; btn.setAttribute('aria-label','Abrir menú');
-    btn.innerHTML='<span class="bar"></span><span class="bar"></span><span class="bar"></span>'; header.appendChild(btn);
+    btn.innerHTML='<span class="bar"></span><span class="bar"></span><span class="bar"></span>'; var _nav=header.querySelector('.nav')||header; _nav.appendChild(btn);
     var drawer=document.createElement('nav'); drawer.id='sjt-mobile-drawer'; document.body.appendChild(drawer);
     var scrim=document.createElement('div'); scrim.id='sjt-mobile-scrim'; document.body.appendChild(scrim);
     var navUL=document.querySelector('header nav ul, .navbar nav ul, .main-menu ul, nav ul, header nav, nav');

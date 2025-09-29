@@ -4,7 +4,7 @@
   const mq = window.matchMedia('(max-width:1024px)');
   function nukeDesktopNav(){
     if(!mq.matches) return;
-    ['.nav-links','.nav','.nav-inline','.navbar-nav','header nav','.menu','.menu--desktop','.top-menu','.main-menu']
+    ['.nav-links','.navbar-nav','header nav ul','.menu','.menu--desktop','.top-menu','.main-menu','nav ul']
       .forEach(sel => document.querySelectorAll(sel).forEach(el=>{
         el.style.display='none'; el.style.visibility='hidden'; el.style.pointerEvents='none';
         el.style.width='0'; el.style.height='0'; el.style.overflow='hidden';
@@ -85,13 +85,9 @@ document.addEventListener('DOMContentLoaded', function(){
       setImp(logoImg, 'visibility', 'visible');
     }
     // Hide non-logo links in nav (just in case something shows them)
-    Array.prototype.forEach.call(nav.querySelectorAll(':scope > a:not(.logo), .nav-links a'), function(a){
-      setImp(a, 'display', 'none');
-    });
+    Array.prototype.forEach.call(});
     // Ensure no scrim overlays header
-    var scrim = document.getElementById('sjt-mobile-scrim');
-    if (scrim){ setImp(scrim, 'pointer-events', 'none'); setImp(scrim, 'opacity', '0'); }
-  }
+    }
   document.addEventListener('DOMContentLoaded', fixLogo);
   window.addEventListener('load', fixLogo);
   window.addEventListener('resize', fixLogo, {passive:true});
