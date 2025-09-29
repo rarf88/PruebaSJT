@@ -62,3 +62,17 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
 #sjt-mobile-drawer{background:var(--nav-bg)!important;}
 
 @media (min-width: 992px){ #sjt-hamburger{ display:none !important; } #sjt-mobile-drawer,#sjt-mobile-scrim{ display:none !important; } }
+
+/* v4: ensure logo visible and sized to bar on mobile/tablet */
+@media (max-width: 1024px){
+  header, .navbar, .site-header{ min-height: 64px !important; }
+  header .logo, .navbar .logo, .site-header .logo, .site-logo, .brand{
+    display: flex !important; align-items: center !important; height: 64px !important; visibility: visible !important;
+  }
+  header .logo img, .navbar .logo img, .site-header .logo img, .site-logo img, .brand img, .logo img{
+    display: block !important; height: 100% !important; width: auto !important;
+    max-height: 64px !important; object-fit: contain !important; opacity: 1 !important; visibility: visible !important;
+  }
+  /* Guard: never hide the logo when collapsing menus on mobile */
+  .nav .logo, header .logo{ visibility: visible !important; }
+}

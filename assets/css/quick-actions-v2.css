@@ -26,3 +26,8 @@
   #sjt-qa .qa{ width:48px; height:48px }
   #sjt-qa .qa--wa img{ width:32px; height:32px }
 }
+
+/* v4: raise floating quick-action buttons on mobile/tablet */
+@media (max-width: 1024px){
+  #sjt-qa{ bottom: 110px !important; top: auto !important; }
+}
