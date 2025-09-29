@@ -94,3 +94,10 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
   header.site-header.shrink .nav{ height: 46px !important; }
   header.site-header.shrink .logo img.brand-sjt{ max-height: 46px !important; }
 }
+
+/* v6: guard against accidental hide on mobile */
+@media (max-width: 1024px){
+  header.site-header .nav{ display:flex !important; visibility:visible !important; }
+  header.site-header .logo{ display:flex !important; visibility:visible !important; }
+  header.site-header .logo img{ display:block !important; }
+}
