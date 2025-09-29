@@ -100,9 +100,7 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
   header.site-header .logo img{ display:block !important; }
 }
 
-/* v7: header uses same white bar on mobile/tablet */
-@media (max-width: 1024px){
-  header.site-header, header.site-header .nav{ background: #ffffff !important; }
+
 }
 
 /* v7: hamburger inside the same bar as logo */
@@ -120,4 +118,27 @@ header.site-header .nav{ position: relative !important; }
   header.site-header .logo img.brand-sjt{ height:100% !important; max-height:64px !important; width:auto !important; display:block !important; }
   header.site-header.shrink .nav{ height:46px !important; }
   header.site-header.shrink .logo img.brand-sjt{ max-height:46px !important; }
+}
+
+/* v8: mobile/tablet = same green bar as desktop */
+@media (max-width:1024px){
+  header.site-header, header.site-header .nav{
+    background: var(--nav-bg) !important;
+    color:#fff !important;
+    height:64px !important;
+    align-items:center !important;
+  }
+  header.site-header .logo{ display:flex !important; align-items:center !important; height:100% !important; }
+  header.site-header .logo img.brand-sjt{
+    height:100% !important; max-height:64px !important; width:auto !important; display:block !important;
+    mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important;
+  }
+  header.site-header.shrink .nav{ height:46px !important; }
+  header.site-header.shrink .logo img.brand-sjt{ max-height:46px !important; }
+  /* Ensure hamburger sits in the same green bar */
+  header.site-header .nav{ position:relative !important; }
+  #sjt-hamburger{
+    position:absolute !important; right:10px !important; top:50% !important; transform:translateY(-50%) !important;
+    display:inline-flex !important; width:40px !important; height:40px !important; background:transparent !important;
+  }
 }
