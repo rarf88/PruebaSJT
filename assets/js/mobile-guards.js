@@ -1,1 +1,1 @@
-// v15: mobile-guards neutralized (no destructive hides)
+// v16: neutralized — no destructive mobile hides

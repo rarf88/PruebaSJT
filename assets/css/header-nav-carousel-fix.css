@@ -62,34 +62,34 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
 #sjt-mobile-drawer{background:var(--nav-bg)!important;}
 
 
-/* v15: MOBILE/TABLET SAFE RULES — desktop untouched */
+/* v16: Minimal mobile/tablet fixes (desktop untouched) */
 @media (max-width:1024px){
   :root{ --nav-bg:#376777; }
 
-  /* Keep header green and aligned */
+  /* Header stays on top, green like desktop */
   header.site-header{ background:var(--nav-bg) !important; color:#fff; position:sticky; top:0; z-index:1000; }
 
-  /* The main bar row */
+  /* Main row for logo + hamburger */
   header.site-header .nav{ height:64px; display:flex; align-items:center; position:relative; }
 
-  /* Logo visible and same height as bar */
-  header.site-header .nav > a.logo{ display:flex; align-items:center; height:100%; visibility:visible; }
-  header.site-header .nav > a.logo img.brand-sjt{ display:block; height:100%; max-height:64px; width:auto; mix-blend-mode:normal; opacity:1; }
+  /* Logo equal to bar height */
+  header.site-header .nav > a.logo{ display:flex; align-items:center; height:100%; }
+  header.site-header .nav > a.logo img.brand-sjt{ display:block; height:100%; max-height:64px; width:auto; mix-blend-mode:normal; opacity:1; visibility:visible; }
 
-  /* Shrink parity on scroll */
+  /* Shrink parity */
   header.site-header.shrink .nav{ height:46px; }
   header.site-header.shrink .nav > a.logo img.brand-sjt{ max-height:46px; }
 
-  /* Hide only the desktop link list */
+  /* Hide only desktop link list in mobile */
   header.site-header .nav .nav-links,
   header.site-header .nav > ul,
   header.site-header .nav .links{ display:none !important; visibility:hidden !important; pointer-events:none !important; }
 
-  /* Hamburger inside the same bar, right side */
+  /* Hamburger in same bar */
   #sjt-hamburger{ position:absolute; right:10px; top:50%; transform:translateY(-50%); width:40px; height:40px; background:transparent; border:0; display:inline-flex; align-items:center; justify-content:center; }
   #sjt-hamburger .bar{ display:block; width:22px; height:2px; background:#fff; margin:3px 0; }
 
-  /* Drawer & scrim */
+  /* Drawer + scrim */
   #sjt-mobile-drawer{ position:fixed; top:0; right:0; width:78vw; max-width:360px; height:100vh; background:var(--nav-bg); color:#fff; transform:translateX(100%); transition:transform .2s ease; padding:18px; z-index:9999; overflow-y:auto; }
   #sjt-mobile-drawer.open{ transform:translateX(0); }
   #sjt-mobile-drawer a{ display:block; color:#fff; padding:12px 6px; text-decoration:none; font-weight:600; border-bottom:1px solid rgba(255,255,255,.15); }
