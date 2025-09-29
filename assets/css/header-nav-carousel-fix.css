@@ -76,3 +76,21 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
   /* Guard: never hide the logo when collapsing menus on mobile */
   .nav .logo, header .logo{ visibility: visible !important; }
 }
+
+/* v5: mobile/tablet header background + logo parity */
+@media (max-width: 1024px){
+  :root{ --nav-bg: #376777; } /* ensure fallback */
+  header.site-header, header, .navbar{
+    background: var(--nav-bg) !important;
+    color: #ffffff !important;
+  }
+  header.site-header .nav{ height: 64px !important; align-items: center !important; }
+  header.site-header .logo{ height: 100% !important; display:flex !important; align-items:center !important; }
+  header.site-header .logo img.brand-sjt{
+    height: 100% !important; width: auto !important; display:block !important;
+    max-height: 64px !important; object-fit: contain !important; mix-blend-mode: normal !important; filter: none !important;
+  }
+  /* On shrink state (if script toggles), keep parity */
+  header.site-header.shrink .nav{ height: 46px !important; }
+  header.site-header.shrink .logo img.brand-sjt{ max-height: 46px !important; }
+}
