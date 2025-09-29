@@ -179,3 +179,9 @@ header.site-header .nav{ position: relative !important; }
   /* Keep only the link-list hidden, not the logo anchor */
   header.site-header .nav .nav-links a{ display:block !important; } /* internal; drawer logic will handle visibility */
 }
+
+/* v12: ensure only logo is visible in nav on mobile/tablet */
+@media (max-width:1024px){
+  header.site-header .nav > a:not(.logo){ display:none !important; }
+  header.site-header .nav > a.logo{ display:flex !important; }
+}
