@@ -151,7 +151,3 @@ img, video { max-width: 100%; height: auto; }
   /* Hide only desktop link list, keep logo */
   .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
 }
-
- }
-
-@media (max-width:1024px){ body{ padding-top:0 !important; margin-top:0 !important; } }
