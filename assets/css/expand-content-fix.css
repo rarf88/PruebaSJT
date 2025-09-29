@@ -1,6 +1,3 @@
-/* Unclip expanded content */
-.collapse, .accordion-content, .accordion-body, .tab-pane, .tab-content,
-.details, .detail, .mod-detail, .module-detail, .service-detail, .producto-detalle,
-.card-collapse, .content-panel, .toggle-content { max-height:none!important; height:auto!important; overflow:visible!important; }
-*[style*="max-height"], *[style*="overflow:hidden"], *[style*="overflow: hidden"] { max-height:none!important; overflow:visible!important; height:auto!important; }
-@media (max-width:991px){ body{ padding-bottom:96px; } }
+.collapse,.accordion-content,.accordion-body,.tab-pane,.tab-content,.details,.detail,.mod-detail,.module-detail,.service-detail,.producto-detalle,.card-collapse,.content-panel,.toggle-content{max-height:none!important;height:auto!important;overflow:visible!important}
+*[style*="max-height"],*[style*="overflow:hidden"],*[style*="overflow: hidden"]{max-height:none!important;overflow:visible!important;height:auto!important}
+@media (max-width:991px){body{padding-bottom:96px}}
