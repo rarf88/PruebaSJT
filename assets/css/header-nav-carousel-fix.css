@@ -142,3 +142,21 @@ header.site-header .nav{ position: relative !important; }
     display:inline-flex !important; width:40px !important; height:40px !important; background:transparent !important;
   }
 }
+
+/* v9: strongest mobile green bar + logo parity */
+@media (max-width:1024px){
+  header.site-header, header.site-header .container, header.site-header .nav {
+    background: var(--nav-bg, #376777) !important;
+    background-color: var(--nav-bg, #376777) !important;
+  }
+  header.site-header .nav{
+    height:64px !important; display:flex !important; align-items:center !important;
+  }
+  header.site-header .logo{ height:100% !important; display:flex !important; align-items:center !important; }
+  header.site-header .logo img.brand-sjt{
+    height:100% !important; max-height:64px !important; width:auto !important; display:block !important;
+    mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important;
+  }
+  header.site-header.shrink .nav{ height:46px !important; }
+  header.site-header.shrink .logo img.brand-sjt{ max-height:46px !important; }
+}

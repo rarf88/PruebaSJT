@@ -1590,3 +1590,5 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
   /* Hide only desktop link list, keep logo */
   .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
 }
+
+:root{ --nav-bg:#376777; }
