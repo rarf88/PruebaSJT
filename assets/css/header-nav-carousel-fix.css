@@ -1,0 +1,68 @@
+/* === Header logo aspect & sizing === */
+header .logo img, .navbar .logo img, .site-logo img, .brand img, .logo img {
+  height: auto !important;
+  max-height: 44px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  aspect-ratio: auto !important;
+}
+@media (min-width: 992px) {
+  header .logo img, .navbar .logo img, .site-logo img, .brand img, .logo img { max-height: 56px !important; }
+}
+
+/* === Mobile nav (hamburger) === */
+#sjt-hamburger {
+  display: none;
+  background: transparent;
+  border: 0;
+  width: 44px; height: 44px;
+  margin-left: 8px;
+}
+#sjt-hamburger:focus { outline: 2px solid #fff4; outline-offset: 2px; }
+#sjt-hamburger .bar { display:block; width:24px; height:2px; background:#fff; margin:5px auto; border-radius:2px; }
+
+@media (max-width: 991px) {
+  .navbar .nav, .navbar nav ul, header nav ul, header .menu, .top-menu, .main-menu {
+    display: none !important;
+  }
+  #sjt-hamburger { display: inline-flex; align-items:center; justify-content:center; }
+  /* Drawer */
+  #sjt-mobile-drawer {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: 78vw; max-width: 360px;
+    background: #0f2f35;
+    color: #fff;
+    transform: translateX(100%);
+    transition: transform .25s ease;
+    z-index: 9998;
+    padding: 20px 18px;
+    box-shadow: -8px 0 24px rgba(0,0,0,.35);
+  }
+  #sjt-mobile-drawer.open { transform: translateX(0); }
+  #sjt-mobile-drawer a { color:#fff; text-decoration:none; display:block; padding:12px 4px; border-bottom: 1px solid rgba(255,255,255,.12); }
+  #sjt-mobile-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s ease;
+    z-index: 9997;
+  }
+  #sjt-mobile-scrim.show { opacity: 1; pointer-events: auto; }
+}
+
+/* === Carousel mobile spacing/fitting === */
+.carousel, .slider, .hero-carousel, .main-carousel { width: 100% !important; margin: 0 auto !important; }
+.carousel-inner, .slides, .carousel-track { width: 100% !important; }
+.carousel img, .carousel-item img, .slide img, .slides img, .hero-carousel img, .main-carousel img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  display: block;
+}
+/* remove big paddings/margins around carousel on small screens */
+@media (max-width: 991px) {
+  .carousel, .slider, .hero-carousel, .main-carousel { padding-left:0 !important; padding-right:0 !important; }
+  .carousel-container, .hero, .hero-wrap, .hero-section { padding: 0 !important; margin: 0 !important; }
+}

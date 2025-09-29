@@ -1,0 +1,21 @@
+/* Ensure expanded panels show full content on mobile/tablet */
+.collapse, .accordion-content, .accordion-body, .tab-pane, .tab-content, 
+.details, .detail, .mod-detail, .module-detail, .service-detail, .producto-detalle,
+.card-collapse, .content-panel, .toggle-content {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* If a container uses a gradient mask or clip */
+.mask-fade, .gradient-mask { -webkit-mask-image: none !important; mask-image: none !important; }
+
+/* Add breathing room so floating CTA doesn't cover bottom text on small screens */
+@media (max-width: 991px) {
+  body { padding-bottom: 96px; }
+}
+
+/* Lists inside details */
+.details ul, .service-detail ul, .producto-detalle ul, .accordion-body ul {
+  margin-left: 1.1rem;
+}
