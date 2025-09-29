@@ -14,20 +14,33 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
 #sjt-mobile-drawer a{color:#fff;text-decoration:none;display:block;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.12)}
 #sjt-mobile-scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:9997}
 #sjt-mobile-scrim.show{opacity:1;pointer-events:auto}
-/* v4 fixes */
-/* Logo same height as header */
-header .logo img, .navbar .logo img, .site-logo img, .brand img, .logo img{
-  height:100% !important; width:auto !important; max-height:none !important; object-fit:contain !important; padding:0 !important; margin:0 !important;
+
+/* v16 definitive mobile fixes */
+/* Hide any desktop nav pieces on <=1024px to kill "PRODUC" */
+@media (max-width:1024px){
+  .nav-links, .nav-links *, .nav, .nav-inline, .navbar-nav, header nav, header .nav > ul, .menu, .menu--desktop, .top-menu, .main-menu{
+    display:none !important; visibility:hidden !important; pointer-events:none !important;
+    width:0 !important; height:0 !important; overflow:hidden !important;
+  }
+  header, .site-header, .navbar{ min-height:64px !important; height:64px !important; padding:0 !important; }
+  .logo, .logo *{ height:100% !important; }
+  .logo img{ height:100% !important; width:auto !important; max-height:none !important; object-fit:contain !important; }
+  header{ overflow:hidden !important; }
 }
-header, .navbar, .site-header{ height:64px !important; }
-@media (max-width:991px){
-  header, .navbar, .site-header{ height:64px !important; padding:0 !important; }
-  header .logo, .navbar .logo, .site-logo, .brand{ height:100% !important; }
-  .nav-inline, header nav ul, .top-menu, .main-menu, nav ul{ display:none !important; }
+
+/* Drawer must be fully closed by default */
+@media (max-width:1024px){
+  #sjt-mobile-drawer{ transform:translateX(100%) !important; opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
+  #sjt-mobile-drawer.open, #sjt-mobile-drawer.is-open{ transform:translateX(0) !important; opacity:1 !important; visibility:visible !important; pointer-events:auto !important; }
 }
-#sjt-mobile-drawer{ background:#376777 !important; }
-#sjt-mobile-drawer a:hover{ background:rgba(255,255,255,.08); }
-/* Close drawer initial */
-#sjt-mobile-drawer{ transform:translateX(100%); opacity:0; visibility:hidden; pointer-events:none; }
-#sjt-mobile-drawer.open{ transform:translateX(0); opacity:1; visibility:visible; pointer-events:auto; }
-@media (min-width:992px){ #sjt-hamburger{ display:none !important; } #sjt-mobile-drawer,#sjt-mobile-scrim{ display:none !important; } }
+
+/* Remove top gap before hero/slider */
+@media (max-width:1024px){
+  .hero, .hero-section, .hero-wrap, .carousel, .slider, .hero-carousel, .main-carousel, .swiper, .swiper-container{
+    margin-top:0 !important; padding-top:0 !important;
+  }
+  main, .page, .content{ padding-top:0 !important; margin-top:0 !important; }
+  main > *:first-child{ margin-top:0 !important; padding-top:0 !important; }
+  .header-spacer, .js-header-spacer{ height:0 !important; min-height:0 !important; padding:0 !important; margin:0 !important; }
+}
+

@@ -135,7 +135,11 @@ img, video { max-width: 100%; height: auto; }
 }
 /* === End Floating CTA === */
 
-/* v4 hero no-gap */
-.hero, .hero-section, .hero-wrap, .carousel-container, .carousel, .slider, .hero-carousel, .main-carousel{
-  margin-top:0 !important; padding-top:0 !important;
+
+/* v16: override logo sizing and nav visibility in mobile */
+@media (max-width:1024px){
+  .nav{ height:64px !important; }
+  .logo img{ height:100% !important; width:auto !important; max-height:none !important; }
+  .nav-links{ display:none !important; }
 }
+
