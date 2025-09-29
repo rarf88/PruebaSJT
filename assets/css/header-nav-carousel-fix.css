@@ -44,3 +44,21 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
   .header-spacer, .js-header-spacer{ height:0 !important; min-height:0 !important; padding:0 !important; margin:0 !important; }
 }
 
+
+@media (max-width:1024px){
+  .nav{ display:flex !important; align-items:center !important; height:64px !important; }
+  .nav .logo{ display:flex !important; height:100% !important; }
+  .nav .logo img{ height:100% !important; width:auto !important; max-height:none !important; object-fit:contain !important; }
+  /* Hide only desktop link list, keep logo */
+  .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
+}
+
+@media (max-width:1024px){
+  #sjt-mobile-drawer{ background: var(--nav-bg, #376777) !important; }
+}
+/* Ensure header/bar defines --nav-bg to current bar color */
+:root{ --nav-bg: #376777; }
+
+#sjt-mobile-drawer{background:var(--nav-bg)!important;}
+
+@media (min-width: 992px){ #sjt-hamburger{ display:none !important; } #sjt-mobile-drawer,#sjt-mobile-scrim{ display:none !important; } }

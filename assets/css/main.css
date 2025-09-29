@@ -143,3 +143,11 @@ img, video { max-width: 100%; height: auto; }
   .nav-links{ display:none !important; }
 }
 
+
+@media (max-width:1024px){
+  .nav{ display:flex !important; align-items:center !important; height:64px !important; }
+  .nav .logo{ display:flex !important; height:100% !important; }
+  .nav .logo img{ height:100% !important; width:auto !important; max-height:none !important; object-fit:contain !important; }
+  /* Hide only desktop link list, keep logo */
+  .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
+}

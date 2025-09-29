@@ -1,5 +1,7 @@
 (function(){function ready(fn){if(document.readyState!='loading'){fn()}else document.addEventListener('DOMContentLoaded',fn);}ready(function(){
   var header=document.querySelector('header, .navbar, .site-header'); if(!header) return;
+  var _isMobile = window.matchMedia('(max-width: 991px)');
+  if(!_isMobile.matches){ /* Do NOT create hamburger/nav drawer on desktop */ return; }
   if(!document.getElementById('sjt-hamburger')){
     var btn=document.createElement('button'); btn.id='sjt-hamburger'; btn.setAttribute('aria-label','Abrir menú');
     btn.innerHTML='<span class="bar"></span><span class="bar"></span><span class="bar"></span>'; header.appendChild(btn);
@@ -14,4 +16,20 @@
   // v3 hide stray short nav text (e.g. PRODUC) on mobile
   function hideStray(){if(window.matchMedia('(max-width: 991px)').matches){var h=document.querySelector('header, .navbar, .site-header'); if(!h) return; h.querySelectorAll('*').forEach(function(el){var t=(el.textContent||'').trim(); if(t && t.length<=10 && /PRODUC|PRODU|SERVI|MENU/i.test(t)){el.style.display='none';}});}}
   hideStray(); window.addEventListener('resize', hideStray);
-});})();
+});
+  try {
+    var _mq = window.matchMedia('(max-width: 991px)');
+    function _ensureMobileOnly(){
+      var drawer=document.getElementById('sjt-mobile-drawer');
+      var scrim=document.getElementById('sjt-mobile-scrim');
+      var btn=document.getElementById('sjt-hamburger');
+      if(!_mq.matches){
+        if(drawer){ drawer.remove(); }
+        if(scrim){ scrim.remove(); }
+        if(btn){ btn.remove(); }
+      }
+    }
+    _mq.addEventListener('change', _ensureMobileOnly);
+    window.addEventListener('resize', _ensureMobileOnly, {passive:true});
+  } catch(e){}
+})();
