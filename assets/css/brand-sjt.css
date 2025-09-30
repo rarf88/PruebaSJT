@@ -1583,38 +1583,46 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
 .nos-erp svg { stroke: #e7f1f4 !important; }
 
 
-@media (max-width:1024px){
-  .nav{ display:flex !important; align-items:center !important; height:64px !important; }
-  .nav .logo{ display:flex !important; height:100% !important; }
-  .nav .logo img{ height:100% !important; width:auto !important; max-height:none !important; object-fit:contain !important; }
-  /* Hide only desktop link list, keep logo */
-  .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
-}
-
-
-/* v18b — FORCE logo visible and equal to bar height on mobile/tablet */
+/* v19 (HINT base): Robust mobile/tablet logo + bar */
 @media (max-width:1024px){
   :root{ --nav-bg:#376777; }
-  header.site-header{ background:var(--nav-bg) !important; color:#fff !important; }
-  header.site-header .nav{ height:64px; display:flex; align-items:center; position:relative; }
-  header.site-header .nav > a.logo{ display:flex !important; align-items:center !important; height:100% !important; visibility:visible !important; opacity:1 !important; pointer-events:auto !important; z-index:1002 !important; }
-  header.site-header .nav > a.logo picture{ display:contents !important; } /* keep image flowing */
-  header.site-header .nav > a.logo img{ display:block !important; height:100% !important; width:auto !important; max-height:64px !important; mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important; }
-  header.site-header.shrink .nav{ height:46px !important; }
-  header.site-header.shrink .nav > a.logo img{ max-height:46px !important; }
-  /* Hide ONLY desktop link lists in mobile */
-  header.site-header .nav .nav-links, header.site-header .nav > ul, header.site-header .nav .links{ display:none !important; visibility:hidden !important; pointer-events:none !important; }
-}
+  header.site-header{ background:var(--nav-bg) !important; color:#fff !important; position:sticky; top:0; z-index:1000; }
+  header.site-header .nav{ height:64px !important; display:flex !important; align-items:center !important; position:relative; }
 
+  header.site-header .nav a.logo,
+  header.site-header .nav .logo a,
+  header.site-header .logo a{
+    display:flex !important; align-items:center !important; height:64px !important;
+    flex:0 0 auto !important; visibility:visible !important; opacity:1 !important;
+    text-indent:0 !important; overflow:visible !important; clip:auto !important; clip-path:none !important;
+    position:relative !important; left:auto !important; transform:none !important; z-index:1002 !important;
+  }
 
-/* v18c: explicit pixel-size logo in mobile/tablet (hint-style), prevent flex shrink */
-@media (max-width:1024px){
-  header.site-header .nav{ height:64px !important; display:flex !important; align-items:center !important; }
-  header.site-header .nav > a.logo{ display:flex !important; align-items:center !important; flex:0 0 auto !important; height:64px !important; visibility:visible !important; opacity:1 !important; }
-  header.site-header .nav > a.logo img{ display:block !important; height:64px !important; max-height:64px !important; width:auto !important; mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important; }
+  header.site-header .nav a.logo img,
+  header.site-header .nav .logo a img,
+  header.site-header .logo a img,
+  header.site-header .nav a.logo svg,
+  header.site-header .nav .logo a svg,
+  header.site-header .logo a svg{
+    display:block !important; height:64px !important; max-height:64px !important; width:auto !important;
+    max-width:100% !important; mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important;
+  }
+  header.site-header .nav a.logo picture,
+  header.site-header .nav .logo a picture,
+  header.site-header .logo a picture{ display:contents !important; }
+
   header.site-header.shrink .nav{ height:46px !important; }
-  header.site-header.shrink .nav > a.logo{ height:46px !important; }
-  header.site-header.shrink .nav > a.logo img{ height:46px !important; max-height:46px !important; }
-  /* Never hide header nav anchors generically */
-  header nav a, .navbar a{ display: inline-flex !important; }
+  header.site-header.shrink .nav a.logo,
+  header.site-header.shrink .nav .logo a,
+  header.site-header.shrink .logo a{ height:46px !important; }
+  header.site-header.shrink .nav a.logo img,
+  header.site-header.shrink .nav .logo a img,
+  header.site-header.shrink .logo a img,
+  header.site-header.shrink .nav a.logo svg,
+  header.site-header.shrink .nav .logo a svg,
+  header.site-header.shrink .logo a svg{ height:46px !important; max-height:46px !important; }
+
+  header.site-header .nav .nav-links, header.site-header .nav > ul, header.site-header .nav .links{
+    display:none !important; visibility:hidden !important; pointer-events:none !important;
+  }
 }
