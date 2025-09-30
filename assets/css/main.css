@@ -151,3 +151,12 @@ img, video { max-width: 100%; height: auto; }
   /* Hide only desktop link list, keep logo */
   .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
 }
+
+
+/* v44: Desactivar por completo el aviso/CTA que titilaba en navegación */
+.cta-floating, .cta-float, .cta-banner, .promo-banner, .notice-card, .sticky-cta, .floating-cta{
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  animation: none !important;
+}

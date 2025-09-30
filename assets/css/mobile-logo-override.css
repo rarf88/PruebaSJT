@@ -27,3 +27,37 @@
   .sjt-mobile-logo-override{ display: none !important; }
   .hamburger, .menu-toggle, .menu-hamburger, .nav-toggle{ display: none !important; }
 }
+
+
+/* === v44: ESCRITORIO — ocultar hamburguesa en desktop (100% seguro) === */
+@media (min-width: 1025px){
+  .hamburger, .menu-toggle, .menu-hamburger, .nav-toggle,
+  .navbar-toggler, .navbar .navbar-toggler, #sjt-hamburger,
+  button.navbar-toggler, .nav .hamburger, .header .hamburger {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+/* === v44: MOBILE/TABLET — logo a la IZQUIERDA, hamburguesa a la derecha === */
+@media (max-width: 1024px){
+  .nav{ display:flex !important; align-items:center !important; }
+  .nav .logo{ order:0 !important; margin-right:auto !important; }
+  .nav .logo img{ height:56px !important; width:auto !important; object-fit:contain !important; }
+  .nav .navbar-toggler, .nav .hamburger, .nav .menu-toggle, #sjt-hamburger{ order:1 !important; margin-left:12px !important; }
+}
+
+/* === v44: MOBILE/TABLET — subir DEMO/WhatsApp un poco más (no tapar 'Volver a inicio') === */
+@media (max-width: 1024px){
+  #sjt-floating-demo{
+    top: 10px !important;
+    right: 16px !important;
+    bottom: auto !important;
+  }
+  #sjt-floating-whatsapp{
+    top: calc(10px + var(--sjt-size, 56px) + var(--sjt-gap, 8px)) !important;
+    right: 16px !important;
+    bottom: auto !important;
+  }
+}
