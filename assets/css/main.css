@@ -135,25 +135,19 @@ img, video { max-width: 100%; height: auto; }
 }
 /* === End Floating CTA === */
 
-/* v22 desktop floating icons: keep DEMO & WhatsApp visible on desktop too */
-@media (min-width:1025px){
-  .floating-cta, .floating-cta *,
-  .fab, .fab--demo, .fab--wa, .fab--whatsapp,
-  .floating-demo, .floating-whatsapp,
-  #floating-demo, #floating-whatsapp,
-  [data-fab="demo"], [data-fab="whatsapp"],
-  a[href*="wa.me"], a[href*="api.whatsapp.com"]{
-    display:inline-flex !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    pointer-events:auto !important;
-  }
-  .floating-cta, .floating-demo, .floating-whatsapp,
-  #floating-demo, #floating-whatsapp{
-    position:fixed !important;
-    right:20px !important;
-    z-index:9999 !important;
-  }
-  #floating-demo, .floating-demo{ top:30%; }
-  #floating-whatsapp, .floating-whatsapp{ top:calc(30% + 78px); }
+
+/* v16: override logo sizing and nav visibility in mobile */
+@media (max-width:1024px){
+  .nav{ height:64px !important; }
+  .logo img{ height:100% !important; width:auto !important; max-height:none !important; }
+  .nav-links{ display:none !important; }
+}
+
+
+@media (max-width:1024px){
+  .nav{ display:flex !important; align-items:center !important; height:64px !important; }
+  .nav .logo{ display:flex !important; height:100% !important; }
+  .nav .logo img{ height:100% !important; width:auto !important; max-height:none !important; object-fit:contain !important; }
+  /* Hide only desktop link list, keep logo */
+  .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
 }
