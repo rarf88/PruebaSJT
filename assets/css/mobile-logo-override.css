@@ -1,0 +1,19 @@
+
+/* v41: MOBILE/TABLET LOGO OVERRIDE (aggressive but scoped) */
+@media (max-width:1024px){
+  header.site-header{ position:sticky; top:0; z-index:1000; }
+  header.site-header, header.site-header .nav{ position:relative; }
+  /* Hide the problematic original logo in mobile to avoid flicker */
+  header.site-header .nav a.logo, header.site-header .logo a{
+    opacity:0 !important; pointer-events:none !important;
+  }
+  /* Our override element */
+  .sjt-mobile-logo-override{
+    position:absolute; left:12px; top:0; bottom:0;
+    display:flex; align-items:center; height:100%; z-index:1001;
+  }
+  .sjt-mobile-logo-override img{
+    display:block; height:72px; width:auto; object-fit:contain;
+  }
+  header.site-header.shrink .sjt-mobile-logo-override img{ height:56px; }
+}
