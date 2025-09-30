@@ -1616,36 +1616,64 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
   header.site-header.shrink .nav > a.logo{ height:46px !important; }
   header.site-header.shrink .nav > a.logo img{ height:46px !important; max-height:46px !important; }
   /* Never hide header nav anchors generically */
-  header nav a, .navbar a{ display: inline-flex !important; }
+  header nav ul a, .navbar ul a{ display: inline-flex !important; }
 }
 
 
-/* v36 mobile/tablet header logo fixes */
+/* === v37: Fix logo in mobile/tablet (no crop, full-height, correct shrink) === */
 @media (max-width:1024px){
-  header.site-header{ position:sticky; top:0; z-index:1000; }
-  header.site-header .nav{ height:72px !important; display:flex !important; align-items:center !important; overflow:visible !important; }
-  header.site-header .nav .logo,
-  header.site-header .nav a.logo,
-  header.site-header .logo a{ display:flex !important; align-items:center !important; height:100% !important; flex:0 0 auto !important; overflow:visible !important; }
-  header.site-header .nav .logo img,
-  header.site-header .nav a.logo img,
-  header.site-header .logo a img,
-  header.site-header .nav .logo svg,
-  header.site-header .nav a.logo svg,
-  header.site-header .logo a svg{
-    display:block !important; height:100% !important; width:auto !important; max-height:100% !important;
-    object-fit:contain !important; vertical-align:middle !important; opacity:1 !important; visibility:visible !important;
+  header.site-header{ position: sticky; top: 0; z-index: 1000; }
+  header.site-header .nav{
+    height: 72px !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
   }
-  header.site-header.shrink .nav{ height:56px !important; }
-  header.site-header.shrink .nav .logo,
+  /* Ensure the anchor that holds the logo fills the bar and is visible */
+  header.site-header .nav a.logo,
+  header.site-header .nav .logo a,
+  header.site-header .logo a{
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    flex: 0 0 auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-indent: 0 !important;
+    clip: auto !important;
+    clip-path: none !important;
+    overflow: visible !important;
+  }
+  /* Avoid picture container causing clipping or extra box */
+  header.site-header .nav a.logo picture,
+  header.site-header .nav .logo a picture,
+  header.site-header .logo a picture{
+    display: contents !important;
+  }
+  /* Logo media sizing */
+  header.site-header .nav a.logo img,
+  header.site-header .nav .logo a img,
+  header.site-header .logo a img,
+  header.site-header .nav a.logo svg,
+  header.site-header .nav .logo a svg,
+  header.site-header .logo a svg{
+    display: block !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    transform: translateZ(0);
+  }
+  /* Shrink state */
+  header.site-header.shrink .nav{ height: 56px !important; }
   header.site-header.shrink .nav a.logo,
-  header.site-header.shrink .logo a{ height:100% !important; }
-  header.site-header.shrink .nav .logo img,
-  header.site-header.shrink .nav a.logo img,
-  header.site-header.shrink .logo a img,
-  header.site-header.shrink .nav .logo svg,
-  header.site-header.shrink .nav a.logo svg,
-  header.site-header.shrink .logo a svg{ height:100% !important; max-height:100% !important; }
-  /* Prevent desktop menu text peeking in mobile ("PR" etc.) */
-  header.site-header .nav > ul, header.site-header .nav .nav-links{ display:none !important; }
+  header.site-header.shrink .nav .logo a,
+  header.site-header.shrink .logo a{ height: 100% !important; }
+
+  /* Prevent desktop text from peeking ("PR" etc.) */
+  header.site-header .nav > ul,
+  header.site-header .nav .nav-links{ display: none !important; }
 }
