@@ -15,3 +15,41 @@
   function hideStray(){if(window.matchMedia('(max-width: 991px)').matches){var h=document.querySelector('header, .navbar, .site-header'); if(!h) return; h.querySelectorAll('*').forEach(function(el){var t=(el.textContent||'').trim(); if(t && t.length<=10 && /PRODUC|PRODU|SERVI|MENU/i.test(t)){el.style.display='none';}});}}
   hideStray(); window.addEventListener('resize', hideStray);
 });})();
+
+// v17c: force logo visible on mobile/tablet with inline styles and fallback image if needed
+(function(){
+  function setImp(el, prop, val){ try{ el && el.style && el.style.setProperty(prop, val, 'important'); }catch(e){} }
+  function ensureLogo(){
+    var mq = window.matchMedia('(max-width: 1024px)');
+    if(!mq.matches) return;
+    var header = document.querySelector('header.site-header');
+    if(!header) return;
+    var nav = header.querySelector('.nav') || header;
+    var logoA = nav.querySelector('a.logo');
+    var logoImg = logoA && (logoA.querySelector('img.brand-sjt') || logoA.querySelector('img'));
+    if(logoA){
+      ['display','visibility','opacity','height','alignItems','zIndex','position'].forEach(function(k){});
+      setImp(logoA,'display','flex'); setImp(logoA,'align-items','center'); setImp(logoA,'height','100%');
+      setImp(logoA,'visibility','visible'); setImp(logoA,'opacity','1'); setImp(logoA,'z-index','10002'); setImp(logoA,'position','relative');
+    }
+    if(!logoImg){
+      // inject a fallback image (desktop asset)
+      var img = document.createElement('img');
+      img.src = 'assets/img/sjt-logo-transparent.png';
+      img.alt = 'SJT';
+      img.className = 'brand-sjt';
+      if(logoA) logoA.appendChild(img);
+      logoImg = img;
+    }
+    if(logoImg){
+      setImp(logoImg,'display','block'); setImp(logoImg,'height','100%'); setImp(logoImg,'width','auto');
+      var headerIsShrink = header.classList.contains('shrink') || header.classList.contains('is-scrolled');
+      setImp(logoImg,'max-height', headerIsShrink ? '46px' : '64px');
+      setImp(logoImg,'mix-blend-mode','normal'); setImp(logoImg,'filter','none'); setImp(logoImg,'opacity','1'); setImp(logoImg,'visibility','visible');
+    }
+  }
+  document.addEventListener('DOMContentLoaded', ensureLogo);
+  window.addEventListener('load', ensureLogo);
+  window.addEventListener('resize', ensureLogo, {passive:true});
+  window.addEventListener('scroll', ensureLogo, {passive:true});
+})();
