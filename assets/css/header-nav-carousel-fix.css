@@ -6,7 +6,7 @@ header .logo img,.navbar .logo img,.site-logo img,.brand img,.logo img{height:au
 header .lines,header .decor,header .stripe,.navbar .lines{display:none!important}
 .carousel,.slider,.hero-carousel,.main-carousel{width:100%!important;margin:0 auto!important;background:transparent!important}
 .carousel img,.carousel-item img,.slide img,.slides img,.hero-carousel img,.main-carousel img{width:100%!important;height:auto!important;object-fit:cover!important;display:block}
-@media (max-width:991px){.hero,.hero-section,.hero-wrap,.carousel-container{margin:0!important;padding:0!important;background:transparent!important}.hero+*{margin-top:12px!important}.navbar a,header nav a,.main-menu a{display:none!important}.navbar .nav,header nav ul,.top-menu,.main-menu,nav ul{display:none!important}}
+@media (max-width:991px){.hero,.hero-section,.hero-wrap,.carousel-container{margin:0!important;padding:0!important;background:transparent!important}.hero+*{margin-top:12px!important}.navbar ul a,header nav ul a,.main-menu a{display:none!important}.navbar .nav,header nav ul,.top-menu,.main-menu,nav ul{display:none!important}}
 #sjt-hamburger{position:absolute;top:6px;right:10px;z-index:10000;background:transparent;border:0;width:44px;height:44px;display:inline-flex;flex-direction:column;justify-content:center;gap:5px}
 #sjt-hamburger .bar{display:block;width:24px;height:2px;background:#fff;margin:0 auto;border-radius:2px}
 #sjt-mobile-drawer{position:fixed;top:0;right:0;bottom:0;width:78vw;max-width:360px;background:#0f2f35;color:#fff;transform:translateX(100%);transition:transform .25s ease;z-index:9998;padding:20px 18px;box-shadow:-8px 0 24px rgba(0,0,0,.35)}
@@ -61,15 +61,20 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
 
 #sjt-mobile-drawer{background:var(--nav-bg)!important;}
 
-/* v17: guarantee logo + bar on mobile/tablet */
+/* v18 logo safety */
 @media (max-width:1024px){
-  :root{ --nav-bg:#376777; }
-  header.site-header{ background:var(--nav-bg) !important; color:#fff; }
+  header.site-header .nav > a.logo{ display:flex !important; height:100% !important; align-items:center !important; visibility:visible !important; opacity:1 !important; }
+  header.site-header .nav > a.logo img{ display:block !important; height:100% !important; max-height:64px !important; width:auto !important; mix-blend-mode:normal !important; opacity:1 !important; visibility:visible !important; }
+  header.site-header.shrink .nav > a.logo img{ max-height:46px !important; }
+}
+
+/* v18: do not hide the UL that contains the logo on mobile */
+@media (max-width:1024px){
+}
+
+/* v18: bar parity on mobile/tablet */
+@media (max-width:1024px){
+  header.site-header{ background:#376777 !important; color:#fff !important; }
   header.site-header .nav{ height:64px; display:flex; align-items:center; position:relative; }
-  header.site-header .nav > a.logo{ display:flex; align-items:center; height:100%; }
-  header.site-header .nav > a.logo img{ display:block; height:100%; max-height:64px; width:auto; mix-blend-mode:normal; opacity:1; visibility:visible; }
   header.site-header.shrink .nav{ height:46px; }
-  header.site-header.shrink .nav > a.logo img{ max-height:46px; }
-  /* Hide ONLY desktop link list */
-  header.site-header .nav .nav-links, header.site-header .nav > ul, header.site-header .nav .links{ display:none !important; }
 }

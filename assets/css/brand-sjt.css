@@ -13,12 +13,12 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
   border-bottom: 1px solid var(--sjt-brand-border);
 }
 
-.navbar a, nav a, .navbar .nav-link, .navbar-brand, .menu a, header a {
+.navbar ul a, nav a, .navbar .nav-link, .navbar-brand, .menu a, header a {
   color: var(--sjt-text-on-brand) !important;
   text-decoration: none;
 }
 
-.navbar a:hover, .navbar .nav-link:hover, .menu a:hover {
+.navbar ul a:hover, .navbar .nav-link:hover, .menu a:hover {
   color: var(--sjt-text-on-brand) !important;
   filter: brightness(110%);
 }
@@ -113,7 +113,7 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
   display:flex; align-items:center;
 }
 
-.navbar .nav > li > a, .navbar a.nav-link, .menu a, .navbar a {
+.navbar .nav > li > a, .navbar ul a.nav-link, .menu a, .navbar ul a {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
 }
@@ -154,8 +154,8 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
 
 /* Hover más notorio en enlaces del nav */
 .navbar .nav > li > a:hover,
-.navbar a.nav-link:hover,
-.navbar a:hover,
+.navbar ul a.nav-link:hover,
+.navbar ul a:hover,
 .menu a:hover {
   text-decoration: underline;
   filter: brightness(115%);
@@ -391,8 +391,8 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
 
 /* Hover limpio y profesional */
 .navbar .nav > li > a:hover,
-.navbar a.nav-link:hover,
-.navbar a:hover,
+.navbar ul a.nav-link:hover,
+.navbar ul a:hover,
 .menu a:hover {
   text-decoration: underline;
   filter: brightness(112%);
@@ -1589,4 +1589,15 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
   .nav .logo img{ height:100% !important; width:auto !important; max-height:none !important; object-fit:contain !important; }
   /* Hide only desktop link list, keep logo */
   .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
+}
+
+/* v18 logo safety */
+@media (max-width:1024px){
+  header.site-header .nav > a.logo{ display:flex !important; height:100% !important; align-items:center !important; visibility:visible !important; opacity:1 !important; }
+  header.site-header .nav > a.logo img{ display:block !important; height:100% !important; max-height:64px !important; width:auto !important; mix-blend-mode:normal !important; opacity:1 !important; visibility:visible !important; }
+  header.site-header.shrink .nav > a.logo img{ max-height:46px !important; }
+}
+
+/* v18: do not hide the UL that contains the logo on mobile */
+@media (max-width:1024px){
 }

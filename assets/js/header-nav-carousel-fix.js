@@ -16,40 +16,31 @@
   hideStray(); window.addEventListener('resize', hideStray);
 });})();
 
-// v17c: force logo visible on mobile/tablet with inline styles and fallback image if needed
+// v18: runtime safety — force logo visible on mobile/tablet and inject fallback if missing
 (function(){
-  function setImp(el, prop, val){ try{ el && el.style && el.style.setProperty(prop, val, 'important'); }catch(e){} }
-  function ensureLogo(){
-    var mq = window.matchMedia('(max-width: 1024px)');
-    if(!mq.matches) return;
-    var header = document.querySelector('header.site-header');
-    if(!header) return;
+  function imp(el, p, v){ try{ el && el.style && el.style.setProperty(p, v, 'important'); }catch(e){} }
+  function fixLogo(){
+    var mq = window.matchMedia('(max-width:1024px)'); if(!mq.matches) return;
+    var header = document.querySelector('header.site-header'); if(!header) return;
     var nav = header.querySelector('.nav') || header;
-    var logoA = nav.querySelector('a.logo');
-    var logoImg = logoA && (logoA.querySelector('img.brand-sjt') || logoA.querySelector('img'));
-    if(logoA){
-      ['display','visibility','opacity','height','alignItems','zIndex','position'].forEach(function(k){});
-      setImp(logoA,'display','flex'); setImp(logoA,'align-items','center'); setImp(logoA,'height','100%');
-      setImp(logoA,'visibility','visible'); setImp(logoA,'opacity','1'); setImp(logoA,'z-index','10002'); setImp(logoA,'position','relative');
-    }
-    if(!logoImg){
-      // inject a fallback image (desktop asset)
-      var img = document.createElement('img');
-      img.src = 'assets/img/sjt-logo-transparent.png';
-      img.alt = 'SJT';
-      img.className = 'brand-sjt';
-      if(logoA) logoA.appendChild(img);
-      logoImg = img;
-    }
-    if(logoImg){
-      setImp(logoImg,'display','block'); setImp(logoImg,'height','100%'); setImp(logoImg,'width','auto');
-      var headerIsShrink = header.classList.contains('shrink') || header.classList.contains('is-scrolled');
-      setImp(logoImg,'max-height', headerIsShrink ? '46px' : '64px');
-      setImp(logoImg,'mix-blend-mode','normal'); setImp(logoImg,'filter','none'); setImp(logoImg,'opacity','1'); setImp(logoImg,'visibility','visible');
+    var aLogo = nav.querySelector('a.logo') || header.querySelector('a.logo');
+    if(aLogo){
+      imp(aLogo,'display','flex'); imp(aLogo,'align-items','center'); imp(aLogo,'height','100%');
+      imp(aLogo,'visibility','visible'); imp(aLogo,'opacity','1'); imp(aLogo,'z-index','10002'); imp(aLogo,'position','relative');
+      var img = aLogo.querySelector('img');
+      if(!img){
+        img = document.createElement('img');
+        img.src = 'assets/img/sjt-logo-transparent.png';
+        img.alt = 'SJT';
+        aLogo.appendChild(img);
+      }
+      var isShrink = header.classList.contains('shrink') || header.classList.contains('is-scrolled');
+      imp(img,'display','block'); imp(img,'height','100%'); imp(img,'width','auto'); imp(img,'max-height', isShrink ? '46px' : '64px');
+      imp(img,'mix-blend-mode','normal'); imp(img,'filter','none'); imp(img,'opacity','1'); imp(img,'visibility','visible');
     }
   }
-  document.addEventListener('DOMContentLoaded', ensureLogo);
-  window.addEventListener('load', ensureLogo);
-  window.addEventListener('resize', ensureLogo, {passive:true});
-  window.addEventListener('scroll', ensureLogo, {passive:true});
+  document.addEventListener('DOMContentLoaded', fixLogo);
+  window.addEventListener('load', fixLogo);
+  window.addEventListener('resize', fixLogo, {passive:true});
+  window.addEventListener('scroll', fixLogo, {passive:true});
 })();

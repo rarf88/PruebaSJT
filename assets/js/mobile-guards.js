@@ -4,7 +4,7 @@
   const mq = window.matchMedia('(max-width:1024px)');
   function nukeDesktopNav(){
     if(!mq.matches) return;
-    ['.nav-links','.navbar-nav','header nav ul','.menu','.menu--desktop','.top-menu','.main-menu']
+    ['.nav-links','.nav','.nav-inline','.navbar-nav','header nav','.menu','.menu--desktop','.top-menu','.main-menu']
       .forEach(sel => document.querySelectorAll(sel).forEach(el=>{
         el.style.display='none'; el.style.visibility='hidden'; el.style.pointerEvents='none';
         el.style.width='0'; el.style.height='0'; el.style.overflow='hidden';

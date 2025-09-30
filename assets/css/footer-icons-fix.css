@@ -3,3 +3,13 @@
 .footer-social a svg{width:22px;height:22px;fill:#fff}
 footer.light .footer-social a{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.2)}
 footer.light .footer-social a svg{fill:#0f2f35}
+/* v18 logo safety */
+@media (max-width:1024px){
+  header.site-header .nav > a.logo{ display:flex !important; height:100% !important; align-items:center !important; visibility:visible !important; opacity:1 !important; }
+  header.site-header .nav > a.logo img{ display:block !important; height:100% !important; max-height:64px !important; width:auto !important; mix-blend-mode:normal !important; opacity:1 !important; visibility:visible !important; }
+  header.site-header.shrink .nav > a.logo img{ max-height:46px !important; }
+}
+
+/* v18: do not hide the UL that contains the logo on mobile */
+@media (max-width:1024px){
+}
