@@ -13,7 +13,7 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
   border-bottom: 1px solid var(--sjt-brand-border);
 }
 
-.navbar ul a, nav a, .navbar .nav-link, .navbar-brand, .menu a, header a {
+.navbar a, nav a, .navbar .nav-link, .navbar-brand, .menu a, header a {
   color: var(--sjt-text-on-brand) !important;
   text-decoration: none;
 }
@@ -113,7 +113,7 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
   display:flex; align-items:center;
 }
 
-.navbar .nav > li > a, .navbar a.nav-link, .menu a, .navbar ul a {
+.navbar .nav > li > a, .navbar a.nav-link, .menu a, .navbar a {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
 }
@@ -1589,30 +1589,4 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
   .nav .logo img{ height:100% !important; width:auto !important; max-height:none !important; object-fit:contain !important; }
   /* Hide only desktop link list, keep logo */
   .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
-}
-
-
-/* v39b: Bring v35 logo behavior into v19 — mobile/tablet full-height, no crop */
-@media (max-width:1024px){
-  header.site-header .nav{
-    height:72px !important; display:flex !important; align-items:center !important; overflow:visible !important;
-  }
-  header.site-header .nav a.logo,
-  header.site-header .nav .logo a,
-  header.site-header .logo a{
-    display:flex !important; align-items:center !important; height:100% !important; flex:0 0 auto !important;
-    visibility:visible !important; opacity:1 !important; text-indent:0 !important; clip:auto !important; clip-path:none !important; overflow:visible !important;
-  }
-  header.site-header .nav a.logo picture,
-  header.site-header .nav .logo a picture,
-  header.site-header .logo a picture{ display:contents !important; }
-  header.site-header .nav a.logo img,
-  header.site-header .nav .logo a img,
-  header.site-header .logo a img,
-  header.site-header .nav a.logo svg,
-  header.site-header .nav .logo a svg,
-  header.site-header .logo a svg{
-    display:block !important; height:100% !important; max-height:100% !important; width:auto !important; object-fit:contain !important; line-height:1 !important;
-  }
-  header.site-header.shrink .nav{ height:56px !important; }
 }

@@ -1,19 +1,29 @@
 
-/* v41: MOBILE/TABLET LOGO OVERRIDE (aggressive but scoped) */
+
+/* === v43: MOBILE/TABLET — subir DEMO/WhatsApp (no tapar 'Volver a inicio') === */
 @media (max-width:1024px){
-  header.site-header{ position:sticky; top:0; z-index:1000; }
-  header.site-header, header.site-header .nav{ position:relative; }
-  /* Hide the problematic original logo in mobile to avoid flicker */
-  header.site-header .nav a.logo, header.site-header .logo a{
-    opacity:0 !important; pointer-events:none !important;
+  header.site-header{ position: sticky; top: 0; z-index: 1000; background: inherit; }
+  header.site-header .nav{ background: inherit; }
+
+  .sjt-mobile-logo-override,
+  .sjt-mobile-logo-override img{ background: transparent !important; }
+
+  header.site-header.shrink .sjt-mobile-logo-override img{ height: 56px !important; }
+
+  #sjt-floating-demo{
+    top: 12px !important;
+    right: 16px !important;
+    bottom: auto !important;
   }
-  /* Our override element */
-  .sjt-mobile-logo-override{
-    position:absolute; left:12px; top:0; bottom:0;
-    display:flex; align-items:center; height:100%; z-index:1001;
+  #sjt-floating-whatsapp{
+    top: calc(12px + var(--sjt-size) + var(--sjt-gap)) !important;
+    right: 16px !important;
+    bottom: auto !important;
   }
-  .sjt-mobile-logo-override img{
-    display:block; height:72px; width:auto; object-fit:contain;
-  }
-  header.site-header.shrink .sjt-mobile-logo-override img{ height:56px; }
+}
+
+/* === v43: ESCRITORIO — ocultar logo inyectado y hamburguesa; NO mover floaters === */
+@media (min-width:1025px){
+  .sjt-mobile-logo-override{ display: none !important; }
+  .hamburger, .menu-toggle, .menu-hamburger, .nav-toggle{ display: none !important; }
 }
