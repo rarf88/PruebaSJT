@@ -1605,3 +1605,16 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
   /* Hide ONLY desktop link lists in mobile */
   header.site-header .nav .nav-links, header.site-header .nav > ul, header.site-header .nav .links{ display:none !important; visibility:hidden !important; pointer-events:none !important; }
 }
+
+
+/* v18c: explicit pixel-size logo in mobile/tablet (hint-style), prevent flex shrink */
+@media (max-width:1024px){
+  header.site-header .nav{ height:64px !important; display:flex !important; align-items:center !important; }
+  header.site-header .nav > a.logo{ display:flex !important; align-items:center !important; flex:0 0 auto !important; height:64px !important; visibility:visible !important; opacity:1 !important; }
+  header.site-header .nav > a.logo img{ display:block !important; height:64px !important; max-height:64px !important; width:auto !important; mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important; }
+  header.site-header.shrink .nav{ height:46px !important; }
+  header.site-header.shrink .nav > a.logo{ height:46px !important; }
+  header.site-header.shrink .nav > a.logo img{ height:46px !important; max-height:46px !important; }
+  /* Never hide header nav anchors generically */
+  header nav a, .navbar a{ display: inline-flex !important; }
+}
