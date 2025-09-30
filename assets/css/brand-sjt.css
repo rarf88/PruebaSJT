@@ -1583,34 +1583,63 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
 .nos-erp svg { stroke: #e7f1f4 !important; }
 
 
-/* v19 (HINT base): Robust mobile/tablet logo + bar */
+
+/* v21: robust mobile/tablet header logo sizing; preserve floating icons & social */
 @media (max-width:1024px){
   :root{ --nav-bg:#376777; }
-  header.site-header{ background:var(--nav-bg) !important; color:#fff !important; position:sticky; top:0; z-index:1000; }
-  header.site-header .nav{ height:64px !important; display:flex !important; align-items:center !important; position:relative; }
+  header.site-header{ background:var(--nav-bg) !important; color:#fff !important; }
 
+  /* Header bar */
+  header.site-header .nav{
+    height:64px !important;
+    display:flex !important;
+    align-items:center !important;
+    position:relative !important;
+    overflow:visible !important;
+  }
+
+  /* Logo container (handle both <a class="logo"> and .logo > a) */
   header.site-header .nav a.logo,
   header.site-header .nav .logo a,
   header.site-header .logo a{
-    display:flex !important; align-items:center !important; height:64px !important;
-    flex:0 0 auto !important; visibility:visible !important; opacity:1 !important;
-    text-indent:0 !important; overflow:visible !important; clip:auto !important; clip-path:none !important;
-    position:relative !important; left:auto !important; transform:none !important; z-index:1002 !important;
+    display:flex !important;
+    align-items:center !important;
+    height:64px !important;
+    flex:0 0 auto !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    overflow:visible !important;
+    text-indent:0 !important;
+    clip:auto !important; clip-path:none !important;
+    transform:none !important; position:relative !important;
+    max-width:none !important;
+    z-index:1002 !important;
   }
 
+  /* Ensure picture doesn't wrap/clip */
+  header.site-header .nav a.logo picture,
+  header.site-header .nav .logo a picture,
+  header.site-header .logo a picture{ display:contents !important; }
+
+  /* Image/SVG sizing (avoid “solo SJ” recorte) */
   header.site-header .nav a.logo img,
   header.site-header .nav .logo a img,
   header.site-header .logo a img,
   header.site-header .nav a.logo svg,
   header.site-header .nav .logo a svg,
   header.site-header .logo a svg{
-    display:block !important; height:64px !important; max-height:64px !important; width:auto !important;
-    max-width:100% !important; mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important;
+    display:block !important;
+    height:64px !important;
+    max-height:64px !important;
+    width:auto !important;
+    max-width:none !important;
+    mix-blend-mode:normal !important;
+    filter:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
   }
-  header.site-header .nav a.logo picture,
-  header.site-header .nav .logo a picture,
-  header.site-header .logo a picture{ display:contents !important; }
 
+  /* Shrink on scroll */
   header.site-header.shrink .nav{ height:46px !important; }
   header.site-header.shrink .nav a.logo,
   header.site-header.shrink .nav .logo a,
@@ -1622,7 +1651,30 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
   header.site-header.shrink .nav .logo a svg,
   header.site-header.shrink .logo a svg{ height:46px !important; max-height:46px !important; }
 
-  header.site-header .nav .nav-links, header.site-header .nav > ul, header.site-header .nav .links{
-    display:none !important; visibility:hidden !important; pointer-events:none !important;
+  /* DO NOT hide social/floating icons in mobile. Hide only desktop link list if present */
+  header.site-header .nav .nav-links,
+  header.site-header .nav > ul.menu-desktop{ display:none !important; }
+}
+
+/* v22 desktop floating icons: keep DEMO & WhatsApp visible on desktop too */
+@media (min-width:1025px){
+  .floating-cta, .floating-cta *,
+  .fab, .fab--demo, .fab--wa, .fab--whatsapp,
+  .floating-demo, .floating-whatsapp,
+  #floating-demo, #floating-whatsapp,
+  [data-fab="demo"], [data-fab="whatsapp"],
+  a[href*="wa.me"], a[href*="api.whatsapp.com"]{
+    display:inline-flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    pointer-events:auto !important;
   }
+  .floating-cta, .floating-demo, .floating-whatsapp,
+  #floating-demo, #floating-whatsapp{
+    position:fixed !important;
+    right:20px !important;
+    z-index:9999 !important;
+  }
+  #floating-demo, .floating-demo{ top:30%; }
+  #floating-whatsapp, .floating-whatsapp{ top:calc(30% + 78px); }
 }

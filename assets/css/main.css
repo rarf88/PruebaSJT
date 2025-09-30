@@ -134,3 +134,26 @@ img, video { max-width: 100%; height: auto; }
   .cta-floating .btn + .btn{margin-top:5px;}
 }
 /* === End Floating CTA === */
+
+/* v22 desktop floating icons: keep DEMO & WhatsApp visible on desktop too */
+@media (min-width:1025px){
+  .floating-cta, .floating-cta *,
+  .fab, .fab--demo, .fab--wa, .fab--whatsapp,
+  .floating-demo, .floating-whatsapp,
+  #floating-demo, #floating-whatsapp,
+  [data-fab="demo"], [data-fab="whatsapp"],
+  a[href*="wa.me"], a[href*="api.whatsapp.com"]{
+    display:inline-flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    pointer-events:auto !important;
+  }
+  .floating-cta, .floating-demo, .floating-whatsapp,
+  #floating-demo, #floating-whatsapp{
+    position:fixed !important;
+    right:20px !important;
+    z-index:9999 !important;
+  }
+  #floating-demo, .floating-demo{ top:30%; }
+  #floating-whatsapp, .floating-whatsapp{ top:calc(30% + 78px); }
+}
