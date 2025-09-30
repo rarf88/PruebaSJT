@@ -26,3 +26,9 @@
   #sjt-qa .qa{ width:48px; height:48px }
   #sjt-qa .qa--wa img{ width:32px; height:32px }
 }
+
+
+/* === v45 MOBILE/TABLET — subir stack DEMO/WA para no cubrir 'Volver a inicio' === */
+@media (max-width:1024px){
+  #sjt-qa{ top:auto !important; bottom: 96px !important; right:16px !important; }
+}

@@ -61,3 +61,18 @@
     bottom: auto !important;
   }
 }
+
+
+/* === v45 MOBILE/TABLET — logo IZQUIERDA, nunca sobre el menú === */
+@media (max-width:1024px){
+  header.site-header .nav{ display:flex !important; align-items:center !important; justify-content:flex-start !important; }
+  header.site-header .nav .logo{ order:0 !important; margin-right:auto !important; display:flex !important; align-items:center !important; }
+  header.site-header .nav .logo picture, 
+  header.site-header .nav .logo img{ display:block !important; height:56px !important; width:auto !important; object-fit:contain !important; }
+  header.site-header .nav > .navbar-toggler,
+  header.site-header .nav > .hamburger,
+  header.site-header .nav > .menu-toggle,
+  header.site-header .nav > #sjt-hamburger{ order:1 !important; margin-left:12px !important; }
+  /* Ocultar enlaces de navegación en mobile para evitar empujes */
+  header.site-header .nav .nav-links{ display:none !important; }
+}
