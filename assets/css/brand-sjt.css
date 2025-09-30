@@ -18,7 +18,7 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
   text-decoration: none;
 }
 
-.navbar ul a:hover, .navbar .nav-link:hover, .menu a:hover {
+.navbar a:hover, .navbar .nav-link:hover, .menu a:hover {
   color: var(--sjt-text-on-brand) !important;
   filter: brightness(110%);
 }
@@ -113,7 +113,7 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
   display:flex; align-items:center;
 }
 
-.navbar .nav > li > a, .navbar ul a.nav-link, .menu a, .navbar ul a {
+.navbar .nav > li > a, .navbar a.nav-link, .menu a, .navbar ul a {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
 }
@@ -154,8 +154,8 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
 
 /* Hover más notorio en enlaces del nav */
 .navbar .nav > li > a:hover,
-.navbar ul a.nav-link:hover,
-.navbar ul a:hover,
+.navbar a.nav-link:hover,
+.navbar a:hover,
 .menu a:hover {
   text-decoration: underline;
   filter: brightness(115%);
@@ -391,8 +391,8 @@ header, .header, .topbar, .navbar, nav.navbar, .site-header {
 
 /* Hover limpio y profesional */
 .navbar .nav > li > a:hover,
-.navbar ul a.nav-link:hover,
-.navbar ul a:hover,
+.navbar a.nav-link:hover,
+.navbar a:hover,
 .menu a:hover {
   text-decoration: underline;
   filter: brightness(112%);
@@ -1592,133 +1592,27 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
 }
 
 
-/* v18b — FORCE logo visible and equal to bar height on mobile/tablet */
+/* v39b: Bring v35 logo behavior into v19 — mobile/tablet full-height, no crop */
 @media (max-width:1024px){
-  :root{ --nav-bg:#376777; }
-  header.site-header{ background:var(--nav-bg) !important; color:#fff !important; }
-  header.site-header .nav{ height:64px; display:flex; align-items:center; position:relative; }
-  header.site-header .nav > a.logo{ display:flex !important; align-items:center !important; height:100% !important; visibility:visible !important; opacity:1 !important; pointer-events:auto !important; z-index:1002 !important; }
-  header.site-header .nav > a.logo picture{ display:contents !important; } /* keep image flowing */
-  header.site-header .nav > a.logo img{ display:block !important; height:100% !important; width:auto !important; max-height:64px !important; mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important; }
-  header.site-header.shrink .nav{ height:46px !important; }
-  header.site-header.shrink .nav > a.logo img{ max-height:46px !important; }
-  /* Hide ONLY desktop link lists in mobile */
-  header.site-header .nav .nav-links, header.site-header .nav > ul, header.site-header .nav .links{ display:none !important; visibility:hidden !important; pointer-events:none !important; }
-}
-
-
-/* v18c: explicit pixel-size logo in mobile/tablet (hint-style), prevent flex shrink */
-@media (max-width:1024px){
-  header.site-header .nav{ height:64px !important; display:flex !important; align-items:center !important; }
-  header.site-header .nav > a.logo{ display:flex !important; align-items:center !important; flex:0 0 auto !important; height:64px !important; visibility:visible !important; opacity:1 !important; }
-  header.site-header .nav > a.logo img{ display:block !important; height:64px !important; max-height:64px !important; width:auto !important; mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important; }
-  header.site-header.shrink .nav{ height:46px !important; }
-  header.site-header.shrink .nav > a.logo{ height:46px !important; }
-  header.site-header.shrink .nav > a.logo img{ height:46px !important; max-height:46px !important; }
-  /* Never hide header nav anchors generically */
-  header nav ul a, .navbar ul a{ display: inline-flex !important; }
-}
-
-
-/* === v37: Fix logo in mobile/tablet (no crop, full-height, correct shrink) === */
-@media (max-width:1024px){
-  header.site-header{ position: sticky; top: 0; z-index: 1000; }
   header.site-header .nav{
-    height: 72px !important;
-    display: flex !important;
-    align-items: center !important;
-    overflow: visible !important;
+    height:72px !important; display:flex !important; align-items:center !important; overflow:visible !important;
   }
-  /* Ensure the anchor that holds the logo fills the bar and is visible */
   header.site-header .nav a.logo,
   header.site-header .nav .logo a,
   header.site-header .logo a{
-    display: flex !important;
-    align-items: center !important;
-    height: 100% !important;
-    flex: 0 0 auto !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    text-indent: 0 !important;
-    clip: auto !important;
-    clip-path: none !important;
-    overflow: visible !important;
+    display:flex !important; align-items:center !important; height:100% !important; flex:0 0 auto !important;
+    visibility:visible !important; opacity:1 !important; text-indent:0 !important; clip:auto !important; clip-path:none !important; overflow:visible !important;
   }
-  /* Avoid picture container causing clipping or extra box */
   header.site-header .nav a.logo picture,
   header.site-header .nav .logo a picture,
-  header.site-header .logo a picture{
-    display: contents !important;
-  }
-  /* Logo media sizing */
+  header.site-header .logo a picture{ display:contents !important; }
   header.site-header .nav a.logo img,
   header.site-header .nav .logo a img,
   header.site-header .logo a img,
   header.site-header .nav a.logo svg,
   header.site-header .nav .logo a svg,
   header.site-header .logo a svg{
-    display: block !important;
-    height: 100% !important;
-    max-height: 100% !important;
-    width: auto !important;
-    object-fit: contain !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1 !important;
-    transform: translateZ(0);
-  }
-  /* Shrink state */
-  header.site-header.shrink .nav{ height: 56px !important; }
-  header.site-header.shrink .nav a.logo,
-  header.site-header.shrink .nav .logo a,
-  header.site-header.shrink .logo a{ height: 100% !important; }
-
-  /* Prevent desktop text from peeking ("PR" etc.) */
-  header.site-header .nav > ul,
-  header.site-header .nav .nav-links{ display: none !important; }
-}
-
-
-/* === v38: Mobile/Tablet logo full-height, no crop; Floater positions adjusted === */
-@media (max-width:1024px){
-  /* Header sizing & logo visibility */
-  header.site-header{ position:sticky; top:0; z-index:1000; }
-  header.site-header .nav{
-    min-height: 72px !important; height: 72px !important;
-    display:flex !important; align-items:center !important; padding-top:0 !important; padding-bottom:0 !important;
-    overflow:visible !important; box-sizing:content-box !important;
-  }
-  header.site-header .nav a.logo, header.site-header .nav .logo a, header.site-header .logo a{
-    display:flex !important; align-items:center !important; height:100% !important; flex:0 0 auto !important;
-    visibility:visible !important; opacity:1 !important; text-indent:0 !important; clip:auto !important; clip-path:none !important; overflow:visible !important;
-  }
-  header.site-header .nav a.logo picture, header.site-header .nav .logo a picture, header.site-header .logo a picture{ display:contents !important; }
-  header.site-header .nav a.logo img, header.site-header .nav .logo a img, header.site-header .logo a img,
-  header.site-header .nav a.logo svg, header.site-header .nav .logo a svg, header.site-header .logo a svg{
     display:block !important; height:100% !important; max-height:100% !important; width:auto !important; object-fit:contain !important; line-height:1 !important;
   }
-  header.site-header.shrink .nav{ height:56px !important; min-height:56px !important; }
-  /* Hide desktop links on mobile/tablet to avoid 'PR' peeking */
-  header.site-header .nav > ul, header.site-header .nav .nav-links{ display:none !important; }
-
-  /* Floaters: move away from 'Volver a inicio' (assumed bottom-right) */
-  #sjt-floating-demo, #sjt-floating-whatsapp{
-    top: auto !important; bottom: auto !important;
-    right: 20px !important;
-  }
-  #sjt-floating-whatsapp{ bottom: 88px !important; }
-  #sjt-floating-demo{ bottom: calc(88px + var(--sjt-size) + var(--sjt-gap)) !important; }
+  header.site-header.shrink .nav{ height:56px !important; }
 }
-/* Desktop: keep top-right but higher so they don't block other UI */
-@media (min-width:1025px){
-  #sjt-floating-demo{ top: 24px !important; right:20px !important; }
-  #sjt-floating-whatsapp{ top: calc(24px + var(--sjt-size) + var(--sjt-gap)) !important; right:20px !important; }
-}
-
-
-/* v38: ensure social icons show images in header */
-header .social img, header .social svg{
-  display:block !important; width:auto; height:1.25rem; /* adjust as needed */
-  opacity:1 !important; visibility:visible !important;
-}
-header .social a{ background:none !important; }

@@ -15,31 +15,3 @@
   function hideStray(){if(window.matchMedia('(max-width: 991px)').matches){var h=document.querySelector('header, .navbar, .site-header'); if(!h) return; h.querySelectorAll('*').forEach(function(el){var t=(el.textContent||'').trim(); if(t && t.length<=10 && /PRODUC|PRODU|SERVI|MENU/i.test(t)){el.style.display='none';}});}}
   hideStray(); window.addEventListener('resize', hideStray);
 });})();
-
-// v18b: runtime guard to enforce logo presence/visibility on mobile/tablet
-(function(){
-  function imp(el, p, v){ try{ el && el.style && el.style.setProperty(p, v, 'important'); }catch(e){} }
-  function ensureLogo(){
-    var mq = window.matchMedia('(max-width:1024px)'); if(!mq.matches) return;
-    var header = document.querySelector('header.site-header'); if(!header) return;
-    var nav = header.querySelector('.nav') || header;
-    var aLogo = nav.querySelector('a.logo') || header.querySelector('a.logo');
-    if(!aLogo) return;
-    imp(aLogo,'display','flex'); imp(aLogo,'align-items','center'); imp(aLogo,'height','100%');
-    imp(aLogo,'visibility','visible'); imp(aLogo,'opacity','1'); imp(aLogo,'z-index','1002');
-    var img = aLogo.querySelector('img');
-    if(!img){
-      img = document.createElement('img');
-      img.alt = 'SJT';
-      img.src = 'assets/img/sjt-logo-transparent.png';
-      aLogo.appendChild(img);
-    }
-    var isShrink = header.classList.contains('shrink') || header.classList.contains('is-scrolled');
-    imp(img,'display','block'); imp(img,'height','100%'); imp(img,'width','auto'); imp(img,'max-height', isShrink ? '46px' : '64px');
-    imp(img,'mix-blend-mode','normal'); imp(img,'filter','none'); imp(img,'opacity','1'); imp(img,'visibility','visible');
-  }
-  document.addEventListener('DOMContentLoaded', ensureLogo);
-  window.addEventListener('load', ensureLogo);
-  window.addEventListener('resize', ensureLogo, {passive:true});
-  window.addEventListener('scroll', ensureLogo, {passive:true});
-})();
