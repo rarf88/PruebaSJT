@@ -1,0 +1,26 @@
+
+/* v40: Aggressive logo restoration for mobile/tablet */
+@media (max-width:1024px){
+  header.site-header{ position: sticky; top: 0; z-index: 1000; }
+  header.site-header .nav{
+    min-height: 70px !important; height: 70px !important;
+    display:flex !important; align-items:center !important; justify-content:flex-start !important;
+    overflow: visible !important; padding: 0 !important;
+  }
+  header.site-header .nav .logo, header.site-header .logo, header.site-header a.logo{
+    display:flex !important; align-items:center !important; height:100% !important; flex:0 0 auto !important;
+    opacity:1 !important; visibility:visible !important; text-indent:0 !important;
+    clip:auto !important; clip-path:none !important; overflow:visible !important;
+  }
+  header.site-header .nav .logo picture, header.site-header .logo picture, header.site-header a.logo picture{
+    display: contents !important;
+  }
+  header.site-header .nav .logo img, header.site-header .logo img, header.site-header a.logo img,
+  header.site-header .nav .logo svg, header.site-header .logo svg, header.site-header a.logo svg{
+    display:block !important; height:100% !important; max-height:100% !important; width:auto !important;
+    object-fit:contain !important; margin:0 !important; padding:0 !important; line-height:1 !important;
+  }
+  header.site-header.shrink .nav{ min-height: 56px !important; height: 56px !important; }
+  /* Prevent desktop items from leaking in mobile */
+  header.site-header .nav > ul, header.site-header .nav .nav-links{ display:none !important; }
+}
