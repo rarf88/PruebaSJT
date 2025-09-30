@@ -1591,13 +1591,17 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
   .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
 }
 
-/* v18 logo safety */
-@media (max-width:1024px){
-  header.site-header .nav > a.logo{ display:flex !important; height:100% !important; align-items:center !important; visibility:visible !important; opacity:1 !important; }
-  header.site-header .nav > a.logo img{ display:block !important; height:100% !important; max-height:64px !important; width:auto !important; mix-blend-mode:normal !important; opacity:1 !important; visibility:visible !important; }
-  header.site-header.shrink .nav > a.logo img{ max-height:46px !important; }
-}
 
-/* v18: do not hide the UL that contains the logo on mobile */
+/* v18b — FORCE logo visible and equal to bar height on mobile/tablet */
 @media (max-width:1024px){
+  :root{ --nav-bg:#376777; }
+  header.site-header{ background:var(--nav-bg) !important; color:#fff !important; }
+  header.site-header .nav{ height:64px; display:flex; align-items:center; position:relative; }
+  header.site-header .nav > a.logo{ display:flex !important; align-items:center !important; height:100% !important; visibility:visible !important; opacity:1 !important; pointer-events:auto !important; z-index:1002 !important; }
+  header.site-header .nav > a.logo picture{ display:contents !important; } /* keep image flowing */
+  header.site-header .nav > a.logo img{ display:block !important; height:100% !important; width:auto !important; max-height:64px !important; mix-blend-mode:normal !important; filter:none !important; opacity:1 !important; visibility:visible !important; }
+  header.site-header.shrink .nav{ height:46px !important; }
+  header.site-header.shrink .nav > a.logo img{ max-height:46px !important; }
+  /* Hide ONLY desktop link lists in mobile */
+  header.site-header .nav .nav-links, header.site-header .nav > ul, header.site-header .nav .links{ display:none !important; visibility:hidden !important; pointer-events:none !important; }
 }

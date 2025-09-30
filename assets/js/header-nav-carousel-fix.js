@@ -16,31 +16,30 @@
   hideStray(); window.addEventListener('resize', hideStray);
 });})();
 
-// v18: runtime safety — force logo visible on mobile/tablet and inject fallback if missing
+// v18b: runtime guard to enforce logo presence/visibility on mobile/tablet
 (function(){
   function imp(el, p, v){ try{ el && el.style && el.style.setProperty(p, v, 'important'); }catch(e){} }
-  function fixLogo(){
+  function ensureLogo(){
     var mq = window.matchMedia('(max-width:1024px)'); if(!mq.matches) return;
     var header = document.querySelector('header.site-header'); if(!header) return;
     var nav = header.querySelector('.nav') || header;
     var aLogo = nav.querySelector('a.logo') || header.querySelector('a.logo');
-    if(aLogo){
-      imp(aLogo,'display','flex'); imp(aLogo,'align-items','center'); imp(aLogo,'height','100%');
-      imp(aLogo,'visibility','visible'); imp(aLogo,'opacity','1'); imp(aLogo,'z-index','10002'); imp(aLogo,'position','relative');
-      var img = aLogo.querySelector('img');
-      if(!img){
-        img = document.createElement('img');
-        img.src = 'assets/img/sjt-logo-transparent.png';
-        img.alt = 'SJT';
-        aLogo.appendChild(img);
-      }
-      var isShrink = header.classList.contains('shrink') || header.classList.contains('is-scrolled');
-      imp(img,'display','block'); imp(img,'height','100%'); imp(img,'width','auto'); imp(img,'max-height', isShrink ? '46px' : '64px');
-      imp(img,'mix-blend-mode','normal'); imp(img,'filter','none'); imp(img,'opacity','1'); imp(img,'visibility','visible');
+    if(!aLogo) return;
+    imp(aLogo,'display','flex'); imp(aLogo,'align-items','center'); imp(aLogo,'height','100%');
+    imp(aLogo,'visibility','visible'); imp(aLogo,'opacity','1'); imp(aLogo,'z-index','1002');
+    var img = aLogo.querySelector('img');
+    if(!img){
+      img = document.createElement('img');
+      img.alt = 'SJT';
+      img.src = 'assets/img/sjt-logo-transparent.png';
+      aLogo.appendChild(img);
     }
+    var isShrink = header.classList.contains('shrink') || header.classList.contains('is-scrolled');
+    imp(img,'display','block'); imp(img,'height','100%'); imp(img,'width','auto'); imp(img,'max-height', isShrink ? '46px' : '64px');
+    imp(img,'mix-blend-mode','normal'); imp(img,'filter','none'); imp(img,'opacity','1'); imp(img,'visibility','visible');
   }
-  document.addEventListener('DOMContentLoaded', fixLogo);
-  window.addEventListener('load', fixLogo);
-  window.addEventListener('resize', fixLogo, {passive:true});
-  window.addEventListener('scroll', fixLogo, {passive:true});
+  document.addEventListener('DOMContentLoaded', ensureLogo);
+  window.addEventListener('load', ensureLogo);
+  window.addEventListener('resize', ensureLogo, {passive:true});
+  window.addEventListener('scroll', ensureLogo, {passive:true});
 })();
