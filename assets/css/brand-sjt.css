@@ -1677,3 +1677,48 @@ a.service-card p{margin:0;font-size:1.05rem;color:#d7eff2}
   header.site-header .nav > ul,
   header.site-header .nav .nav-links{ display: none !important; }
 }
+
+
+/* === v38: Mobile/Tablet logo full-height, no crop; Floater positions adjusted === */
+@media (max-width:1024px){
+  /* Header sizing & logo visibility */
+  header.site-header{ position:sticky; top:0; z-index:1000; }
+  header.site-header .nav{
+    min-height: 72px !important; height: 72px !important;
+    display:flex !important; align-items:center !important; padding-top:0 !important; padding-bottom:0 !important;
+    overflow:visible !important; box-sizing:content-box !important;
+  }
+  header.site-header .nav a.logo, header.site-header .nav .logo a, header.site-header .logo a{
+    display:flex !important; align-items:center !important; height:100% !important; flex:0 0 auto !important;
+    visibility:visible !important; opacity:1 !important; text-indent:0 !important; clip:auto !important; clip-path:none !important; overflow:visible !important;
+  }
+  header.site-header .nav a.logo picture, header.site-header .nav .logo a picture, header.site-header .logo a picture{ display:contents !important; }
+  header.site-header .nav a.logo img, header.site-header .nav .logo a img, header.site-header .logo a img,
+  header.site-header .nav a.logo svg, header.site-header .nav .logo a svg, header.site-header .logo a svg{
+    display:block !important; height:100% !important; max-height:100% !important; width:auto !important; object-fit:contain !important; line-height:1 !important;
+  }
+  header.site-header.shrink .nav{ height:56px !important; min-height:56px !important; }
+  /* Hide desktop links on mobile/tablet to avoid 'PR' peeking */
+  header.site-header .nav > ul, header.site-header .nav .nav-links{ display:none !important; }
+
+  /* Floaters: move away from 'Volver a inicio' (assumed bottom-right) */
+  #sjt-floating-demo, #sjt-floating-whatsapp{
+    top: auto !important; bottom: auto !important;
+    right: 20px !important;
+  }
+  #sjt-floating-whatsapp{ bottom: 88px !important; }
+  #sjt-floating-demo{ bottom: calc(88px + var(--sjt-size) + var(--sjt-gap)) !important; }
+}
+/* Desktop: keep top-right but higher so they don't block other UI */
+@media (min-width:1025px){
+  #sjt-floating-demo{ top: 24px !important; right:20px !important; }
+  #sjt-floating-whatsapp{ top: calc(24px + var(--sjt-size) + var(--sjt-gap)) !important; right:20px !important; }
+}
+
+
+/* v38: ensure social icons show images in header */
+header .social img, header .social svg{
+  display:block !important; width:auto; height:1.25rem; /* adjust as needed */
+  opacity:1 !important; visibility:visible !important;
+}
+header .social a{ background:none !important; }
