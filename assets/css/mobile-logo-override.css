@@ -190,19 +190,11 @@
 
 
 
-/* === v60r4: MOBILE/TABLET — apaga cualquier logo en el header/nav antes de JS y deja solo overlay === */
+/* === v60r3: mobile/tablet — hide any original nav logo completely to avoid flash === */
 @media (max-width:1024px){
-  header.site-header nav.nav .logo,
-  header.site-header nav.nav .site-logo,
-  header.site-header nav.nav .brand,
-  header.site-header nav.nav img,
-  header.site-header nav.nav picture,
-  header.site-header nav.nav svg{
-    display:none !important; visibility:hidden !important; pointer-events:none !important;
+  header.site-header nav.nav .logo{
+    display:none !important; visibility:hidden !important;
     width:0 !important; height:0 !important; overflow:hidden !important;
-  }
-  header.site-header nav.nav [style*="background"],
-  header.site-header nav.nav [style*="background-image"]{
-    background-image:none !important;
+    pointer-events:none !important;
   }
 }
