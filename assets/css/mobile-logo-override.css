@@ -30,40 +30,74 @@
 
 
 
-/* === v53: MOBILE/TABLET ONLY === */
-/* 1) Logo perfectamente CENTRADO en la barra, sin tocar tamaños ni desktop */
+/* === v54: MOBILE/TABLET — logo CENTRADO + subir DEMO/WA (sin tocar desktop) === */
 @media (max-width:1024px){
-  header.site-header nav.nav{ 
-    position: relative !important; 
+  /* Preparar el contenedor del header sin alterar sticky ni alturas globales */
+  header.site-header nav.nav{
+    position: relative !important;
     min-height: 64px !important;
-    /* Reservas laterales para que el logo no choque con el hamburguesa */
-    padding-left: 72px !important;   /* reserva izquierda */
-    padding-right: 72px !important;  /* reserva derecha (hamburguesa) */
+    padding-left: 72px !important;   /* reserva izq */
+    padding-right: 72px !important;  /* reserva der (hamburguesa) */
   }
+
+  /* 1) LOGO PERFECTO EN EL CENTRO DE LA BARRA */
   header.site-header nav.nav .logo{
     position: absolute !important;
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
     margin: 0 !important;
+    z-index: 2 !important;
   }
   header.site-header nav.nav .logo picture,
   header.site-header nav.nav .logo img{
     display: block !important;
-    height: auto !important; /* NO modificar tamaño natural */
+    height: auto !important; /* NO cambiar el tamaño natural */
     width: auto !important;
     object-fit: contain !important;
   }
-  /* Evitar que los enlaces empujen la barra en mobile */
-  header.site-header nav.nav .nav-links,
-  header.site-header nav.nav > ul{ display: none !important; }
-}
 
-/* 2) Subir los botones DEMO/WhatsApp para que NO tapen 'Volver a inicio' */
-@media (max-width:1024px){
-  /* Variante con #sjt-qa v2 */
-  #sjt-qa{ bottom: 148px !important; top: auto !important; right: 16px !important; }
-  /* Variante con ids directos */
-  #sjt-floating-demo{ top: 10px !important; bottom: auto !important; right: 16px !important; }
-  #sjt-floating-whatsapp{ top: calc(10px + var(--sjt-size, 56px) + var(--sjt-gap, 10px)) !important; bottom: auto !important; right: 16px !important; }
+  /* Mantener hamburguesa al extremo derecho, sin tapar el logo */
+  header.site-header nav.nav > .navbar-toggler,
+  header.site-header nav.nav > .hamburger,
+  header.site-header nav.nav > #sjt-hamburger,
+  header.site-header nav.nav > .menu-toggle,
+  header.site-header nav.nav > button.navbar-toggler{
+    position: absolute !important;
+    right: 8px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 3 !important;
+  }
+
+  /* Evitar empujes del layout por enlaces en mobile */
+  header.site-header nav.nav .nav-links,
+  header.site-header nav.nav > ul{
+    display: none !important;
+  }
+
+  /* 2) SUBIR DEMO/WHATSAPP para no tapar 'Volver a inicio' */
+  /* Variante con stack v2 (#sjt-qa) */
+  #sjt-qa{ 
+    position: fixed !important;
+    bottom: calc(196px + env(safe-area-inset-bottom, 0px)) !important; 
+    right: 16px !important; 
+    top: auto !important;
+    z-index: 10000 !important;
+  }
+  /* Variante con ids directos (si existen en este build) */
+  #sjt-floating-demo{
+    position: fixed !important;
+    top: 12px !important; 
+    right: 16px !important; 
+    bottom: auto !important;
+    z-index: 10000 !important;
+  }
+  #sjt-floating-whatsapp{
+    position: fixed !important;
+    top: calc(12px + var(--sjt-size, 56px) + var(--sjt-gap, 10px)) !important; 
+    right: 16px !important; 
+    bottom: auto !important;
+    z-index: 10000 !important;
+  }
 }
