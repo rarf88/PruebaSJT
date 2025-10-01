@@ -297,3 +297,49 @@
     transform: scale(0.92);
   }
 }
+
+
+
+/* === v60r3j: MOBILE/TABLET — unify sizing & prevent clipping === */
+@media (max-width:1024px){
+  header.site-header,
+  header.site-header nav.nav,
+  .sjt-mobile-logo-overlay{ overflow: visible !important; }
+
+  /* Full bar state */
+  header.site-header nav.nav{ min-height:70px !important; transition:min-height .22s ease; }
+  .sjt-mobile-logo-overlay{
+    height:70px !important; padding:6px 0 !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    line-height:0 !important; transform:none !important; transform-origin:center !important;
+    transition: height .22s ease, padding .22s ease;
+    z-index:5 !important;
+  }
+  /* Keep a constant media cap and avoid baseline clipping */
+  .sjt-mobile-logo-overlay img,
+  .sjt-mobile-logo-overlay picture,
+  .sjt-mobile-logo-overlay svg{
+    display:block !important; height:auto !important; width:auto !important; object-fit:contain !important;
+    max-height:54px !important; /* constant cap to avoid cut at top/bottom */
+    transform:none !important; transition:transform .22s ease;
+  }
+
+  /* Scrolled (single step, mirrors desktop) */
+  header.site-header.is-scrolled nav.nav{ min-height:56px !important; }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ height:56px !important; padding:4px 0 !important; }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay img,
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay picture,
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay svg{
+    max-height:54px !important; /* keep same cap; scale controls the visual size */
+    transform: scale(0.88) !important;
+  }
+
+  /* Ensure hamburger stays centered */
+  header.site-header nav.nav .navbar-toggler,
+  header.site-header nav.nav .hamburger,
+  header.site-header nav.nav #sjt-hamburger,
+  header.site-header nav.nav .menu-toggle,
+  header.site-header nav.nav button.navbar-toggler{
+    position:absolute; top:50%; transform:translateY(-50%); right:12px; z-index:6;
+  }
+}
