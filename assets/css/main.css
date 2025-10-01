@@ -151,3 +151,10 @@ img, video { max-width: 100%; height: auto; }
   /* Hide only desktop link list, keep logo */
   .nav-links, .nav > ul, .nav .links, header .nav > ul { display:none !important; visibility:hidden !important; pointer-events:none !important; }
 }
+
+
+
+/* v57: eliminar por completo cualquier CTA/aviso obsoleto en escritorio y móvil */
+.cta-floating, .cta-banner, .promo-banner, .notice-card, .floating-cta{
+  display:none !important; visibility:hidden !important; pointer-events:none !important; animation:none !important;
+}

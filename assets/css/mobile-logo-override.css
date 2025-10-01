@@ -81,3 +81,51 @@
   #sjt-floating-demo{ position:fixed !important; top: 10px !important; right:16px !important; bottom:auto !important; z-index:10000 !important; }
   #sjt-floating-whatsapp{ position:fixed !important; top: calc(10px + var(--sjt-size,56px) + var(--sjt-gap,10px)) !important; right:16px !important; bottom:auto !important; z-index:10000 !important; }
 }
+
+
+
+/* === v56: MULTI-ESTRATEGIA para LOGO CENTRADO (solo mobile/tablet) === */
+@media (max-width:1024px){
+  /* Strategy A: absolute centering with side cushions */
+  header.site-header nav.nav{
+    position: relative !important;
+    min-height: 64px !important;
+    padding-left: 88px !important;   /* reserva izq */
+    padding-right: 88px !important;  /* reserva der (hamburguesa) */
+  }
+  header.site-header nav.nav .logo{
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    z-index: 2 !important;
+  }
+  header.site-header nav.nav > .navbar-toggler,
+  header.site-header nav.nav > .hamburger,
+  header.site-header nav.nav > #sjt-hamburger,
+  header.site-header nav.nav > .menu-toggle,
+  header.site-header nav.nav > button.navbar-toggler{
+    position:absolute !important;
+    right: 10px !important;
+    top:50% !important;
+    transform: translateY(-50%) !important;
+    z-index:3 !important;
+  }
+  /* Hide nav links in mobile to prevent push */
+  header.site-header nav.nav .nav-links, header.site-header nav.nav > ul{ display:none !important; }
+}
+
+/* Enforce hamburger hidden on desktop */
+@media (min-width:1025px){
+  .navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler{
+    display:none !important; visibility:hidden !important; pointer-events:none !important;
+  }
+}
+
+
+
+/* v56: Ajuste fino floaters */
+@media (max-width:1024px){
+  #sjt-qa{ bottom: 120px !important; top:auto !important; right:16px !important; position:fixed !important; z-index:10000 !important; }
+}
