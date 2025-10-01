@@ -187,3 +187,17 @@
 }
 
 /* Desktop untouched */
+
+
+
+/* === v60r2: CSS fallback to hide any potential right-side logo on mobile/tablet === */
+@media (max-width:1024px){
+  header.site-header{ position: sticky !important; top:0 !important; z-index: 9999 !important; }
+  /* Common right-side wrappers; we only disable images or bg-logos on the far right */
+  header.site-header nav.nav .right, 
+  header.site-header nav.nav .nav-right-area{ background-image: none !important; }
+  /* If an image/picture/svg sits inside a right-aligned container, hide it */
+  header.site-header nav.nav .right img,
+  header.site-header nav.nav .right picture,
+  header.site-header nav.nav .right svg{ display:none !important; }
+}
