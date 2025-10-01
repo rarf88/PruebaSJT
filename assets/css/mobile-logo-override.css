@@ -29,50 +29,42 @@
 }
 
 
-/* === v44: ESCRITORIO — ocultar hamburguesa en desktop (100% seguro) === */
-@media (min-width: 1025px){
-  .hamburger, .menu-toggle, .menu-hamburger, .nav-toggle,
-  .navbar-toggler, .navbar .navbar-toggler, #sjt-hamburger,
-  button.navbar-toggler, .nav .hamburger, .header .hamburger {
-    display: none !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-  }
-}
 
-/* === v44: MOBILE/TABLET — logo a la IZQUIERDA, hamburguesa a la derecha === */
-@media (max-width: 1024px){
-  .nav{ display:flex !important; align-items:center !important; }
-  .nav .logo{ order:0 !important; margin-right:auto !important; }
-  .nav .logo img{ height:56px !important; width:auto !important; object-fit:contain !important; }
-  .nav .navbar-toggler, .nav .hamburger, .nav .menu-toggle, #sjt-hamburger{ order:1 !important; margin-left:12px !important; }
-}
-
-/* === v44: MOBILE/TABLET — subir DEMO/WhatsApp un poco más (no tapar 'Volver a inicio') === */
-@media (max-width: 1024px){
-  #sjt-floating-demo{
-    top: 10px !important;
-    right: 16px !important;
-    bottom: auto !important;
-  }
-  #sjt-floating-whatsapp{
-    top: calc(10px + var(--sjt-size, 56px) + var(--sjt-gap, 8px)) !important;
-    right: 16px !important;
-    bottom: auto !important;
-  }
-}
-
-
-/* === v45 MOBILE/TABLET — logo IZQUIERDA, nunca sobre el menú === */
+/* === v46: MOBILE/TABLET — forzar LOGO a la IZQUIERDA (override ultra específico) === */
 @media (max-width:1024px){
-  header.site-header .nav{ display:flex !important; align-items:center !important; justify-content:flex-start !important; }
-  header.site-header .nav .logo{ order:0 !important; margin-right:auto !important; display:flex !important; align-items:center !important; }
-  header.site-header .nav .logo picture, 
-  header.site-header .nav .logo img{ display:block !important; height:56px !important; width:auto !important; object-fit:contain !important; }
-  header.site-header .nav > .navbar-toggler,
-  header.site-header .nav > .hamburger,
-  header.site-header .nav > .menu-toggle,
-  header.site-header .nav > #sjt-hamburger{ order:1 !important; margin-left:12px !important; }
-  /* Ocultar enlaces de navegación en mobile para evitar empujes */
-  header.site-header .nav .nav-links{ display:none !important; }
+  header.site-header .container{ display:flex !important; }
+  header.site-header nav.nav{ 
+    display:flex !important; align-items:center !important;
+    width:100% !important;
+  }
+  /* aseguramos que el logo exista y esté antes que el toggler visualmente */
+  header.site-header nav.nav .logo{ 
+    order:0 !important; margin-right:auto !important; 
+    display:flex !important; align-items:center !important;
+  }
+  header.site-header nav.nav .logo img,
+  header.site-header nav.nav .logo picture{ 
+    height:56px !important; width:auto !important; object-fit:contain !important;
+  }
+  /* cualquier tipo de toggler al extremo derecho */
+  header.site-header nav.nav > .navbar-toggler,
+  header.site-header nav.nav > .hamburger,
+  header.site-header nav.nav > .menu-toggle,
+  header.site-header nav.nav > #sjt-hamburger,
+  header.site-header nav.nav > button,
+  header.site-header nav.nav > .btn-menu{
+    order:1 !important; margin-left:12px !important; margin-right:0 !important;
+  }
+  /* ocultar listas de enlaces en móvil */
+  header.site-header nav.nav .nav-links,
+  header.site-header nav.nav > ul{ 
+    display:none !important; 
+  }
+}
+
+/* Esconder hamburguesa en escritorio siempre */
+@media (min-width:1025px){
+  .navbar-toggler,.hamburger,#sjt-hamburger,.menu-toggle,button.navbar-toggler{ 
+    display:none !important; visibility:hidden !important; pointer-events:none !important;
+  }
 }

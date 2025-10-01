@@ -153,10 +153,8 @@ img, video { max-width: 100%; height: auto; }
 }
 
 
-/* v44: Desactivar por completo el aviso/CTA que titilaba en navegación */
-.cta-floating, .cta-float, .cta-banner, .promo-banner, .notice-card, .sticky-cta, .floating-cta{
-  display: none !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-  animation: none !important;
+
+/* v46: apagar por completo avisos/promos flotantes heredados */
+.cta-floating,.cta-float,.cta-banner,.promo-banner,.notice-card,.sticky-cta,.floating-cta{
+  display:none !important; visibility:hidden !important; pointer-events:none !important; animation:none !important;
 }

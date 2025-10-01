@@ -28,7 +28,8 @@
 }
 
 
-/* === v45 MOBILE/TABLET — subir stack DEMO/WA para no cubrir 'Volver a inicio' === */
+
+/* === v46: MOBILE/TABLET — elevar DEMO/WA por encima de 'Volver a inicio' === */
 @media (max-width:1024px){
-  #sjt-qa{ top:auto !important; bottom: 96px !important; right:16px !important; }
+  #sjt-qa{ bottom: 100px !important; top: auto !important; right: 16px !important; }
 }
