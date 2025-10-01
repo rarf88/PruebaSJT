@@ -260,3 +260,40 @@
     transform:scale(0.88);
   }
 }
+
+
+
+/* === v60r3i: MOBILE/TABLET — final stable sizing to mirror desktop behavior === */
+@media (max-width:1024px){
+  header.site-header,
+  header.site-header nav.nav,
+  .sjt-mobile-logo-overlay{ overflow: visible !important; }
+
+  /* Full state (top of page) */
+  header.site-header nav.nav{ min-height:66px !important; transition:min-height .22s ease; }
+  .sjt-mobile-logo-overlay{
+    height:66px !important; padding:6px 0 !important;  /* breathing room */
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    transform:none !important; transform-origin:center center !important;
+    transition: height .22s ease;
+  }
+  .sjt-mobile-logo-overlay img,
+  .sjt-mobile-logo-overlay picture,
+  .sjt-mobile-logo-overlay svg{
+    display:block !important;
+    height:auto !important; width:auto !important; object-fit:contain !important;
+    max-height:50px !important;         /* avoids bottom clipping on full bar */
+    transform:none !important;           /* base state */
+    transition: transform .22s ease;
+  }
+
+  /* Scrolled state (single step) */
+  header.site-header.is-scrolled nav.nav{ min-height:56px !important; }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ height:56px !important; padding:4px 0 !important; }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay img,
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay picture,
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay svg{
+    max-height:46px !important;          /* keep inside reduced bar */
+    transform: scale(0.92);
+  }
+}
