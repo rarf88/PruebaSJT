@@ -129,3 +129,30 @@
 @media (max-width:1024px){
   #sjt-qa{ bottom: 120px !important; top:auto !important; right:16px !important; position:fixed !important; z-index:10000 !important; }
 }
+
+
+
+/* === v58: MOBILE/TABLET — 'cortar' (clonar) y CENTRAR el logo === */
+@media (max-width:1024px){
+  header.site-header nav.nav{ position: relative !important; min-height: 64px !important; }
+  /* Ocultamos el logo original en móvil/tablet para evitar cruces */
+  header.site-header nav.nav .logo{ display:none !important; }
+  /* Contenedor centrado para el clon */
+  .sjt-mobile-centered-logo{
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    transform:translate(-50%,-50%) !important;
+    margin:0 !important;
+    display:block !important;
+    z-index: 3 !important;
+    pointer-events:none !important; /* que no bloquee toques sobre la barra */
+  }
+  .sjt-mobile-centered-logo picture,
+  .sjt-mobile-centered-logo img{
+    display:block !important;
+    height:auto !important;
+    width:auto !important;
+    object-fit:contain !important;
+  }
+}
