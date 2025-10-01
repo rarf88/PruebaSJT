@@ -154,3 +154,36 @@
     height:auto !important; width:auto !important; object-fit:contain !important;
   }
 }
+
+
+
+/* === v60: MOBILE/TABLET ONLY — quitar logo derecho, overlay clickeable, sticky + shrink === */
+@media (max-width:1024px){
+  /* Header sticky similar a escritorio */
+  header.site-header{ position: sticky !important; top: 0 !important; z-index: 9999 !important; }
+  /* Quitar el logo original (derecha) completamente en mobile */
+  header.site-header nav.nav .logo{ display: none !important; }
+
+  /* Overlay centrado (del v59) ajustado para permitir clic sin bloquear otros elementos */
+  .sjt-mobile-logo-overlay{
+    position:absolute !important;
+    top:0 !important; left:0 !important; right:0 !important;
+    height:64px !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    pointer-events:none !important;  /* capa no captura clics */
+    z-index: 5 !important;
+  }
+  .sjt-mobile-logo-overlay a{ 
+    pointer-events:auto !important;  /* solo el link es clickeable */
+    display:inline-flex !important; align-items:center !important; justify-content:center !important;
+  }
+  .sjt-mobile-logo-overlay picture,
+  .sjt-mobile-logo-overlay img{
+    display:block !important; height:auto !important; width:auto !important; object-fit:contain !important;
+  }
+
+  /* Efecto "shrink" al hacer scroll */
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ height:56px !important; }
+}
+
+/* Desktop untouched */
