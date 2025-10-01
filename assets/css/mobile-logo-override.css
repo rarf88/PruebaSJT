@@ -1,45 +1,15 @@
 
 
-/* === v43: MOBILE/TABLET — subir DEMO/WhatsApp (no tapar 'Volver a inicio') === */
+
+/* v48 CSS FORCE */
 @media (max-width:1024px){
-  header.site-header{ position: sticky; top: 0; z-index: 1000; background: inherit; }
-  header.site-header .nav{ background: inherit; }
-
-  .sjt-mobile-logo-override,
-  .sjt-mobile-logo-override img{ background: transparent !important; }
-
-  header.site-header.shrink .sjt-mobile-logo-override img{ height: 56px !important; }
-
-  #sjt-floating-demo{
-    top: 12px !important;
-    right: 16px !important;
-    bottom: auto !important;
-  }
-  #sjt-floating-whatsapp{
-    top: calc(12px + var(--sjt-size) + var(--sjt-gap)) !important;
-    right: 16px !important;
-    bottom: auto !important;
-  }
-}
-
-/* === v43: ESCRITORIO — ocultar logo inyectado y hamburguesa; NO mover floaters === */
-@media (min-width:1025px){
-  .sjt-mobile-logo-override{ display: none !important; }
-  .hamburger, .menu-toggle, .menu-hamburger, .nav-toggle{ display: none !important; }
-}
-
-
-
-/* === v47b MINIMAL === */
-@media (max-width:1024px){
-  .site-header .nav .logo{ order:0 !important; margin-right:auto !important; }
-  .site-header .nav > .navbar-toggler,
-  .site-header .nav > .hamburger,
-  .site-header .nav > .menu-toggle,
-  .site-header .nav > #sjt-hamburger{ order:1 !important; }
+  header.site-header .container{ display:flex !important; width:100% !important; }
+  header.site-header nav.nav{ display:flex !important; align-items:center !important; width:100% !important; }
+  header.site-header nav.nav .logo{ order:0 !important; margin-right:auto !important; display:flex !important; align-items:center !important; }
+  header.site-header nav.nav .logo picture, header.site-header nav.nav .logo img{ height:auto !important; max-height:64px !important; width:auto !important; object-fit:contain !important; }
+  header.site-header nav.nav > .navbar-toggler, header.site-header nav.nav > .hamburger, header.site-header nav.nav > .menu-toggle, header.site-header nav.nav > #sjt-hamburger, header.site-header nav.nav > button{ order:1 !important; }
+  header.site-header nav.nav .nav-links, header.site-header nav.nav > ul{ display:none !important; }
 }
 @media (min-width:1025px){
-  .navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler{
-    display:none !important; visibility:hidden !important; pointer-events:none !important;
-  }
+  .navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler{ display:none !important; visibility:hidden !important; pointer-events:none !important; }
 }
