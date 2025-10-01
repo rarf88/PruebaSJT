@@ -48,15 +48,20 @@
 
 <style>
 @media (max-width:1024px){
-  header.site-header nav img,
-  header.site-header nav picture,
-  header.site-header nav svg{
+  header.site-header img,
+  header.site-header picture,
+  header.site-header svg{
     display:none !important; visibility:hidden !important; pointer-events:none !important;
+    width:0 !important; height:0 !important; overflow:hidden !important;
   }
-  .sjt-mobile-logo-overlay img,
-  .sjt-mobile-logo-overlay picture,
-  .sjt-mobile-logo-overlay svg{
+  header.site-header .sjt-mobile-logo-overlay img,
+  header.site-header .sjt-mobile-logo-overlay picture,
+  header.site-header .sjt-mobile-logo-overlay svg{
     display:block !important; visibility:visible !important; pointer-events:auto !important;
+    width:auto !important; height:auto !important; overflow:visible !important;
+  }
+  header.site-header [style*="background-image"][style*="logo" i]{
+    background-image: none !important;
   }
 }
 </style>
@@ -162,5 +167,4 @@
 <script defer src="assets/js/sjt-center-logo-enforcer.js"></script>
 <script defer src="assets/js/sjt-mobile-center-logo-overlay.js"></script>
 <script defer src="assets/js/sjt-remove-right-logo-v3.js"></script>
-<script defer src="assets/js/sjt-kill-header-right-logo.js"></script>
 </body></html>
