@@ -238,3 +238,32 @@
   .sjt-mobile-logo-overlay a{ pointer-events:auto !important; display:inline-flex !important; align-items:center !important; }
   .sjt-mobile-logo-overlay img{ display:block !important; height:auto !important; width:auto !important; object-fit:contain !important; }
 }
+
+
+
+/* === v63: MOBILE/TABLET — eliminar cualquier logo residual del header/nav (excepto overlay) === */
+@media (max-width:1024px){
+  /* Oculta cualquier bloque que parezca logo dentro del header/nav */
+  header.site-header nav.nav .logo:not(.sjt-mobile-logo-overlay *),
+  header.site-header .container .logo:not(.sjt-mobile-logo-overlay *),
+  header.site-header nav.nav .site-logo,
+  header.site-header nav.nav .brand,
+  header.site-header nav.nav img[alt*="logo" i],
+  header.site-header nav.nav img[alt*="brand" i],
+  header.site-header nav.nav picture[alt*="logo" i],
+  header.site-header nav.nav picture[alt*="brand" i]{
+    display:none !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    width:0 !important; height:0 !important;
+    pointer-events:none !important;
+  }
+  /* Cualquier <a> que envuelva un logo también se desactiva en mobile */
+  header.site-header nav.nav a:has(img[alt*="logo" i]),
+  header.site-header nav.nav a:has(.logo),
+  header.site-header nav.nav a:has(.site-logo),
+  header.site-header nav.nav a:has(.brand){
+    display:none !important;
+    pointer-events:none !important;
+  }
+}

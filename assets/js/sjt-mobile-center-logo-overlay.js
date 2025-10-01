@@ -101,3 +101,85 @@
   window.addEventListener('orientationchange', initV62);
   window.addEventListener('scroll', applyShrink, {passive:true});
 })();
+
+
+// v63: eliminación total de logos residuales (excepto overlay) en mobile/tablet
+(function(){
+  if (!('MutationObserver' in window)) return;
+
+  function isLogoLike(el){
+    try{
+      if (!el) return false;
+      if (el.closest('.sjt-mobile-logo-overlay')) return false; // mantener el centrado
+      var s = (el.outerHTML || el.textContent || '').toLowerCase();
+      if (s.includes('sjt-mobile-logo-overlay')) return false;
+      // patrones comunes
+      if (s.includes('logo') || s.includes('isologo') || s.includes('brand') || s.includes('site-logo')) return true;
+      // alt/title
+      var alt = (el.getAttribute && (el.getAttribute('alt')||'')).toLowerCase();
+      var title = (el.getAttribute && (el.getAttribute('title')||'')).toLowerCase();
+      if (alt.includes('logo') || alt.includes('brand') or title.includes('logo') or title.includes('brand')) return true;
+      return false;
+    }catch(e){ return false; }
+  }
+
+  function nukeHeaderLogos(){
+    if (window.innerWidth > 1024) return;
+    var header = document.querySelector('header.site-header'); if (!header) return;
+    var nav = header.querySelector('nav'); if (!nav) return;
+
+    // Candidatos
+    var sels = [
+      '.logo', '.site-logo', '.brand', 'img', 'picture', 'a'
+    ];
+    var nodes = [];
+    sels.forEach(function(sel){
+      nav.querySelectorAll(sel).forEach(function(n){ nodes.push(n); });
+    });
+    nodes.forEach(function(n){
+      try{
+        if (n.closest('.sjt-mobile-logo-overlay')) return;
+        if (isLogoLike(n)){
+          n.remove();
+        }
+      }catch(e){}
+    });
+  }
+
+  function startObserver(){
+    if (window.innerWidth > 1024) return;
+    var header = document.querySelector('header.site-header'); if (!header) return;
+    var nav = header.querySelector('nav'); if (!nav) return;
+    var mo = new MutationObserver(function(muts){
+      muts.forEach(function(m){
+        if (m.addedNodes){
+          m.addedNodes.forEach(function(node){
+            try{
+              if (!(node instanceof HTMLElement)) return;
+              if (node.closest && node.closest('.sjt-mobile-logo-overlay')) return;
+              if (isLogoLike(node)){
+                node.remove();
+                return;
+              }
+              // Revisar descendientes
+              node.querySelectorAll && node.querySelectorAll('*').forEach(function(child){
+                if (isLogoLike(child)) child.remove();
+              });
+            }catch(e){}
+          });
+        }
+      });
+    });
+    mo.observe(nav, {childList:true, subtree:true});
+  }
+
+  function initV63(){
+    if (window.innerWidth > 1024) return;
+    nukeHeaderLogos();
+    startObserver();
+  }
+
+  window.addEventListener('DOMContentLoaded', initV63);
+  window.addEventListener('resize', initV63);
+  window.addEventListener('orientationchange', initV63);
+})();
