@@ -222,29 +222,44 @@
 
 
 
-/* === v60r3f: MOBILE/TABLET — logo shrink synced with bar === */
+/* === v60r3g: MOBILE/TABLET — robust shrink without cropping === */
 @media (max-width:1024px){
-  /* Default header/overlay heights (already sticky in prior builds) */
-  header.site-header { position: sticky !important; top:0 !important; z-index:9999 !important; }
+  header.site-header,
+  header.site-header nav.nav,
+  .sjt-mobile-logo-overlay{
+    overflow: visible !important;
+  }
+
+  /* Default sizes */
   .sjt-mobile-logo-overlay{
     height:64px !important;
-    display:flex !important; align-items:center !important; justify-content:center !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
     transform-origin:center center !important;
+    will-change: transform, height;
+    transition: height .18s ease;
   }
+
   .sjt-mobile-logo-overlay img,
   .sjt-mobile-logo-overlay picture,
   .sjt-mobile-logo-overlay svg{
-    max-height:56px !important;
-    transition: max-height .18s ease, transform .18s ease;
+    max-height:56px !important;   /* visual cap only */
+    height:auto !important;
+    width:auto !important;
+    transform-origin:center center !important;
+    will-change: transform;
+    transition: transform .18s ease;
+    display:block !important;
   }
-  /* On scroll: shrink bar AND logo */
+
+  /* Scrolled state: shrink by transform (prevents cropping) */
   header.site-header.is-scrolled .sjt-mobile-logo-overlay{
     height:56px !important;
   }
   header.site-header.is-scrolled .sjt-mobile-logo-overlay img,
   header.site-header.is-scrolled .sjt-mobile-logo-overlay picture,
   header.site-header.is-scrolled .sjt-mobile-logo-overlay svg{
-    max-height:48px !important;
-    transform: scale(.90);
+    transform: scale(0.88);
   }
 }
