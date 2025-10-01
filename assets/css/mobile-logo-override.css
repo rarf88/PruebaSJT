@@ -30,18 +30,11 @@
 
 
 
-/* === v51 AGGRESSIVE: LOGO PINNED TOP-LEFT (MOBILE/TABLET) === */
+/* === v52: SOLO LOGO (MÓVIL/TABLET) — fijar en esquina superior izquierda === */
 @media (max-width:1024px){
-  header.site-header{ position: relative !important; }
-  header.site-header .container{ position: relative !important; }
-  header.site-header nav.nav{
-    position: relative !important;
-    min-height: 64px !important;
-    /* Dar espacio interno para logo a la izquierda y toggler a la derecha */
-    padding-left: 112px !important;  /* ajustable si el logo es más ancho */
-    padding-right: 64px !important;
-  }
-  /* Pegar LOGO a la esquina superior izquierda, centrado verticalmente en la barra */
+  /* No cambiamos tamaños ni comportamiento sticky; solo preparamos el contenedor */
+  header.site-header nav.nav{ position: relative !important; }
+  /* Logo anclado a la izquierda, centrado verticalmente en la barra */
   header.site-header nav.nav .logo{
     position: absolute !important;
     left: 8px !important;
@@ -52,32 +45,8 @@
   header.site-header nav.nav .logo picture,
   header.site-header nav.nav .logo img{
     display: block !important;
-    height: auto !important;       /* no tocar tamaño natural */
+    height: auto !important;  /* NO tocar el tamaño natural */
     width: auto !important;
     object-fit: contain !important;
-  }
-  /* Asegurar hamburguesa al extremo derecho, sin superposición */
-  header.site-header nav.nav > .navbar-toggler,
-  header.site-header nav.nav > .hamburger,
-  header.site-header nav.nav > #sjt-hamburger,
-  header.site-header nav.nav > .menu-toggle,
-  header.site-header nav.nav > button.navbar-toggler{
-    position: absolute !important;
-    right: 8px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 3 !important;
-  }
-  /* Ocultar lista de enlaces en móvil para evitar desplazamientos */
-  header.site-header nav.nav .nav-links,
-  header.site-header nav.nav > ul{
-    display: none !important;
-  }
-}
-
-/* ESCRITORIO: sin cambios visuales; mantener hamburguesa oculta */
-@media (min-width:1025px){
-  .navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler{
-    display: none !important; visibility: hidden !important; pointer-events: none !important;
   }
 }
