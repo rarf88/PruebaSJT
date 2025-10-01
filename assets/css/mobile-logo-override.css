@@ -30,53 +30,54 @@
 
 
 
-/* === v49 GRID-ONLY: LOGO IZQ — HAMBURGUER DER, SIN CAMBIAR TAMAÑOS === */
+/* === v50: LOGO ESQUINA SUPERIOR IZQUIERDA (MÓVIL/TABLET) === */
 @media (max-width:1024px){
+  /* Quitar paddings que impiden pegar el logo al borde izquierdo */
+  header.site-header .container,
   header.site-header nav.nav{
-    display:grid !important;
-    grid-template-columns: auto 1fr auto !important;
-    align-items:center !important;
-    column-gap: 8px !important;
-    justify-content: stretch !important;
+    padding-left: 0 !important;
   }
-  /* LOGO a la columna 1, sin tocar tamaño; garantizar posicionamiento normal */
+  /* Usar grid para fijar posiciones extremas */
+  header.site-header nav.nav{
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    column-gap: 8px !important;
+  }
+  /* LOGO exactamente al extremo izquierdo */
   header.site-header nav.nav .logo{
-    grid-column:1 !important;
-    justify-self:start !important;
-    align-self:center !important;
-    position:relative !important;
-    margin:0 !important;
+    grid-column: 1 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    margin-left: 0 !important;
   }
   header.site-header nav.nav .logo picture,
   header.site-header nav.nav .logo img{
-    position:static !important;
-    height:auto !important; /* NO forzar una altura distinta */
-    max-height:none !important; /* respetar tamaño original */
-    width:auto !important;
-    object-fit:contain !important;
+    position: static !important;
+    height: auto !important; /* no modificar tamaño */
+    width: auto !important;
+    object-fit: contain !important;
   }
-  /* ENLACES ocultos para no empujar layout en móvil */
-  header.site-header nav.nav .nav-links,
-  header.site-header nav.nav > ul{
-    display:none !important;
-  }
-  /* TOGGLER a la columna 3, extremo derecho */
+  /* Hamburguesa al extremo derecho (sin tocar estilos) */
   header.site-header nav.nav > .navbar-toggler,
   header.site-header nav.nav > .hamburger,
   header.site-header nav.nav > #sjt-hamburger,
   header.site-header nav.nav > .menu-toggle,
   header.site-header nav.nav > button.navbar-toggler{
-    grid-column:3 !important;
-    justify-self:end !important;
-    align-self:center !important;
-    position:relative !important;
-    z-index:2 !important; /* por si acaso */
+    grid-column: 3 !important;
+    justify-self: end !important;
+    align-self: center !important;
+  }
+  /* Evitar que los enlaces desplacen el layout en móvil */
+  header.site-header nav.nav .nav-links,
+  header.site-header nav.nav > ul{
+    display: none !important;
   }
 }
 
-/* ESCRITORIO: ocultar hamburguesa */
+/* ESCRITORIO: mantener hamburguesa oculta como antes */
 @media (min-width:1025px){
   .navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler{
-    display:none !important; visibility:hidden !important; pointer-events:none !important;
+    display: none !important; visibility: hidden !important; pointer-events: none !important;
   }
 }
