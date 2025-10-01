@@ -26,10 +26,3 @@
   #sjt-qa .qa{ width:48px; height:48px }
   #sjt-qa .qa--wa img{ width:32px; height:32px }
 }
-
-
-
-/* === v46: MOBILE/TABLET — elevar DEMO/WA por encima de 'Volver a inicio' === */
-@media (max-width:1024px){
-  #sjt-qa{ bottom: 100px !important; top: auto !important; right: 16px !important; }
-}

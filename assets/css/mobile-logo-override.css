@@ -30,41 +30,16 @@
 
 
 
-/* === v46: MOBILE/TABLET — forzar LOGO a la IZQUIERDA (override ultra específico) === */
+/* === v47b MINIMAL === */
 @media (max-width:1024px){
-  header.site-header .container{ display:flex !important; }
-  header.site-header nav.nav{ 
-    display:flex !important; align-items:center !important;
-    width:100% !important;
-  }
-  /* aseguramos que el logo exista y esté antes que el toggler visualmente */
-  header.site-header nav.nav .logo{ 
-    order:0 !important; margin-right:auto !important; 
-    display:flex !important; align-items:center !important;
-  }
-  header.site-header nav.nav .logo img,
-  header.site-header nav.nav .logo picture{ 
-    height:56px !important; width:auto !important; object-fit:contain !important;
-  }
-  /* cualquier tipo de toggler al extremo derecho */
-  header.site-header nav.nav > .navbar-toggler,
-  header.site-header nav.nav > .hamburger,
-  header.site-header nav.nav > .menu-toggle,
-  header.site-header nav.nav > #sjt-hamburger,
-  header.site-header nav.nav > button,
-  header.site-header nav.nav > .btn-menu{
-    order:1 !important; margin-left:12px !important; margin-right:0 !important;
-  }
-  /* ocultar listas de enlaces en móvil */
-  header.site-header nav.nav .nav-links,
-  header.site-header nav.nav > ul{ 
-    display:none !important; 
-  }
+  .site-header .nav .logo{ order:0 !important; margin-right:auto !important; }
+  .site-header .nav > .navbar-toggler,
+  .site-header .nav > .hamburger,
+  .site-header .nav > .menu-toggle,
+  .site-header .nav > #sjt-hamburger{ order:1 !important; }
 }
-
-/* Esconder hamburguesa en escritorio siempre */
 @media (min-width:1025px){
-  .navbar-toggler,.hamburger,#sjt-hamburger,.menu-toggle,button.navbar-toggler{ 
+  .navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler{
     display:none !important; visibility:hidden !important; pointer-events:none !important;
   }
 }
