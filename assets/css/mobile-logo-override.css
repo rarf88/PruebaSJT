@@ -219,3 +219,22 @@
     max-height:48px !important;
   }
 }
+
+
+
+/* === v62: MOBILE/TABLET — overlay por encima y shrink suave por transform === */
+@media (max-width:1024px){
+  header.site-header{ position: sticky !important; top:0 !important; z-index: 9999 !important; }
+  .sjt-mobile-logo-overlay{
+    position:absolute !important;
+    top:0 !important; left:0 !important; right:0 !important;
+    height:64px !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    pointer-events:none !important;
+    z-index: 99999 !important; /* más alto que cualquier logo residual */
+    will-change: transform, height;
+    transform-origin: center center !important;
+  }
+  .sjt-mobile-logo-overlay a{ pointer-events:auto !important; display:inline-flex !important; align-items:center !important; }
+  .sjt-mobile-logo-overlay img{ display:block !important; height:auto !important; width:auto !important; object-fit:contain !important; }
+}
