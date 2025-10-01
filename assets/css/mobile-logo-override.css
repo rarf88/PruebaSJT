@@ -222,44 +222,41 @@
 
 
 
-/* === v60r3g: MOBILE/TABLET — robust shrink without cropping === */
+/* === v60r3h: MOBILE/TABLET — stable shrink with no cropping & safe-area === */
 @media (max-width:1024px){
-  header.site-header,
-  header.site-header nav.nav,
-  .sjt-mobile-logo-overlay{
+  header.site-header{
+    position: sticky !important; top:0 !important; z-index:9999 !important;
+    padding-top: env(safe-area-inset-top, 0); /* iOS notch safety */
     overflow: visible !important;
   }
+  header.site-header nav.nav{ 
+    min-height:64px !important; 
+    transition:min-height .2s ease;
+    overflow: visible !important;
+  }
+  header.site-header.is-scrolled nav.nav{ min-height:56px !important; }
 
-  /* Default sizes */
   .sjt-mobile-logo-overlay{
     height:64px !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
     transform-origin:center center !important;
-    will-change: transform, height;
-    transition: height .18s ease;
+    transition:height .2s ease;
+    overflow: visible !important;
+    z-index:5 !important;
   }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ height:56px !important; }
 
+  /* Logo media: leave headroom to avoid clipping; scale only on scroll */
   .sjt-mobile-logo-overlay img,
   .sjt-mobile-logo-overlay picture,
   .sjt-mobile-logo-overlay svg{
-    max-height:56px !important;   /* visual cap only */
-    height:auto !important;
-    width:auto !important;
-    transform-origin:center center !important;
-    will-change: transform;
-    transition: transform .18s ease;
-    display:block !important;
-  }
-
-  /* Scrolled state: shrink by transform (prevents cropping) */
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay{
-    height:56px !important;
+    max-height:52px !important;  /* cushion at top/bottom */
+    height:auto !important; width:auto !important; display:block !important;
+    transform-origin:center center !important; transition:transform .2s ease;
   }
   header.site-header.is-scrolled .sjt-mobile-logo-overlay img,
   header.site-header.is-scrolled .sjt-mobile-logo-overlay picture,
   header.site-header.is-scrolled .sjt-mobile-logo-overlay svg{
-    transform: scale(0.88);
+    transform:scale(0.88);
   }
 }
