@@ -30,23 +30,40 @@
 
 
 
-/* === v52: SOLO LOGO (MÓVIL/TABLET) — fijar en esquina superior izquierda === */
+/* === v53: MOBILE/TABLET ONLY === */
+/* 1) Logo perfectamente CENTRADO en la barra, sin tocar tamaños ni desktop */
 @media (max-width:1024px){
-  /* No cambiamos tamaños ni comportamiento sticky; solo preparamos el contenedor */
-  header.site-header nav.nav{ position: relative !important; }
-  /* Logo anclado a la izquierda, centrado verticalmente en la barra */
+  header.site-header nav.nav{ 
+    position: relative !important; 
+    min-height: 64px !important;
+    /* Reservas laterales para que el logo no choque con el hamburguesa */
+    padding-left: 72px !important;   /* reserva izquierda */
+    padding-right: 72px !important;  /* reserva derecha (hamburguesa) */
+  }
   header.site-header nav.nav .logo{
     position: absolute !important;
-    left: 8px !important;
+    left: 50% !important;
     top: 50% !important;
-    transform: translateY(-50%) !important;
+    transform: translate(-50%, -50%) !important;
     margin: 0 !important;
   }
   header.site-header nav.nav .logo picture,
   header.site-header nav.nav .logo img{
     display: block !important;
-    height: auto !important;  /* NO tocar el tamaño natural */
+    height: auto !important; /* NO modificar tamaño natural */
     width: auto !important;
     object-fit: contain !important;
   }
+  /* Evitar que los enlaces empujen la barra en mobile */
+  header.site-header nav.nav .nav-links,
+  header.site-header nav.nav > ul{ display: none !important; }
+}
+
+/* 2) Subir los botones DEMO/WhatsApp para que NO tapen 'Volver a inicio' */
+@media (max-width:1024px){
+  /* Variante con #sjt-qa v2 */
+  #sjt-qa{ bottom: 148px !important; top: auto !important; right: 16px !important; }
+  /* Variante con ids directos */
+  #sjt-floating-demo{ top: 10px !important; bottom: auto !important; right: 16px !important; }
+  #sjt-floating-whatsapp{ top: calc(10px + var(--sjt-size, 56px) + var(--sjt-gap, 10px)) !important; bottom: auto !important; right: 16px !important; }
 }
