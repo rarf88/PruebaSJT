@@ -187,3 +187,35 @@
 }
 
 /* Desktop untouched */
+
+
+
+/* === v61: MOBILE/TABLET — quitar logo derecho agresivo + shrink del logo centrado === */
+@media (max-width:1024px){
+  /* Quitar por completo el logo original del nav en mobile (defensa múltiple) */
+  header.site-header nav.nav .logo{
+    display:none !important;
+    opacity:0 !important;
+    width:0 !important;
+    height:0 !important;
+    pointer-events:none !important;
+    visibility:hidden !important;
+  }
+
+  /* Overlay centrado: tamaño normal */
+  .sjt-mobile-logo-overlay{
+    height:64px !important;
+  }
+  .sjt-mobile-logo-overlay img{
+    max-height:56px !important; /* altura segura en estado normal */
+    transition: max-height .18s ease;
+  }
+
+  /* Al hacer scroll, la barra reduce y también el logo centrado */
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay{
+    height:56px !important;
+  }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay img{
+    max-height:48px !important;
+  }
+}

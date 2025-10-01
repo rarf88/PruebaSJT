@@ -32,3 +32,19 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('DOMContentLoaded', onScroll);
 })();
+
+
+(function(){
+  function removeOriginalLogo(){
+    if (window.innerWidth > 1024) return;
+    var nav = document.querySelector('header.site-header nav.nav');
+    if(!nav) return;
+    var orig = nav.querySelector('.logo');
+    if (orig && orig.parentElement){
+      try{ orig.parentElement.removeChild(orig); }catch(e){ /* noop */ }
+    }
+  }
+  window.addEventListener('DOMContentLoaded', removeOriginalLogo);
+  window.addEventListener('resize', removeOriginalLogo);
+  window.addEventListener('orientationchange', removeOriginalLogo);
+})();
