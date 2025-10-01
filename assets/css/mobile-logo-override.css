@@ -132,27 +132,25 @@
 
 
 
-/* === v58: MOBILE/TABLET — 'cortar' (clonar) y CENTRAR el logo === */
+/* === v59: MOBILE/TABLET — overlay centrado para el logo (sin tocar desktop) === */
 @media (max-width:1024px){
-  header.site-header nav.nav{ position: relative !important; min-height: 64px !important; }
-  /* Ocultamos el logo original en móvil/tablet para evitar cruces */
-  header.site-header nav.nav .logo{ display:none !important; }
-  /* Contenedor centrado para el clon */
-  .sjt-mobile-centered-logo{
-    position:absolute !important;
-    left:50% !important;
-    top:50% !important;
-    transform:translate(-50%,-50%) !important;
-    margin:0 !important;
-    display:block !important;
-    z-index: 3 !important;
-    pointer-events:none !important; /* que no bloquee toques sobre la barra */
+  header.site-header{ position: relative !important; }
+  /* Mantener layout del nav, pero ocultar visualmente el logo original */
+  header.site-header nav.nav .logo{
+    opacity: 0 !important;
   }
-  .sjt-mobile-centered-logo picture,
-  .sjt-mobile-centered-logo img{
+  /* Capa superior que centra el logo, sin bloquear clics */
+  .sjt-mobile-logo-overlay{
+    position:absolute !important;
+    top:0 !important; left:0 !important; right:0 !important;
+    height:64px !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    pointer-events:none !important;
+    z-index: 5 !important;
+  }
+  .sjt-mobile-logo-overlay picture,
+  .sjt-mobile-logo-overlay img{
     display:block !important;
-    height:auto !important;
-    width:auto !important;
-    object-fit:contain !important;
+    height:auto !important; width:auto !important; object-fit:contain !important;
   }
 }
