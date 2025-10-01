@@ -184,246 +184,112 @@
   window.addEventListener('orientationchange', initV63);
 })();
 
-
-// v64: root-level eradication of any non-centered logos (mobile/tablet only)
-(function(){
-  function isMobile(){ return window.innerWidth <= 1024; }
-
-  function isOverlay(node){
-    try { return !!(node && node.closest && node.closest('.sjt-mobile-logo-overlay')); } catch(e){ return false; }
-  }
-
-  function looksLogo(node){
-    try{
-      if (!node || node.nodeType !== 1) return false;
-      if (isOverlay(node)) return false;
-      var tag = node.tagName.toLowerCase();
-      var cls = (node.className || '').toString().toLowerCase();
-      var id  = (node.id || '').toString().toLowerCase();
-      var html = (node.outerHTML || '').toLowerCase();
-      var alt = (node.getAttribute && (node.getAttribute('alt')||'')).toLowerCase();
-      var title = (node.getAttribute && (node.getAttribute('title')||'')).toLowerCase();
-      var src = (node.getAttribute && (node.getAttribute('src')||'')).toLowerCase();
-
-      var hit = false;
-      if (/(^|\b)(logo|site-logo|brand|isologo)(\b|$)/.test(cls)) hit = true;
-      if (/(^|\b)(logo|site-logo|brand|isologo)(\b|$)/.test(id)) hit = true;
-      if (alt.includes('logo') || alt.includes('brand')) hit = true;
-      if (title.includes('logo') || title.includes('brand')) hit = true;
-      if (src.includes('logo')) hit = true;
-      if (html.includes('logo') || html.includes('site-logo') || html.includes('isologo')) hit = true;
-
-      if (!hit && (tag === 'img' || tag === 'picture' || tag === 'svg')) {
-        // conservative: if image near the right side inside nav, consider it
-        var nav = node.closest && node.closest('nav');
-        if (nav) hit = true;
-      }
-      return hit;
-    }catch(e){ return false; }
-  }
-
-  function shouldBlock(node){
-    if (!isMobile()) return false;
-    if (!node) return false;
-    if (isOverlay(node)) return false;
-    if (looksLogo(node)) return true;
-    if (node.querySelector){
-      var hit = node.querySelector('.logo, .site-logo, .brand, [alt*="logo" i], [alt*="brand" i], img[src*="logo" i]');
-      if (hit && !isOverlay(hit)) return true;
-    }
-    return false;
-  }
-
-  function patchContainer(el){
-    if (!el || el.__sjt_patched) return;
-    var ap = el.appendChild;
-    var ib = el.insertBefore;
-    var rp = el.replaceChild;
-
-    function safe(child){
-      try{
-        if (shouldBlock(child)){ return null; }
-      }catch(e){}
-      return child;
-    }
-
-    el.appendChild = function(child){
-      var c = safe(child);
-      if (!c) return child;
-      return ap.call(this, c);
-    };
-    el.insertBefore = function(child, ref){
-      var c = safe(child);
-      if (!c) return child;
-      return ib.call(this, c, ref);
-    };
-    el.replaceChild = function(newChild, oldChild){
-      var c = safe(newChild);
-      if (!c) return oldChild;
-      return rp.call(this, c, oldChild);
-    };
-    el.__sjt_patched = true;
-  }
-
-  function nukeNow(){
-    if (!isMobile()) return;
-    var header = document.querySelector('header.site-header'); if (!header) return;
-    var nav = header.querySelector('nav'); if (!nav) return;
-    // immediate removal
-    nav.querySelectorAll('*').forEach(function(n){
-      if (shouldBlock(n)) { try{ n.remove(); }catch(e){} }
-    });
-    // patch containers
-    patchContainer(nav);
-    patchContainer(header);
-    patchContainer(document.body);
-  }
-
-  function observe(){
-    if (!isMobile()) return;
-    var header = document.querySelector('header.site-header'); if (!header) return;
-    var nav = header.querySelector('nav'); if (!nav) return;
-    if (nav.__sjt_mo) return;
-    var mo = new MutationObserver(function(muts){
-      muts.forEach(function(m){
-        m.addedNodes && m.addedNodes.forEach(function(node){
-          if (node && node.nodeType === 1){
-            if (shouldBlock(node)){ try{ node.remove(); }catch(e){}; return; }
-            node.querySelectorAll && node.querySelectorAll('*').forEach(function(child){
-              if (shouldBlock(child)){ try{ child.remove(); }catch(e){} }
-            });
-          }
-        });
-      });
-    });
-    mo.observe(nav, {childList:true, subtree:true});
-    nav.__sjt_mo = mo;
-  }
-
-  function initV64(){
-    if (!isMobile()) return;
-    // run after overlay has been created (0ms microtask)
-    setTimeout(function(){
-      nukeNow();
-      observe();
-    }, 0);
-  }
-
-  window.addEventListener('DOMContentLoaded', initV64);
-  window.addEventListener('resize', initV64);
-  window.addEventListener('orientationchange', initV64);
-})();
-
-
-// v65: target & remove ONLY the right-side logo near the hamburger (mobile/tablet)
+// v66: REMOVE ONLY the right-side (hamburger area) logo in mobile/tablet — aggressive root cause
 (function(){
   function isMobile(){ return window.innerWidth <= 1024; }
   function $(sel, root){ return (root||document).querySelector(sel); }
-  function $all(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
-
-  function isOverlayNode(el){
-    try{ return !!(el && el.closest && el.closest('.sjt-mobile-logo-overlay')); }catch(e){ return false; }
+  function $$ (sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
+  function isOverlay(el){ try{ return !!(el && el.closest && el.closest('.sjt-mobile-logo-overlay')); }catch(e){ return false; } }
+  function isToggler(el){ return !!(el && (el.matches('.navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler') || (el.closest && el.closest('.navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler')))); }
+  function looksLogo(el){
+    if (!el || el.nodeType!==1) return false;
+    if (isOverlay(el) || isToggler(el)) return false;
+    var cls=(el.className||'').toString().toLowerCase();
+    var id =(el.id||'').toString().toLowerCase();
+    var alt=(el.getAttribute&& (el.getAttribute('alt')||'')).toLowerCase();
+    var tit=(el.getAttribute&& (el.getAttribute('title')||'')).toLowerCase();
+    var src=(el.getAttribute&& (el.getAttribute('src')||'')).toLowerCase();
+    var html=(el.outerHTML||'').toLowerCase();
+    if (/(^|\b)(logo|site-logo|brand|isologo)(\b|$)/.test(cls+' '+id)) return true;
+    if (alt.includes('logo')||alt.includes('brand')||tit.includes('logo')||tit.includes('brand')||src.includes('logo')) return true;
+    if (html.includes('logo')||html.includes('site-logo')||html.includes('isologo')) return true;
+    // Heuristic: standalone IMG/PICTURE/SVG near right side
+    if (el.tagName==='IMG'||el.tagName==='PICTURE'||el.tagName==='SVG') return true;
+    return false;
   }
-  function isToggler(el){
-    return !!(el && (el.matches('.navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler') || (el.closest && el.closest('.navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler'))));
+  function hasLogoBg(el){
+    try{ var bg=getComputedStyle(el).backgroundImage||''; return /logo/i.test(bg); }catch(e){ return false; }
   }
-  function looksLogoLike(el){
-    if (!el || el.nodeType !== 1) return false;
-    if (isOverlayNode(el) || isToggler(el)) return false;
-    var cls = (el.className || '').toString().toLowerCase();
-    var id  = (el.id || '').toString().toLowerCase();
-    var alt = (el.getAttribute && (el.getAttribute('alt')||'')).toLowerCase();
-    var title = (el.getAttribute && (el.getAttribute('title')||'')).toLowerCase();
-    var src = (el.getAttribute && (el.getAttribute('src')||'')).toLowerCase();
-    var html = (el.outerHTML || '').toLowerCase();
-    if (/(^|\b)(logo|site-logo|brand|isologo)(\b|$)/.test(cls+ ' ' + id)) return true;
-    if (alt.includes('logo') || alt.includes('brand')) return true;
-    if (title.includes('logo') || title.includes('brand')) return true;
-    if (src.includes('logo')) return true;
-    if (html.includes('logo') || html.includes('site-logo') || html.includes('isologo')) return true;
-    return (el.tagName === 'IMG' || el.tagName === 'PICTURE' || el.tagName === 'SVG');
-  }
-
-  function hasLogoBackground(el){
-    try{
-      var cs = window.getComputedStyle(el);
-      var bg = (cs && cs.backgroundImage) || '';
-      return /logo/i.test(bg);
-    }catch(e){ return false; }
-  }
-
-  function removeRightSideLogo(){
+  function killRightLogo(){
     if (!isMobile()) return;
-    var header = $('header.site-header'); if (!header) return;
-    var nav = $('nav', header); if (!nav) return;
-
-    var navRect = nav.getBoundingClientRect();
-    var rightThreshold = navRect.left + navRect.width * 0.55; // right half
-
-    var candidates = $all('img, picture, svg, a, div, span', nav);
-    candidates.forEach(function(el){
-      if (isOverlayNode(el) || isToggler(el)) return;
-      // Skip things in left half
-      var r;
-      try{ r = el.getBoundingClientRect(); }catch(e){ r = null; }
+    var header=$('header.site-header'); if(!header) return;
+    var nav=$('nav', header); if(!nav) return;
+    var rect=nav.getBoundingClientRect();
+    var rightStart=rect.left + rect.width*0.55; // right half threshold
+    var nodes=$$('img, picture, svg, a, div, span', nav);
+    nodes.forEach(function(el){
+      if (isOverlay(el) || isToggler(el)) return;
+      var r; try{ r=el.getBoundingClientRect(); }catch(e){ r=null; }
       if (!r) return;
-
-      // Only consider elements on the right half (likely near the hamburger area)
-      var isRightSide = (r.left > rightThreshold);
-      if (!isRightSide) return;
-
-      var kill = false;
-      if (looksLogoLike(el)) kill = true;
-      if (!kill && hasLogoBackground(el)) kill = true;
-
-      if (kill){
-        // If this is inside an anchor, remove the anchor wrapper
-        var a = el.closest && el.closest('a');
-        try{
-          (a || el).remove();
-        }catch(e){}
+      var onRight=r.left>rightStart;
+      if (!onRight) return;
+      var remove=false;
+      if (looksLogo(el)) remove=true;
+      if (!remove && hasLogoBg(el)) remove=true;
+      if (remove){
+        var a=el.closest && el.closest('a');
+        try{ (a||el).remove(); }catch(e){}
+      }
+    });
+    // Also clear background-image on any right area wrappers (defensive)
+    var wrappers=$$('div, span, a', nav);
+    wrappers.forEach(function(el){
+      if (isOverlay(el) || isToggler(el)) return;
+      var r; try{ r=el.getBoundingClientRect(); }catch(e){ r=null; }
+      if (!r) return;
+      if (r.left>rightStart){
+        if (hasLogoBg(el)){
+          try{ el.style.backgroundImage='none'; }catch(e){}
+        }
       }
     });
   }
-
-  function observeRightArea(){
+  function observe(){
     if (!isMobile()) return;
-    var header = $('header.site-header'); if (!header) return;
-    var nav = $('nav', header); if (!nav) return;
-    if (nav.__mo_v65) return;
-    var mo = new MutationObserver(function(muts){
+    var header=$('header.site-header'); if(!header) return;
+    var nav=$('nav', header); if(!nav) return;
+    if (nav.__mo_v66) return;
+    var mo=new MutationObserver(function(muts){
       muts.forEach(function(m){
         m.addedNodes && Array.prototype.forEach.call(m.addedNodes, function(node){
-          if (!(node && node.nodeType === 1)) return;
-          removeRightSideLogo();
+          if (!(node && node.nodeType===1)) return;
+          killRightLogo();
         });
       });
     });
     mo.observe(nav, {childList:true, subtree:true});
-    nav.__mo_v65 = mo;
+    nav.__mo_v66=mo;
   }
-
-  function initV65(){
-    if (!isMobile()) return;
-    // ensure overlay exists first (v59+ behavior)
-    var header = $('header.site-header');
-    var overlay = $('.sjt-mobile-logo-overlay', header);
-    var nav = $('nav', header);
-    if (!overlay && nav){
-      var logo = $('.logo', nav);
-      if (logo){
-        overlay = document.createElement('div');
-        overlay.className = 'sjt-mobile-logo-overlay';
-        var a=document.createElement('a'); a.href='index.html'; a.setAttribute('aria-label','Inicio'); a.innerHTML=logo.innerHTML;
-        overlay.appendChild(a);
-        header.appendChild(overlay);
-      }
+  function patchContainer(el){
+    if (!el || el.__patched_v66) return;
+    var ap=el.appendChild, ib=el.insertBefore, rp=el.replaceChild;
+    function safe(child){
+      try{
+        if (!child || child.nodeType!==1) return child;
+        var nav=el.closest && el.closest('nav');
+        if (!nav) return child;
+        var rect=nav.getBoundingClientRect();
+        var rightStart=rect.left + rect.width*0.55;
+        var r=child.getBoundingClientRect ? child.getBoundingClientRect(): null;
+        if (r && r.left>rightStart){
+          if (looksLogo(child)) return null;
+        }
+      }catch(e){}
+      return child;
     }
-    removeRightSideLogo();
-    observeRightArea();
+    el.appendChild=function(c){ var x=safe(c); if(!x) return c; return ap.call(this,x); };
+    el.insertBefore=function(c,ref){ var x=safe(c); if(!x) return c; return ib.call(this,x,ref); };
+    el.replaceChild=function(n,o){ var x=safe(n); if(!x) return o; return rp.call(this,x,o); };
+    el.__patched_v66=true;
   }
-
-  window.addEventListener('DOMContentLoaded', initV65);
-  window.addEventListener('resize', initV65);
-  window.addEventListener('orientationchange', initV65);
+  function initV66(){
+    if (!isMobile()) return;
+    killRightLogo();
+    observe();
+    var header=$('header.site-header'); var nav=header && $('nav', header);
+    if (nav){ patchContainer(nav); patchContainer(header); patchContainer(document.body); }
+  }
+  window.addEventListener('DOMContentLoaded', initV66);
+  window.addEventListener('resize', initV66);
+  window.addEventListener('orientationchange', initV66);
 })();
