@@ -313,3 +313,117 @@
   window.addEventListener('resize', initV64);
   window.addEventListener('orientationchange', initV64);
 })();
+
+
+// v65: target & remove ONLY the right-side logo near the hamburger (mobile/tablet)
+(function(){
+  function isMobile(){ return window.innerWidth <= 1024; }
+  function $(sel, root){ return (root||document).querySelector(sel); }
+  function $all(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
+
+  function isOverlayNode(el){
+    try{ return !!(el && el.closest && el.closest('.sjt-mobile-logo-overlay')); }catch(e){ return false; }
+  }
+  function isToggler(el){
+    return !!(el && (el.matches('.navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler') || (el.closest && el.closest('.navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler'))));
+  }
+  function looksLogoLike(el){
+    if (!el || el.nodeType !== 1) return false;
+    if (isOverlayNode(el) || isToggler(el)) return false;
+    var cls = (el.className || '').toString().toLowerCase();
+    var id  = (el.id || '').toString().toLowerCase();
+    var alt = (el.getAttribute && (el.getAttribute('alt')||'')).toLowerCase();
+    var title = (el.getAttribute && (el.getAttribute('title')||'')).toLowerCase();
+    var src = (el.getAttribute && (el.getAttribute('src')||'')).toLowerCase();
+    var html = (el.outerHTML || '').toLowerCase();
+    if (/(^|\b)(logo|site-logo|brand|isologo)(\b|$)/.test(cls+ ' ' + id)) return true;
+    if (alt.includes('logo') || alt.includes('brand')) return true;
+    if (title.includes('logo') || title.includes('brand')) return true;
+    if (src.includes('logo')) return true;
+    if (html.includes('logo') || html.includes('site-logo') || html.includes('isologo')) return true;
+    return (el.tagName === 'IMG' || el.tagName === 'PICTURE' || el.tagName === 'SVG');
+  }
+
+  function hasLogoBackground(el){
+    try{
+      var cs = window.getComputedStyle(el);
+      var bg = (cs && cs.backgroundImage) || '';
+      return /logo/i.test(bg);
+    }catch(e){ return false; }
+  }
+
+  function removeRightSideLogo(){
+    if (!isMobile()) return;
+    var header = $('header.site-header'); if (!header) return;
+    var nav = $('nav', header); if (!nav) return;
+
+    var navRect = nav.getBoundingClientRect();
+    var rightThreshold = navRect.left + navRect.width * 0.55; // right half
+
+    var candidates = $all('img, picture, svg, a, div, span', nav);
+    candidates.forEach(function(el){
+      if (isOverlayNode(el) || isToggler(el)) return;
+      // Skip things in left half
+      var r;
+      try{ r = el.getBoundingClientRect(); }catch(e){ r = null; }
+      if (!r) return;
+
+      // Only consider elements on the right half (likely near the hamburger area)
+      var isRightSide = (r.left > rightThreshold);
+      if (!isRightSide) return;
+
+      var kill = false;
+      if (looksLogoLike(el)) kill = true;
+      if (!kill && hasLogoBackground(el)) kill = true;
+
+      if (kill){
+        // If this is inside an anchor, remove the anchor wrapper
+        var a = el.closest && el.closest('a');
+        try{
+          (a || el).remove();
+        }catch(e){}
+      }
+    });
+  }
+
+  function observeRightArea(){
+    if (!isMobile()) return;
+    var header = $('header.site-header'); if (!header) return;
+    var nav = $('nav', header); if (!nav) return;
+    if (nav.__mo_v65) return;
+    var mo = new MutationObserver(function(muts){
+      muts.forEach(function(m){
+        m.addedNodes && Array.prototype.forEach.call(m.addedNodes, function(node){
+          if (!(node && node.nodeType === 1)) return;
+          removeRightSideLogo();
+        });
+      });
+    });
+    mo.observe(nav, {childList:true, subtree:true});
+    nav.__mo_v65 = mo;
+  }
+
+  function initV65(){
+    if (!isMobile()) return;
+    // ensure overlay exists first (v59+ behavior)
+    var header = $('header.site-header');
+    var overlay = $('.sjt-mobile-logo-overlay', header);
+    var nav = $('nav', header);
+    if (!overlay && nav){
+      var logo = $('.logo', nav);
+      if (logo){
+        overlay = document.createElement('div');
+        overlay.className = 'sjt-mobile-logo-overlay';
+        var a=document.createElement('a'); a.href='index.html'; a.setAttribute('aria-label','Inicio'); a.innerHTML=logo.innerHTML;
+        overlay.appendChild(a);
+        header.appendChild(overlay);
+      }
+    }
+    removeRightSideLogo();
+    observeRightArea();
+  }
+
+  window.addEventListener('DOMContentLoaded', initV65);
+  window.addEventListener('resize', initV65);
+  window.addEventListener('orientationchange', initV65);
+})();
