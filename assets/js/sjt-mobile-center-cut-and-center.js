@@ -37,6 +37,20 @@
     nav.style.setProperty('--toggler-w', w + 'px');
   }
 
+  
+  function setRightPadding(){
+    if (!isMobile()) return;
+    var header = $('header.site-header'); if (!header) return;
+    var nav = $('nav', header); if (!nav) return;
+    var toggler = nav.querySelector('.navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler');
+    var w = 44;
+    if (toggler){
+      var r = toggler.getBoundingClientRect();
+      w = Math.max(44, Math.ceil(r.width) + 16); // add a little breathing room
+    }
+    nav.style.setProperty('--pad-right', w + 'px');
+  }
+
   function onScroll(){
     if (!isMobile()) return;
     var header = $('header.site-header'); if (!header) return;
@@ -45,8 +59,8 @@
     else if (y < 60) header.classList.remove('is-scrolled');
   }
 
-  window.addEventListener('DOMContentLoaded', function(){ ensureOverlay(); syncGhostSpacer(); onScroll(); });
-  window.addEventListener('resize', function(){ syncGhostSpacer(); onScroll(); });
-  window.addEventListener('orientationchange', function(){ syncGhostSpacer(); onScroll(); });
+  window.addEventListener('DOMContentLoaded', function(){ ensureOverlay();  onScroll(); setRightPadding(); });
+  window.addEventListener('resize', function(){ setRightPadding();  onScroll(); setRightPadding(); });
+  window.addEventListener('orientationchange', function(){ setRightPadding();  onScroll(); setRightPadding(); });
   window.addEventListener('scroll', onScroll, {passive:true});
 })();

@@ -374,3 +374,54 @@
 @media (min-width:1025px){
   .sjt-mobile-logo-overlay{ display:none !important; }
 }
+
+
+
+/* v60r3m6: absolute mathematical centering + dynamic right padding (mobile/tablet) */
+@media (max-width:1024px){
+  header.site-header nav.nav{
+    position: relative !important;
+    padding-right: var(--pad-right, 56px) !important; /* space for hamburger so it doesn't overlap */
+  }
+  .sjt-mobile-logo-overlay{
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    transform: translateX(-50%) !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: none !important;
+    z-index: 4 !important;
+  }
+  .sjt-mobile-logo-overlay a{
+    pointer-events: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .sjt-mobile-logo-overlay img{
+    height: auto !important;
+    width: auto !important;
+    object-fit: contain !important;
+    max-height: 50px !important;
+    transition: max-height .22s ease;
+  }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay img{
+    max-height: 44px !important;
+  }
+
+  /* Keep hamburger on the right, regular flow */
+  header.site-header nav.nav .navbar-toggler,
+  header.site-header nav.nav .hamburger,
+  header.site-header nav.nav #sjt-hamburger,
+  header.site-header nav.nav .menu-toggle,
+  header.site-header nav.nav button.navbar-toggler{
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 6 !important;
+  }
+}
