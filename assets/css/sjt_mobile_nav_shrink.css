@@ -1,0 +1,67 @@
+/* sjt_mobile_nav_shrink.css — Added by automation on 2025-10-02 */
+/* Applies only to mobile & tablets */
+@media (max-width: 1024px){
+  :root{
+    --sjt-nav-height: 64px;              /* default mobile/tablet nav height */
+    --sjt-nav-height-shrink: 48px;       /* height after scrolling */
+  }
+
+  /* Header/Nav containers: try common selectors without breaking existing styles */
+  header, .header, .navbar, .topbar, nav[role="navigation"]{
+    transition: height .22s ease, box-shadow .22s ease, padding .22s ease;
+  }
+
+  html.sjt-shrink header,
+  html.sjt-shrink .header,
+  html.sjt-shrink .navbar,
+  html.sjt-shrink .topbar,
+  html.sjt-shrink nav[role="navigation"]{
+    /* If the site already sets explicit heights via classes/inline styles,
+       this will cooperate if those use auto/line-height. For hard fixed heights,
+       the logo will still shrink via max-height rules below. */
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  }
+
+  /* Make logo image always fit inside the bar and scale down smoothly.
+     We target common DOM patterns safely. */
+  header img.logo,
+  .header img.logo,
+  .navbar img.logo,
+  .topbar img.logo,
+  header .logo img,
+  .header .logo img,
+  .navbar .logo img,
+  .topbar .logo img,
+  header img[alt*="logo" i],
+  nav img[alt*="logo" i]{
+    height: var(--sjt-nav-height);
+    max-height: var(--sjt-nav-height);
+    width: auto;
+    object-fit: contain;
+    transition: height .2s ease, max-height .2s ease, transform .2s ease;
+  }
+
+  /* When scrolled, reduce the logo height */
+  html.sjt-shrink header img.logo,
+  html.sjt-shrink .header img.logo,
+  html.sjt-shrink .navbar img.logo,
+  html.sjt-shrink .topbar img.logo,
+  html.sjt-shrink header .logo img,
+  html.sjt-shrink .header .logo img,
+  html.sjt-shrink .navbar .logo img,
+  html.sjt-shrink .topbar .logo img,
+  html.sjt-shrink header img[alt*="logo" i],
+  html.sjt-shrink nav img[alt*="logo" i]{
+    height: var(--sjt-nav-height-shrink);
+    max-height: var(--sjt-nav-height-shrink);
+  }
+
+  /* If the header uses padding instead of fixed height, gently reduce vertical padding */
+  html.sjt-shrink header,
+  html.sjt-shrink .header,
+  html.sjt-shrink .navbar,
+  html.sjt-shrink .topbar{
+    padding-top: clamp(4px, 0.6vh, 8px);
+    padding-bottom: clamp(4px, 0.6vh, 8px);
+  }
+}
