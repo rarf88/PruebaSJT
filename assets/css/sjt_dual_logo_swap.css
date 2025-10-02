@@ -1,0 +1,22 @@
+/* sjt_dual_logo_swap.css — mobile/tablet only: swap logos on shrink (primary normal, secondary @60%) */
+@media (max-width:1024px){
+  /* keep header visible */
+  header, .header, .navbar, .topbar, nav[role="navigation"]{
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+  }
+
+  /* visibility control */
+  html:not(.sjt-shrink) .sjt-secondary-logo{ display: none !important; }
+  html.sjt-shrink .sjt-primary-logo{ display: none !important; }
+  html.sjt-shrink .sjt-secondary-logo{ display: block !important; }
+
+  /* safety: logos never crop */
+  .sjt-primary-logo, .sjt-secondary-logo{
+    height: auto !important;
+    width: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+}
