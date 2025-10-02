@@ -51,6 +51,22 @@
     nav.style.setProperty('--pad-right', w + 'px');
   }
 
+  
+  function purgeStrayNavMedia(){
+    if (!isMobile()) return;
+    var header = $('header.site-header'); if (!header) return;
+    var nav = $('nav', header); if (!nav) return;
+    var nodes = nav.querySelectorAll('img, picture, svg');
+    nodes.forEach(function(n){
+      if (n.closest('.sjt-mobile-logo-overlay')) return;   // keep centered overlay
+      if (n.closest('button')) return;                      // keep hamburger/icon inside buttons
+      try{ n.remove(); }catch(e){}
+    });
+    // Also hide common wrappers if still present
+    var wrappers = nav.querySelectorAll('.logo, .site-logo, .brand');
+    wrappers.forEach(function(w){ try{ w.remove(); }catch(e){} });
+  }
+
   function onScroll(){
     if (!isMobile()) return;
     var header = $('header.site-header'); if (!header) return;
@@ -59,8 +75,8 @@
     else if (y < 60) header.classList.remove('is-scrolled');
   }
 
-  window.addEventListener('DOMContentLoaded', function(){ ensureOverlay();  onScroll(); setRightPadding(); });
-  window.addEventListener('resize', function(){ setRightPadding();  onScroll(); setRightPadding(); });
-  window.addEventListener('orientationchange', function(){ setRightPadding();  onScroll(); setRightPadding(); });
+  window.addEventListener('DOMContentLoaded', function(){ ensureOverlay();  onScroll(); setRightPadding(); purgeStrayNavMedia(); });
+  window.addEventListener('resize', function(){ setRightPadding(); purgeStrayNavMedia();  onScroll(); setRightPadding(); purgeStrayNavMedia(); });
+  window.addEventListener('orientationchange', function(){ setRightPadding(); purgeStrayNavMedia();  onScroll(); setRightPadding(); purgeStrayNavMedia(); });
   window.addEventListener('scroll', onScroll, {passive:true});
 })();

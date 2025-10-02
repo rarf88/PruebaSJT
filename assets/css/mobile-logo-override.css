@@ -425,3 +425,33 @@
     z-index: 6 !important;
   }
 }
+
+
+
+/* v60r3m7: MOBILE/TABLET — hide any extra logos/media on the left; keep only centered overlay + hamburger */
+@media (max-width:1024px){
+  /* Hide classic logo wrappers */
+  header.site-header nav.nav .logo,
+  header.site-header nav.nav .site-logo,
+  header.site-header nav.nav .brand{
+    display:none !important; visibility:hidden !important;
+  }
+
+  /* Hide any images/pictures/svg inside nav by default... */
+  header.site-header nav.nav img,
+  header.site-header nav.nav picture,
+  header.site-header nav.nav svg{
+    display:none !important; visibility:hidden !important;
+  }
+  /* ...except the approved centered overlay */
+  header.site-header nav.nav .sjt-mobile-logo-overlay img,
+  header.site-header nav.nav .sjt-mobile-logo-overlay picture,
+  header.site-header nav.nav .sjt-mobile-logo-overlay svg{
+    display:block !important; visibility:visible !important;
+  }
+  /* ...and except media inside buttons (e.g., hamburger svg) */
+  header.site-header nav.nav button img,
+  header.site-header nav.nav button svg{
+    display:inline-block !important; visibility:visible !important;
+  }
+}
