@@ -72,8 +72,7 @@
     try{
       if (!node) return false;
       if (node.closest && node.closest('.sjt-mobile-logo-overlay')) return false; // keep approved overlay
-      if (node.closest && node.closest('button')) return false;
-      if (node.closest && node.closest('.navbar-collapse, .offcanvas, .mobile-menu, [class*="menu"], [class*="drawer"], [class*="offcanvas"]')) return false; // keep icons inside buttons
+      if (node.closest && node.closest('button')) return false; // keep icons inside buttons
       var tag = (node.tagName||'').toLowerCase();
       if (tag === 'img' || tag === 'picture' || tag === 'svg'){
         var src = (node.getAttribute && node.getAttribute('src')) || '';
@@ -94,7 +93,7 @@
   function purgeNow(){
     if (!isMobile()) return;
     var header = $('header.site-header'); if (!header) return;
-    var nav = $('nav', header) || header.querySelector('nav'); // scan nav primarily, then header
+    var nav = $('nav', header) || header; // scan nav primarily, then header
     var nodes = nav.querySelectorAll('img, picture, svg, [style*="background"], [class*="logo" i]');
     nodes.forEach(function(n){
       if (n.closest && n.closest('.sjt-mobile-logo-overlay')) return;
