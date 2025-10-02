@@ -3,3 +3,28 @@
 .footer-social a svg{width:22px;height:22px;fill:#fff}
 footer.light .footer-social a{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.2)}
 footer.light .footer-social a svg{fill:#0f2f35}
+/* === SJT Hotfix 2025-10-02: hide duplicate logo ONLY inside the hamburger/offcanvas menu === */
+.offcanvas .navbar-brand,
+.offcanvas .brand,
+.offcanvas .logo,
+.offcanvas .header-logo,
+.offcanvas img[alt*="SJT"],
+.offcanvas img[alt*="Smart"],
+.offcanvas img[alt*="SMARTH"],
+.mobile-menu .navbar-brand,
+.mobile-menu .brand,
+.mobile-menu .logo,
+.mobile-menu .header-logo,
+.drawer .navbar-brand,
+.drawer .brand,
+.drawer .logo,
+.drawer .header-logo {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+/* End hotfix */

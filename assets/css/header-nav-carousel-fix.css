@@ -61,51 +61,28 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
 
 #sjt-mobile-drawer{background:var(--nav-bg)!important;}
 
-
-
-/* === SJT v60r3m8 — Hide logo inside the mobile hamburger drawer === */
-#sjt-mobile-drawer .logo,
-#sjt-mobile-drawer .brand,
-#sjt-mobile-drawer a.logo,
-#sjt-mobile-drawer a.brand,
-#sjt-mobile-drawer .site-logo,
-#sjt-mobile-drawer .navbar-brand,
-#sjt-mobile-drawer img[alt*="logo" i],
-#sjt-mobile-drawer picture:has(img[alt*="logo" i]) {
-  display: none !important;
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  overflow: hidden !important;
+/* === SJT Hotfix 2025-10-02: hide duplicate logo ONLY inside the hamburger/offcanvas menu === */
+.offcanvas .navbar-brand,
+.offcanvas .brand,
+.offcanvas .logo,
+.offcanvas .header-logo,
+.offcanvas img[alt*="SJT"],
+.offcanvas img[alt*="Smart"],
+.offcanvas img[alt*="SMARTH"],
+.mobile-menu .navbar-brand,
+.mobile-menu .brand,
+.mobile-menu .logo,
+.mobile-menu .header-logo,
+.drawer .navbar-brand,
+.drawer .brand,
+.drawer .logo,
+.drawer .header-logo {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
 }
-
-/* Prevent layout gaps at top of drawer when logo is removed */
-#sjt-mobile-drawer h1.logo, 
-#sjt-mobile-drawer h2.logo, 
-#sjt-mobile-drawer h3.logo, 
-#sjt-mobile-drawer .logo-wrap {
-  display: none !important;
-}
-
-
-
-
-/* === SJT hard hide: any logo/brand inside the mobile drawer === */
-#sjt-mobile-drawer [class*="logo" i],
-#sjt-mobile-drawer [class*="brand" i],
-#sjt-mobile-drawer .navbar-brand,
-#sjt-mobile-drawer a.logo,
-#sjt-mobile-drawer a.brand,
-#sjt-mobile-drawer img[alt*="logo" i],
-#sjt-mobile-drawer picture img[alt*="logo" i]{
-  display:none !important;
-  visibility:hidden !important;
-  width:0 !important;
-  height:0 !important;
-  padding:0 !important;
-  margin:0 !important;
-  overflow:hidden !important;
-}
-
+/* End hotfix */

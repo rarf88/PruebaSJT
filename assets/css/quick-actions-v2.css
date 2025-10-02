@@ -26,3 +26,29 @@
   #sjt-qa .qa{ width:48px; height:48px }
   #sjt-qa .qa--wa img{ width:32px; height:32px }
 }
+
+/* === SJT Hotfix 2025-10-02: hide duplicate logo ONLY inside the hamburger/offcanvas menu === */
+.offcanvas .navbar-brand,
+.offcanvas .brand,
+.offcanvas .logo,
+.offcanvas .header-logo,
+.offcanvas img[alt*="SJT"],
+.offcanvas img[alt*="Smart"],
+.offcanvas img[alt*="SMARTH"],
+.mobile-menu .navbar-brand,
+.mobile-menu .brand,
+.mobile-menu .logo,
+.mobile-menu .header-logo,
+.drawer .navbar-brand,
+.drawer .brand,
+.drawer .logo,
+.drawer .header-logo {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+/* End hotfix */
