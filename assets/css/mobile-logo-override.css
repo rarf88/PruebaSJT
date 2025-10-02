@@ -652,3 +652,68 @@
     padding-top: 8px !important; overflow:visible !important;
   }
 }
+
+
+
+/* v60r3m8d: MOBILE/TABLET — force-insert centered menu logo and enforce toggle visibility */
+@media (max-width:1024px){
+  body.sjt-menu-open header.site-header .navbar-collapse,
+  body.sjt-menu-open header.site-header .offcanvas,
+  body.sjt-menu-open header.site-header .mobile-menu,
+  body.sjt-menu-open header.site-header .menu,
+  body.sjt-menu-open header.site-header .drawer,
+  body.sjt-menu-open header.site-header [class*="menu"],
+  body.sjt-menu-open header.site-header [class*="drawer"],
+  body.sjt-menu-open header.site-header [class*="offcanvas"]{
+    display:block !important;
+    visibility:visible !important;
+  }
+
+  header.site-header .sjt-menu-logo{
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    padding: 14px 12px 8px !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+  }
+
+  header.site-header .navbar-collapse::before,
+  header.site-header .offcanvas::before,
+  header.site-header .mobile-menu::before,
+  header.site-header .menu::before,
+  header.site-header .drawer::before,
+  header.site-header [class*="menu"]::before,
+  header.site-header [class*="drawer"]::before,
+  header.site-header [class*="offcanvas"]::before{
+    content:""; display:block; height:66px;
+  }
+  header.site-header.is-scrolled .navbar-collapse::before,
+  header.site-header.is-scrolled .offcanvas::before,
+  header.site-header.is-scrolled .mobile-menu::before,
+  header.site-header.is-scrolled .menu::before,
+  header.site-header.is-scrolled .drawer::before,
+  header.site-header.is-scrolled [class*="menu"]::before,
+  header.site-header.is-scrolled [class*="drawer"]::before,
+  header.site-header.is-scrolled [class*="offcanvas"]::before{
+    height:56px;
+  }
+
+  header.site-header .sjt-menu-logo img{
+    display:block !important;
+    max-width: 220px !important;
+    max-height: 64px !important;
+    width:auto !important; height:auto !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+  }
+
+  header.site-header .navbar-collapse,
+  header.site-header .offcanvas,
+  header.site-header .mobile-menu,
+  header.site-header .menu,
+  header.site-header .drawer,
+  header.site-header [class*="menu"],
+  header.site-header [class*="drawer"],
+  header.site-header [class*="offcanvas"]{
+    overflow: visible !important;
+  }
+}
