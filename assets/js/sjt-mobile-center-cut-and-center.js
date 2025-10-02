@@ -67,6 +67,67 @@
     wrappers.forEach(function(w){ try{ w.remove(); }catch(e){} });
   }
 
+  
+  function isLogoNode(node){
+    try{
+      if (!node) return false;
+      if (node.closest && node.closest('.sjt-mobile-logo-overlay')) return false; // keep approved overlay
+      if (node.closest && node.closest('button')) return false; // keep icons inside buttons
+      var tag = (node.tagName||'').toLowerCase();
+      if (tag === 'img' || tag === 'picture' || tag === 'svg'){
+        var src = (node.getAttribute && node.getAttribute('src')) || '';
+        if (/logo/i.test(src)) return true;
+        // generic media in header: consider as logo-like unless it's inside button (already filtered)
+        return true;
+      }
+      // background-image check
+      var st = node.getAttribute && node.getAttribute('style') || '';
+      if (/background/i.test(st) && /logo/i.test(st)) return true;
+      // class name hints
+      var cls = (node.className || '').toString();
+      if (/logo|site-logo|brand/i.test(cls)) return true;
+      return false;
+    }catch(e){ return false; }
+  }
+
+  function purgeNow(){
+    if (!isMobile()) return;
+    var header = $('header.site-header'); if (!header) return;
+    var nav = $('nav', header) || header; // scan nav primarily, then header
+    var nodes = nav.querySelectorAll('img, picture, svg, [style*="background"], [class*="logo" i]');
+    nodes.forEach(function(n){
+      if (n.closest && n.closest('.sjt-mobile-logo-overlay')) return;
+      if (n.closest && n.closest('button')) return;
+      if (isLogoNode(n)){
+        try{ n.remove(); }catch(e){}
+      }
+    });
+  }
+
+  var headerObserver = null;
+  function installObserver(){
+    if (!isMobile()) return;
+    var header = $('header.site-header'); if (!header) return;
+    if (headerObserver){ try{ headerObserver.disconnect(); }catch(e){} }
+    headerObserver = new MutationObserver(function(muts){
+      muts.forEach(function(m){
+        if (m.addedNodes && m.addedNodes.length){
+          m.addedNodes.forEach(function(n){
+            try{
+              if (isLogoNode(n)){ n.remove(); return; }
+              // also scan descendants if a container got injected
+              if (n.querySelectorAll){
+                var kids = n.querySelectorAll('img, picture, svg, [style*="background"], [class*="logo" i]');
+                kids.forEach(function(k){ if (isLogoNode(k)) try{k.remove();}catch(e){} });
+              }
+            }catch(e){}
+          });
+        }
+      });
+    });
+    headerObserver.observe(header, {childList:true, subtree:true});
+  }
+
   function onScroll(){
     if (!isMobile()) return;
     var header = $('header.site-header'); if (!header) return;
@@ -75,8 +136,8 @@
     else if (y < 60) header.classList.remove('is-scrolled');
   }
 
-  window.addEventListener('DOMContentLoaded', function(){ ensureOverlay();  onScroll(); setRightPadding(); purgeStrayNavMedia(); });
-  window.addEventListener('resize', function(){ setRightPadding(); purgeStrayNavMedia();  onScroll(); setRightPadding(); purgeStrayNavMedia(); });
-  window.addEventListener('orientationchange', function(){ setRightPadding(); purgeStrayNavMedia();  onScroll(); setRightPadding(); purgeStrayNavMedia(); });
+  window.addEventListener('DOMContentLoaded', function(){ ensureOverlay();  onScroll(); setRightPadding(); purgeNow(); installObserver(); purgeStrayNavMedia(); });
+  window.addEventListener('resize', function(){ setRightPadding(); purgeNow(); purgeStrayNavMedia();  onScroll(); setRightPadding(); purgeNow(); installObserver(); purgeStrayNavMedia(); });
+  window.addEventListener('orientationchange', function(){ setRightPadding(); purgeNow(); purgeStrayNavMedia();  onScroll(); setRightPadding(); purgeNow(); installObserver(); purgeStrayNavMedia(); });
   window.addEventListener('scroll', onScroll, {passive:true});
 })();

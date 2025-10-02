@@ -455,3 +455,49 @@
     display:inline-block !important; visibility:visible !important;
   }
 }
+
+
+
+/* v60r3m8: MOBILE/TABLET — ultra-aggressive kill for any header/nav logos except the centered overlay */
+@media (max-width:1024px){
+  /* Hide common logo wrappers outright */
+  header.site-header nav.nav .logo,
+  header.site-header nav.nav .site-logo,
+  header.site-header nav.nav .brand,
+  header.site-header .logo,
+  header.site-header .site-logo,
+  header.site-header .brand{
+    display:none !important; visibility:hidden !important; width:0 !important; height:0 !important; overflow:hidden !important;
+  }
+
+  /* Hide ANY media inside header/nav by default... */
+  header.site-header nav.nav img,
+  header.site-header nav.nav picture,
+  header.site-header nav.nav svg{
+    display:none !important; visibility:hidden !important; width:0 !important; height:0 !important; overflow:hidden !important;
+  }
+
+  /* ...EXCEPT the approved centered overlay media */
+  header.site-header nav.nav .sjt-mobile-logo-overlay img,
+  header.site-header nav.nav .sjt-mobile-logo-overlay picture,
+  header.site-header nav.nav .sjt-mobile-logo-overlay svg{
+    display:block !important; visibility:visible !important; width:auto !important; height:auto !important; overflow:visible !important;
+  }
+
+  /* ...and EXCEPT media/icons inside buttons (e.g., hamburger) */
+  header.site-header nav.nav button img,
+  header.site-header nav.nav button svg{
+    display:inline-block !important; visibility:visible !important; width:auto !important; height:auto !important;
+  }
+
+  /* Kill background-image based logos inside header/nav (case-insensitive 'logo') */
+  header.site-header [style*="background"][style*="logo" i],
+  header.site-header nav.nav [style*="background"][style*="logo" i]{
+    background-image: none !important; background: none !important;
+  }
+
+  /* As a safety, zero out elements whose computed content might still reserve space */
+  header.site-header nav.nav [class*="logo" i]{
+    width:0 !important; height:0 !important; padding:0 !important; margin:0 !important; border:0 !important;
+  }
+}
