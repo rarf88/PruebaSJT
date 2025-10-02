@@ -243,3 +243,42 @@
   header.site-header nav.nav .logo{ display:none !important; }
   /* Keep previous anti-flash rules already present in this package */
 }
+
+
+
+/* v60r3m2: precise horizontal centering of the overlay (mobile/tablet only) */
+@media (max-width:1024px){
+  header.site-header nav.nav{
+    position: relative !important;
+    overflow: visible !important;
+  }
+  .sjt-mobile-logo-overlay{
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    transform: translateX(-50%) !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 4 !important;           /* below the hamburger toggler */
+    pointer-events: none !important;  /* avoid blocking clicks except the anchor */
+  }
+  .sjt-mobile-logo-overlay a{
+    pointer-events: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  /* Keep hamburger visible and on top at right */
+  header.site-header nav.nav .navbar-toggler,
+  header.site-header nav.nav .hamburger,
+  header.site-header nav.nav #sjt-hamburger,
+  header.site-header nav.nav .menu-toggle,
+  header.site-header nav.nav button.navbar-toggler{
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 6 !important;
+  }
+}
