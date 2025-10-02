@@ -1,681 +1,43 @@
+/* Auto-generated mobile overrides */
 
 
-/* === v43: MOBILE/TABLET — subir DEMO/WhatsApp (no tapar 'Volver a inicio') === */
 @media (max-width:1024px){
-  header.site-header{ position: sticky; top: 0; z-index: 1000; background: inherit; }
-  header.site-header .nav{ background: inherit; }
-
-  .sjt-mobile-logo-override,
-  .sjt-mobile-logo-override img{ background: transparent !important; }
-
-  header.site-header.shrink .sjt-mobile-logo-override img{ height: 56px !important; }
-
-  #sjt-floating-demo{
-    top: 12px !important;
-    right: 16px !important;
-    bottom: auto !important;
-  }
-  #sjt-floating-whatsapp{
-    top: calc(12px + var(--sjt-size) + var(--sjt-gap)) !important;
-    right: 16px !important;
-    bottom: auto !important;
-  }
-}
-
-/* === v43: ESCRITORIO — ocultar logo inyectado y hamburguesa; NO mover floaters === */
-@media (min-width:1025px){
-  .sjt-mobile-logo-override{ display: none !important; }
-  .hamburger, .menu-toggle, .menu-hamburger, .nav-toggle{ display: none !important; }
-}
-
-
-
-/* === v55: STRICT — solo los cambios pedidos === */
-
-/* Desktop: ocultar hamburguesa estrictamente (≥1025px) */
-@media (min-width:1025px){
-  .navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler{
-    display:none !important; visibility:hidden !important; pointer-events:none !important;
-  }
-}
-
-/* Mobile/Tablet: centrar el logo PERFECTAMENTE en la barra */
-@media (max-width:1024px){
-  header.site-header nav.nav{
-    position: relative !important;
-    min-height: 64px !important;
-    /* Reservas laterales para evitar choque con el hamburguesa */
-    padding-left: 80px !important;
-    padding-right: 80px !important;
-  }
-  header.site-header nav.nav .logo{
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    margin: 0 !important;
-    z-index: 2 !important;
-  }
-  header.site-header nav.nav .logo picture,
-  header.site-header nav.nav .logo img{
-    display:block !important;
-    height:auto !important; width:auto !important; object-fit:contain !important;
-  }
-  /* Mantener hamburguesa a la derecha, sin superponer al logo */
-  header.site-header nav.nav > .navbar-toggler,
-  header.site-header nav.nav > .hamburger,
-  header.site-header nav.nav > #sjt-hamburger,
-  header.site-header nav.nav > .menu-toggle,
-  header.site-header nav.nav > button.navbar-toggler{
-    position:absolute !important;
-    right: 8px !important;
-    top:50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 3 !important;
-  }
-
-  /* Floaters DEMO/WA: ligeramente por encima del botón 'Volver a inicio' */
-  /* Variante stack v2 */
-  #sjt-qa{ position:fixed !important; bottom: 112px !important; top:auto !important; right:16px !important; z-index:10000 !important; }
-  /* Variante ids directos */
-  #sjt-floating-demo{ position:fixed !important; top: 10px !important; right:16px !important; bottom:auto !important; z-index:10000 !important; }
-  #sjt-floating-whatsapp{ position:fixed !important; top: calc(10px + var(--sjt-size,56px) + var(--sjt-gap,10px)) !important; right:16px !important; bottom:auto !important; z-index:10000 !important; }
-}
-
-
-
-/* === v56: MULTI-ESTRATEGIA para LOGO CENTRADO (solo mobile/tablet) === */
-@media (max-width:1024px){
-  /* Strategy A: absolute centering with side cushions */
-  header.site-header nav.nav{
-    position: relative !important;
-    min-height: 64px !important;
-    padding-left: 88px !important;   /* reserva izq */
-    padding-right: 88px !important;  /* reserva der (hamburguesa) */
-  }
-  header.site-header nav.nav .logo{
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    margin: 0 !important;
-    z-index: 2 !important;
-  }
-  header.site-header nav.nav > .navbar-toggler,
-  header.site-header nav.nav > .hamburger,
-  header.site-header nav.nav > #sjt-hamburger,
-  header.site-header nav.nav > .menu-toggle,
-  header.site-header nav.nav > button.navbar-toggler{
-    position:absolute !important;
-    right: 10px !important;
-    top:50% !important;
-    transform: translateY(-50%) !important;
-    z-index:3 !important;
-  }
-  /* Hide nav links in mobile to prevent push */
-  header.site-header nav.nav .nav-links, header.site-header nav.nav > ul{ display:none !important; }
-}
-
-/* Enforce hamburger hidden on desktop */
-@media (min-width:1025px){
-  .navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler{
-    display:none !important; visibility:hidden !important; pointer-events:none !important;
-  }
-}
-
-
-
-/* v56: Ajuste fino floaters */
-@media (max-width:1024px){
-  #sjt-qa{ bottom: 120px !important; top:auto !important; right:16px !important; position:fixed !important; z-index:10000 !important; }
-}
-
-
-
-/* === v59: MOBILE/TABLET — overlay centrado para el logo (sin tocar desktop) === */
-@media (max-width:1024px){
-  header.site-header{ position: relative !important; }
-  /* Mantener layout del nav, pero ocultar visualmente el logo original */
-  header.site-header nav.nav .logo{
-    opacity: 0 !important;
-  }
-  /* Capa superior que centra el logo, sin bloquear clics */
-  .sjt-mobile-logo-overlay{
-    position:absolute !important;
-    top:0 !important; left:0 !important; right:0 !important;
-    height:64px !important;
-    display:flex !important; align-items:center !important; justify-content:center !important;
-    pointer-events:none !important;
-    z-index: 5 !important;
-  }
-  .sjt-mobile-logo-overlay picture,
-  .sjt-mobile-logo-overlay img{
-    display:block !important;
-    height:auto !important; width:auto !important; object-fit:contain !important;
-  }
-}
-
-
-
-/* === v60: MOBILE/TABLET ONLY — quitar logo derecho, overlay clickeable, sticky + shrink === */
-@media (max-width:1024px){
-  /* Header sticky similar a escritorio */
-  header.site-header{ position: sticky !important; top: 0 !important; z-index: 9999 !important; }
-  /* Quitar el logo original (derecha) completamente en mobile */
-  header.site-header nav.nav .logo{ display: none !important; }
-
-  /* Overlay centrado (del v59) ajustado para permitir clic sin bloquear otros elementos */
-  .sjt-mobile-logo-overlay{
-    position:absolute !important;
-    top:0 !important; left:0 !important; right:0 !important;
-    height:64px !important;
-    display:flex !important; align-items:center !important; justify-content:center !important;
-    pointer-events:none !important;  /* capa no captura clics */
-    z-index: 5 !important;
-  }
-  .sjt-mobile-logo-overlay a{ 
-    pointer-events:auto !important;  /* solo el link es clickeable */
-    display:inline-flex !important; align-items:center !important; justify-content:center !important;
-  }
-  .sjt-mobile-logo-overlay picture,
-  .sjt-mobile-logo-overlay img{
-    display:block !important; height:auto !important; width:auto !important; object-fit:contain !important;
-  }
-
-  /* Efecto "shrink" al hacer scroll */
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ height:56px !important; }
-}
-
-/* Desktop untouched */
-
-
-
-/* === v60r3: mobile/tablet — hide any original nav logo completely to avoid flash === */
-@media (max-width:1024px){
-  header.site-header nav.nav .logo{
-    display:none !important; visibility:hidden !important;
-    width:0 !important; height:0 !important; overflow:hidden !important;
-    pointer-events:none !important;
-  }
-}
-
-
-
-/* v60r3-restore2: ensure overlay image visible & stable (mobile/tablet only) */
-@media (max-width:1024px){
-  /* Anti-flash: hide header media by default, allow overlay media */
-  header.site-header img, header.site-header picture, header.site-header svg{ display:none !important; visibility:hidden !important; }
-  header.site-header .sjt-mobile-logo-overlay img,
-  header.site-header .sjt-mobile-logo-overlay picture,
-  header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
-
+  /* Sticky header & nav baseline */
   header.site-header{ position:sticky !important; top:0 !important; z-index:9999 !important; overflow:visible !important; }
-  header.site-header nav.nav{ position:relative !important; display:flex !important; align-items:center !important; justify-content:center !important;
-    height:66px !important; transition:height .22s ease; overflow:visible !important; }
+  header.site-header nav.nav{ position:relative !important; height:66px !important; transition:height .22s ease; padding-right: var(--pad-right, 56px) !important; overflow:visible !important; }
   header.site-header.is-scrolled nav.nav{ height:56px !important; }
 
-  .sjt-mobile-logo-overlay{ position:static !important; height:100% !important; display:flex !important; align-items:center !important; justify-content:center !important;
-    padding:6px 0 !important; margin:0 !important; line-height:0 !important; }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ padding:4px 0 !important; }
-
-  .sjt-mobile-logo-overlay img{ height:auto !important; width:auto !important; object-fit:contain !important;
-    max-height:50px !important; transition:max-height .22s ease; }
+  /* Centered overlay (top bar) */
+  .sjt-mobile-logo-overlay{ 
+    position:absolute !important; left:50% !important; top:0 !important; transform:translateX(-50%) !important;
+    height:100% !important; display:flex !important; align-items:center !important; justify-content:center !important;
+    pointer-events:none !important; z-index:4 !important;
+  }
+  .sjt-mobile-logo-overlay a{ pointer-events:auto !important; display:inline-flex !important; align-items:center !important; justify-content:center !important; }
+  .sjt-mobile-logo-overlay img{ height:auto !important; width:auto !important; object-fit:contain !important; max-height:50px !important; transition:max-height .22s ease; }
   header.site-header.is-scrolled .sjt-mobile-logo-overlay img{ max-height:44px !important; }
 
-  /* Right hamburger aligned */
+  /* Keep hamburger at right */
   header.site-header nav.nav .navbar-toggler,
   header.site-header nav.nav .hamburger,
   header.site-header nav.nav #sjt-hamburger,
   header.site-header nav.nav .menu-toggle,
   header.site-header nav.nav button.navbar-toggler{ position:absolute !important; right:12px !important; top:50% !important; transform:translateY(-50%) !important; z-index:6 !important; }
 
-  /* Hide legacy nav logos to prevent duplicates (mobile only) */
-  header.site-header nav.nav .logo, header.site-header nav.nav .site-logo, header.site-header nav.nav .brand{ display:none !important; }
-}
-@media (min-width:1025px){
-  .sjt-mobile-logo-overlay{ display:none !important; }
-}
-
-
-
-/* v60r3m: use the approved .logo markup; hide original on mobile so only centered overlay is visible */
-@media (max-width:1024px){
-  header.site-header nav.nav .logo{ display:none !important; }
-  /* Keep previous anti-flash rules already present in this package */
-}
-
-
-
-/* v60r3m2: precise horizontal centering of the overlay (mobile/tablet only) */
-@media (max-width:1024px){
-  header.site-header nav.nav{
-    position: relative !important;
-    overflow: visible !important;
-  }
-  .sjt-mobile-logo-overlay{
-    position: absolute !important;
-    left: 50% !important;
-    top: 0 !important;
-    transform: translateX(-50%) !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    z-index: 4 !important;           /* below the hamburger toggler */
-    pointer-events: none !important;  /* avoid blocking clicks except the anchor */
-  }
-  .sjt-mobile-logo-overlay a{
-    pointer-events: auto !important;
-    display: inline-flex !important;
-    align-items: center !important;
-  }
-  /* Keep hamburger visible and on top at right */
-  header.site-header nav.nav .navbar-toggler,
-  header.site-header nav.nav .hamburger,
-  header.site-header nav.nav #sjt-hamburger,
-  header.site-header nav.nav .menu-toggle,
-  header.site-header nav.nav button.navbar-toggler{
-    position: absolute !important;
-    right: 12px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 6 !important;
-  }
-}
-
-
-
-/* v60r3m3: Grid layout — center overlay in the middle column, hamburger on the right (mobile/tablet only) */
-@media (max-width:1024px){
-  header.site-header nav.nav{
-    position: relative !important;
-    display: grid !important;
-    grid-template-columns: 1fr auto 1fr !important; /* left spacer | centered logo | right actions */
-    align-items: center !important;
-    justify-items: center !important;
-  }
-
-  /* Place the overlay in the center column */
-  .sjt-mobile-logo-overlay{
-    position: static !important;   /* override previous absolute */
-    left: auto !important; right: auto !important; top: auto !important;
-    transform: none !important;
-    grid-column: 2 / 3 !important;
-    height: 100% !important;
-    display: flex !important; align-items: center !important; justify-content: center !important;
-    pointer-events: none !important;
-  }
-  .sjt-mobile-logo-overlay a{
-    pointer-events: auto !important;
-    display: inline-flex !important; align-items: center !important; justify-content: center !important;
-  }
-
-  /* Place hamburger/content in the right column */
-  header.site-header nav.nav .navbar-toggler,
-  header.site-header nav.nav .hamburger,
-  header.site-header nav.nav #sjt-hamburger,
-  header.site-header nav.nav .menu-toggle,
-  header.site-header nav.nav button.navbar-toggler{
-    position: static !important;     /* no absolute needed with grid */
-    grid-column: 3 / 4 !important;
-    justify-self: end !important;
-    align-self: center !important;
-    transform: none !important;
-    margin-right: 12px !important;
-    z-index: 6 !important;
-  }
-}
-
-
-
-/* v60r3m4: MÓVIL/TABLET — cortar logo (independiente), centrar con flex y ghost spacer, sin recortes */
-@media (max-width:1024px){
-  header.site-header{ position:sticky !important; top:0 !important; z-index:9999 !important; overflow:visible !important; }
-  header.site-header nav.nav{
-    position:relative !important;
-    display:flex !important; align-items:center !important; justify-content:center !important;
-    padding:0 12px !important;
-    height:66px !important; transition:height .22s ease;
-    --toggler-w: 44px;
-  }
-  header.site-header nav.nav::before{
-    content:""; flex:0 0 var(--toggler-w); height:1px; margin-right:auto;
-  }
-  header.site-header.is-scrolled nav.nav{ height:56px !important; }
-
-  .sjt-mobile-logo-overlay{
-    position:relative !important; z-index:4 !important;
-    height:100% !important; display:flex !important; align-items:center !important; justify-content:center !important;
-    pointer-events:none !important; line-height:0 !important;
-  }
-  .sjt-mobile-logo-overlay a{
-    pointer-events:auto !important; display:inline-flex !important; align-items:center !important; justify-content:center !important;
-  }
-  .sjt-mobile-logo-overlay img{
-    height:auto !important; width:auto !important; object-fit:contain !important;
-    max-height:50px !important; transition:max-height .22s ease;
-  }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay img{ max-height:44px !important; }
-
-  header.site-header nav.nav .navbar-toggler,
-  header.site-header nav.nav .hamburger,
-  header.site-header nav.nav #sjt-hamburger,
-  header.site-header nav.nav .menu-toggle,
-  header.site-header nav.nav button.navbar-toggler{
-    margin-left:auto !important;
-    position:relative !important; right:auto !important; top:auto !important; transform:none !important;
-    z-index:6 !important;
-  }
-
+  /* Kill any nav logos except overlay; allow icons inside buttons */
   header.site-header nav.nav .logo,
   header.site-header nav.nav .site-logo,
-  header.site-header nav.nav .brand{ display:none !important; }
-}
-@media (min-width:1025px){
-  .sjt-mobile-logo-overlay{ display:none !important; }
-}
-
-
-
-/* v60r3m6: absolute mathematical centering + dynamic right padding (mobile/tablet) */
-@media (max-width:1024px){
-  header.site-header nav.nav{
-    position: relative !important;
-    padding-right: var(--pad-right, 56px) !important; /* space for hamburger so it doesn't overlap */
-  }
-  .sjt-mobile-logo-overlay{
-    position: absolute !important;
-    left: 50% !important;
-    top: 0 !important;
-    transform: translateX(-50%) !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    pointer-events: none !important;
-    z-index: 4 !important;
-  }
-  .sjt-mobile-logo-overlay a{
-    pointer-events: auto !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  .sjt-mobile-logo-overlay img{
-    height: auto !important;
-    width: auto !important;
-    object-fit: contain !important;
-    max-height: 50px !important;
-    transition: max-height .22s ease;
-  }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay img{
-    max-height: 44px !important;
-  }
-
-  /* Keep hamburger on the right, regular flow */
-  header.site-header nav.nav .navbar-toggler,
-  header.site-header nav.nav .hamburger,
-  header.site-header nav.nav #sjt-hamburger,
-  header.site-header nav.nav .menu-toggle,
-  header.site-header nav.nav button.navbar-toggler{
-    position: absolute !important;
-    right: 12px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 6 !important;
-  }
-}
-
-
-
-/* v60r3m7: MOBILE/TABLET — hide any extra logos/media on the left; keep only centered overlay + hamburger */
-@media (max-width:1024px){
-  /* Hide classic logo wrappers */
-  header.site-header nav.nav .logo,
-  header.site-header nav.nav .site-logo,
-  header.site-header nav.nav .brand{
-    display:none !important; visibility:hidden !important;
-  }
-
-  /* Hide any images/pictures/svg inside nav by default... */
+  header.site-header nav.nav .brand{ display:none !important; visibility:hidden !important; }
   header.site-header nav.nav img,
   header.site-header nav.nav picture,
-  header.site-header nav.nav svg{
-    display:none !important; visibility:hidden !important;
-  }
-  /* ...except the approved centered overlay */
+  header.site-header nav.nav svg{ display:none !important; visibility:hidden !important; }
   header.site-header nav.nav .sjt-mobile-logo-overlay img,
   header.site-header nav.nav .sjt-mobile-logo-overlay picture,
-  header.site-header nav.nav .sjt-mobile-logo-overlay svg{
-    display:block !important; visibility:visible !important;
-  }
-  /* ...and except media inside buttons (e.g., hamburger svg) */
+  header.site-header nav.nav .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
   header.site-header nav.nav button img,
-  header.site-header nav.nav button svg{
-    display:inline-block !important; visibility:visible !important;
-  }
-}
+  header.site-header nav.nav button svg{ display:inline-block !important; visibility:visible !important; }
 
-
-
-/* v60r3m8: MOBILE/TABLET — ultra-aggressive kill for any header/nav logos except the centered overlay */
-@media (max-width:1024px){
-  /* Hide common logo wrappers outright */
-  header.site-header nav.nav .logo,
-  header.site-header nav.nav .site-logo,
-  header.site-header nav.nav .brand,
-  header.site-header .logo,
-  header.site-header .site-logo,
-  header.site-header .brand{
-    display:none !important; visibility:hidden !important; width:0 !important; height:0 !important; overflow:hidden !important;
-  }
-
-  /* Hide ANY media inside header/nav by default... */
-  header.site-header nav.nav img,
-  header.site-header nav.nav picture,
-  header.site-header nav.nav svg{
-    display:none !important; visibility:hidden !important; width:0 !important; height:0 !important; overflow:hidden !important;
-  }
-
-  /* ...EXCEPT the approved centered overlay media */
-  header.site-header nav.nav .sjt-mobile-logo-overlay img,
-  header.site-header nav.nav .sjt-mobile-logo-overlay picture,
-  header.site-header nav.nav .sjt-mobile-logo-overlay svg{
-    display:block !important; visibility:visible !important; width:auto !important; height:auto !important; overflow:visible !important;
-  }
-
-  /* ...and EXCEPT media/icons inside buttons (e.g., hamburger) */
-  header.site-header nav.nav button img,
-  header.site-header nav.nav button svg{
-    display:inline-block !important; visibility:visible !important; width:auto !important; height:auto !important;
-  }
-
-  /* Kill background-image based logos inside header/nav (case-insensitive 'logo') */
-  header.site-header [style*="background"][style*="logo" i],
-  header.site-header nav.nav [style*="background"][style*="logo" i]{
-    background-image: none !important; background: none !important;
-  }
-
-  /* As a safety, zero out elements whose computed content might still reserve space */
-  header.site-header nav.nav [class*="logo" i]{
-    width:0 !important; height:0 !important; padding:0 !important; margin:0 !important; border:0 !important;
-  }
-}
-
-
-
-/* v60r3m8a: MOBILE/TABLET — center and prevent cropping for logo inside hamburger/offcanvas menu */
-@media (max-width:1024px){
-  /* Common containers for mobile menus: bootstrap collapse, offcanvas, custom drawers */
-  header.site-header .navbar-collapse,
-  header.site-header .navbar-collapse.show,
-  header.site-header .offcanvas,
-  header.site-header .offcanvas.show,
-  header.site-header .mobile-menu,
-  header.site-header [class*="menu"],
-  header.site-header [class*="drawer"],
-  header.site-header [class*="offcanvas"]{
-    overflow: visible !important;
-  }
-
-  /* Ensure any logo inside those menus is centered and not cropped */
-  header.site-header .navbar-collapse img[src*="logo" i],
-  header.site-header .offcanvas img[src*="logo" i],
-  header.site-header .mobile-menu img[src*="logo" i],
-  header.site-header [class*="menu"] img[src*="logo" i],
-  header.site-header [class*="drawer"] img[src*="logo" i],
-  header.site-header [class*="offcanvas"] img[src*="logo" i]{
-    display:block !important;
-    margin: 12px auto !important;
-    max-width: 180px !important;
-    width: auto !important;
-    height: auto !important;
-    max-height: 56px !important;
-    object-fit: contain !important;
-    visibility: visible !important;
-  }
-
-  /* If the logo sits inside a wrapper, center the wrapper too */
-  header.site-header .navbar-collapse .logo,
-  header.site-header .offcanvas .logo,
-  header.site-header .mobile-menu .logo,
-  header.site-header [class*="menu"] .logo,
-  header.site-header [class*="drawer"] .logo,
-  header.site-header [class*="offcanvas"] .logo{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    padding: 8px 0 !important;
-  }
-
-  /* Avoid unintended clipping from parent containers */
-  header.site-header .navbar-collapse .logo,
-  header.site-header .offcanvas .logo,
-  header.site-header .mobile-menu .logo,
-  header.site-header [class*="menu"],
-  header.site-header [class*="drawer"],
-  header.site-header [class*="offcanvas"]{
-    overflow: visible !important;
-  }
-}
-
-
-
-/* v60r3m8b: MOBILE/TABLET — lower the menu logo (avoid clipping with top bar) and refine menu spacing */
-@media (max-width:1024px){
-  /* Add breathing room at the top of opened menus */
-  header.site-header .navbar-collapse,
-  header.site-header .navbar-collapse.show,
-  header.site-header .offcanvas,
-  header.site-header .offcanvas.show,
-  header.site-header .mobile-menu,
-  header.site-header [class*="menu"],
-  header.site-header [class*="drawer"],
-  header.site-header [class*="offcanvas"]{
-    padding-top: 14px !important;
-  }
-
-  /* Drop the logo slightly more */
-  header.site-header .navbar-collapse img[src*="logo" i],
-  header.site-header .offcanvas img[src*="logo" i],
-  header.site-header .mobile-menu img[src*="logo" i],
-  header.site-header [class*="menu"] img[src*="logo" i],
-  header.site-header [class*="drawer"] img[src*="logo" i],
-  header.site-header [class*="offcanvas"] img[src*="logo" i]{
-    margin-top: 10px !important;  /* extra drop to clear the top bar */
-  }
-
-  /* If the logo is wrapped, push the wrapper too */
-  header.site-header .navbar-collapse .logo,
-  header.site-header .offcanvas .logo,
-  header.site-header .mobile-menu .logo,
-  header.site-header [class*="menu"] .logo,
-  header.site-header [class*="drawer"] .logo,
-  header.site-header [class*="offcanvas"] .logo{
-    padding-top: 10px !important;
-  }
-}
-
-
-
-/* v60r3m8c: MOBILE/TABLET — stronger menu top spacer + centered logo without clipping */
-@media (max-width:1024px){
-  /* Create a top spacer that accounts for the sticky header height */
-  header.site-header .navbar-collapse::before,
-  header.site-header .offcanvas::before,
-  header.site-header .mobile-menu::before,
-  header.site-header [class*="menu"]::before,
-  header.site-header [class*="drawer"]::before,
-  header.site-header [class*="offcanvas"]::before{
-    content:""; display:block; height:66px; /* header full height */
-  }
-  header.site-header.is-scrolled .navbar-collapse::before,
-  header.site-header.is-scrolled .offcanvas::before,
-  header.site-header.is-scrolled .mobile-menu::before,
-  header.site-header.is-scrolled [class*="menu"]::before,
-  header.site-header.is-scrolled [class*="drawer"]::before,
-  header.site-header.is-scrolled [class*="offcanvas"]::before{
-    height:56px; /* reduced header */
-  }
-
-  /* Ensure menus are not clipping content and have breathing room */
-  header.site-header .navbar-collapse,
-  header.site-header .offcanvas,
-  header.site-header .mobile-menu,
-  header.site-header [class*="menu"],
-  header.site-header [class*="drawer"],
-  header.site-header [class*="offcanvas"]{
-    overflow: visible !important;
-    padding-top: 10px !important;
-  }
-
-  /* Logo inside menu: centered, no crop, and a bit lower to clear the bar */
-  header.site-header .navbar-collapse img[src*="logo" i],
-  header.site-header .offcanvas img[src*="logo" i],
-  header.site-header .mobile-menu img[src*="logo" i],
-  header.site-header [class*="menu"] img[src*="logo" i],
-  header.site-header [class*="drawer"] img[src*="logo" i],
-  header.site-header [class*="offcanvas"] img[src*="logo" i]{
-    display:block !important; margin: 12px auto 8px !important;
-    max-width: 200px !important; max-height: 60px !important;
-    width:auto !important; height:auto !important; object-fit:contain !important; visibility:visible !important;
-  }
-
-  /* If wrapped in a .logo container, center it and push from top */
-  header.site-header .navbar-collapse .logo,
-  header.site-header .offcanvas .logo,
-  header.site-header .mobile-menu .logo,
-  header.site-header [class*="menu"] .logo,
-  header.site-header [class*="drawer"] .logo,
-  header.site-header [class*="offcanvas"] .logo{
-    display:flex !important; align-items:center !important; justify-content:center !important;
-    padding-top: 8px !important; overflow:visible !important;
-  }
-}
-
-
-
-/* v60r3m8d: MOBILE/TABLET — force-insert centered menu logo and enforce toggle visibility */
-@media (max-width:1024px){
-  body.sjt-menu-open header.site-header .navbar-collapse,
-  body.sjt-menu-open header.site-header .offcanvas,
-  body.sjt-menu-open header.site-header .mobile-menu,
-  body.sjt-menu-open header.site-header .menu,
-  body.sjt-menu-open header.site-header .drawer,
-  body.sjt-menu-open header.site-header [class*="menu"],
-  body.sjt-menu-open header.site-header [class*="drawer"],
-  body.sjt-menu-open header.site-header [class*="offcanvas"]{
-    display:block !important;
-    visibility:visible !important;
-  }
-
-  header.site-header .sjt-menu-logo{
-    display:flex !important; align-items:center !important; justify-content:center !important;
-    padding: 14px 12px 8px !important;
-    margin: 0 auto !important;
-    overflow: visible !important;
-  }
-
+  /* MENU: push content below header; centered cut-logo never cropped */
   header.site-header .navbar-collapse::before,
   header.site-header .offcanvas::before,
   header.site-header .mobile-menu::before,
@@ -683,9 +45,7 @@
   header.site-header .drawer::before,
   header.site-header [class*="menu"]::before,
   header.site-header [class*="drawer"]::before,
-  header.site-header [class*="offcanvas"]::before{
-    content:""; display:block; height:66px;
-  }
+  header.site-header [class*="offcanvas"]::before{ content:""; display:block; height:78px; }
   header.site-header.is-scrolled .navbar-collapse::before,
   header.site-header.is-scrolled .offcanvas::before,
   header.site-header.is-scrolled .mobile-menu::before,
@@ -693,19 +53,22 @@
   header.site-header.is-scrolled .drawer::before,
   header.site-header.is-scrolled [class*="menu"]::before,
   header.site-header.is-scrolled [class*="drawer"]::before,
-  header.site-header.is-scrolled [class*="offcanvas"]::before{
-    height:56px;
-  }
+  header.site-header.is-scrolled [class*="offcanvas"]::before{ height:66px; }
 
-  header.site-header .sjt-menu-logo img{
-    display:block !important;
-    max-width: 220px !important;
-    max-height: 64px !important;
-    width:auto !important; height:auto !important;
-    object-fit: contain !important;
-    margin: 0 auto !important;
-  }
+  header.site-header .sjt-menu-logo{ display:flex !important; align-items:center !important; justify-content:center !important; padding: 10px 12px 8px !important; }
+  header.site-header .sjt-menu-logo img{ display:block !important; margin: 6px auto 10px !important; max-width:220px !important; max-height:64px !important; width:auto !important; height:auto !important; object-fit:contain !important; }
 
+  /* Ensure menus visible when our flag is on */
+  body.sjt-menu-open header.site-header .navbar-collapse,
+  body.sjt-menu-open header.site-header .offcanvas,
+  body.sjt-menu-open header.site-header .mobile-menu,
+  body.sjt-menu-open header.site-header .menu,
+  body.sjt-menu-open header.site-header .drawer,
+  body.sjt-menu-open header.site-header [class*="menu"],
+  body.sjt-menu-open header.site-header [class*="drawer"],
+  body.sjt-menu-open header.site-header [class*="offcanvas"]{ display:block !important; visibility:visible !important; opacity:1 !important; }
+
+  /* Avoid clipping */
   header.site-header .navbar-collapse,
   header.site-header .offcanvas,
   header.site-header .mobile-menu,
@@ -713,7 +76,9 @@
   header.site-header .drawer,
   header.site-header [class*="menu"],
   header.site-header [class*="drawer"],
-  header.site-header [class*="offcanvas"]{
-    overflow: visible !important;
-  }
+  header.site-header [class*="offcanvas"]{ overflow:visible !important; }
+}
+
+@media (min-width:1025px){
+  .sjt-mobile-logo-overlay{ display:none !important; }
 }
