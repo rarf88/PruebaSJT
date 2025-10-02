@@ -1,0 +1,34 @@
+/* sjt_second_logo_tweak.css — reduce the second logo/image to avoid crop (mobile/tablet) */
+@media (max-width:1024px){
+  /* Lower max-height for a likely second logo image in header/nav */
+  header .logo img:nth-of-type(2),
+  .header .logo img:nth-of-type(2),
+  .navbar .logo img:nth-of-type(2),
+  .topbar .logo img:nth-of-type(2),
+  header img.logo:nth-of-type(2),
+  .header img.logo:nth-of-type(2),
+  .navbar img.logo:nth-of-type(2),
+  .topbar img.logo:nth-of-type(2),
+  header img[alt*="logo" i]:nth-of-type(2),
+  .header img[alt*="logo" i]:nth-of-type(2),
+  nav img[alt*="logo" i]:nth-of-type(2),
+  nav img[src*="logo" i]:nth-of-type(2){
+    max-height: calc(var(--sjt-bar) - 12px) !important; /* smaller than the first to avoid crop */
+    height: auto !important;
+    width: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+
+  /* If the second logo is a container with background */
+  header .logo:nth-of-type(2),
+  .header .logo:nth-of-type(2),
+  .navbar .logo:nth-of-type(2),
+  .topbar .logo:nth-of-type(2),
+  nav[role="navigation"] .logo:nth-of-type(2){
+    /* keep container height; just render bg a bit smaller */
+    background-size: 90% auto !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+  }
+}
