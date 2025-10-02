@@ -1,0 +1,37 @@
+/* sjt_mobile_nav_two_state_safe.css — two states only, mobile/tablet */
+@media (max-width: 1024px){
+  :root{ --sjt-bar: 64px; }              /* normal bar height */
+  html.sjt-shrink{ --sjt-bar: 40px; }    /* reduced bar height (adjustable) */
+
+  /* Header/nav containers: same height var for both states */
+  header, .header, .navbar, .topbar, nav[role="navigation"]{
+    height: var(--sjt-bar) !important;
+    min-height: var(--sjt-bar) !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: height .18s linear, min-height .18s linear;
+  }
+
+  /* Make any kind of logo fit inside the bar, never cropped */
+  header .logo img, .header .logo img, .navbar .logo img, .topbar .logo img,
+  img.logo, img[alt*="logo" i], img[src*="logo" i],
+  header svg[aria-label*="logo" i], nav svg[aria-label*="logo" i], .logo svg{
+    height: auto !important;
+    width: auto !important;
+    max-height: calc(var(--sjt-bar) - 6px) !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+
+  /* If the logo is applied as background on a container */
+  header .logo, .header .logo, .navbar .logo, .topbar .logo, nav[role="navigation"] .logo{
+    height: var(--sjt-bar) !important;
+    line-height: var(--sjt-bar) !important;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
