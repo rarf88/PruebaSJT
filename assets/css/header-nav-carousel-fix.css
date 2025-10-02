@@ -81,20 +81,31 @@ header .lines,header .decor,header .stripe,.navbar .lines{display:none!important
   overflow: hidden !important;
 }
 
-/* In case the overlay logo was being forced visible on small screens */
-@media (max-width: 991px){
-  header.site-header .sjt-mobile-logo-overlay,
-  header.site-header .sjt-mobile-logo-overlay *{
-    display: none !important;
-    visibility: hidden !important;
-  }
-}
-
 /* Prevent layout gaps at top of drawer when logo is removed */
 #sjt-mobile-drawer h1.logo, 
 #sjt-mobile-drawer h2.logo, 
 #sjt-mobile-drawer h3.logo, 
 #sjt-mobile-drawer .logo-wrap {
   display: none !important;
+}
+
+
+
+
+/* === SJT hard hide: any logo/brand inside the mobile drawer === */
+#sjt-mobile-drawer [class*="logo" i],
+#sjt-mobile-drawer [class*="brand" i],
+#sjt-mobile-drawer .navbar-brand,
+#sjt-mobile-drawer a.logo,
+#sjt-mobile-drawer a.brand,
+#sjt-mobile-drawer img[alt*="logo" i],
+#sjt-mobile-drawer picture img[alt*="logo" i]{
+  display:none !important;
+  visibility:hidden !important;
+  width:0 !important;
+  height:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+  overflow:hidden !important;
 }
 
