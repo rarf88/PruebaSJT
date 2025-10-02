@@ -1,0 +1,13 @@
+
+/* sjt_two_state.css */
+@media (max-width:1024px){
+  header, .header, .navbar, .topbar, nav[role="navigation"]{ transition:none !important; }
+  header .logo img, .header .logo img, .navbar .logo img, .topbar .logo img,
+  img.logo, img[alt*="logo" i], img[src*="logo" i], .logo svg{
+    height:auto !important; width:auto !important; max-height:100% !important;
+    object-fit:contain !important; display:block !important;
+  }
+  header .logo, .header .logo, .navbar .logo, .topbar .logo{
+    background-repeat:no-repeat !important; background-position:center !important; background-size:contain !important;
+  }
+}
