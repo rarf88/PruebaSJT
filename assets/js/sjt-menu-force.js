@@ -61,7 +61,6 @@
     btns.forEach(function(b){
       if (b._sjtToggleBound) return;
       b.addEventListener('click', toggleMenu, true);
-      this.addEventListener('touchend', toggleMenu, {capture:true, passive:false});
       b._sjtToggleBound = true;
       if (!b.hasAttribute('aria-expanded')) b.setAttribute('aria-expanded','false');
     });
@@ -109,15 +108,15 @@
     if (w >= 1025){
       var header = document.querySelector('header.site-header');
       if (!header) return;
-      var menu = header.querySelector('.navbar-collapse, .offcanvas');
+      var menu = header.querySelector('.navbar-collapse, .offcanvas, .mobile-menu, .menu, .drawer, [class*="menu"], [class*="drawer"], [class*="offcanvas"]');
       var btn  = header.querySelector('.navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler');
       if (menu){
-        menu.classList.remove('show','open');
+        menu.classList.remove('show'); menu.classList.remove('open');
         menu.style.display = '';
         menu.setAttribute('aria-hidden','true');
       }
       document.body.classList.remove('sjt-menu-open');
-      if (btn) btn.setAttribute('aria-expanded','false');
+      if (btn){ btn.setAttribute('aria-expanded','false'); }
     }
   }
   window.addEventListener('resize', hardResizeGuard);
