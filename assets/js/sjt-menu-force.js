@@ -102,22 +102,3 @@
   window.addEventListener('resize', function(){ ensureMenuLogo(); bindToggle(); observeMenu(); });
   window.addEventListener('orientationchange', function(){ ensureMenuLogo(); bindToggle(); observeMenu(); });
 })();
-
-  function hardResizeGuard(){
-    var w = window.innerWidth || document.documentElement.clientWidth;
-    if (w >= 1025){
-      var header = document.querySelector('header.site-header');
-      if (!header) return;
-      var menu = header.querySelector('.navbar-collapse, .offcanvas, .mobile-menu, .menu, .drawer, [class*="menu"], [class*="drawer"], [class*="offcanvas"]');
-      var btn  = header.querySelector('.navbar-toggler, .hamburger, #sjt-hamburger, .menu-toggle, button.navbar-toggler');
-      if (menu){
-        menu.classList.remove('show'); menu.classList.remove('open');
-        menu.style.display = '';
-        menu.setAttribute('aria-hidden','true');
-      }
-      document.body.classList.remove('sjt-menu-open');
-      if (btn){ btn.setAttribute('aria-expanded','false'); }
-    }
-  }
-  window.addEventListener('resize', hardResizeGuard);
-  window.addEventListener('orientationchange', hardResizeGuard);

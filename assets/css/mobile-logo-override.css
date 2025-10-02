@@ -720,57 +720,59 @@
 
 
 
-/* r2: MOBILE/TABLET — menu over header (no clipping), extra spacer & lowered logo */
+/* r3b: MOBILE/TABLET — menu logo lower + header-safe spacer + high z-index + visibility */
 @media (max-width:1024px){
-  /* Ensure the opened menu overlays the sticky header */
-  header.site-header .navbar-collapse,
-  header.site-header .navbar-collapse.show,
-  header.site-header .offcanvas,
-  header.site-header .offcanvas.show,
-  header.site-header .mobile-menu,
-  header.site-header [class*="menu"],
-  header.site-header [class*="drawer"],
-  header.site-header [class*="offcanvas"]{
-    z-index: 10001 !important;
-    overflow: visible !important;
+  body.sjt-menu-open header.site-header .navbar-collapse,
+  body.sjt-menu-open header.site-header .offcanvas,
+  body.sjt-menu-open header.site-header .mobile-menu,
+  body.sjt-menu-open header.site-header .menu,
+  body.sjt-menu-open header.site-header .drawer,
+  body.sjt-menu-open header.site-header [class*="menu"],
+  body.sjt-menu-open header.site-header [class*="drawer"],
+  body.sjt-menu-open header.site-header [class*="offcanvas"]{
+    display:block !important; visibility:visible !important; opacity:1 !important; z-index:10001 !important;
   }
 
-  /* Push content below header height so nothing is covered */
   header.site-header .navbar-collapse::before,
   header.site-header .offcanvas::before,
   header.site-header .mobile-menu::before,
+  header.site-header .menu::before,
+  header.site-header .drawer::before,
   header.site-header [class*="menu"]::before,
   header.site-header [class*="drawer"]::before,
   header.site-header [class*="offcanvas"]::before{
-    content:""; display:block; height: 84px; /* header 66 + extra 18px */
+    content:""; display:block; height:88px;
   }
   header.site-header.is-scrolled .navbar-collapse::before,
   header.site-header.is-scrolled .offcanvas::before,
   header.site-header.is-scrolled .mobile-menu::before,
+  header.site-header.is-scrolled .menu::before,
+  header.site-header.is-scrolled .drawer::before,
   header.site-header.is-scrolled [class*="menu"]::before,
   header.site-header.is-scrolled [class*="drawer"]::before,
   header.site-header.is-scrolled [class*="offcanvas"]::before{
-    height: 70px; /* reduced header 56 + extra 14px */
+    height:72px;
   }
 
-  /* Lower the menu logo a bit more and keep it centered/uncropped */
   header.site-header .sjt-menu-logo{
     display:flex !important; align-items:center !important; justify-content:center !important;
-    padding: 8px 12px 8px !important; margin: 0 auto !important; overflow:visible !important;
+    padding: 14px 12px 10px !important; margin: 0 auto !important; overflow:visible !important;
   }
   header.site-header .sjt-menu-logo img{
-    display:block !important; margin: 12px auto 10px !important;
-    max-width: 220px !important; max-height: 64px !important;
-    width:auto !important; height:auto !important; object-fit: contain !important;
+    display:block !important;
+    margin: 12px auto 10px !important;
+    max-width: 220px !important; max-height: 66px !important;
+    width:auto !important; height:auto !important; object-fit:contain !important; visibility:visible !important;
   }
 
-  /* When forcing visibility via body flag, ensure fully visible */
-  body.sjt-menu-open header.site-header .navbar-collapse,
-  body.sjt-menu-open header.site-header .offcanvas,
-  body.sjt-menu-open header.site-header .mobile-menu,
-  body.sjt-menu-open header.site-header [class*="menu"],
-  body.sjt-menu-open header.site-header [class*="drawer"],
-  body.sjt-menu-open header.site-header [class*="offcanvas"]{
-    display:block !important; visibility:visible !important; opacity:1 !important;
+  header.site-header .navbar-collapse,
+  header.site-header .offcanvas,
+  header.site-header .mobile-menu,
+  header.site-header .menu,
+  header.site-header .drawer,
+  header.site-header [class*="menu"],
+  header.site-header [class*="drawer"],
+  header.site-header [class*="offcanvas"]{
+    overflow: visible !important;
   }
 }
