@@ -1,0 +1,30 @@
+/* sjt_nav_sticky_shrink.css — móvil/tablet: barra fija que se reduce + swap de logos */
+@media (max-width:1024px){
+  :root{ --sjt-nav-h: 64px; }            /* altura normal */
+  html.sjt-shrink{ --sjt-nav-h: 40px; }  /* altura reducida */
+
+  header, .header, .navbar, .topbar, nav[role="navigation"]{
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    height: var(--sjt-nav-h) !important;
+    min-height: var(--sjt-nav-h) !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: height .2s ease, min-height .2s ease;
+  }
+
+  /* Nunca recortar imágenes */
+  header .logo img, .header .logo img, .navbar .logo img, .topbar .logo img,
+  img.logo, img[alt*="logo" i], img[src*="logo" i], .logo svg{
+    height:auto !important;
+    width:auto !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+
+  /* Visibilidad por estado: normal = solo primario, reducido = solo secundario */
+  html:not(.sjt-shrink) .sjt-secondary-logo{ display:none !important; }
+  html.sjt-shrink .sjt-primary-logo{ display:none !important; }
+  html.sjt-shrink .sjt-secondary-logo{ display:block !important; }
+}
