@@ -1,0 +1,10 @@
+/* sjt_logo_safety.css — móvil/tablet: seguridad para que el logo no se recorte */
+@media (max-width:1024px){
+  header .logo img, .header .logo img, .navbar .logo img, .topbar .logo img,
+  img.logo, img[alt*="logo" i], img[src*="logo" i], .logo svg{
+    height: auto !important;
+    width: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+}
