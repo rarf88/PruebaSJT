@@ -282,3 +282,46 @@
     z-index: 6 !important;
   }
 }
+
+
+
+/* v60r3m3: Grid layout — center overlay in the middle column, hamburger on the right (mobile/tablet only) */
+@media (max-width:1024px){
+  header.site-header nav.nav{
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important; /* left spacer | centered logo | right actions */
+    align-items: center !important;
+    justify-items: center !important;
+  }
+
+  /* Place the overlay in the center column */
+  .sjt-mobile-logo-overlay{
+    position: static !important;   /* override previous absolute */
+    left: auto !important; right: auto !important; top: auto !important;
+    transform: none !important;
+    grid-column: 2 / 3 !important;
+    height: 100% !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    pointer-events: none !important;
+  }
+  .sjt-mobile-logo-overlay a{
+    pointer-events: auto !important;
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  }
+
+  /* Place hamburger/content in the right column */
+  header.site-header nav.nav .navbar-toggler,
+  header.site-header nav.nav .hamburger,
+  header.site-header nav.nav #sjt-hamburger,
+  header.site-header nav.nav .menu-toggle,
+  header.site-header nav.nav button.navbar-toggler{
+    position: static !important;     /* no absolute needed with grid */
+    grid-column: 3 / 4 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    transform: none !important;
+    margin-right: 12px !important;
+    z-index: 6 !important;
+  }
+}
