@@ -201,145 +201,41 @@
 
 
 
-/* === v60r3e: stronger no-ghost rules (mobile/tablet) === */
+/* v60r3k: anti-flash + unified header behavior (mobile/tablet only) */
 @media (max-width:1024px){
+  /* Anti-flash: hide all header media except overlay */
   header.site-header img,
   header.site-header picture,
-  header.site-header svg{
-    display:none !important; visibility:hidden !important; pointer-events:none !important;
-    width:0 !important; height:0 !important; overflow:hidden !important;
-  }
+  header.site-header svg{ display:none !important; visibility:hidden !important; }
   header.site-header .sjt-mobile-logo-overlay img,
   header.site-header .sjt-mobile-logo-overlay picture,
-  header.site-header .sjt-mobile-logo-overlay svg{
-    display:block !important; visibility:visible !important; pointer-events:auto !important;
-    width:auto !important; height:auto !important; overflow:visible !important;
-  }
-  header.site-header [style*="background-image"][style*="logo" i]{
-    background-image: none !important;
-  }
-}
+  header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
 
-
-
-/* === v60r3h: MOBILE/TABLET — stable shrink with no cropping & safe-area === */
-@media (max-width:1024px){
-  header.site-header{
-    position: sticky !important; top:0 !important; z-index:9999 !important;
-    padding-top: env(safe-area-inset-top, 0); /* iOS notch safety */
-    overflow: visible !important;
+  header.site-header{ position: sticky !important; top:0 !important; z-index:9999 !important; padding-top: env(safe-area-inset-top, 0); }
+  header.site-header nav.nav{
+    position: relative !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    height:66px !important; transition: height .22s ease; overflow: visible !important;
   }
-  header.site-header nav.nav{ 
-    min-height:64px !important; 
-    transition:min-height .2s ease;
-    overflow: visible !important;
-  }
-  header.site-header.is-scrolled nav.nav{ min-height:56px !important; }
+  header.site-header.is-scrolled nav.nav{ height:56px !important; }
 
   .sjt-mobile-logo-overlay{
-    height:64px !important;
+    position: static !important; height:100% !important; width:auto !important;
+    padding:0 !important; margin:0 !important;
     display:flex !important; align-items:center !important; justify-content:center !important;
-    transform-origin:center center !important;
-    transition:height .2s ease;
-    overflow: visible !important;
-    z-index:5 !important;
-  }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ height:56px !important; }
-
-  /* Logo media: leave headroom to avoid clipping; scale only on scroll */
-  .sjt-mobile-logo-overlay img,
-  .sjt-mobile-logo-overlay picture,
-  .sjt-mobile-logo-overlay svg{
-    max-height:52px !important;  /* cushion at top/bottom */
-    height:auto !important; width:auto !important; display:block !important;
-    transform-origin:center center !important; transition:transform .2s ease;
-  }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay img,
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay picture,
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay svg{
-    transform:scale(0.88);
-  }
-}
-
-
-
-/* === v60r3i: MOBILE/TABLET — final stable sizing to mirror desktop behavior === */
-@media (max-width:1024px){
-  header.site-header,
-  header.site-header nav.nav,
-  .sjt-mobile-logo-overlay{ overflow: visible !important; }
-
-  /* Full state (top of page) */
-  header.site-header nav.nav{ min-height:66px !important; transition:min-height .22s ease; }
-  .sjt-mobile-logo-overlay{
-    height:66px !important; padding:6px 0 !important;  /* breathing room */
-    display:flex !important; align-items:center !important; justify-content:center !important;
-    transform:none !important; transform-origin:center center !important;
-    transition: height .22s ease;
   }
   .sjt-mobile-logo-overlay img,
   .sjt-mobile-logo-overlay picture,
   .sjt-mobile-logo-overlay svg{
-    display:block !important;
     height:auto !important; width:auto !important; object-fit:contain !important;
-    max-height:50px !important;         /* avoids bottom clipping on full bar */
-    transform:none !important;           /* base state */
-    transition: transform .22s ease;
+    max-height: calc(100% - 12px) !important; transition:max-height .22s ease;
   }
 
-  /* Scrolled state (single step) */
-  header.site-header.is-scrolled nav.nav{ min-height:56px !important; }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ height:56px !important; padding:4px 0 !important; }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay img,
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay picture,
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay svg{
-    max-height:46px !important;          /* keep inside reduced bar */
-    transform: scale(0.92);
-  }
-}
-
-
-
-/* === v60r3j: MOBILE/TABLET — unify sizing & prevent clipping === */
-@media (max-width:1024px){
-  header.site-header,
-  header.site-header nav.nav,
-  .sjt-mobile-logo-overlay{ overflow: visible !important; }
-
-  /* Full bar state */
-  header.site-header nav.nav{ min-height:70px !important; transition:min-height .22s ease; }
-  .sjt-mobile-logo-overlay{
-    height:70px !important; padding:6px 0 !important;
-    display:flex !important; align-items:center !important; justify-content:center !important;
-    line-height:0 !important; transform:none !important; transform-origin:center !important;
-    transition: height .22s ease, padding .22s ease;
-    z-index:5 !important;
-  }
-  /* Keep a constant media cap and avoid baseline clipping */
-  .sjt-mobile-logo-overlay img,
-  .sjt-mobile-logo-overlay picture,
-  .sjt-mobile-logo-overlay svg{
-    display:block !important; height:auto !important; width:auto !important; object-fit:contain !important;
-    max-height:54px !important; /* constant cap to avoid cut at top/bottom */
-    transform:none !important; transition:transform .22s ease;
-  }
-
-  /* Scrolled (single step, mirrors desktop) */
-  header.site-header.is-scrolled nav.nav{ min-height:56px !important; }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ height:56px !important; padding:4px 0 !important; }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay img,
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay picture,
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay svg{
-    max-height:54px !important; /* keep same cap; scale controls the visual size */
-    transform: scale(0.88) !important;
-  }
-
-  /* Ensure hamburger stays centered */
   header.site-header nav.nav .navbar-toggler,
   header.site-header nav.nav .hamburger,
   header.site-header nav.nav #sjt-hamburger,
   header.site-header nav.nav .menu-toggle,
   header.site-header nav.nav button.navbar-toggler{
-    position:absolute; top:50%; transform:translateY(-50%); right:12px; z-index:6;
+    position:absolute !important; right:12px !important; top:50% !important; transform:translateY(-50%) !important; z-index:6 !important;
   }
 }
