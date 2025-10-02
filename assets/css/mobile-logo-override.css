@@ -325,3 +325,52 @@
     z-index: 6 !important;
   }
 }
+
+
+
+/* v60r3m4: MÓVIL/TABLET — cortar logo (independiente), centrar con flex y ghost spacer, sin recortes */
+@media (max-width:1024px){
+  header.site-header{ position:sticky !important; top:0 !important; z-index:9999 !important; overflow:visible !important; }
+  header.site-header nav.nav{
+    position:relative !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    padding:0 12px !important;
+    height:66px !important; transition:height .22s ease;
+    --toggler-w: 44px;
+  }
+  header.site-header nav.nav::before{
+    content:""; flex:0 0 var(--toggler-w); height:1px; margin-right:auto;
+  }
+  header.site-header.is-scrolled nav.nav{ height:56px !important; }
+
+  .sjt-mobile-logo-overlay{
+    position:relative !important; z-index:4 !important;
+    height:100% !important; display:flex !important; align-items:center !important; justify-content:center !important;
+    pointer-events:none !important; line-height:0 !important;
+  }
+  .sjt-mobile-logo-overlay a{
+    pointer-events:auto !important; display:inline-flex !important; align-items:center !important; justify-content:center !important;
+  }
+  .sjt-mobile-logo-overlay img{
+    height:auto !important; width:auto !important; object-fit:contain !important;
+    max-height:50px !important; transition:max-height .22s ease;
+  }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay img{ max-height:44px !important; }
+
+  header.site-header nav.nav .navbar-toggler,
+  header.site-header nav.nav .hamburger,
+  header.site-header nav.nav #sjt-hamburger,
+  header.site-header nav.nav .menu-toggle,
+  header.site-header nav.nav button.navbar-toggler{
+    margin-left:auto !important;
+    position:relative !important; right:auto !important; top:auto !important; transform:none !important;
+    z-index:6 !important;
+  }
+
+  header.site-header nav.nav .logo,
+  header.site-header nav.nav .site-logo,
+  header.site-header nav.nav .brand{ display:none !important; }
+}
+@media (min-width:1025px){
+  .sjt-mobile-logo-overlay{ display:none !important; }
+}
