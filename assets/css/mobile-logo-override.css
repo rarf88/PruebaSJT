@@ -558,3 +558,40 @@
     overflow: visible !important;
   }
 }
+
+
+
+/* v60r3m8b: MOBILE/TABLET — lower the menu logo (avoid clipping with top bar) and refine menu spacing */
+@media (max-width:1024px){
+  /* Add breathing room at the top of opened menus */
+  header.site-header .navbar-collapse,
+  header.site-header .navbar-collapse.show,
+  header.site-header .offcanvas,
+  header.site-header .offcanvas.show,
+  header.site-header .mobile-menu,
+  header.site-header [class*="menu"],
+  header.site-header [class*="drawer"],
+  header.site-header [class*="offcanvas"]{
+    padding-top: 14px !important;
+  }
+
+  /* Drop the logo slightly more */
+  header.site-header .navbar-collapse img[src*="logo" i],
+  header.site-header .offcanvas img[src*="logo" i],
+  header.site-header .mobile-menu img[src*="logo" i],
+  header.site-header [class*="menu"] img[src*="logo" i],
+  header.site-header [class*="drawer"] img[src*="logo" i],
+  header.site-header [class*="offcanvas"] img[src*="logo" i]{
+    margin-top: 10px !important;  /* extra drop to clear the top bar */
+  }
+
+  /* If the logo is wrapped, push the wrapper too */
+  header.site-header .navbar-collapse .logo,
+  header.site-header .offcanvas .logo,
+  header.site-header .mobile-menu .logo,
+  header.site-header [class*="menu"] .logo,
+  header.site-header [class*="drawer"] .logo,
+  header.site-header [class*="offcanvas"] .logo{
+    padding-top: 10px !important;
+  }
+}
