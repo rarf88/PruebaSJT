@@ -58,7 +58,27 @@
       overlay.appendChild(a);
     }
 
-    // Remove any other nav .logo nodes (keep only overlay)
+    // Ensure overlay exists and contains the approved logo (hard-wired)
+    if (!overlay){
+      overlay = document.createElement('div');
+      overlay.className = 'sjt-mobile-logo-overlay';
+      header.appendChild(overlay);
+    }
+    if (overlay.parentElement !== nav) {
+      try{ nav.appendChild(overlay); }catch(e){}
+    }
+    var a = overlay.querySelector('a');
+    var img = overlay.querySelector('img');
+    if (!a) {
+      a = document.createElement('a'); a.href='index.html'; a.setAttribute('aria-label','Inicio'); overlay.appendChild(a);
+    }
+    if (!img) {
+      img = document.createElement('img'); a.appendChild(img);
+    }
+    img.src = 'assets/img/sjt-logo.png';
+    if (!img.alt) img.alt = 'SJT';
+
+  // Remove any other nav .logo nodes (keep only overlay)
     var extra = nav.querySelectorAll('.logo, .site-logo, .brand');
     extra.forEach(function(n){ if (!n.closest('.sjt-mobile-logo-overlay')){ try{ n.remove(); }catch(e){} } });
   }

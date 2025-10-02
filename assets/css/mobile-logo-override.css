@@ -239,3 +239,9 @@
     position:absolute !important; right:12px !important; top:50% !important; transform:translateY(-50%) !important; z-index:6 !important;
   }
 }
+
+
+/* v60r3k3: explicit allow for the approved overlay image */
+@media (max-width:1024px){
+  .sjt-mobile-logo-overlay img[src*="sjt-logo"]{ display:block !important; visibility:visible !important; }
+}
