@@ -235,3 +235,11 @@
 @media (min-width:1025px){
   .sjt-mobile-logo-overlay{ display:none !important; }
 }
+
+
+
+/* v60r3m: use the approved .logo markup; hide original on mobile so only centered overlay is visible */
+@media (max-width:1024px){
+  header.site-header nav.nav .logo{ display:none !important; }
+  /* Keep previous anti-flash rules already present in this package */
+}
