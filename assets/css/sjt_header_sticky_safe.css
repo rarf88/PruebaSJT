@@ -1,16 +1,9 @@
-/* sjt_header_sticky_safe.css — keep header visible and prevent logo cropping (mobile/tablet) */
+
+/* sjt_header_sticky_safe.css — keep header visible (mobile/tablet) */
 @media (max-width:1024px){
   header, .header, .navbar, .topbar, nav[role="navigation"]{
     position: sticky !important;
     top: 0 !important;
     z-index: 9999 !important;
-  }
-  /* non-destructive safety: ensure logos don't crop */
-  header .logo img, .header .logo img, .navbar .logo img, .topbar .logo img,
-  img.logo, img[alt*="logo" i], img[src*="logo" i], .logo svg{
-    height: auto !important;
-    width: auto !important;
-    object-fit: contain !important;
-    display: block !important;
   }
 }
