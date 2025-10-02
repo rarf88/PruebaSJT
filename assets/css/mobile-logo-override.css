@@ -201,103 +201,37 @@
 
 
 
-/* v60r3k: anti-flash + unified header behavior (mobile/tablet only) */
+/* v60r3-restore2: ensure overlay image visible & stable (mobile/tablet only) */
 @media (max-width:1024px){
-  /* Anti-flash: hide all header media except overlay */
-  header.site-header img,
-  header.site-header picture,
-  header.site-header svg{ display:none !important; visibility:hidden !important; }
+  /* Anti-flash: hide header media by default, allow overlay media */
+  header.site-header img, header.site-header picture, header.site-header svg{ display:none !important; visibility:hidden !important; }
   header.site-header .sjt-mobile-logo-overlay img,
   header.site-header .sjt-mobile-logo-overlay picture,
   header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
 
-  header.site-header{ position: sticky !important; top:0 !important; z-index:9999 !important; padding-top: env(safe-area-inset-top, 0); }
-  header.site-header nav.nav{
-    position: relative !important;
-    display:flex !important; align-items:center !important; justify-content:center !important;
-    height:66px !important; transition: height .22s ease; overflow: visible !important;
-  }
+  header.site-header{ position:sticky !important; top:0 !important; z-index:9999 !important; overflow:visible !important; }
+  header.site-header nav.nav{ position:relative !important; display:flex !important; align-items:center !important; justify-content:center !important;
+    height:66px !important; transition:height .22s ease; overflow:visible !important; }
   header.site-header.is-scrolled nav.nav{ height:56px !important; }
 
-  .sjt-mobile-logo-overlay{
-    position: static !important; height:100% !important; width:auto !important;
-    padding:0 !important; margin:0 !important;
-    display:flex !important; align-items:center !important; justify-content:center !important;
-  }
-  .sjt-mobile-logo-overlay img,
-  .sjt-mobile-logo-overlay picture,
-  .sjt-mobile-logo-overlay svg{
-    height:auto !important; width:auto !important; object-fit:contain !important;
-    max-height: calc(100% - 12px) !important; transition:max-height .22s ease;
-  }
+  .sjt-mobile-logo-overlay{ position:static !important; height:100% !important; display:flex !important; align-items:center !important; justify-content:center !important;
+    padding:6px 0 !important; margin:0 !important; line-height:0 !important; }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ padding:4px 0 !important; }
 
+  .sjt-mobile-logo-overlay img{ height:auto !important; width:auto !important; object-fit:contain !important;
+    max-height:50px !important; transition:max-height .22s ease; }
+  header.site-header.is-scrolled .sjt-mobile-logo-overlay img{ max-height:44px !important; }
+
+  /* Right hamburger aligned */
   header.site-header nav.nav .navbar-toggler,
   header.site-header nav.nav .hamburger,
   header.site-header nav.nav #sjt-hamburger,
   header.site-header nav.nav .menu-toggle,
-  header.site-header nav.nav button.navbar-toggler{
-    position:absolute !important; right:12px !important; top:50% !important; transform:translateY(-50%) !important; z-index:6 !important;
-  }
-}
+  header.site-header nav.nav button.navbar-toggler{ position:absolute !important; right:12px !important; top:50% !important; transform:translateY(-50%) !important; z-index:6 !important; }
 
-
-/* v60r3k3: explicit allow for the approved overlay image */
-@media (max-width:1024px){
-  .sjt-mobile-logo-overlay img[src*="sjt-logo"]{ display:block !important; visibility:visible !important; }
-}
-
-
-
-/* v60r3k4: Mobile/tablet — centered static overlay in nav, stable heights, no clipping */
-@media (max-width:1024px){
-  /* Anti-flash: hide all header media by default, then allow overlay image */
-  header.site-header img,
-  header.site-header picture,
-  header.site-header svg{ display:none !important; visibility:hidden !important; }
-  header.site-header .sjt-mobile-logo-overlay img,
-  header.site-header .sjt-mobile-logo-overlay picture,
-  header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
-
-  /* Desktop should not show overlay */
+  /* Hide legacy nav logos to prevent duplicates (mobile only) */
+  header.site-header nav.nav .logo, header.site-header nav.nav .site-logo, header.site-header nav.nav .brand{ display:none !important; }
 }
 @media (min-width:1025px){
   .sjt-mobile-logo-overlay{ display:none !important; }
-}
-@media (max-width:1024px){
-  header.site-header{ position:sticky !important; top:0 !important; z-index:9999 !important; overflow:visible !important; }
-  header.site-header nav.nav{ 
-    position:relative !important; display:flex !important; align-items:center !important; justify-content:center !important;
-    height:66px !important; transition:height .22s ease; overflow:visible !important;
-  }
-  header.site-header.is-scrolled nav.nav{ height:56px !important; }
-
-  .sjt-mobile-logo-overlay{ 
-    position:static !important; height:100% !important; width:auto !important; padding:6px 0 !important; margin:0 !important;
-    display:flex !important; align-items:center !important; justify-content:center !important; line-height:0 !important;
-  }
-  .sjt-mobile-logo-overlay a{ display:inline-flex !important; align-items:center !important; pointer-events:auto !important; }
-  .sjt-mobile-logo-overlay img{ 
-    height:auto !important; width:auto !important; object-fit:contain !important; 
-    max-height:50px !important; transition:max-height .22s ease;
-  }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay{ padding:4px 0 !important; }
-  header.site-header.is-scrolled .sjt-mobile-logo-overlay img{ max-height:44px !important; }
-
-  /* Place hamburger at right */
-  header.site-header nav.nav .navbar-toggler,
-  header.site-header nav.nav .hamburger,
-  header.site-header nav.nav #sjt-hamburger,
-  header.site-header nav.nav .menu-toggle,
-  header.site-header nav.nav button.navbar-toggler{
-    position:absolute !important; right:12px !important; top:50% !important; transform:translateY(-50%) !important; z-index:6 !important;
-  }
-
-  /* Hide any legacy nav logos on mobile to avoid duplicates */
-  header.site-header nav.nav .logo,
-  header.site-header nav.nav .site-logo,
-  header.site-header nav.nav .brand{ display:none !important; }
-}
-/* Explicit allow for the chosen logo filename (in case of strict anti-flash) */
-@media (max-width:1024px){
-  .sjt-mobile-logo-overlay img[src*="sjt-logo.png"]{ display:block !important; visibility:visible !important; }
 }
