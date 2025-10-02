@@ -80,7 +80,7 @@
 
       // SECOND LOGO: smaller ratios
       cleanupSecondInline();
-      var ratio = shrink ? 0.35 : 0.5; // much smaller on shrink
+      var ratio = 0.30; // much smaller on shrink
       var target = Math.max(12, Math.round(baseHeight * ratio));
       if(secondLogo.tagName === 'IMG' || secondLogo.tagName === 'SVG'){
         secondLogo.style.setProperty('max-height', target+'px', 'important');
