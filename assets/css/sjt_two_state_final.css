@@ -1,0 +1,37 @@
+
+/* sjt_two_state_final.css — two states only (mobile/tablet) */
+@media (max-width:1024px){
+  :root{ --sjt-bar-h: 64px; }           /* normal */
+  html.sjt-shrink{ --sjt-bar-h: 36px; } /* reduced */
+
+  header, .header, .navbar, .topbar, nav[role="navigation"]{
+    height: var(--sjt-bar-h) !important;
+    min-height: var(--sjt-bar-h) !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: none !important; /* avoid mid-state */
+  }
+
+  /* Logo containers with background image */
+  header .logo, .header .logo, .navbar .logo, .topbar .logo, nav[role="navigation"] .logo{
+    height: var(--sjt-bar-h) !important;
+    line-height: var(--sjt-bar-h) !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Images/SVGs strictly bounded by bar height */
+  header .logo img, .header .logo img, .navbar .logo img, .topbar .logo img,
+  img.logo, img[alt*="logo" i], img[src*="logo" i],
+  header svg[aria-label*="logo" i], nav svg[aria-label*="logo" i], .logo svg{
+    height:auto !important;
+    width:auto !important;
+    max-height: calc(var(--sjt-bar-h) - 6px) !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+}
