@@ -501,3 +501,60 @@
     width:0 !important; height:0 !important; padding:0 !important; margin:0 !important; border:0 !important;
   }
 }
+
+
+
+/* v60r3m8a: MOBILE/TABLET — center and prevent cropping for logo inside hamburger/offcanvas menu */
+@media (max-width:1024px){
+  /* Common containers for mobile menus: bootstrap collapse, offcanvas, custom drawers */
+  header.site-header .navbar-collapse,
+  header.site-header .navbar-collapse.show,
+  header.site-header .offcanvas,
+  header.site-header .offcanvas.show,
+  header.site-header .mobile-menu,
+  header.site-header [class*="menu"],
+  header.site-header [class*="drawer"],
+  header.site-header [class*="offcanvas"]{
+    overflow: visible !important;
+  }
+
+  /* Ensure any logo inside those menus is centered and not cropped */
+  header.site-header .navbar-collapse img[src*="logo" i],
+  header.site-header .offcanvas img[src*="logo" i],
+  header.site-header .mobile-menu img[src*="logo" i],
+  header.site-header [class*="menu"] img[src*="logo" i],
+  header.site-header [class*="drawer"] img[src*="logo" i],
+  header.site-header [class*="offcanvas"] img[src*="logo" i]{
+    display:block !important;
+    margin: 12px auto !important;
+    max-width: 180px !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 56px !important;
+    object-fit: contain !important;
+    visibility: visible !important;
+  }
+
+  /* If the logo sits inside a wrapper, center the wrapper too */
+  header.site-header .navbar-collapse .logo,
+  header.site-header .offcanvas .logo,
+  header.site-header .mobile-menu .logo,
+  header.site-header [class*="menu"] .logo,
+  header.site-header [class*="drawer"] .logo,
+  header.site-header [class*="offcanvas"] .logo{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding: 8px 0 !important;
+  }
+
+  /* Avoid unintended clipping from parent containers */
+  header.site-header .navbar-collapse .logo,
+  header.site-header .offcanvas .logo,
+  header.site-header .mobile-menu .logo,
+  header.site-header [class*="menu"],
+  header.site-header [class*="drawer"],
+  header.site-header [class*="offcanvas"]{
+    overflow: visible !important;
+  }
+}
