@@ -595,3 +595,60 @@
     padding-top: 10px !important;
   }
 }
+
+
+
+/* v60r3m8c: MOBILE/TABLET — stronger menu top spacer + centered logo without clipping */
+@media (max-width:1024px){
+  /* Create a top spacer that accounts for the sticky header height */
+  header.site-header .navbar-collapse::before,
+  header.site-header .offcanvas::before,
+  header.site-header .mobile-menu::before,
+  header.site-header [class*="menu"]::before,
+  header.site-header [class*="drawer"]::before,
+  header.site-header [class*="offcanvas"]::before{
+    content:""; display:block; height:66px; /* header full height */
+  }
+  header.site-header.is-scrolled .navbar-collapse::before,
+  header.site-header.is-scrolled .offcanvas::before,
+  header.site-header.is-scrolled .mobile-menu::before,
+  header.site-header.is-scrolled [class*="menu"]::before,
+  header.site-header.is-scrolled [class*="drawer"]::before,
+  header.site-header.is-scrolled [class*="offcanvas"]::before{
+    height:56px; /* reduced header */
+  }
+
+  /* Ensure menus are not clipping content and have breathing room */
+  header.site-header .navbar-collapse,
+  header.site-header .offcanvas,
+  header.site-header .mobile-menu,
+  header.site-header [class*="menu"],
+  header.site-header [class*="drawer"],
+  header.site-header [class*="offcanvas"]{
+    overflow: visible !important;
+    padding-top: 10px !important;
+  }
+
+  /* Logo inside menu: centered, no crop, and a bit lower to clear the bar */
+  header.site-header .navbar-collapse img[src*="logo" i],
+  header.site-header .offcanvas img[src*="logo" i],
+  header.site-header .mobile-menu img[src*="logo" i],
+  header.site-header [class*="menu"] img[src*="logo" i],
+  header.site-header [class*="drawer"] img[src*="logo" i],
+  header.site-header [class*="offcanvas"] img[src*="logo" i]{
+    display:block !important; margin: 12px auto 8px !important;
+    max-width: 200px !important; max-height: 60px !important;
+    width:auto !important; height:auto !important; object-fit:contain !important; visibility:visible !important;
+  }
+
+  /* If wrapped in a .logo container, center it and push from top */
+  header.site-header .navbar-collapse .logo,
+  header.site-header .offcanvas .logo,
+  header.site-header .mobile-menu .logo,
+  header.site-header [class*="menu"] .logo,
+  header.site-header [class*="drawer"] .logo,
+  header.site-header [class*="offcanvas"] .logo{
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    padding-top: 8px !important; overflow:visible !important;
+  }
+}
