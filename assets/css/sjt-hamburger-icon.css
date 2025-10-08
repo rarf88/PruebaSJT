@@ -1,27 +1,23 @@
 /* Mobile hamburger icon visuals only (no repositioning of the button) */
 @media (max-width: 991px){
-  /* We won't change button position/layout. Only inner bars visuals. */
-  #sjt-hamburger, .hamburger, .menu-toggle{
-    /* keep whatever layout the site had */
-    line-height: 0;
-  }
+  #sjt-hamburger, .hamburger, .menu-toggle{ line-height: 0; }
   #sjt-hamburger .bar, .hamburger .bar, .menu-toggle .bar{
     display:block;
-    width:22px;               /* controlled width */
-    height:2px;               /* thin for elegance */
+    width:18px;               /* smaller width */
+    height:2px;
     background:#fff;
     border-radius:2px;
-    margin:4px auto;          /* tight spacing & centered */
-    transition: transform .18s ease, opacity .18s ease;
+    margin:3px auto;          /* tighter spacing */
+    transition: transform .16s ease, opacity .16s ease;
   }
-  /* X state transforms */
+  /* X state transforms (smaller travel so it doesn't get cut off) */
   #sjt-hamburger.is-open .bar:nth-child(1), .hamburger.is-open .bar:nth-child(1), .menu-toggle.is-open .bar:nth-child(1){
-    transform: translateY(6px) rotate(45deg);
+    transform: translateY(5px) rotate(45deg);
   }
   #sjt-hamburger.is-open .bar:nth-child(2), .hamburger.is-open .bar:nth-child(2), .menu-toggle.is-open .bar:nth-child(2){
     opacity: 0;
   }
   #sjt-hamburger.is-open .bar:nth-child(3), .hamburger.is-open .bar:nth-child(3), .menu-toggle.is-open .bar:nth-child(3){
-    transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-5px) rotate(-45deg);
   }
 }
