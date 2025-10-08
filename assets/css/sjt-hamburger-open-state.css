@@ -1,0 +1,26 @@
+/* Minimal fix: ocultar las 3 rayas cuando el menú está abierto; no mueve la X */
+@media (max-width: 1024px){
+  /* Aria expanded true */
+  .navbar-toggler[aria-expanded="true"] .hamburger-lines,
+  .menu-toggle[aria-expanded="true"] .hamburger-lines,
+  #sjt-hamburger[aria-expanded="true"] .hamburger-lines,
+  [data-menu-toggle][aria-expanded="true"] .hamburger-lines,
+  button[aria-controls][aria-expanded="true"] .hamburger-lines,
+  /* States via clases */
+  .navbar-toggler.is-open .hamburger-lines,
+  .menu-toggle.is-open .hamburger-lines,
+  #sjt-hamburger.is-open .hamburger-lines,
+  .hamburger.is-open .hamburger-lines {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  /* Alternativas frecuentes: ocultar ícono hamburguesa genérico si existe */
+  .navbar-toggler[aria-expanded="true"] .icon-hamburger,
+  .menu-toggle[aria-expanded="true"] .icon-hamburger,
+  #sjt-hamburger[aria-expanded="true"] .icon-hamburger,
+  .hamburger.is-open .icon-hamburger {
+    display: none !important;
+  }
+}

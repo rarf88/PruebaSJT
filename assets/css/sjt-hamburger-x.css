@@ -1,6 +1,5 @@
 /* New X for hamburger (mobile/tablet) — keeps button position, avoids clipping */
-@media (max-width: 991px){\n  body.sjt-inline-x-enabled 
-  body.sjt-inline-x-enabled 
+@media (max-width: 991px){
   
   /* Keep your original bars *as-is* in closed state */
   /* Open state: hide bars and draw a centered X using pseudo-elements */
@@ -28,27 +27,3 @@
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 }
-
-/* ==== Ultra Aggressive: sólo X visible cuando el botón está "open" ==== */
-@media (max-width: 1024px){
-  body.sjt-inline-x-enabled .is-open, 
-  body.sjt-inline-x-enabled .is-open * { pointer-events: none; } /* evita el tap en hijos que no sean hitbox */
-  body.sjt-inline-x-enabled .is-open > * { opacity: 0 !important; visibility: hidden !important; }
-  body.sjt-inline-x-enabled .is-open {
-    position: relative !important;
-  }
-  body.sjt-inline-x-enabled .is-open::before,
-  body.sjt-inline-x-enabled .is-open::after{
-    content: "";
-    position: absolute;
-    left: 50%; top: 50%;
-    width: 18px;
-    height: 2.5px;
-    background: currentColor;
-    transform-origin: 50% 50%;
-    border-radius: 2px;
-  }
-  body.sjt-inline-x-enabled .is-open::before{ transform: translate(-50%, -50%) rotate(45deg); }
-  body.sjt-inline-x-enabled .is-open::after{ transform: translate(-50%, -50%) rotate(-45deg); }
-}
-
