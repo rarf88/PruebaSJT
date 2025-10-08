@@ -1,4 +1,4 @@
-// Mobile-only: immediate open/close; stays open until X or outside click. No timers.
+// Mobile-only: ☰ opens (only), ✕ or scrim closes. No timers, no double toggles.
 (function(){
   function ready(fn){ if(document.readyState!='loading'){fn()} else document.addEventListener('DOMContentLoaded',fn); }
   ready(function(){
@@ -14,7 +14,7 @@
 
     function drawerEl(){
       return document.getElementById('sjt-mobile-drawer') ||
-             document.querySelector('.mobile-drawer, .offcanvas, .nav-drawer, .navbar-collapse, .menu-mobile');
+             document.querySelector('.mobile-drawer, .offcanvas, .nav-drawer, .navbar-collapse, .menu-mobile, nav[role="navigation"]');
     }
     function scrimEl(){
       return document.getElementById('sjt-mobile-scrim') ||
@@ -33,16 +33,9 @@
 
     function openMenu(){
       var d = drawerEl(), s = scrimEl();
-      // Prefer native click if the element already has native handlers
-      // We avoid preventing default to allow native opening, but ensure state if native absent
-      var pre = isOpen();
-      if (typeof btn.click === 'function') { /* call native - but this will also trigger our listener; to avoid loops, we set a flag */ }
-      // If there's no native or it didn't open, enforce open
-      if(!pre){
-        if(d){ d.classList.add('open','show','in'); d.style.removeProperty('display'); }
-        if(s){ s.classList.add('show'); s.style.opacity='1'; s.style.pointerEvents='auto'; }
-        document.documentElement.classList.add('nav-open'); document.body.classList.add('nav-open');
-      }
+      if(d){ d.classList.add('open','show','in'); d.style.removeProperty('display'); }
+      if(s){ s.classList.add('show'); s.style.opacity='1'; s.style.pointerEvents='auto'; }
+      document.documentElement.classList.add('nav-open'); document.body.classList.add('nav-open');
       paint();
     }
     function closeMenu(){
@@ -53,16 +46,19 @@
       paint();
     }
 
-    // Toggle logic: immediate, persists
+    // Click on the button: if closed -> OPEN; if open -> CLOSE (acts as X)
     btn.addEventListener('click', function(ev){
       ev.preventDefault(); ev.stopPropagation();
       if(isOpen()){ closeMenu(); } else { openMenu(); }
     }, {passive:false});
 
-    // Close when clicking scrim/backdrop
+    // Click outside (scrim) closes
     var scrim = scrimEl();
-    if(scrim){
-      scrim.addEventListener('click', function(){ closeMenu(); });
-    }
+    if(scrim){ scrim.addEventListener('click', function(){ closeMenu(); }); }
+
+    // Keep icon synced if other scripts toggle classes
+    var mo = new MutationObserver(paint);
+    [document.body, document.documentElement, drawerEl()].forEach(function(t){ if(t) mo.observe(t, {attributes:true, attributeFilter:['class']}); });
+    paint();
   });
 })();
