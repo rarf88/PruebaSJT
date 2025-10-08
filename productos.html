@@ -330,3 +330,126 @@
   (function(){ try{ document.addEventListener('DOMContentLoaded', function(){ document.body.classList.add('sjt-inline-x-enabled'); markButtons(anyMenuOpen()); }); }catch(e){} })();
 })();
 </script>
+
+<script>
+// === SJT Hamburger Ultra Aggressive v5 ===
+(function(){
+  var OPEN_CLASSES = ['open','is-open','active','show','visible','in'];
+  var BODY_FLAGS   = ['menu-open','nav-open','drawer-open','no-scroll','overflow-hidden','offcanvas-open','modal-open'];
+
+  function qsa(sel){ try { return Array.from(document.querySelectorAll(sel)); } catch(e){ return []; } }
+  function togglers(){
+    // Prefer elementos en header/nav; si no, todos los botones candidatos
+    var cands = qsa('header button, header .navbar-toggler, header .hamburger, header .menu-toggle');
+    if (cands.length) return cands;
+    return qsa('.navbar-toggler, .hamburger, .menu-toggle, button[aria-controls], [data-menu-toggle], button[aria-expanded]');
+  }
+  function menus(){
+    return qsa('.mobile-menu, #mobile-menu, [data-mobile-menu], .sjt-menu, .sjt-hamburger-menu, .nav-drawer, .drawer, .offcanvas, .navbar-collapse, .menu-panel, .sidebar');
+  }
+  function overlays(){
+    return qsa('.menu-overlay, .backdrop, .overlay, .offcanvas-backdrop');
+  }
+  function isElOpen(el){
+    if (!el) return false;
+    var cls = el.classList;
+    if (cls && OPEN_CLASSES.some(c => cls.contains(c))) return true;
+    if (el.getAttribute && el.getAttribute('aria-hidden') === 'false') return true;
+    try { var st = window.getComputedStyle(el);
+      if (st && st.display !== 'none' && st.visibility !== 'hidden' && parseFloat(st.opacity||'1') > 0.01) return true;
+    } catch(e){}
+    return false;
+  }
+  function anyMenuOpen(){
+    if (menus().some(isElOpen)) return true;
+    if (document.body && BODY_FLAGS.some(c => document.body.classList.contains(c))) return true;
+    if (document.documentElement && BODY_FLAGS.some(c => document.documentElement.classList.contains(c))) return true;
+    return false;
+  }
+  function markButtons(open){
+    togglers().forEach(btn => {
+      try {
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.classList.toggle('is-open', !!open);
+        btn.classList.remove('active','open','is-active');
+      } catch(e){}
+    });
+    attachHitbox(open);
+  }
+
+  // Precise "hitbox" placed over the toggler to guarantee close on click
+  var hitbox;
+  function attachHitbox(enabled){
+    try {
+      if (!enabled) {
+        if (hitbox && hitbox.parentNode) hitbox.parentNode.removeChild(hitbox);
+        hitbox = null;
+        return;
+      }
+      var btn = togglers()[0];
+      if (!btn) return;
+      var r = btn.getBoundingClientRect();
+      if (!hitbox) {
+        hitbox = document.createElement('div');
+        hitbox.id = 'sjt-x-hitbox';
+        hitbox.style.position = 'fixed';
+        hitbox.style.zIndex = '99999';
+        hitbox.style.background = 'transparent';
+        hitbox.style.cursor = 'pointer';
+        hitbox.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); hardClose(); }, true);
+        document.body.appendChild(hitbox);
+      }
+      // Position & size
+      hitbox.style.left = Math.max(0, r.left) + 'px';
+      hitbox.style.top = Math.max(0, r.top) + 'px';
+      hitbox.style.width = Math.max(32, r.width) + 'px';
+      hitbox.style.height = Math.max(32, r.height) + 'px';
+    } catch(e){}
+  }
+
+  function hardClose(){
+    // 1) Click programático para frameworks
+    togglers().forEach(btn => { try { if (btn.getAttribute('aria-expanded') === 'true') btn.click(); } catch(e){} });
+    // 2) Purgar clases, aria, estilos
+    menus().forEach(el => { try { OPEN_CLASSES.forEach(c => el.classList.remove(c)); el.setAttribute('aria-hidden','true'); if(el.style){ el.style.removeProperty('display'); el.style.removeProperty('visibility'); el.style.removeProperty('opacity'); } } catch(e){} });
+    overlays().forEach(ov => { try { OPEN_CLASSES.forEach(c => ov.classList.remove(c)); ov.setAttribute('aria-hidden','true'); if(ov.style){ ov.style.removeProperty('display'); ov.style.removeProperty('visibility'); ov.style.removeProperty('opacity'); } } catch(e){} });
+    BODY_FLAGS.forEach(c => { document.body && document.body.classList.remove(c); document.documentElement && document.documentElement.classList.remove(c); });
+    markButtons(false);
+  }
+
+  // Delegados para cerrar
+  document.addEventListener('click', function(ev){
+    var closer = ev.target && ev.target.closest('.btn-close, .menu-close, .icon-x, .x, [data-close], [aria-label*="cerrar" i], [aria-label*="close" i]');
+    if (closer) { ev.preventDefault(); ev.stopPropagation(); hardClose(); }
+  }, true);
+  document.addEventListener('click', function(ev){
+    var ov = ev.target && ev.target.closest('.menu-overlay, .backdrop, .overlay, .offcanvas-backdrop');
+    if (ov && ev.target === ov) hardClose();
+  }, true);
+  document.addEventListener('click', function(ev){
+    var link = ev.target && ev.target.closest('.mobile-menu a[href], #mobile-menu a[href], [data-mobile-menu] a[href], .sjt-menu a[href], .sjt-hamburger-menu a[href], .nav-drawer a[href], .drawer a[href], .offcanvas a[href], .navbar-collapse a[href], .menu-panel a[href], .sidebar a[href]');
+    if (link && anyMenuOpen()) setTimeout(hardClose, 50);
+  }, true);
+  document.addEventListener('keydown', function(ev){ if (ev.key==='Escape' && anyMenuOpen()) hardClose(); });
+
+  // Observer para sincronizar
+  var mo = new MutationObserver(function(){ markButtons(anyMenuOpen()); });
+  function observeAll(){
+    try {
+      mo.observe(document.documentElement, {attributes:true, attributeFilter:['class','style','aria-hidden'], subtree:true});
+    } catch(e){}
+  }
+  observeAll();
+
+  // Sync on resize/scroll (para hitbox)
+  ['resize','scroll','orientationchange'].forEach(function(evt){
+    window.addEventListener(evt, function(){ if (anyMenuOpen()) attachHitbox(true); }, {passive:true});
+  });
+
+  // Inicialización
+  document.addEventListener('DOMContentLoaded', function(){
+    try { document.body.classList.add('sjt-inline-x-enabled'); } catch(e){}
+    markButtons(anyMenuOpen());
+  });
+})();
+</script>
