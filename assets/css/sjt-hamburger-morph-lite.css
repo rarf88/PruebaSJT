@@ -3,7 +3,7 @@
   /* If markup has .bar spans, we morph them; otherwise this is harmless */
   #sjt-hamburger.is-open .bar:nth-child(1),
   .hamburger.is-open .bar:nth-child(1){
-    transform: translateY(4px) rotate(45deg) scaleX(0.5);
+    transform: translateY(3px) rotate(45deg) scale(0.45);
   }
   #sjt-hamburger.is-open .bar:nth-child(2),
   .hamburger.is-open .bar:nth-child(2){
@@ -11,7 +11,7 @@
   }
   #sjt-hamburger.is-open .bar:nth-child(3),
   .hamburger.is-open .bar:nth-child(3){
-    transform: translateY(-4px) rotate(-45deg) scaleX(0.5);
+    transform: translateY(-3px) rotate(-45deg) scale(0.45);
   }
 }
 
@@ -21,4 +21,16 @@
 
 @media (max-width: 991px){
   #sjt-hamburger, .hamburger, .menu-toggle { overflow: visible; }
+}
+
+
+@media (max-width: 991px){
+  /* Ensure the button and its common wrappers never clip the rotated lines */
+  #sjt-hamburger, .hamburger, .menu-toggle { 
+    position: relative; 
+    overflow: visible !important; 
+  }
+  header, .site-header, .navbar, nav, .nav, .nav-wrapper {
+    overflow: visible !important;
+  }
 }
