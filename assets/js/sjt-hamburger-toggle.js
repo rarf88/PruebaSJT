@@ -1,42 +1,58 @@
-
+// Mobile-only: robust hamburger toggle (bars<->X) and open/close drawer
 (function(){
   function ready(fn){ if(document.readyState!='loading'){fn()} else document.addEventListener('DOMContentLoaded',fn); }
   ready(function(){
-    // Try to find an existing hamburger
+    if (!window.matchMedia('(max-width: 991px)').matches) return;
+
+    // Try to find an existing hamburger button
     var btn = document.getElementById('sjt-hamburger') ||
-              document.querySelector('.hamburger, .menu-toggle, button[aria-label*="menú"], button[aria-label*="menu"]');
-    if(!btn){
-      // Optionally, do nothing if there's no hamburger. We won't create one to avoid desktop impact.
-      return;
-    }
-    // Normalize initial bars (if inner not set, create)
-    function setBars(){
+              document.querySelector('.hamburger, .menu-toggle, button[aria-label*="menú" i], button[aria-label*="menu" i]');
+    if(!btn) return;
+
+    // Ensure it has 3 bars markup for animation if empty
+    if (!btn.querySelector('.bar')) {
       btn.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
     }
-    function setX(){
-      btn.innerHTML = '<span class="xline"></span><span class="xline"></span>';
-      var s1 = btn.querySelectorAll('.xline')[0];
-      var s2 = btn.querySelectorAll('.xline')[1];
-      if(s1){ s1.style.display='block'; s1.style.width='24px'; s1.style.height='2px'; s1.style.transform='rotate(45deg)'; s1.style.margin='0 auto'; }
-      if(s2){ s2.style.display='block'; s2.style.width='24px'; s2.style.height='2px'; s2.style.transform='rotate(-45deg) translateY(-2px)'; s2.style.margin='-2px auto 0'; }
+
+    // Find likely drawer and scrim
+    function findDrawer(){
+      return document.getElementById('sjt-mobile-drawer') ||
+             document.querySelector('.mobile-drawer, .offcanvas, .nav-drawer, header nav, nav[role="navigation"]');
     }
-    // Determine current open state by common hooks
-    function isOpen(){
-      var drawer = document.getElementById('sjt-mobile-drawer') || document.querySelector('.mobile-drawer, .offcanvas, .nav-drawer');
-      if(drawer) return drawer.classList.contains('open') || drawer.classList.contains('show');
-      return document.body.classList.contains('nav-open') || document.documentElement.classList.contains('nav-open');
+    function findScrim(){
+      return document.getElementById('sjt-mobile-scrim') ||
+             document.querySelector('.backdrop, .offcanvas-backdrop, .nav-scrim');
     }
-    function update(){
-      if(isOpen()) setX(); else setBars();
+
+    function openMenu(drawer, scrim){
+      btn.classList.add('is-open');
+      if(drawer){ drawer.classList.add('open'); drawer.classList.add('show'); drawer.style.transform = 'translateX(0)'; }
+      if(scrim){ scrim.classList.add('show'); scrim.style.opacity = '1'; scrim.style.pointerEvents = 'auto'; }
+      btn.setAttribute('aria-expanded','true');
+      document.documentElement.classList.add('nav-open'); document.body.classList.add('nav-open');
     }
-    // Initial paint
-    update();
-    // Observe mutations to react when some other script opens/closes the menu
-    var observer = new MutationObserver(update);
-    observer.observe(document.body, {attributes:true, attributeFilter:['class']});
-    var drawer = document.getElementById('sjt-mobile-drawer') || document.querySelector('.mobile-drawer, .offcanvas, .nav-drawer');
-    if(drawer) observer.observe(drawer, {attributes:true, attributeFilter:['class']});
-    // Also update on click
-    btn.addEventListener('click', function(){ setTimeout(update, 50); });
+    function closeMenu(drawer, scrim){
+      btn.classList.remove('is-open');
+      if(drawer){ drawer.classList.remove('open'); drawer.classList.remove('show'); drawer.style.removeProperty('transform'); }
+      if(scrim){ scrim.classList.remove('show'); scrim.style.opacity = '0'; scrim.style.pointerEvents = 'none'; }
+      btn.setAttribute('aria-expanded','false');
+      document.documentElement.classList.remove('nav-open'); document.body.classList.remove('nav-open');
+    }
+
+    // Toggle on click
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var drawer = findDrawer();
+      var scrim = findScrim();
+      var isOpen = btn.classList.contains('is-open') ||
+                   (drawer && (drawer.classList.contains('open') || drawer.classList.contains('show')));
+      if(isOpen){ closeMenu(drawer, scrim); } else { openMenu(drawer, scrim); }
+    });
+
+    // Close when clicking scrim
+    var scrim = findScrim();
+    if(scrim){
+      scrim.addEventListener('click', function(){ closeMenu(findDrawer(), scrim); });
+    }
   });
 })();
