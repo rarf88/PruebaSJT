@@ -1,0 +1,12 @@
+/* Morph 3 bars ↔ X with identical size (mobile/tablet) */
+@media (max-width: 991px){
+  #sjt-hamburger .bar, .hamburger .bar {
+    width:16px; height:3px; background:#fff; border-radius:3px;
+    display:block; margin:2px auto; transition:transform .14s ease, opacity .14s ease;
+    transform-origin:50% 50%;
+  }
+  /* X state, same footprint as ☰ */
+  #sjt-hamburger.is-open .bar:nth-child(1), .hamburger.is-open .bar:nth-child(1){ transform: translateY(5px) rotate(45deg); }
+  #sjt-hamburger.is-open .bar:nth-child(2), .hamburger.is-open .bar:nth-child(2){ opacity:0; }
+  #sjt-hamburger.is-open .bar:nth-child(3), .hamburger.is-open .bar:nth-child(3){ transform: translateY(-5px) rotate(-45deg); }
+}
