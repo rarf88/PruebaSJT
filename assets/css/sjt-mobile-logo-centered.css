@@ -1,0 +1,24 @@
+/* Mobile/Tablet centered logo overlay. Desktop unaffected. */
+.sjt-mobile-logo{display:none}
+@media (max-width: 991px){
+  header, .navbar, .site-header { position: relative; } /* local containing block; does not change sticky/fixed */
+  .sjt-mobile-logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:absolute;
+    left:50%; top:50%;
+    transform: translate(-50%, -50%);
+    height:100%;
+    padding:0 8px;
+    z-index: 10; /* above background, below menus */
+    pointer-events:auto;
+  }
+  .sjt-mobile-logo img{
+    height:100%;
+    max-height:100%;
+    width:auto;
+    object-fit:contain;
+    display:block;
+  }
+}
