@@ -1,23 +1,24 @@
-/* Mobile hamburger icon visuals only (no repositioning of the button) */
+/* Mobile hamburger icon — tuned to match reference images (compact ☰ and ✕) */
 @media (max-width: 991px){
-  #sjt-hamburger, .hamburger, .menu-toggle{ line-height: 0; }
+  #sjt-hamburger, .hamburger, .menu-toggle{ line-height:0; }
   #sjt-hamburger .bar, .hamburger .bar, .menu-toggle .bar{
     display:block;
-    width:18px;
-    height:2px;
+    width:16px;                 /* short length like the screenshot */
+    height:3px;                 /* slightly thicker stroke */
     background:#fff;
-    border-radius:2px;
-    margin:2px auto;          /* ultra-tight spacing */
+    border-radius:3px;          /* rounded ends */
+    margin:2px auto;            /* very tight spacing, centered */
     transition: transform .14s ease, opacity .14s ease;
+    transform-origin: 50% 50%;
   }
-  /* Small, clean X */
+  /* Compact X (same stroke and centered) */
   #sjt-hamburger.is-open .bar:nth-child(1), .hamburger.is-open .bar:nth-child(1), .menu-toggle.is-open .bar:nth-child(1){
-    transform: translateY(4px) rotate(45deg);
+    transform: translateY(5px) rotate(45deg);
   }
   #sjt-hamburger.is-open .bar:nth-child(2), .hamburger.is-open .bar:nth-child(2), .menu-toggle.is-open .bar:nth-child(2){
-    opacity: 0;
+    opacity:0;
   }
   #sjt-hamburger.is-open .bar:nth-child(3), .hamburger.is-open .bar:nth-child(3), .menu-toggle.is-open .bar:nth-child(3){
-    transform: translateY(-4px) rotate(-45deg);
+    transform: translateY(-5px) rotate(-45deg);
   }
 }
