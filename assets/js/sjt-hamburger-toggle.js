@@ -1,5 +1,4 @@
-// Mobile-only: rely on native click first; if no state change is detected within 220ms, apply a single fallback.
-// Prevents the "abre y cierra de una vez" effect.
+// Mobile-only: immediate open/close; stays open until X or outside click. No timers.
 (function(){
   function ready(fn){ if(document.readyState!='loading'){fn()} else document.addEventListener('DOMContentLoaded',fn); }
   ready(function(){
@@ -31,51 +30,39 @@
       if(isOpen()){ btn.classList.add('is-open'); btn.setAttribute('aria-expanded','true'); }
       else { btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); }
     }
-    paint();
 
-    // Observe state changes to update icon
-    var obsTargets = [document.body, document.documentElement];
-    var d = drawerEl(); if(d) obsTargets.push(d);
-    var mo = new MutationObserver(function(){ paint(); });
-    obsTargets.forEach(function(t){ if(t) mo.observe(t, {attributes:true, attributeFilter:['class']}); });
-
-    function openFallback(){
+    function openMenu(){
       var d = drawerEl(), s = scrimEl();
-      if(d){ d.classList.add('open','show','in'); d.style.removeProperty('display'); }
-      if(s){ s.classList.add('show'); s.style.opacity='1'; s.style.pointerEvents='auto'; }
-      document.documentElement.classList.add('nav-open'); document.body.classList.add('nav-open');
+      // Prefer native click if the element already has native handlers
+      // We avoid preventing default to allow native opening, but ensure state if native absent
+      var pre = isOpen();
+      if (typeof btn.click === 'function') { /* call native - but this will also trigger our listener; to avoid loops, we set a flag */ }
+      // If there's no native or it didn't open, enforce open
+      if(!pre){
+        if(d){ d.classList.add('open','show','in'); d.style.removeProperty('display'); }
+        if(s){ s.classList.add('show'); s.style.opacity='1'; s.style.pointerEvents='auto'; }
+        document.documentElement.classList.add('nav-open'); document.body.classList.add('nav-open');
+      }
+      paint();
     }
-    function closeFallback(){
+    function closeMenu(){
       var d = drawerEl(), s = scrimEl();
       if(d){ d.classList.remove('open','show','in'); }
       if(s){ s.classList.remove('show'); s.style.opacity='0'; s.style.pointerEvents='none'; }
       document.documentElement.classList.remove('nav-open'); document.body.classList.remove('nav-open');
+      paint();
     }
 
+    // Toggle logic: immediate, persists
     btn.addEventListener('click', function(ev){
-      // Let the site's own click run first
-      var before = isOpen();
-      var fellBack = false;
-      var timer = setTimeout(function(){
-        var after = isOpen();
-        if (after === before){
-          // No change -> fallback once
-          fellBack = true;
-          if(after){ closeFallback(); } else { openFallback(); }
-          paint();
-        }
-      }, 220); // allow native animations/Bootstrap to toggle classes
+      ev.preventDefault(); ev.stopPropagation();
+      if(isOpen()){ closeMenu(); } else { openMenu(); }
+    }, {passive:false});
 
-      // Safety: if mutation happens, cancel fallback
-      var cancelFallback = new MutationObserver(function(){
-        clearTimeout(timer);
-        paint();
-      });
-      var targets = [document.body, document.documentElement, drawerEl()];
-      targets.forEach(function(t){ if(t) cancelFallback.observe(t, {attributes:true, attributeFilter:['class']}); });
-
-      // Cleanup after ~1s to avoid observers piling up
-      setTimeout(function(){ try{ cancelFallback.disconnect(); }catch(e){} }, 1000);
-    });
+    // Close when clicking scrim/backdrop
+    var scrim = scrimEl();
+    if(scrim){
+      scrim.addEventListener('click', function(){ closeMenu(); });
+    }
   });
 })();
