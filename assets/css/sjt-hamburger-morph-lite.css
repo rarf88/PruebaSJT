@@ -3,7 +3,7 @@
   /* If markup has .bar spans, we morph them; otherwise this is harmless */
   #sjt-hamburger.is-open .bar:nth-child(1),
   .hamburger.is-open .bar:nth-child(1){
-    transform: rotate(45deg);
+    transform: rotate(45deg) scaleX(0.5);
   }
   #sjt-hamburger.is-open .bar:nth-child(2),
   .hamburger.is-open .bar:nth-child(2){
@@ -11,6 +11,10 @@
   }
   #sjt-hamburger.is-open .bar:nth-child(3),
   .hamburger.is-open .bar:nth-child(3){
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) scaleX(0.5);
   }
+}
+
+@media (max-width: 991px){
+  #sjt-hamburger .bar, .hamburger .bar { transform-origin: 50% 50%; will-change: transform; }
 }
