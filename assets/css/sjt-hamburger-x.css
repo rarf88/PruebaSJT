@@ -1,17 +1,29 @@
+/* New X for hamburger (mobile/tablet) — keeps button position, avoids clipping */
 @media (max-width: 991px){
+  
+  /* Keep your original bars *as-is* in closed state */
+  /* Open state: hide bars and draw a centered X using pseudo-elements */
   #sjt-hamburger.is-open .bar, .hamburger.is-open .bar, .menu-toggle.is-open .bar { opacity: 0; }
-  #sjt-hamburger.is-open, .hamburger.is-open, .menu-toggle.is-open { position: relative; }
   #sjt-hamburger.is-open::before, #sjt-hamburger.is-open::after,
   .hamburger.is-open::before, .hamburger.is-open::after,
-  .menu-toggle.is-open::before, .menu-toggle.is-open::after{
-    content:""; position:absolute; left:50%; top:50%;
-    width:16px; height:3px; background:#fff; border-radius:3px;
+  .menu-toggle.is-open::before, .menu-toggle.is-open::after {
+    content: "";
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 16px;               /* same length as bars (or a hair shorter if needed) */
+    height: 3px;               /* same thickness as bars */
+    background: #fff;
+    border-radius: 3px;
     transform-origin:50% 50%; pointer-events:none;
   }
-  #sjt-hamburger.is-open::before, .hamburger.is-open::before, .menu-toggle.is-open::before{
+  #sjt-hamburger.is-open::before,
+  .hamburger.is-open::before,
+  .menu-toggle.is-open::before {
     transform: translate(-50%, -50%) rotate(45deg);
   }
-  #sjt-hamburger.is-open::after, .hamburger.is-open::after, .menu-toggle.is-open::after{
+  #sjt-hamburger.is-open::after,
+  .hamburger.is-open::after,
+  .menu-toggle.is-open::after {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 }

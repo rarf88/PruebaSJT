@@ -50,7 +50,7 @@
         @media (max-width: 640px){
           .back-home-btn{ right: 12px; bottom: 12px; padding: 10px 14px; font-size: .9rem; }
         }
-        </style><meta content="Servicios especializados para sector público: implementación, soporte, seguridad y modernización digital con ERP SJT." name="description"/><link href="assets/css/expand-content-fix.css" rel="stylesheet"/><link href="assets/css/footer-icons-fix.css" rel="stylesheet"/><link href="assets/css/header-nav-carousel-fix.css" rel="stylesheet"/><script defer="True" src="assets/js/header-nav-carousel-fix.js"></script><link href="assets/css/quick-actions-v2.css" rel="stylesheet"> <link href="assets/css/mobile-logo-override.css" rel="stylesheet"/>
+        </style><meta content="Servicios especializados para sector público: implementación, soporte, seguridad y modernización digital con ERP SJT." name="description"/><link href="assets/css/expand-content-fix.css" rel="stylesheet"/><link href="assets/css/footer-icons-fix.css" rel="stylesheet"/><link href="assets/css/header-nav-carousel-fix.css" rel="stylesheet"><script defer="True" src="assets/js/header-nav-carousel-fix.js"></script><link href="assets/css/quick-actions-v2.css" rel="stylesheet"/> <link href="assets/css/mobile-logo-override.css" rel="stylesheet"/>
 <style>
 @media (max-width:1024px){
   header.site-header img, header.site-header picture, header.site-header svg{ display:none !important; visibility:hidden !important; }
@@ -59,7 +59,7 @@
   header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
 }
 </style>
-</link><link href="assets/css/sjt-mobile-logo-centered.css" rel="stylesheet"/><link href="assets/css/sjt-mobile-header-sticky.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-mobile-header-sticky.js"></script><link href="assets/css/sjt-hamburger-x.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-hamburger-state-sync.js"></script><script defer="True" src="assets/js/sjt-hamburger-open-close.js"></script></head><body>
+</link><link href="assets/css/sjt-mobile-logo-centered.css" rel="stylesheet"/><link href="assets/css/sjt-mobile-header-sticky.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-mobile-header-sticky.js"></script><link href="assets/css/sjt-hamburger-x.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-hamburger-state-sync.js"></script></head><body>
 <header <div="" \1="" class="container">
 <nav aria-label="Principal" class="nav">
 <a aria-label="Inicio" class="logo" href="index.html"><picture><source srcset="assets/img/sjt-logo-transparent.webp 1x, assets/img/sjt-logo-transparent@2x.webp 2x, assets/img/sjt-logo-transparent@3x.webp 3x, assets/img/sjt-logo-transparent@4x.webp 4x" type="image/webp"/><source srcset="assets/img/sjt-logo-transparent.png 1x, assets/img/sjt-logo-transparent@2x.png 2x, assets/img/sjt-logo-transparent@3x.png 3x, assets/img/sjt-logo-transparent@4x.png 4x" type="image/png"/><img alt="SJT" class="brand-sjt" decoding="async" fetchpriority="high" loading="eager" sizes="92px" src="assets/img/sjt-logo-transparent@2x.png" srcset="assets/img/sjt-logo-transparent.png 1x, assets/img/sjt-logo-transparent@2x.png 2x, assets/img/sjt-logo-transparent@3x.png 3x, assets/img/sjt-logo-transparent@4x.png 4x"/></picture></a>
@@ -123,4 +123,127 @@
 <script defer="" src="assets/js/sjt-remove-right-logo-v3.js"></script>
 <script defer="" src="assets/js/sjt-mobile-header-simple.js"></script>
 <script defer="" src="assets/js/sjt-mobile-center-cut-and-center.js"></script>
+
+<script>
+// === SJT Hamburger Close Fix v1 ===
+// Cierra el menú hamburguesa al presionar la “X” y restaura las 3 líneas.
+// También cierra si se hace clic fuera del menú (overlay/backdrop) o en enlaces del menú.
+// No interfiere con scripts existentes: se limita a quitar clases de "abierto" comunes.
+
+(function() {
+  function qsa(sel){try{return Array.from(document.querySelectorAll(sel));}catch(e){return []}}
+
+  function possibleMenus() {
+    return [
+      '.mobile-menu','#mobile-menu','[data-mobile-menu]',
+      '.sjt-menu','.sjt-hamburger-menu','.nav-drawer','.drawer','.offcanvas',
+      '.navbar-collapse','.navbar-collapse.show','nav .menu','.menu-panel','.sidebar'
+    ].flatMap(sel => qsa(sel)).filter(Boolean);
+  }
+
+  function possibleToggles() {
+    return [
+      '.hamburger','.menu-toggle','.navbar-toggler','.burger','.sjt-hamburger',
+      '[data-menu-toggle]','button[aria-controls]','[aria-label*="menu" i]'
+    ].flatMap(sel => qsa(sel));
+  }
+
+  function possibleCloseButtons() {
+    return [
+      '.icon-x','.x','.close','.menu-close','.btn-close','.drawer-close',
+      '[data-close]','[aria-label*="close" i]','[aria-label*="cerrar" i]'
+    ].flatMap(sel => qsa(sel));
+  }
+
+  function possibleOverlays() {
+    return ['.menu-overlay','.backdrop','.overlay','.offcanvas-backdrop']
+      .flatMap(sel => qsa(sel));
+  }
+
+  function isOpen(el) {
+    const openClasses = ['open','is-open','active','show','visible'];
+    return openClasses.some(c => el.classList.contains(c)) || el.getAttribute('aria-hidden') === 'false';
+  }
+
+  function closeMenu() {
+    // Body flags usados comúnmente
+    ['menu-open','nav-open','drawer-open','no-scroll','overflow-hidden','offcanvas-open']
+      .forEach(c => document.body.classList.remove(c));
+
+    // Menús visibles
+    possibleMenus().forEach(el => {
+      ['open','is-open','active','show','visible'].forEach(c => el.classList.remove(c));
+      el.setAttribute('aria-hidden','true');
+      // Si tienen estilos inline para mostrar, los revertimos
+      if (el.style && (el.style.display === 'block' or el.style.display === '')) {
+        // No forzamos none si CSS lo maneja; solo quitamos posibles flags inline
+        el.style.removeProperty('display');
+      }
+    });
+
+    // Overlays
+    possibleOverlays().forEach(ov => {
+      ['open','is-open','active','show','visible'].forEach(c => ov.classList.remove(c));
+      ov.setAttribute('aria-hidden','true');
+      if (ov.style) ov.style.removeProperty('display');
+    });
+
+    // Toggles: aria-expanded false y estados limpiados
+    possibleToggles().forEach(btn => {
+      try {
+        btn.setAttribute('aria-expanded','false');
+        ['is-active','active','open'].forEach(c => btn.classList.remove(c));
+      } catch(e) {}
+    });
+
+    // Mostrar ícono hamburguesa y ocultar X si existen
+    qsa('.icon-hamburger,.hamburger-lines,.menu-open-icon').forEach(el => { if (el.style) el.style.removeProperty('display'); });
+    qsa('.icon-x,.x,.close,.menu-close,.btn-close,[data-close]').forEach(el => { if (el.style) el.style.display = 'none'; });
+  }
+
+  // Vincular a botones de cierre (X)
+  possibleCloseButtons().forEach(btn => {
+    btn.addEventListener('click', function(ev){
+      ev.preventDefault();
+      ev.stopPropagation();
+      closeMenu();
+    }, {passive:false});
+  });
+
+  // Cerrar al hacer clic en overlay
+  possibleOverlays().forEach(ov => {
+    ov.addEventListener('click', function(ev){
+      // Sólo si el click es exactamente sobre el overlay (no el contenido)
+      if (ev.target === ov) {
+        closeMenu();
+      }
+    }, {passive:true});
+  });
+
+  // Cerrar al navegar dentro del menú (mejor UX en móviles)
+  possibleMenus().forEach(menu => {
+    menu.addEventListener('click', function(ev){
+      const a = ev.target.closest('a[href]');
+      if (a && isOpen(menu)) {
+        // Pequeño retraso por si hay anclas internas
+        setTimeout(closeMenu, 50);
+      }
+    }, {passive:true});
+  });
+
+  // Cerrar con ESC
+  document.addEventListener('keydown', function(ev){
+    if (ev.key === 'Escape') {
+      // Solo si algún menú parece abierto
+      if (possibleMenus().some(isOpen)) {
+        closeMenu();
+      }
+    }
+  });
+
+  // Exponer para otras integraciones si lo requieren
+  window.__sjtCloseHamburger = closeMenu;
+})();
+</script>
+
 </body></html>
