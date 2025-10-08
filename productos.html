@@ -257,3 +257,76 @@
 </script>
 
 </body></html>
+<script>
+// === SJT Hamburger Close & Sync v3 (agresivo) ===
+(function(){
+  var OPEN_CLASSES = ['open','is-open','active','show','visible','in'];
+  var BODY_FLAGS   = ['menu-open','nav-open','drawer-open','no-scroll','overflow-hidden','offcanvas-open','modal-open'];
+  function qsa(sel){ try { return Array.from(document.querySelectorAll(sel)); } catch(e){ return []; } }
+  function togglers(){ return qsa('#sjt-hamburger, .navbar-toggler, .hamburger, .menu-toggle, [data-menu-toggle], button[aria-controls]'); }
+  function menus(){ return qsa('.mobile-menu, #mobile-menu, [data-mobile-menu], .sjt-menu, .sjt-hamburger-menu, .nav-drawer, .drawer, .offcanvas, .navbar-collapse, .menu-panel, .sidebar'); }
+  function overlays(){ return qsa('.menu-overlay, .backdrop, .overlay, .offcanvas-backdrop'); }
+  function isElOpen(el){
+    if (!el) return false;
+    var cls = el.classList;
+    if (cls && OPEN_CLASSES.some(c => cls.contains(c))) return true;
+    if (el.getAttribute && el.getAttribute('aria-hidden') === 'false') return true;
+    try { var st = window.getComputedStyle(el);
+      if (st && st.display !== 'none' && st.visibility !== 'hidden' && parseFloat(st.opacity||'1') > 0.01) return true;
+    } catch(e){}
+    return false;
+  }
+  function anyMenuOpen(){
+    if (menus().some(isElOpen)) return true;
+    if (document.body && BODY_FLAGS.some(c => document.body.classList.contains(c))) return true;
+    if (document.documentElement && BODY_FLAGS.some(c => document.documentElement.classList.contains(c))) return true;
+    return false;
+  }
+  function markButtons(open){
+    togglers().forEach(btn => {
+      try {
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.classList.toggle('is-open', !!open);
+        btn.classList.remove('active','open','is-active');
+      } catch(e){}
+    });
+  }
+  function hardClose(){
+    let clicked=false;
+    togglers().forEach(btn=>{ try{ if(btn.getAttribute('aria-expanded')==='true'){ btn.click(); clicked=true; } }catch(e){} });
+    menus().forEach(el=>{ try{ ['open','is-open','active','show','visible','in'].forEach(c=>el.classList.remove(c));
+      el.setAttribute('aria-hidden','true'); if(el.style){ el.style.removeProperty('display'); el.style.removeProperty('visibility'); el.style.removeProperty('opacity'); } }catch(e){} });
+    overlays().forEach(ov=>{ try{ ['open','is-open','active','show','visible','in'].forEach(c=>ov.classList.remove(c));
+      ov.setAttribute('aria-hidden','true'); if(ov.style){ ov.style.removeProperty('display'); ov.style.removeProperty('visibility'); ov.style.removeProperty('opacity'); } }catch(e){} });
+    ['menu-open','nav-open','drawer-open','no-scroll','overflow-hidden','offcanvas-open','modal-open'].forEach(c=>{
+      document.body && document.body.classList.remove(c);
+      document.documentElement && document.documentElement.classList.remove(c);
+    });
+    markButtons(false);
+  }
+  document.addEventListener('click', function(ev){
+    var closer = ev.target && ev.target.closest('.btn-close, .menu-close, .icon-x, .x, [data-close], [aria-label*="cerrar" i], [aria-label*="close" i]');
+    if (closer) { ev.preventDefault(); ev.stopPropagation(); hardClose(); }
+  }, true);
+  document.addEventListener('click', function(ev){
+    var ov = ev.target && ev.target.closest('.menu-overlay, .backdrop, .overlay, .offcanvas-backdrop');
+    if (ov && ev.target === ov) hardClose();
+  }, true);
+  document.addEventListener('click', function(ev){
+    var link = ev.target && ev.target.closest('.mobile-menu a[href], #mobile-menu a[href], [data-mobile-menu] a[href], .sjt-menu a[href], .sjt-hamburger-menu a[href], .nav-drawer a[href], .drawer a[href], .offcanvas a[href], .navbar-collapse a[href], .menu-panel a[href], .sidebar a[href]');
+    if (link && anyMenuOpen()) setTimeout(hardClose, 50);
+  }, true);
+  document.addEventListener('keydown', function(ev){ if (ev.key==='Escape' && anyMenuOpen()) hardClose(); });
+  var moTargets = [document.body, document.documentElement];
+  var addTargets = function(){ menus().forEach(m=> m && moTargets.push(m)); };
+  addTargets();
+  var mo = new MutationObserver(function(){ markButtons(anyMenuOpen()); addTargets(); });
+  moTargets.forEach(t=>{ try{ if(t) mo.observe(t, {attributes:true, attributeFilter:['class','style','aria-hidden']}); }catch(e){} });
+  document.addEventListener('click', function(ev){
+    var tog = ev.target && ev.target.closest('#sjt-hamburger, .navbar-toggler, .hamburger, .menu-toggle, [data-menu-toggle], button[aria-controls]');
+    if (tog) { var willOpen = !anyMenuOpen(); markButtons(willOpen); if (willOpen){ document.body.classList.add('nav-open'); } }
+  }, true);
+  // Habilitar CSS de la X
+  (function(){ try{ document.addEventListener('DOMContentLoaded', function(){ document.body.classList.add('sjt-inline-x-enabled'); markButtons(anyMenuOpen()); }); }catch(e){} })();
+})();
+</script>
