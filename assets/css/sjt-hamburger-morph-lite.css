@@ -1,0 +1,16 @@
+/* Lite morph: keep original sizing/spacing; just rotate to X when .is-open */
+@media (max-width: 991px){
+  /* If markup has .bar spans, we morph them; otherwise this is harmless */
+  #sjt-hamburger.is-open .bar:nth-child(1),
+  .hamburger.is-open .bar:nth-child(1){
+    transform: rotate(45deg);
+  }
+  #sjt-hamburger.is-open .bar:nth-child(2),
+  .hamburger.is-open .bar:nth-child(2){
+    opacity: 0;
+  }
+  #sjt-hamburger.is-open .bar:nth-child(3),
+  .hamburger.is-open .bar:nth-child(3){
+    transform: rotate(-45deg);
+  }
+}
