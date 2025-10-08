@@ -1,5 +1,6 @@
 /* New X for hamburger (mobile/tablet) — keeps button position, avoids clipping */
 @media (max-width: 991px){
+  body.sjt-inline-x-enabled 
   
   /* Keep your original bars *as-is* in closed state */
   /* Open state: hide bars and draw a centered X using pseudo-elements */
