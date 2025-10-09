@@ -1,0 +1,47 @@
+/* === Restore mobile/tablet header logo (index + all pages) === */
+@media (max-width: 991px){
+  /* Ensure the header logo anchor and its contents are visible */
+  .site-header .logo,
+  header.site-header .logo{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+  }
+  .site-header .logo picture,
+  .site-header .logo img,
+  header.site-header .logo img,
+  header.site-header img.brand-sjt{
+    display:block !important;
+    visibility:visible !important;
+    height: var(--mobile-logo-h, 44px) !important; /* default mobile height */
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  /* On small tablets, allow a slightly larger logo */
+  @media (min-width: 768px) and (max-width: 991px){
+    .site-header .logo picture,
+    .site-header .logo img,
+    header.site-header .logo img,
+    header.site-header img.brand-sjt{
+      height: var(--tablet-logo-h, 56px) !important;
+    }
+  }
+
+  /* Defeat any global "hide" rules that target images within offcanvas/mobile containers */
+  .offcanvas .site-header .logo img,
+  .mobile-menu .site-header .logo img,
+  .mobile-drawer .site-header .logo img,
+  .drawer .site-header .logo img,
+  .menu .site-header .logo img{
+    display:block !important;
+    visibility:visible !important;
+    height: var(--mobile-logo-h, 44px) !important;
+    width:auto !important;
+  }
+
+  /* Prevent accidental overflow clipping around the logo container */
+  .site-header, .site-header *{
+    overflow:visible !important;
+  }
+}
