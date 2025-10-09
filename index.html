@@ -39,19 +39,28 @@
 <link rel="stylesheet" href="assets/css/sjt-index-gap-fix-v18.css">
 
 <style>
-/* === SAFE MOBILE/TABLET LOGO ONLY v3 — 2025-10-09T22:10:59.387709Z === */
+/* === FIXED OVERLAY MOBILE/TABLET LOGO — 2025-10-09T22:22:56.922009Z === */
 @media (max-width:1024px){
-  header.site-header nav.nav{ position:relative !important; }
-  #sjt-force-logo{
-    display:block !important; position:absolute !important; left:50% !important; top:50% !important;
-    transform:translate(-50%, -50%) !important; height:56px !important; max-height:56px !important; width:auto !important;
-    pointer-events:none !important; object-fit:contain !important; z-index:9999 !important;
+  #sjt-mobile-fixed-logo{
+    display:block !important;
+    position:fixed !important;
+    left:50% !important;
+    top: calc(32px + env(safe-area-inset-top, 0px)) !important; /* visually centered in ~64px header */
+    transform:translateX(-50%) !important;
+    height:48px !important;
+    max-height:48px !important;
+    width:auto !important;
+    object-fit:contain !important;
+    z-index:2147483647 !important; /* sit above everything */
+    pointer-events:none !important; /* never block taps */
   }
 }
-/* === END SAFE BLOCK === */
+/* === END FIXED OVERLAY BLOCK === */
 </style>
 </head>
 <body class="index-page">
+<img id="sjt-mobile-fixed-logo" src="assets/img/sjt-logo-transparent@4x.png" alt="SJT ERP" style="display:none !important;" />
+
 <header class="site-header"\1
 <div class="container">
 <nav aria-label="Principal" class="nav">
@@ -62,8 +71,6 @@
 <a href="nosotros.html">NOSOTROS</a>
 <a href="aliados.html">ALIADOS</a><a href="index.html#contacto">CONTÁCTENOS</a>
 </div>
-
-<img id="sjt-force-logo" src="assets/img/sjt-logo-transparent@2x.png" alt="SJT ERP" style="display:none !important;" />
 </nav>
 </div>
 </header>
