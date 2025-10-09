@@ -1,0 +1,34 @@
+/* === SJT Index Gap Fix v16 (shim + exact align), index-only === */
+@media (max-width: 991px){
+  /* Do not rely on global padding; we'll insert a shim equal to header height */
+  body{ padding-top:0 !important; }
+
+  header, .site-header, .navbar, .topbar{
+    position: fixed; top:0; left:0; right:0; z-index:10000;
+    margin:0 !important; padding:0 !important; border:0 !important; box-shadow:none !important;
+  }
+
+  /* Shim block occupies exactly header height */
+  .sjt-header-shim{ display:block !important; height:var(--sjt-shim-h, 0px) !important; margin:0 !important; padding:0 !important; border:0 !important; }
+
+  /* Slider block with zero internal whitespace */
+  section.slider{
+    position: relative !important;
+    margin:0 !important; padding:0 !important; border:0 !important; box-shadow:none !important;
+    line-height:0 !important; font-size:0 !important; background:transparent !important;
+  }
+  section.slider picture, section.slider figure{ margin:0 !important; padding:0 !important; }
+  section.slider img{
+    display:block !important; margin:0 !important; padding:0 !important; border:0 !important;
+    vertical-align:top !important; width:100% !important; height:auto !important; object-fit:cover !important;
+  }
+  section.slider *::before, section.slider *::after{ content:none !important; }
+
+  /* Kill any top spacing in the immediate block after the slider */
+  section.slider + *{ margin-top:0 !important; padding-top:0 !important; border-top:0 !important; }
+  section.slider + * h1:first-child, section.slider + * h2:first-child,
+  section.slider + * .h1:first-child, section.slider + * .h2:first-child{ margin-top:0 !important; }
+
+  /* Hairline guard: allow a micro negative pull if needed */
+  .sjt-hairline-kill{ margin-top:-2px !important; }
+}
