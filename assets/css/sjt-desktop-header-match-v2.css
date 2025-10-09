@@ -1,0 +1,56 @@
+
+/* === Desktop Header: match v2 look (>=992px) WITHOUT touching mobile/tablet === */
+@media (min-width: 992px){
+  /* Full-width fixed bar with background */
+  header.site-header,
+  .site-header{
+    position: fixed !important;
+    top: 0 !important; left: 0 !important; right: 0 !important;
+    width: 100% !important;
+    background-color: var(--sjt-header-bg, #416a73) !important; /* fallback teal */
+    margin: 0 !important; border: 0 !important; box-shadow: none !important;
+    z-index: 10000 !important;
+  }
+
+  /* Make the inner layout full-bleed; remove side voids */
+  .site-header .container,
+  .site-header .container-fluid,
+  .site-header .row{
+    max-width: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Desktop paddings similar to v2 */
+  .site-header .container{
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+
+  /* Nav/brand alignment */
+  .site-header .nav,
+  .site-header .navbar{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+
+  /* Logo sizing identical a v2: 64px max-height */
+  header .logo img,
+  .navbar .logo img,
+  .site-logo img,
+  .brand img,
+  .logo img{ max-height: 64px !important; height: auto !important; width: auto !important; }
+
+  /* Ensure header color reaches edges even if child carries the bg */
+  header.site-header::before{
+    content: "" !important;
+    position: absolute !important;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-color: inherit !important;
+    z-index: -1;
+  }
+}
+
