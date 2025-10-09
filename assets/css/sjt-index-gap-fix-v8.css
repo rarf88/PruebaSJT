@@ -1,0 +1,11 @@
+
+/* === SJT Index Gap Fix v8 (index only) === */
+@media (max-width: 991px){
+  header, .site-header, .navbar, .topbar { margin:0 !important; padding:0 !important; border:0 !important; box-shadow:none !important; }
+  header * { margin-top:0 !important; }
+  section.slider{ position:relative !important; margin:0 !important; padding:0 !important; border:0 !important; box-shadow:none !important; }
+  header + section.slider{ display:flow-root !important; margin-top:0 !important; padding-top:0 !important; border-top:0 !important; }
+  section.slider::before, section.slider::after{ content:none !important; display:none !important; }
+  section.slider + *{ margin-top:0 !important; padding-top:0 !important; border-top:0 !important; }
+}
+
