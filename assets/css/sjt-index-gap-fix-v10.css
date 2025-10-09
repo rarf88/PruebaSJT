@@ -1,0 +1,35 @@
+/* === SJT Index Gap Fix v10 (no flicker, index-only) === */
+@media (max-width: 991px){
+  :root{ --sjt-gap: 0px; --sjt-gap-next: 0px; }
+
+  /* Header tidy */
+  header, .site-header, .navbar, .topbar { margin:0 !important; padding:0 !important; border:0 !important; box-shadow:none !important; }
+  header * { margin-top:0 !important; }
+
+  /* Slider: margin-top driven by CSS var (no transform), transitions disabled only inside slider */
+  section.slider{
+    position:relative !important;
+    margin-top: calc(var(--sjt-gap) * -1) !important;
+    margin-bottom: 0 !important;
+    padding:0 !important; border:0 !important; box-shadow:none !important; background:transparent !important;
+  }
+  section.slider *,
+  section.slider *::before,
+  section.slider *::after{
+    transition: none !important;
+  }
+  section.slider::before, section.slider::after{ content:none !important; display:none !important; }
+
+  /* Immediately after slider: remove top spacing using CSS var */
+  section.slider + *{
+    margin-top: calc(var(--sjt-gap-next) * -1) !important;
+    padding-top:0 !important; border-top:0 !important;
+  }
+  section.slider + * h1:first-child,
+  section.slider + * h2:first-child,
+  section.slider + * .h1:first-child,
+  section.slider + * .h2:first-child{ margin-top:0 !important; }
+
+  /* Prevent margin collapsing at header boundary without clipping content */
+  header + section.slider{ display: flow-root !important; }
+}
