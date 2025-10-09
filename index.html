@@ -37,6 +37,35 @@
 <link href="assets/css/sjt-mobile-logo-centered.css" rel="stylesheet"/><link href="assets/css/sjt-mobile-header-sticky.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-mobile-header-sticky.js"></script><link href="assets/css/sjt-hamburger-x.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-hamburger-state-sync.js"></script><link rel="stylesheet" href="assets/css/sjt-index-gap-fix-v6.css">
 <link rel="stylesheet" href="assets/css/sjt-index-gap-fix-v17.css">
 <link rel="stylesheet" href="assets/css/sjt-index-gap-fix-v18.css">
+
+<style>
+/* === ULTRA-FORCED MOBILE/TABLET LOGO (inlined) — 2025-10-09T21:58:56.968995Z === */
+@media (max-width:1024px){
+  /* 1) Positioning context & room for controls */
+  header.site-header nav.nav{ position:relative !important; min-height:64px !important; padding-left:80px !important; padding-right:80px !important; }
+
+  /* 2) Overlay centered logo that can't be hidden */
+  header.site-header .sjt-mobile-logo-overlay{ position:absolute !important; left:50% !important; top:50% !important; transform:translate(-50%, -50%) !important;
+    display:flex !important; align-items:center !important; justify-content:center !important; height:64px !important; pointer-events:none !important; }
+  header.site-header .sjt-mobile-logo-overlay img{ max-height:56px !important; height:56px !important; width:auto !important; display:block !important; object-fit:contain !important; }
+
+  /* 3) Anti-hide shields (defeat display:none/visibility:hidden/etc) */
+  header.site-header, header.site-header *{ overflow:visible !important; }
+  header.site-header img, header.site-header picture, header.site-header svg{ visibility:visible !important; opacity:1 !important; }
+  header.site-header [hidden]{ display:block !important; }
+  header.site-header [style*="display:none"]{ display:block !important; }
+  header.site-header [style*="visibility:hidden"]{ visibility:visible !important; }
+  header.site-header [style*="opacity:0"]{ opacity:1 !important; }
+
+  /* 4) Ensure OUR overlay survives any 'hide all header images on mobile' rules */
+  header.site-header .sjt-mobile-logo-overlay, 
+  header.site-header .sjt-mobile-logo-overlay *{ display:block !important; visibility:visible !important; opacity:1 !important; }
+
+  /* 5) Keep desktop unaffected by scrollers; avoid shrink side-effects on mobile */
+  .site-header .logo img, header.site-header img.brand-sjt{ height:auto !important; }
+}
+/* === END ULTRA-FORCED BLOCK === */
+</style>
 </head>
 <body class="index-page">
 <header class="site-header"\1
