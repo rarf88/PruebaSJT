@@ -1,0 +1,33 @@
+
+@media (min-width: 992px){
+  header.site-header,
+  .site-header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    border: 0;
+  }
+  .site-header .container,
+  .site-header .container-fluid,
+  .site-header .row{
+    max-width: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .site-header .container{
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+  .site-header nav,
+  .site-header .navbar,
+  .site-header .nav-wrap{
+    max-width: none !important;
+    width: 100% !important;
+  }
+  .site-header, .site-header *{
+    box-sizing: border-box;
+  }
+}
+
