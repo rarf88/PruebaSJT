@@ -17,23 +17,30 @@
 </style>
 
 <style>
-/* === FIXED OVERLAY MOBILE/TABLET LOGO — 2025-10-09T22:22:56.922009Z === */
+/* === MOBILE/TABLET LOGO HOTFIX — 2025-10-09T22:28:53.472829Z === */
+/* Hide on desktop explicitly */
+@media (min-width:1025px){
+  #sjt-mobile-fixed-logo{ display:none !important; }
+}
+/* Show & position ONLY on mobile/tablet */
 @media (max-width:1024px){
   #sjt-mobile-fixed-logo{
     display:block !important;
     position:fixed !important;
     left:50% !important;
-    top: calc(32px + env(safe-area-inset-top, 0px)) !important; /* visually centered in ~64px header */
+    top: calc(32px + env(safe-area-inset-top, 0px)) !important;
     transform:translateX(-50%) !important;
     height:48px !important;
     max-height:48px !important;
     width:auto !important;
     object-fit:contain !important;
-    z-index:2147483647 !important; /* sit above everything */
-    pointer-events:none !important; /* never block taps */
+    z-index: 2147483647 !important;
+    pointer-events:none !important;
+    mix-blend-mode:normal !important;
+    filter:none !important;
   }
 }
-/* === END FIXED OVERLAY BLOCK === */
+/* === END HOTFIX === */
 </style>
 </head><style>
 /* Override solo para servicios: compactar barra "SERVICIOS" */
@@ -80,7 +87,7 @@
 }
 </style>
 </link><link href="assets/css/sjt-mobile-logo-centered.css" rel="stylesheet"/><link href="assets/css/sjt-mobile-header-sticky.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-mobile-header-sticky.js"></script><link href="assets/css/sjt-hamburger-x.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-hamburger-state-sync.js"></script></head><body>
-<img id="sjt-mobile-fixed-logo" src="assets/img/sjt-logo-transparent@4x.png" alt="SJT ERP" style="display:none !important;" />
+<img id="sjt-mobile-fixed-logo" src="assets/img/sjt-logo-transparent@4x.png" alt="SJT ERP" />
 
 <header class="site-header"\1
 <div class="container">
