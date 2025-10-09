@@ -16,31 +16,32 @@
 }
 </style>
 
+
+
 <style>
-/* === MOBILE/TABLET LOGO HOTFIX — 2025-10-09T22:28:53.472829Z === */
-/* Hide on desktop explicitly */
-@media (min-width:1025px){
-  #sjt-mobile-fixed-logo{ display:none !important; }
-}
-/* Show & position ONLY on mobile/tablet */
+
+/* === DYNFIT MOBILE/TABLET LOGO — 2025-10-09T22:34:57.915362Z === */
 @media (max-width:1024px){
-  #sjt-mobile-fixed-logo{
-    display:block !important;
-    position:fixed !important;
-    left:50% !important;
-    top: calc(32px + env(safe-area-inset-top, 0px)) !important;
-    transform:translateX(-50%) !important;
-    height:48px !important;
-    max-height:48px !important;
-    width:auto !important;
-    object-fit:contain !important;
+  #sjt-mobile-fixed-logo {
+    position: fixed !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    /* Top is computed via JS and exposed in CSS var */
+    top: calc(var(--sjt-header-top, 0px) + (var(--sjt-header-h, 64px) - var(--sjt-logo-h, 48px)) / 2) !important;
+    height: var(--sjt-logo-h, 48px) !important;
+    width: auto !important;
+    max-height: calc(var(--sjt-header-h, 64px) - 6px) !important; /* slight air */
+    object-fit: contain !important;
     z-index: 2147483647 !important;
-    pointer-events:none !important;
-    mix-blend-mode:normal !important;
-    filter:none !important;
+    pointer-events: none !important;
   }
 }
-/* === END HOTFIX === */
+/* Desktop: hide explicitly */
+@media (min-width:1025px){
+  #sjt-mobile-fixed-logo { display: none !important; }
+}
+/* === END DYNFIT === */
+
 </style>
 </head><style>
 /* Override solo para servicios: compactar barra "SERVICIOS" */
@@ -154,4 +155,46 @@
 <script defer="" src="assets/js/sjt-remove-right-logo-v3.js"></script>
 <script defer="" src="assets/js/sjt-mobile-header-simple.js"></script>
 <script defer="" src="assets/js/sjt-mobile-center-cut-and-center.js"></script>
+
+<script>
+
+/* === DYNFIT: keep overlay logo perfectly centered in header (mobile/tablet) — 2025-10-09T22:34:57.915362Z === */
+(function(){try{
+  var d = document;
+  var root = d.documentElement;
+  var header = d.querySelector('header.site-header');
+  var logo = d.getElementById('sjt-mobile-fixed-logo');
+  if(!header || !logo) return;
+
+  function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
+
+  function updateVars(){
+    var rect = header.getBoundingClientRect();
+    var h = rect.height || 64;
+    // Logo height = 82% of header height, clamped between 36px and 60px
+    var logoH = clamp(Math.round(h * 0.82), 36, 60);
+    // Header top relative to viewport (sticky header near top)
+    var top = Math.max(0, rect.top) + (window.visualViewport ? (window.visualViewport.offsetTop||0) : 0);
+
+    root.style.setProperty('--sjt-header-h', h + 'px');
+    root.style.setProperty('--sjt-header-top', top + 'px');
+    root.style.setProperty('--sjt-logo-h', logoH + 'px');
+  }
+
+  var ro = new (window.ResizeObserver || function(cb){
+    window.addEventListener('resize', cb, {passive:true});
+    return { observe:function(){}, disconnect:function(){} };
+  })(function(){ updateVars(); });
+
+  try{ if(header && ro.observe) ro.observe(header); }catch(_){}
+  window.addEventListener('scroll', updateVars, {passive:true});
+  window.addEventListener('resize', updateVars, {passive:true});
+  window.addEventListener('orientationchange', updateVars, {passive:true});
+  window.addEventListener('visibilitychange', updateVars, {passive:true});
+  setTimeout(updateVars, 0);
+  setTimeout(updateVars, 150);
+  setTimeout(updateVars, 350);
+}catch(e){ /* no-op */ } })();
+
+</script>
 </body></html>
