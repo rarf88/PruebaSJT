@@ -1,0 +1,44 @@
+/* Desktop-only navbar enforcement without touching mobile/tablet */
+@media (min-width:1025px){
+  :root{
+    --nav-bg: #0f1f17;
+    --nav-fg: #ffffff;
+    --nav-height: 92px;
+    --nav-height-sm: 64px;
+    --logo-h: 64px;
+    --logo-h-sm: 44px;
+    --z-nav: 1000;
+  }
+  html, body { margin:0; padding:0; }
+  /* Try to target common navbar/header containers */
+  header, .navbar, .navbar-desktop, header.site-header, header.header, .topbar {
+    position: fixed !important;
+    top:0; left:0; right:0;
+    z-index: var(--z-nav);
+    background: var(--nav-bg);
+    color: var(--nav-fg);
+  }
+  /* Height control via data-state class applied by JS */
+  header, .navbar, .navbar-desktop, header.site-header, header.header, .topbar {
+    height: var(--nav-height);
+    transition: height .18s ease;
+  }
+  .nav-scrolled header, .nav-scrolled .navbar, .nav-scrolled .navbar-desktop,
+  .nav-scrolled header.site-header, .nav-scrolled header.header, .nav-scrolled .topbar {
+    height: var(--nav-height-sm);
+  }
+  /* Hide hamburger triggers on desktop */
+  .hamburger, .hamburger-trigger, .menu-toggle, .nav-toggle, .icon-burger { display:none !important; }
+  /* Fit brand logos */
+  img.brand-logo, .brand img, .logo img, img.logo {
+    height: var(--logo-h) !important; width: auto !important; object-fit: contain;
+    transition: height .18s ease;
+  }
+  .nav-scrolled img.brand-logo, .nav-scrolled .brand img, .nav-scrolled .logo img, .nav-scrolled img.logo {
+    height: var(--logo-h-sm) !important;
+  }
+  /* Prevent content jump when header is fixed */
+  body.has-fixed-nav { padding-top: var(--nav-height); }
+}
+/* Neutralize debug/flicker overlays */
+.ui-debug-overlay, .parpadeo, .demo-placeholder, .test-banner{ display:none !important; }
