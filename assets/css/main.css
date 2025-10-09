@@ -214,3 +214,29 @@ header.site-header img.brand-sjt {
   height: auto !important; width: auto !important;
 }
 /* End Hotfix v2 */
+
+
+/* === AUTO-APPLIED OVERRIDE: Mobile & Tablet logo centering (<= 1024px) === */
+@media (max-width: 1024px) {
+  header .logo, .header .logo, .navbar .logo, .topbar .logo, .site-logo, a.navbar-brand, .brand, .brand-logo {
+    display: block !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    float: none !important;
+  }
+  header .logo img, .header .logo img, .navbar .logo img, .topbar .logo img, .site-logo img, a.navbar-brand img, img.logo, img.brand-logo {
+    display: inline-block !important;
+    margin: 0 auto !important;
+    max-height: 56px !important; /* keep within bar */
+    height: 56px !important;
+    width: auto !important;
+    object-fit: contain !important;
+  }
+  /* Ensure header bar accommodates the logo height and centers content */
+  header, .header, .navbar, .topbar {
+    min-height: 64px !important;
+  }
+}
+/* === AUTO-APPLIED OVERRIDE END === */

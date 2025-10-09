@@ -557,3 +557,36 @@ header.site-header img.brand-sjt {
   height: auto !important; width: auto !important;
 }
 /* End Hotfix v2 */
+
+
+
+/* === Center the injected mobile/tablet overlay logo === */
+@media (max-width:1024px){
+  .sjt-mobile-logo-overlay{
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    transform:translate(-50%, -50%) !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    height:64px !important;
+    width: auto !important;
+    pointer-events:none !important; /* do not block hamburger or links */
+  }
+  .sjt-mobile-logo-overlay img{
+    max-height:56px !important;
+    height:56px !important;
+    width:auto !important;
+    display:block !important;
+    object-fit:contain !important;
+  }
+  /* Ensure nav has sufficient relative context and space for hamburger/buttons */
+  header.site-header nav.nav{
+    position:relative !important;
+    min-height:64px !important;
+    padding-left:80px !important;
+    padding-right:80px !important;
+  }
+}
+
