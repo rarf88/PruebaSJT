@@ -1,0 +1,43 @@
+/* === SJT Index Gap Fix v11 (no flicker + slight overlap), index-only === */
+@media (max-width: 991px){
+  :root{ --sjt-gap: 0px; --sjt-gap-next: 0px; --sjt-extra: 6px; }
+
+  header, .site-header, .navbar, .topbar { margin:0 !important; padding:0 !important; border:0 !important; box-shadow:none !important; }
+  header * { margin-top:0 !important; }
+
+  /* Slider as block with no transitions; margin-top uses CSS var */
+  section.slider{
+    position:relative !important;
+    margin-top: calc((var(--sjt-gap) + min(var(--sjt-extra), 8px)) * -1) !important;
+    margin-bottom: 0 !important;
+    padding:0 !important; border:0 !important; box-shadow:none !important; background:transparent !important;
+    line-height: 0 !important; /* collapse inline gaps */
+    font-size: 0 !important;
+  }
+  section.slider *, section.slider *::before, section.slider *::after{ transition:none !important; }
+  section.slider::before, section.slider::after{ content:none !important; display:none !important; }
+  section.slider img{ display:block !important; width:100% !important; height:auto !important; vertical-align:top !important; }
+
+  /* Kill top spacing in inner wrappers */
+  section.slider > *,
+  section.slider .container, section.slider .row,
+  section.slider .slides, section.slider .slide, section.slider .dots,
+  section.slider .controls, section.slider .arrows, section.slider .nav,
+  section.slider .slick-slider, section.slider .slick-list, section.slider .slick-track,
+  section.slider .swiper, section.slider .swiper-container, section.slider .swiper-wrapper {
+    margin-top:0 !important; padding-top:0 !important; border-top:0 !important;
+  }
+
+  /* Block after slider: apply negative margin based on var + extra */
+  section.slider + *{
+    margin-top: calc((var(--sjt-gap-next) + min(var(--sjt-extra), 8px)) * -1) !important;
+    padding-top:0 !important; border-top:0 !important;
+  }
+  section.slider + * h1:first-child,
+  section.slider + * h2:first-child,
+  section.slider + * .h1:first-child,
+  section.slider + * .h2:first-child{ margin-top:0 !important; }
+
+  /* Prevent margin collapsing at header boundary */
+  header + section.slider{ display: flow-root !important; }
+}
