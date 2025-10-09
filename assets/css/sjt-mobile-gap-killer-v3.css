@@ -1,0 +1,88 @@
+/* === SJT Mobile Gap Killer v3 (SUPER AGGRESIVE) === */
+@media (max-width: 991px){
+  /* Reset global */
+  html, body { margin:0 !important; padding:0 !important; }
+  body { line-height:1.15 !important; padding-top:0 !important; }
+
+  /* Header flush */
+  header, .site-header, .navbar, .topbar {
+    margin:0 !important; padding:0 !important; border:0 !important; box-shadow:none !important;
+  }
+  header * { margin-top:0 !important; }
+
+  /* Immediately-following node to header: NO top space */
+  header + *, .site-header + *, .navbar + *, .topbar + * {
+    margin-top:0 !important; padding-top:0 !important; border-top:0 !important;
+  }
+
+  /* First element inside body/main/content wrappers */
+  body > :first-child,
+  main > :first-child,
+  .main > :first-child,
+  .content > :first-child,
+  .wrapper > :first-child,
+  .container > :first-child,
+  .container-fluid > :first-child {
+    margin-top:0 !important; padding-top:0 !important; border-top:0 !important;
+  }
+
+  /* Carousel/hero/slider stacks */
+  .hero, .slider, .carousel, .swiper, .swiper-container, .swiper-wrapper,
+  .glide, .glide__track, .glide__slides, .slick-slider, .slick-list, .slick-track,
+  .sjt-hero, .sjt-carousel, .sjt-slider {
+    margin-top:0 !important; margin-bottom:0 !important;
+    padding-top:0 !important; padding-bottom:0 !important;
+    border:0 !important; box-shadow:none !important;
+  }
+  /* kill pseudo-spacers */
+  .hero::before, .hero::after,
+  .slider::before, .slider::after,
+  .carousel::before, .carousel::after,
+  .swiper::before, .swiper::after,
+  .slick-slider::before, .slick-slider::after { content:none !important; display:none !important; }
+
+  /* Images/figures */
+  picture, figure { margin:0 !important; padding:0 !important; }
+  img { display:block !important; margin:0 !important; vertical-align:top !important; }
+
+  /* The element right after the carousel: NO top space */
+  .hero + *, .slider + *, .carousel + *, .swiper + *, .sjt-hero + *, .sjt-carousel + *, .sjt-slider + * {
+    margin-top:0 !important; padding-top:0 !important; border-top:0 !important;
+  }
+
+  /* Sections/articles general */
+  section, .section, article {
+    margin-top:0 !important; padding-top:0 !important;
+  }
+
+  /* Generic containers */
+  .container, .container-fluid, .wrap, .wrapper, .content, .main, main, .row {
+    margin-top:0 !important; padding-top:0 !important;
+  }
+
+  /* Utilities & spacers */
+  .spacer, .separator, .divider, .gap, .mt, .mb, .pt, .pb,
+  [class*="spacer"], [class*="separator"], [class*="divider"],
+  [class^="mt-"], [class*=" mt-"], [class^="mb-"], [class*=" mb-"],
+  [class^="pt-"], [class*=" pt-"], [class^="pb-"], [class*=" pb-"] {
+    margin-top:0 !important; margin-bottom:0 !important;
+    padding-top:0 !important; padding-bottom:0 !important;
+    height:auto !important; min-height:0 !important;
+  }
+
+  /* If any theme adds compensation for fixed header via body padding/margin — neutralize */
+  body.has-fixed-header, body.fixed-top, .fixed-top + * { padding-top:0 !important; margin-top:0 !important; }
+
+  /* Hairline removal (1px separators): pull up by 1px if still visible */
+  header + *, .site-header + *, .navbar + *, .topbar + *,
+  .hero, .slider, .carousel, .swiper, .sjt-hero, .sjt-carousel, .sjt-slider {
+    margin-top: -1px !important;
+  }
+  /* Ensure we don't go negative on very small screens with extra borders */
+  @supports (filter: blur(0)){
+    header + *, .site-header + *, .navbar + *, .topbar + *,
+    .hero, .slider, .carousel, .swiper, .sjt-hero, .sjt-carousel, .sjt-slider {
+      transform: translateZ(0); /* prevent subpixel gaps */
+    }
+  }
+}
