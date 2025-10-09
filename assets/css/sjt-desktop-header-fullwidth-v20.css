@@ -1,0 +1,55 @@
+
+/* === Desktop Header Full-Width & Fixed (v20) === */
+@media (min-width: 992px){
+  /* Header fixed and spanning full viewport width */
+  header.site-header,
+  .site-header{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    z-index: 10000 !important;
+    overflow: visible !important;
+  }
+
+  /* Make inner wrappers full-bleed */
+  .site-header .container,
+  .site-header .container-fluid,
+  .site-header .row,
+  .site-header .navbar,
+  .site-header nav,
+  .site-header .nav-wrap{
+    max-width: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Comfortable side padding on desktop */
+  .site-header .container{
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  /* Ensure the header background extends edge-to-edge even if child has it */
+  header.site-header{
+    background-clip: padding-box !important;
+  }
+
+  /* Prevent the logo from getting clipped; keep natural scaling */
+  .site-header .logo,
+  .site-header .brand{
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .site-header .logo img,
+  .site-header .brand img{
+    max-height: 64px; /* allow existing shrink CSS to override if present */
+    height: auto;
+    width: auto;
+  }
+}
+
