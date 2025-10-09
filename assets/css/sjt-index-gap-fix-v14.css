@@ -1,0 +1,15 @@
+/* === SJT Index Gap Fix v14 (sync sticky header var), index-only === */
+@media (max-width: 991px){
+  /* ensure margin below header = 0 and body uses header-offset */
+  header, .site-header, .navbar, .topbar { margin-bottom: 0 !important; }
+  body { padding-top: var(--header-offset) !important; }
+
+  /* slider flush and remove image inline gaps */
+  section.slider{ margin:0 !important; padding:0 !important; border:0 !important; line-height:0 !important; }
+  section.slider picture, section.slider figure{ margin:0 !important; padding:0 !important; }
+  section.slider img{ display:block !important; margin:0 !important; padding:0 !important; vertical-align:top !important; border:0 !important; }
+
+  /* next block: no top spacing */
+  section.slider + *{ margin-top:0 !important; padding-top:0 !important; border-top:0 !important; }
+  section.slider + * h1:first-child, section.slider + * h2:first-child, section.slider + * .h1:first-child, section.slider + * .h2:first-child { margin-top:0 !important; }
+}
