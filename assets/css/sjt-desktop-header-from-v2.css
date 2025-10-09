@@ -1,0 +1,46 @@
+
+/* === Desktop-only header swap (clone from V2) === */
+@media (max-width: 991px){
+  /* Mobile/Tablet: keep the original header, hide the cloned one */
+  #sjt-desktop-header-v2{ display: none !important; }
+}
+@media (min-width: 992px){
+  /* Desktop: hide the original header and show the cloned V2 header */
+  header.site-header{ display: none !important; }
+  #sjt-desktop-header-v2{
+    display: block !important;
+    position: fixed !important;
+    top: 0; left: 0; right: 0;
+    width: 100% !important;
+    z-index: 10000;
+    /* Fallback background similar to V2; will inherit from inner header if defined */
+    background: #416a73;
+  }
+  /* Ensure inner header stretches full width */
+  #sjt-desktop-header-v2 .site-header,
+  #sjt-desktop-header-v2 header.site-header{
+    position: relative !important; /* inner header doesn't need to be fixed again */
+    width: 100% !important;
+    margin: 0 !important;
+    background: inherit !important;
+  }
+  /* Remove inner container max-widths */
+  #sjt-desktop-header-v2 .container,
+  #sjt-desktop-header-v2 .container-fluid,
+  #sjt-desktop-header-v2 .row,
+  #sjt-desktop-header-v2 nav,
+  #sjt-desktop-header-v2 .navbar{
+    max-width: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  /* Desktop paddings similar a tu referencia */
+  #sjt-desktop-header-v2 .container{
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+  /* Logo sizing */
+  #sjt-desktop-header-v2 img{ max-height: 64px; height: auto; width: auto; }
+}
+
