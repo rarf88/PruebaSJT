@@ -559,34 +559,38 @@ header.site-header img.brand-sjt {
 /* End Hotfix v2 */
 
 
+/* === Forced Mobile/Tablet Logo Overlay (non-intrusive) === */
+@media (max-width: 1024px){
+  /* Ensure nav acts as positioning context, but do not disturb desktop */
+  header.site-header nav.nav{ position: relative !important; min-height: 64px !important; padding-left: 80px !important; padding-right: 80px !important; }
 
-/* === Center the injected mobile/tablet overlay logo === */
-@media (max-width:1024px){
+  /* Centered overlay that doesn't block interactions */
   .sjt-mobile-logo-overlay{
-    position:absolute !important;
-    left:50% !important;
-    top:50% !important;
-    transform:translate(-50%, -50%) !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    height:64px !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 64px !important;
     width: auto !important;
-    pointer-events:none !important; /* do not block hamburger or links */
+    pointer-events: none !important;
   }
   .sjt-mobile-logo-overlay img{
-    max-height:56px !important;
-    height:56px !important;
-    width:auto !important;
     display:block !important;
-    object-fit:contain !important;
+    max-height: 56px !important;
+    height: 56px !important;
+    width: auto !important;
+    object-fit: contain !important;
   }
-  /* Ensure nav has sufficient relative context and space for hamburger/buttons */
-  header.site-header nav.nav{
-    position:relative !important;
-    min-height:64px !important;
-    padding-left:80px !important;
-    padding-right:80px !important;
+
+  /* Defeat any rule that tries to hide images/logos inside the header on mobile */
+  header.site-header .logo img,
+  header.site-header img.brand-sjt,
+  header.site-header .sjt-mobile-logo-overlay img{
+    visibility: visible !important;
+    display: block !important;
   }
 }
-
+/* === End Forced Mobile/Tablet Logo Overlay === */
