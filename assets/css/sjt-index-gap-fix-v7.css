@@ -1,0 +1,47 @@
+/* === SJT Index Gap Fix v7 (index only, ULTRA FORCE) === */
+@media (max-width: 991px){
+  /* Header tidy */
+  header, .site-header, .navbar, .topbar {
+    margin:0 !important; padding:0 !important; border:0 !important; box-shadow:none !important;
+  }
+  header * { margin-top:0 !important; }
+
+  /* Slider block */
+  section.slider {
+    margin:0 !important; padding:0 !important; border:0 !important; box-shadow:none !important;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+  }
+  section.slider::before, section.slider::after { content:none !important; display:none !important; }
+
+  /* Prevent top-margin collapsing and any top artifact right after header */
+  header + section.slider {
+    margin-top:0 !important; padding-top:0 !important; border-top:0 !important;
+    display: flow-root !important; /* BFC without clipping */
+    background-clip: padding-box !important;
+  }
+
+  /* Inner wrappers of slider: nuke self top spaces */
+  section.slider > *,
+  section.slider .container, section.slider .row, section.slider .slides, section.slider .slide,
+  section.slider .swiper, section.slider .swiper-container, section.slider .slick-slider, section.slider .glide {
+    margin-top:0 !important; padding-top:0 !important; border-top:0 !important;
+  }
+
+  /* Immediately after slider: no top space */
+  section.slider + section, section.slider + div, section.slider + main, section.slider + article {
+    margin-top:0 !important; padding-top:0 !important; border-top:0 !important;
+    display: flow-root !important;
+  }
+
+  /* First heading right after slider */
+  section.slider + * h1:first-child,
+  section.slider + * h2:first-child,
+  section.slider + * .h1:first-child,
+  section.slider + * .h2:first-child {
+    margin-top:0 !important;
+  }
+
+  /* Hairline guard */
+  header + section.slider { margin-top:-2px !important; }
+}
