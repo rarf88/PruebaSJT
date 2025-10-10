@@ -17,20 +17,8 @@
 </style>
 
 <style>
-/* === NO TOP GAP (mobile/tablet, non-index) === */
-@media (max-width:1024px){
-  html, body{ margin-top:0 !important; padding-top:0 !important; }
-  header.site-header{ top:0 !important; margin-top:0 !important; }
-  .preheader, .top-spacer, .spacer-top, .pre-header, .header-spacer{
-    display:none !important; height:0 !important; padding:0 !important; margin:0 !important;
-  }
-}
-/* === END NO TOP GAP === */
-</style>
 
-<style>
-
-/* === DYNFIT MOBILE/TABLET LOGO — 2025-10-09T23:00:46.104832Z === */
+/* === DYNFIT MOBILE/TABLET LOGO — 2025-10-10T13:30:05.645414Z === */
 @media (max-width:1024px){
   #sjt-mobile-fixed-logo {
     position: fixed !important;
@@ -49,6 +37,40 @@
   #sjt-mobile-fixed-logo { display: none !important; }
 }
 /* === END DYNFIT === */
+
+</style>
+<style>
+/* === NO TOP GAP (mobile/tablet, non-index) === */
+@media (max-width:1024px){
+  html, body{ margin-top:0 !important; padding-top:0 !important; }
+  header.site-header{ top:0 !important; margin-top:0 !important; }
+  .preheader, .top-spacer, .spacer-top, .pre-header, .header-spacer{
+    display:none !important; height:0 !important; padding:0 !important; margin:0 !important;
+  }
+}
+/* === END NO TOP GAP === */
+</style>
+<style>
+
+/* === CLICKABLE OVERLAY FOR MOBILE/TABLET LOGO — 2025-10-10T13:30:05.645414Z === */
+@media (max-width:1024px){
+  #sjt-mobile-fixed-hit{
+    position: fixed !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: calc(var(--sjt-header-top, 0px) + (var(--sjt-header-h, 64px) - var(--sjt-logo-h, 48px)) / 2) !important;
+    width: clamp(120px, calc(var(--sjt-logo-h, 48px) * 2.2), 260px) !important;
+    height: var(--sjt-logo-h, 48px) !important;
+    z-index: 2147483647 !important;
+    display: block !important;
+    pointer-events: auto !important;
+    background: transparent !important;
+  }
+}
+@media (min-width:1025px){
+  #sjt-mobile-fixed-hit{ display:none !important; }
+}
+/* === END CLICKABLE OVERLAY === */
 
 </style>
 </head><style>
@@ -98,6 +120,8 @@
 </link><link href="assets/css/sjt-mobile-logo-centered.css" rel="stylesheet"/><link href="assets/css/sjt-mobile-header-sticky.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-mobile-header-sticky.js"></script><link href="assets/css/sjt-hamburger-x.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-hamburger-state-sync.js"></script></head><body>
 <img id="sjt-mobile-fixed-logo" src="assets/img/sjt-logo-transparent@4x.png" alt="SJT ERP" />
 
+
+<a id="sjt-mobile-fixed-hit" href="index.html" aria-label="Inicio (ir a inicio)"></a>
 <header class="site-header"\1
 <div class="container">
 <nav aria-label="Principal" class="nav">
@@ -166,7 +190,7 @@
 
 <script>
 
-/* === DYNFIT runtime — 2025-10-09T23:00:46.104832Z === */
+/* === DYNFIT runtime — 2025-10-10T13:30:05.645414Z === */
 (function(){try{
   var d = document, root = d.documentElement;
   var header = d.querySelector('header.site-header');
