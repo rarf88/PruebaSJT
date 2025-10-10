@@ -73,6 +73,20 @@
 /* === END CLICKABLE OVERLAY === */
 
 </style>
+
+<style>
+
+/* === CLICKABLE ANCHOR PRIORITY (V2) — 2025-10-10T13:35:03.468699Z === */
+@media (max-width:1024px){
+  #sjt-mobile-fixed-logo{ z-index: 2147483646 !important; pointer-events:none !important; }
+  #sjt-mobile-fixed-hit{ z-index: 2147483647 !important; pointer-events:auto !important; display:block !important; }
+}
+@media (min-width:1025px){
+  #sjt-mobile-fixed-hit{ display:none !important; }
+}
+/* === END V2 === */
+
+</style>
 </head><style>
 /* Override solo para servicios: compactar barra "SERVICIOS" */
 .page-hero { padding-top: 0 !important; padding-bottom: 0 !important; }
@@ -214,6 +228,40 @@
   window.addEventListener('visibilitychange', updateVars, {passive:true});
   setTimeout(updateVars,0); setTimeout(updateVars,150); setTimeout(updateVars,350);
 }catch(e){} })();
+
+</script>
+
+<script>
+
+/* === ENFORCE NAV TO INDEX (V2) — 2025-10-10T13:35:03.468699Z === */
+(function(){
+  try{
+    function bind(){
+      var a = document.getElementById('sjt-mobile-fixed-hit');
+      if(!a) return;
+      function go(e){
+        try{ e.preventDefault(); e.stopPropagation(); }catch(_){}
+        try{ window.location.assign('index.html'); }
+        catch(_){ window.location.href = 'index.html'; }
+      }
+      try{
+        a.addEventListener('click', go, {passive:false});
+        a.addEventListener('touchstart', go, {passive:false});
+      }catch(_){
+        a.onclick = go;
+      }
+    }
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', bind);
+    }else{
+      bind();
+    }
+    setTimeout(bind, 0);
+    setTimeout(bind, 300);
+    setTimeout(bind, 1000);
+  }catch(e){}
+})();
+/* === END ENFORCE NAV V2 === */
 
 </script>
 </body></html>
