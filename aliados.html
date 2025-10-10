@@ -87,6 +87,26 @@
 /* === END V2 === */
 
 </style>
+
+<style>
+
+/* === aliados: clickable logo hardening — 2025-10-10T13:39:14.848396Z === */
+@media (max-width:1024px){
+  #sjt-mobile-fixed-logo{ z-index:2147483646 !important; pointer-events:none !important; }
+  #sjt-mobile-fixed-hit{
+    position:fixed !important; left:50% !important; transform:translateX(-50%) !important;
+    top: calc(var(--sjt-header-top, 0px) + (var(--sjt-header-h, 64px) - var(--sjt-logo-h, 48px)) / 2) !important;
+    width: clamp(120px, calc(var(--sjt-logo-h, 48px) * 2.2), 260px) !important;
+    height: var(--sjt-logo-h, 48px) !important;
+    z-index: 2147483647 !important; display:block !important; pointer-events:auto !important; background:transparent !important;
+  }
+}
+@media (min-width:1025px){
+  #sjt-mobile-fixed-hit{ display:none !important; }
+}
+/* === end aliados hardening === */
+
+</style>
 </head><style>
     /* Centrar título principal en Aliados */
     .aliados-title { 
@@ -295,6 +315,56 @@ document.addEventListener('DOMContentLoaded', function(){
   }catch(e){}
 })();
 /* === END ENFORCE NAV V2 === */
+
+</script>
+
+<script>
+
+/* === aliados: redirect failsafe for mobile/tablet === */
+(function(){
+  try{
+    function goIndex(e){
+      try{ e.preventDefault(); e.stopImmediatePropagation(); }catch(_){}
+      try{ window.location.assign('index.html'); }
+      catch(_){ window.location.href = 'index.html'; }
+    }
+    function within(el, x, y){
+      if(!el) return false;
+      var r = el.getBoundingClientRect();
+      return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+    }
+    function bind(){
+      var ww = Math.max(document.documentElement.clientWidth, window.innerWidth||0);
+      if(ww > 1024) return; // only mobile/tablet
+      var hit = document.getElementById('sjt-mobile-fixed-hit');
+      var logo = document.getElementById('sjt-mobile-fixed-logo');
+      if(hit){
+        try{
+          hit.addEventListener('click', goIndex, {passive:false});
+          hit.addEventListener('touchstart', goIndex, {passive:false});
+          hit.addEventListener('pointerdown', goIndex, {passive:false, capture:true});
+        }catch(_){ hit.onclick = goIndex; }
+      }
+      if(logo){
+        try{
+          logo.addEventListener('click', goIndex, {passive:false});
+          logo.addEventListener('touchstart', goIndex, {passive:false});
+          logo.addEventListener('pointerdown', goIndex, {passive:false, capture:true});
+        }catch(_){ logo.onclick = goIndex; }
+      }
+      // Global capture: if the user taps inside the logo area, force navigation
+      try{
+        window.addEventListener('pointerdown', function(e){
+          var x = e.clientX, y = e.clientY;
+          if(within(hit || logo, x, y)){ goIndex(e); }
+        }, {passive:false, capture:true});
+      }catch(_){}
+    }
+    if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', bind); } else { bind(); }
+    setTimeout(bind, 0); setTimeout(bind, 300); setTimeout(bind, 1000);
+  }catch(e){}
+})();
+/* === end aliados failsafe === */
 
 </script>
 </body></html>
