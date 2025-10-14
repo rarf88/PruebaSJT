@@ -3,7 +3,7 @@
 <html lang="es"><head><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Módulos ERP SJT – Finanzas, Tesorería, Compras, Talento Humano</title>
+<title>Casos de Éxito y Referencias – SJT ERP Sector Público</title>
 <link as="image" href="assets/img/slide-1.png" rel="preload"/>
 <link href="assets/css/main.css" rel="stylesheet"/>
 <link href="assets/css/brand-sjt.css" rel="stylesheet"/> <link href="assets/css/mobile-logo-override.css" rel="stylesheet"/>
@@ -15,26 +15,270 @@
   header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
 }
 </style>
+
+<style>
+/* === Mostrar solo la lista actualizada de casos de éxito (página local) === */
+@media (max-width:2000px){
+  /* Oculta secciones antiguas relacionadas con 'casos de éxito' que no sean la nueva */
+  section[id*="casos"], section[class*="casos"], section[class*="aliados"], .aliados, .cases, .casos, .success-cases {
+    display: none !important;
+  }
+  #casos-exito-2025 { display: block !important; }
+}
+</style>
+
+<style>
+/* === CASOS DE ÉXITO — estilo prolijo (scoped) === */
+#casos-exito-2025 { padding: 32px 0 56px; }
+#casos-exito-2025 .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+#casos-exito-2025 h1 { 
+  text-align: center; 
+  margin: 8px 0 24px; 
+  font-weight: 800; 
+  letter-spacing: .4px;
+}
+#casos-exito-2025 h2 { 
+  margin-top: 28px; 
+  margin-bottom: 12px; 
+  font-weight: 700; 
+  border-top: 1px solid rgba(0,0,0,.08); 
+  padding-top: 18px;
+  letter-spacing: .2px;
+}
+#casos-exito-2025 ul { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0 0 8px 0; 
+  display: grid; 
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 6px 18px;
+}
+@media (min-width: 640px) {
+  #casos-exito-2025 ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 992px) {
+  #casos-exito-2025 ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+#casos-exito-2025 li { 
+  background: rgba(0,0,0,.035);
+  padding: 10px 12px; 
+  border-radius: 10px; 
+}
+/* Fin estilo prolijo */
+</style>
+
+<style>
+/* === CASOS DE ÉXITO — Innovate styling (scoped) === */
+#casos-exito-2025 { --cex-gap: 16px; --cex-radius: 16px; --cex-shadow: 0 10px 25px rgba(0,0,0,.08); --cex-accent: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
+#casos-exito-2025 .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+#casos-exito-2025 h1 { text-align:center; margin: 10px 0 18px; font-weight: 800; letter-spacing:.4px; }
+#casos-exito-2025 .case-chips { margin: 6px 0 22px; overflow:auto; -webkit-overflow-scrolling:touch; }
+#casos-exito-2025 .case-chips .chips-row { display:flex; gap:10px; padding:4px 2px; }
+#casos-exito-2025 .chip {
+  display:inline-block; padding:8px 12px; border-radius:999px; font-weight:600; text-decoration:none;
+  background:rgba(0,0,0,.06); border:1px solid rgba(0,0,0,.08);
+}
+#casos-exito-2025 .chip:focus, #casos-exito-2025 .chip:hover { outline:none; border-color:rgba(0,0,0,.25); background:rgba(0,0,0,.08); }
+#casos-exito-2025 .case-group { position:relative; padding-top:8px; margin-top:10px; }
+#casos-exito-2025 .case-group > h2 {
+  font-weight:800; margin: 26px 0 14px; padding-top:14px; position:relative;
+}
+#casos-exito-2025 .case-group > h2::before {
+  content:""; position:absolute; left:0; top:0; height:6px; width:82px; border-radius: 6px;
+  background: var(--cex-accent);
+  box-shadow: 0 4px 14px rgba(0,114,255,.25);
+}
+#casos-exito-2025 ul {
+  list-style:none; padding:0; margin:0;
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--cex-gap);
+}
+#casos-exito-2025 li {
+  position:relative; padding:14px 14px 14px 48px; border-radius: var(--cex-radius);
+  background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.78));
+  backdrop-filter: blur(4px);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow: var(--cex-shadow);
+  transform: translateY(0);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+#casos-exito-2025 li::before {
+  content:""; position:absolute; left:14px; top:50%; transform:translateY(-50%);
+  width:18px; height:18px; border-radius:6px; background: var(--cex-accent);
+  box-shadow: 0 6px 14px rgba(0,114,255,.28);
+}
+@media (hover:hover){
+  #casos-exito-2025 li:hover{ transform: translateY(-3px); box-shadow: 0 14px 28px rgba(0,0,0,.12); }
+}
+/* Subtle entrance animation */
+@media (prefers-reduced-motion:no-preference){
+  #casos-exito-2025 li { opacity:0; animation: cex-fadeup .5s ease both; }
+  #casos-exito-2025 li:nth-child(2){ animation-delay:.05s; }
+  #casos-exito-2025 li:nth-child(3){ animation-delay:.1s; }
+  #casos-exito-2025 li:nth-child(4){ animation-delay:.15s; }
+  #casos-exito-2025 li:nth-child(5){ animation-delay:.2s; }
+  #casos-exito-2025 li:nth-child(6){ animation-delay:.25s; }
+  @keyframes cex-fadeup{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
+}
+/* Make sure legacy sections remain hidden if present */
+#casos-exito-2025 ~ section[class*="casos"], #casos-exito-2025 ~ .aliados, #casos-exito-2025 ~ .casos, #casos-exito-2025 ~ .success-cases { display:none !important; }
+</style>
+
+<style>
+/* === CASOS DE ÉXITO — MASTER POLISHED (scoped override) === */
+#casos-exito-2025 {
+  --accent: #2563eb;            /* Accessible blue */
+  --ink: #0f172a;               /* Text color (slate-900) */
+  --muted: #475569;             /* Muted text (slate-600) */
+  --card-bg: #ffffff;           /* Pure white card */
+  --card-brd: #e5e7eb;          /* Border (gray-200) */
+  --card-rad: 14px;
+  --chip-bg: #f1f5f9;           /* Chip bg (slate-100) */
+  --chip-brd: #e2e8f0;          /* Chip border */
+  --chip-ink: #0f172a;
+  --shadow: 0 6px 18px rgba(15, 23, 42, .06);
+}
+
+#casos-exito-2025 .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+#casos-exito-2025 h1 { 
+  text-align:center; margin: 6px 0 18px; font-weight: 800; letter-spacing:.2px;
+  color: var(--ink);
+}
+
+/* Chips navigator (uniform ovals) */
+#casos-exito-2025 .case-chips { margin: 10px 0 26px; overflow:auto; -webkit-overflow-scrolling:touch; }
+#casos-exito-2025 .case-chips .chips-row { display:flex; gap:10px; padding:4px 2px; }
+#casos-exito-2025 .chip {
+  display:inline-block; white-space:nowrap;
+  padding:10px 14px; border-radius:999px;
+  background: var(--chip-bg); border:1px solid var(--chip-brd); color: var(--chip-ink);
+  font-weight: 600; text-decoration:none; line-height:1;
+  transition: border-color .2s ease, background .2s ease, transform .15s ease;
+}
+#casos-exito-2025 .chip:hover, #casos-exito-2025 .chip:focus {
+  background:#e2e8f0; border-color:#cbd5e1; outline:none; transform: translateY(-1px);
+}
+
+/* Group headings with subtle accent bar (no glow) */
+#casos-exito-2025 .case-group { position:relative; padding-top:4px; margin-top:8px; }
+#casos-exito-2025 .case-group > h2 {
+  color: var(--ink); font-weight:800; margin: 26px 0 14px; padding-top:16px; position:relative;
+}
+#casos-exito-2025 .case-group > h2::before {
+  content:""; position:absolute; left:0; top:0; height:4px; width:80px; border-radius: 4px;
+  background: var(--accent);
+}
+
+/* Grid and card styling */
+#casos-exito-2025 ul { 
+  list-style:none; padding:0; margin:0;
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+#casos-exito-2025 li {
+  position:relative; padding:14px 16px 14px 48px;
+  border-radius: var(--card-rad); background: var(--card-bg);
+  border:1px solid var(--card-brd); color: var(--ink);
+  box-shadow: var(--shadow);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+#casos-exito-2025 li::before {
+  content:""; position:absolute; left:16px; top:50%; transform:translateY(-50%);
+  width:18px; height:18px; border-radius:999px; background: var(--accent);
+}
+@media (hover:hover){ #casos-exito-2025 li:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,.10); } }
+
+/* Typography inside cards */
+#casos-exito-2025 li, #casos-exito-2025 li * { font-weight: 600; letter-spacing:.1px; }
+#casos-exito-2025 li small { display:block; color: var(--muted); font-weight:500; }
+
+/* Respect reduced motion; disable animations if any remained */
+@media (prefers-reduced-motion: reduce){
+  #casos-exito-2025 * { animation: none !important; transition: none !important; }
+}
+/* Ensure only the updated block is shown if older blocks still exist in markup */
+#casos-exito-2025 ~ section[class*="casos"], #casos-exito-2025 ~ .aliados, #casos-exito-2025 ~ .casos, #casos-exito-2025 ~ .success-cases { display:none !important; }
+</style>
+
+<style>
+/* === Clear Tabs under H1 (scoped) === */
+#casos-exito-2025 .case-chips{ margin: 10px 0 22px; }
+#casos-exito-2025 .case-chips .chips-row{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; padding:0; }
+#casos-exito-2025 .chip{
+  background:transparent; border:none; color:#0f172a; font-weight:800; letter-spacing:.2px;
+  padding: 10px 4px; position:relative; text-decoration:none;
+}
+#casos-exito-2025 .chip::after{
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:3px; background:#2563eb; border-radius:3px;
+  transform:scaleX(1); opacity:.85;
+}
+#casos-exito-2025 .chip:focus{ outline: 2px solid #93c5fd; outline-offset: 3px; }
+</style>
+
+<style>
+/* === Entity badges (left + ghost right) === */
+#casos-exito-2025 .entity{ display:inline-flex; align-items:center; gap:10px; position:relative; width:100%; }
+#casos-exito-2025 .entity .badge{ height:1.15em; width:auto; aspect-ratio:auto; object-fit:contain; vertical-align:middle; }
+#casos-exito-2025 .entity .badge.ghost{ margin-left:auto; opacity:.13; height:1.35em; }
+</style>
+
+<style>
+
+#casos-exito-2025 .case-chips{ margin: 14px 0 26px; }
+#casos-exito-2025 .case-chips .chips-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; padding:0; }
+#casos-exito-2025 .chip{
+  display:inline-block; padding:10px 14px; border-radius:999px;
+  background:#2563eb; color:#fff; border:1px solid #1d4ed8; font-weight:800; letter-spacing:.2px;
+  text-decoration:none; box-shadow: 0 8px 18px rgba(37,99,235,.25);
+}
+#casos-exito-2025 .chip:focus{ outline:2px solid #93c5fd; outline-offset:3px; }
+#casos-exito-2025 .chip:hover{ filter:brightness(0.97); }
+
+
+#casos-exito-2025 .entity{ display:inline-grid; grid-template-columns:auto 1fr auto; align-items:center; gap:10px; width:100%; }
+#casos-exito-2025 .badge{ height:1.25em; width:auto; aspect-ratio:auto; object-fit:contain; vertical-align:middle; }
+#casos-exito-2025 .badge.ghost{ margin-left:auto; opacity:.12; height:1.4em; }
+#casos-exito-2025 .mono{
+  width:1.35em; height:1.35em; border-radius:999px; background:#0f172a; color:#fff;
+  font-size:.75em; display:inline-flex; align-items:center; justify-content:center; font-weight:800;
+}
+
+</style>
+
+<style>
+
+/* === LIMPIEZA DE LOGOS IZQUIERDA Y BULLETS AL COLOR INSTITUCIONAL === */
+#casos-exito-2025 img.badge, #casos-exito-2025 img.ghost, #casos-exito-2025 .mono { display:none !important; }
+#casos-exito-2025 li::before { background: #0b3c3f !important; }
+#casos-exito-2025 .case-group > h2::before { background: #2e7077 !important; }
+#casos-exito-2025 .chip{
+  background:#0f4e52 !important; border-color:#0b3c3f !important;
+  box-shadow: 0 8px 18px rgba(11,60,63,.22) !important;
+}
+#casos-exito-2025 .chip:hover{ background:#2e7077 !important; border-color:#0f4e52 !important; }
+
+
+/* === Logo a la derecha, tamaño x2 del texto, usando colores institucionales === */
+#casos-exito-2025 .entity{ display:inline-flex; align-items:center; gap:12px; width:100%; }
+#casos-exito-2025 .entity.entity-right{ justify-content:space-between; }
+#casos-exito-2025 .entity .badgeR{
+  height:2.2em; width:auto; object-fit:contain; flex:0 0 auto;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.12));
+}
+#casos-exito-2025 .entity .monoR{
+  height:2.2em; width:2.2em; border-radius:12px; background:#0b3c3f; color:#fff; 
+  display:inline-flex; align-items:center; justify-content:center; font-weight:800; flex:0 0 auto;
+}
+
+</style>
 </head><style>
-/* Spacing between Pillars grid and Segmentos title */
-.segmentos-title { margin-top: clamp(36px, 5vw, 72px) !important; }
-</style><style>
-/* Extra spacing after Pilares grid */
-.pillars-grid { margin-bottom: clamp(48px, 6vw, 96px) !important; }
-</style><style>
-/* Override solo para productos: compactar barra "PRODUCTOS" */
-.page-hero { padding-top: 0 !important; padding-bottom: 0 !important; }
-.page-hero h1 { margin: 0 !important; line-height: 1.0 !important; }
-.page-hero p { margin: 2px 0 0 0 !important; line-height: 1.15 !important; }
-
-
-/* Espacio extra bajo el subtítulo del hero en Productos */
-.page-hero p { margin-bottom: 12px !important; }
-</style><style>
-/* FINAL override: espacio bajo el subtítulo del hero en Productos */
-.page-hero { padding-bottom: 16px !important; }  /* asegura respiración dentro de la barra */
-.page-hero p { margin-bottom: 12px !important; } /* separa el texto del borde inferior */
-</style><style>
+    /* Centrar título principal en Aliados */
+    .aliados-title { 
+      text-align: center !important; 
+      margin-left: auto !important; 
+      margin-right: auto !important; 
+    }
+    </style><style>
     /* Centrar todo el contenido del footer */
     footer { text-align: center !important; }
     footer .grid { justify-items: center !important; }
@@ -60,7 +304,7 @@
         @media (max-width: 640px){
           .back-home-btn{ right: 12px; bottom: 12px; padding: 10px 14px; font-size: .9rem; }
         }
-        </style><meta content="Descubra módulos ERP SJT para el sector público: finanzas, tesorería, compras, inventarios, talento humano y más." name="description"/><link href="assets/css/expand-content-fix.css" rel="stylesheet"/><link href="assets/css/footer-icons-fix.css" rel="stylesheet"/><link href="assets/css/header-nav-carousel-fix.css" rel="stylesheet"><script defer="True" src="assets/js/header-nav-carousel-fix.js"></script><link href="assets/css/quick-actions-v2.css" rel="stylesheet"/> <link href="assets/css/mobile-logo-override.css" rel="stylesheet"/>
+        </style><meta content="Nuestros aliados y clientes del sector público en Colombia que confían en SJT." name="description"/><link href="assets/css/expand-content-fix.css" rel="stylesheet"/><link href="assets/css/footer-icons-fix.css" rel="stylesheet"/><link href="assets/css/header-nav-carousel-fix.css" rel="stylesheet"><script defer="True" src="assets/js/header-nav-carousel-fix.js"></script><link href="assets/css/quick-actions-v2.css" rel="stylesheet"/> <link href="assets/css/mobile-logo-override.css" rel="stylesheet"/>
 <style>
 @media (max-width:1024px){
   header.site-header img, header.site-header picture, header.site-header svg{ display:none !important; visibility:hidden !important; }
@@ -69,8 +313,252 @@
   header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
 }
 </style>
-</link><link href="assets/css/sjt-mobile-logo-centered.css" rel="stylesheet"/><link href="assets/css/sjt-mobile-header-sticky.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-mobile-header-sticky.js"></script><link href="assets/css/sjt-hamburger-x.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-hamburger-state-sync.js"></script></head><body>
-<header class="site-header"\1
+</link><link href="assets/css/sjt-mobile-logo-centered.css" rel="stylesheet"/><link href="assets/css/sjt-mobile-header-sticky.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-mobile-header-sticky.js"></script><link href="assets/css/sjt-hamburger-x.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-hamburger-state-sync.js"></script>
+<style>
+/* === CASOS DE ÉXITO — estilo prolijo (scoped) === */
+#casos-exito-2025 { padding: 32px 0 56px; }
+#casos-exito-2025 .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+#casos-exito-2025 h1 { 
+  text-align: center; 
+  margin: 8px 0 24px; 
+  font-weight: 800; 
+  letter-spacing: .4px;
+}
+#casos-exito-2025 h2 { 
+  margin-top: 28px; 
+  margin-bottom: 12px; 
+  font-weight: 700; 
+  border-top: 1px solid rgba(0,0,0,.08); 
+  padding-top: 18px;
+  letter-spacing: .2px;
+}
+#casos-exito-2025 ul { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0 0 8px 0; 
+  display: grid; 
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 6px 18px;
+}
+@media (min-width: 640px) {
+  #casos-exito-2025 ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 992px) {
+  #casos-exito-2025 ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+#casos-exito-2025 li { 
+  background: rgba(0,0,0,.035);
+  padding: 10px 12px; 
+  border-radius: 10px; 
+}
+/* Fin estilo prolijo */
+</style>
+
+<style>
+/* === CASOS DE ÉXITO — Innovate styling (scoped) === */
+#casos-exito-2025 { --cex-gap: 16px; --cex-radius: 16px; --cex-shadow: 0 10px 25px rgba(0,0,0,.08); --cex-accent: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
+#casos-exito-2025 .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+#casos-exito-2025 h1 { text-align:center; margin: 10px 0 18px; font-weight: 800; letter-spacing:.4px; }
+#casos-exito-2025 .case-chips { margin: 6px 0 22px; overflow:auto; -webkit-overflow-scrolling:touch; }
+#casos-exito-2025 .case-chips .chips-row { display:flex; gap:10px; padding:4px 2px; }
+#casos-exito-2025 .chip {
+  display:inline-block; padding:8px 12px; border-radius:999px; font-weight:600; text-decoration:none;
+  background:rgba(0,0,0,.06); border:1px solid rgba(0,0,0,.08);
+}
+#casos-exito-2025 .chip:focus, #casos-exito-2025 .chip:hover { outline:none; border-color:rgba(0,0,0,.25); background:rgba(0,0,0,.08); }
+#casos-exito-2025 .case-group { position:relative; padding-top:8px; margin-top:10px; }
+#casos-exito-2025 .case-group > h2 {
+  font-weight:800; margin: 26px 0 14px; padding-top:14px; position:relative;
+}
+#casos-exito-2025 .case-group > h2::before {
+  content:""; position:absolute; left:0; top:0; height:6px; width:82px; border-radius: 6px;
+  background: var(--cex-accent);
+  box-shadow: 0 4px 14px rgba(0,114,255,.25);
+}
+#casos-exito-2025 ul {
+  list-style:none; padding:0; margin:0;
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--cex-gap);
+}
+#casos-exito-2025 li {
+  position:relative; padding:14px 14px 14px 48px; border-radius: var(--cex-radius);
+  background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.78));
+  backdrop-filter: blur(4px);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow: var(--cex-shadow);
+  transform: translateY(0);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+#casos-exito-2025 li::before {
+  content:""; position:absolute; left:14px; top:50%; transform:translateY(-50%);
+  width:18px; height:18px; border-radius:6px; background: var(--cex-accent);
+  box-shadow: 0 6px 14px rgba(0,114,255,.28);
+}
+@media (hover:hover){
+  #casos-exito-2025 li:hover{ transform: translateY(-3px); box-shadow: 0 14px 28px rgba(0,0,0,.12); }
+}
+/* Subtle entrance animation */
+@media (prefers-reduced-motion:no-preference){
+  #casos-exito-2025 li { opacity:0; animation: cex-fadeup .5s ease both; }
+  #casos-exito-2025 li:nth-child(2){ animation-delay:.05s; }
+  #casos-exito-2025 li:nth-child(3){ animation-delay:.1s; }
+  #casos-exito-2025 li:nth-child(4){ animation-delay:.15s; }
+  #casos-exito-2025 li:nth-child(5){ animation-delay:.2s; }
+  #casos-exito-2025 li:nth-child(6){ animation-delay:.25s; }
+  @keyframes cex-fadeup{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
+}
+/* Make sure legacy sections remain hidden if present */
+#casos-exito-2025 ~ section[class*="casos"], #casos-exito-2025 ~ .aliados, #casos-exito-2025 ~ .casos, #casos-exito-2025 ~ .success-cases { display:none !important; }
+</style>
+
+<style>
+/* === CASOS DE ÉXITO — MASTER POLISHED (scoped override) === */
+#casos-exito-2025 {
+  --accent: #2563eb;            /* Accessible blue */
+  --ink: #0f172a;               /* Text color (slate-900) */
+  --muted: #475569;             /* Muted text (slate-600) */
+  --card-bg: #ffffff;           /* Pure white card */
+  --card-brd: #e5e7eb;          /* Border (gray-200) */
+  --card-rad: 14px;
+  --chip-bg: #f1f5f9;           /* Chip bg (slate-100) */
+  --chip-brd: #e2e8f0;          /* Chip border */
+  --chip-ink: #0f172a;
+  --shadow: 0 6px 18px rgba(15, 23, 42, .06);
+}
+
+#casos-exito-2025 .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+#casos-exito-2025 h1 { 
+  text-align:center; margin: 6px 0 18px; font-weight: 800; letter-spacing:.2px;
+  color: var(--ink);
+}
+
+/* Chips navigator (uniform ovals) */
+#casos-exito-2025 .case-chips { margin: 10px 0 26px; overflow:auto; -webkit-overflow-scrolling:touch; }
+#casos-exito-2025 .case-chips .chips-row { display:flex; gap:10px; padding:4px 2px; }
+#casos-exito-2025 .chip {
+  display:inline-block; white-space:nowrap;
+  padding:10px 14px; border-radius:999px;
+  background: var(--chip-bg); border:1px solid var(--chip-brd); color: var(--chip-ink);
+  font-weight: 600; text-decoration:none; line-height:1;
+  transition: border-color .2s ease, background .2s ease, transform .15s ease;
+}
+#casos-exito-2025 .chip:hover, #casos-exito-2025 .chip:focus {
+  background:#e2e8f0; border-color:#cbd5e1; outline:none; transform: translateY(-1px);
+}
+
+/* Group headings with subtle accent bar (no glow) */
+#casos-exito-2025 .case-group { position:relative; padding-top:4px; margin-top:8px; }
+#casos-exito-2025 .case-group > h2 {
+  color: var(--ink); font-weight:800; margin: 26px 0 14px; padding-top:16px; position:relative;
+}
+#casos-exito-2025 .case-group > h2::before {
+  content:""; position:absolute; left:0; top:0; height:4px; width:80px; border-radius: 4px;
+  background: var(--accent);
+}
+
+/* Grid and card styling */
+#casos-exito-2025 ul { 
+  list-style:none; padding:0; margin:0;
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+#casos-exito-2025 li {
+  position:relative; padding:14px 16px 14px 48px;
+  border-radius: var(--card-rad); background: var(--card-bg);
+  border:1px solid var(--card-brd); color: var(--ink);
+  box-shadow: var(--shadow);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+#casos-exito-2025 li::before {
+  content:""; position:absolute; left:16px; top:50%; transform:translateY(-50%);
+  width:18px; height:18px; border-radius:999px; background: var(--accent);
+}
+@media (hover:hover){ #casos-exito-2025 li:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,.10); } }
+
+/* Typography inside cards */
+#casos-exito-2025 li, #casos-exito-2025 li * { font-weight: 600; letter-spacing:.1px; }
+#casos-exito-2025 li small { display:block; color: var(--muted); font-weight:500; }
+
+/* Respect reduced motion; disable animations if any remained */
+@media (prefers-reduced-motion: reduce){
+  #casos-exito-2025 * { animation: none !important; transition: none !important; }
+}
+/* Ensure only the updated block is shown if older blocks still exist in markup */
+#casos-exito-2025 ~ section[class*="casos"], #casos-exito-2025 ~ .aliados, #casos-exito-2025 ~ .casos, #casos-exito-2025 ~ .success-cases { display:none !important; }
+</style>
+
+<style>
+/* === Clear Tabs under H1 (scoped) === */
+#casos-exito-2025 .case-chips{ margin: 10px 0 22px; }
+#casos-exito-2025 .case-chips .chips-row{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; padding:0; }
+#casos-exito-2025 .chip{
+  background:transparent; border:none; color:#0f172a; font-weight:800; letter-spacing:.2px;
+  padding: 10px 4px; position:relative; text-decoration:none;
+}
+#casos-exito-2025 .chip::after{
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:3px; background:#2563eb; border-radius:3px;
+  transform:scaleX(1); opacity:.85;
+}
+#casos-exito-2025 .chip:focus{ outline: 2px solid #93c5fd; outline-offset: 3px; }
+</style>
+
+<style>
+/* === Entity badges (left + ghost right) === */
+#casos-exito-2025 .entity{ display:inline-flex; align-items:center; gap:10px; position:relative; width:100%; }
+#casos-exito-2025 .entity .badge{ height:1.15em; width:auto; aspect-ratio:auto; object-fit:contain; vertical-align:middle; }
+#casos-exito-2025 .entity .badge.ghost{ margin-left:auto; opacity:.13; height:1.35em; }
+</style>
+
+<style>
+
+#casos-exito-2025 .case-chips{ margin: 14px 0 26px; }
+#casos-exito-2025 .case-chips .chips-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; padding:0; }
+#casos-exito-2025 .chip{
+  display:inline-block; padding:10px 14px; border-radius:999px;
+  background:#2563eb; color:#fff; border:1px solid #1d4ed8; font-weight:800; letter-spacing:.2px;
+  text-decoration:none; box-shadow: 0 8px 18px rgba(37,99,235,.25);
+}
+#casos-exito-2025 .chip:focus{ outline:2px solid #93c5fd; outline-offset:3px; }
+#casos-exito-2025 .chip:hover{ filter:brightness(0.97); }
+
+
+#casos-exito-2025 .entity{ display:inline-grid; grid-template-columns:auto 1fr auto; align-items:center; gap:10px; width:100%; }
+#casos-exito-2025 .badge{ height:1.25em; width:auto; aspect-ratio:auto; object-fit:contain; vertical-align:middle; }
+#casos-exito-2025 .badge.ghost{ margin-left:auto; opacity:.12; height:1.4em; }
+#casos-exito-2025 .mono{
+  width:1.35em; height:1.35em; border-radius:999px; background:#0f172a; color:#fff;
+  font-size:.75em; display:inline-flex; align-items:center; justify-content:center; font-weight:800;
+}
+
+</style>
+
+<style>
+
+/* === LIMPIEZA DE LOGOS IZQUIERDA Y BULLETS AL COLOR INSTITUCIONAL === */
+#casos-exito-2025 img.badge, #casos-exito-2025 img.ghost, #casos-exito-2025 .mono { display:none !important; }
+#casos-exito-2025 li::before { background: #0b3c3f !important; }
+#casos-exito-2025 .case-group > h2::before { background: #2e7077 !important; }
+#casos-exito-2025 .chip{
+  background:#0f4e52 !important; border-color:#0b3c3f !important;
+  box-shadow: 0 8px 18px rgba(11,60,63,.22) !important;
+}
+#casos-exito-2025 .chip:hover{ background:#2e7077 !important; border-color:#0f4e52 !important; }
+
+
+/* === Logo a la derecha, tamaño x2 del texto, usando colores institucionales === */
+#casos-exito-2025 .entity{ display:inline-flex; align-items:center; gap:12px; width:100%; }
+#casos-exito-2025 .entity.entity-right{ justify-content:space-between; }
+#casos-exito-2025 .entity .badgeR{
+  height:2.2em; width:auto; object-fit:contain; flex:0 0 auto;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.12));
+}
+#casos-exito-2025 .entity .monoR{
+  height:2.2em; width:2.2em; border-radius:12px; background:#0b3c3f; color:#fff; 
+  display:inline-flex; align-items:center; justify-content:center; font-weight:800; flex:0 0 auto;
+}
+
+</style>
+</head><body><header class="site-header"\1
 <div class="container">
 <nav aria-label="Principal" class="nav">
 <a aria-label="Inicio" class="logo" href="index.html"><picture><source srcset="assets/img/sjt-logo-transparent.webp 1x, assets/img/sjt-logo-transparent@2x.webp 2x, assets/img/sjt-logo-transparent@3x.webp 3x, assets/img/sjt-logo-transparent@4x.webp 4x" type="image/webp"/><source srcset="assets/img/sjt-logo-transparent.png 1x, assets/img/sjt-logo-transparent@2x.png 2x, assets/img/sjt-logo-transparent@3x.png 3x, assets/img/sjt-logo-transparent@4x.png 4x" type="image/png"/><img alt="SJT" class="brand-sjt" decoding="async" fetchpriority="high" loading="eager" sizes="92px" src="assets/img/sjt-logo-transparent@2x.png" srcset="assets/img/sjt-logo-transparent.png 1x, assets/img/sjt-logo-transparent@2x.png 2x, assets/img/sjt-logo-transparent@3x.png 3x, assets/img/sjt-logo-transparent@4x.png 4x"/></picture></a>
@@ -82,8 +570,123 @@
 </div>
 </nav>
 </div>
-</header>
-<section class="page-hero"><div class="hero-wrap" style="padding:0"><h1 style="margin:0">PRODUCTOS</h1><p style="margin:0">Explora todos los módulos y servicios por pilar o segmento.</p></div></section><section class="section-productos" id="productos" style="scroll-margin-top:96px; padding: 0;"><div class="prod-wrap"><h2 class="prod-section-title">Pilares</h2><p class="prod-intro prod-intro">Selecciona un pilar para ver los módulos y servicios. Puedes volver a las tarjetas en cualquier momento.</p><div class="pillars-grid" id="grid"><a class="pillar-card" href="#p1"><h3>ERP Financiero</h3><p>Contabilidad, Tesorería y Presupuesto.</p></a><a class="pillar-card" href="#p2"><h3>Gestión Humana</h3><p>Nómina y Recursos Humanos.</p></a><a class="pillar-card" href="#p3"><h3>Logística</h3><p>Almacén, Inventarios y Activos Fijos.</p></a><a class="pillar-card" href="#p4"><h3>Cumplimiento</h3><p>Facturación, Firma y Riesgos.</p></a><a class="pillar-card" href="#p5"><h3>Especializados</h3><p>Servicios Públicos y Propiedad Horizontal.</p></a></div><section class="pillar-panel" id="p1"><div class="panel-head"><h2>ERP Financiero</h2><p>Contabilidad, Tesorería y Presupuesto.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Contabilidad</td><td>Módulo Contable y Reportes CGN</td><td>Contabilidad conforme a CGN, NIIF y COLGAAP, con reportes a entes de control.</td></tr><tr><td>Tesorería</td><td>Gestión de Tesorería y Flujo de Caja</td><td>Recaudo y pagos; conciliación bancaria y control de Flujo de Caja.</td></tr><tr><td>Presupuesto</td><td>Ejecución y Control Presupuestal</td><td>Ejecución y seguimiento del Presupuesto con reportes en tiempo real.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><section class="pillar-panel" id="p2"><div class="panel-head"><h2>Gestión Humana</h2><p>Nómina y Recursos Humanos.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Nómina y RRHH</td><td>Módulo Integral de Nómina y Talento Humano</td><td>Liquidación de nómina, turnos, contratos y reportes UGPP.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><section class="pillar-panel" id="p3"><div class="panel-head"><h2>Logística</h2><p>Almacén, Inventarios y Activos Fijos.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Almacén e Inventarios</td><td>Control de Almacén e Inventarios</td><td>Control físico, valoración y trazabilidad de Inventarios y consumibles.</td></tr><tr><td>Activos Fijos</td><td>Gestión de Activos Fijos</td><td>Registro, depreciación y administración del ciclo de vida de los Bienes y Activos Fijos.</td></tr><tr><td>Compras y Adquisiciones</td><td>Módulo de Compras y Contratación</td><td>Soporte a Adquisiciones y Compras, integradas con Presupuesto/Inventarios.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><section class="pillar-panel" id="p4"><div class="panel-head"><h2>Cumplimiento</h2><p>Facturación Electrónica, Firma y Riesgos.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Facturación Electrónica</td><td>Facturación y Documentos Electrónicos DIAN</td><td>Emisión de Facturación y Nómina Electrónica y Documento Soporte (DIAN).</td></tr><tr><td>Firma Electrónica</td><td>Suministro de Firma Electrónica Digital</td><td>Validez y autenticidad de documentos electrónicos.</td></tr><tr><td>Gestión de Riesgos</td><td>Módulo de Riesgos y Cumplimiento</td><td>Apoyo para Gestión de Riesgos y cumplimiento de protocolos.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><section class="pillar-panel" id="p5"><div class="panel-head"><h2>Especializados</h2><p>Servicios Públicos, Redes y Propiedad Horizontal.</p></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre en la Web</th><th>Descripción Esencial</th></tr></thead><tbody><tr><td>Gestión Comercial (ESDs)</td><td>Gestión de Servicios Públicos y Comercial (ESDs)</td><td>Cálculo de intereses y gestión comercial en empresas de servicios.</td></tr><tr><td>Propiedad Horizontal / Arrendamiento</td><td>Administración de Propiedad Horizontal e Inmuebles</td><td>Procesos de vivienda, liquidación de expensas y arrendamientos.</td></tr><tr><td>Mantenimiento y Sostenibilidad</td><td>Mantenimiento de Redes y Servicios</td><td>Mantenimiento de redes de acueducto, alcantarillado y aseo.</td></tr><tr><td>Salud y Bienestar</td><td>Manejo de Activos Biológicos y HSEQ</td><td>Gestión de activos biológicos y sistemas HSEQ.</td></tr></tbody></table><div class="pil-actions"><a class="volver" href="#grid">← Volver</a></div></section><h2 class="prod-section-title segmentos-title">Segmentos</h2><p class="prod-intro prod-intro">Selecciona un segmento para ver los módulos y servicios. Puedes volver a las tarjetas en cualquier momento.</p><div class="segments-grid" id="segments-grid"><a class="segment-card" href="#seg1"><h3 class="seg-title"><span class="seg-label">1. Segmento:</span> <span class="seg-rest">Gestión Financiera y Contable (ERP Core)</span></h3></a><a class="segment-card" href="#seg2"><h3 class="seg-title"><span class="seg-label">2. Segmento:</span> <span class="seg-rest">Gestión Administrativa y de Talento Humano</span></h3></a><a class="segment-card" href="#seg3"><h3 class="seg-title"><span class="seg-label">3. Segmento:</span> <span class="seg-rest">Módulos Especializados y de Servicios Públicos</span></h3></a><a class="segment-card" href="#seg4"><h3 class="seg-title"><span class="seg-label">4. Segmento:</span> <span class="seg-rest">Soporte y Servicios Transversales</span></h3></a></div><section class="seg-panel" id="seg1"><div class="seg-head"><h3>1. Segmento: Gestión Financiera y Contable (ERP Core)</h3></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre Propuesto en la Web</th><th>Descripción Esencial para Entidades Públicas</th></tr></thead><tbody><tr><td>Contabilidad</td><td>Módulo Contable y Reportes CGN</td><td>Contabilidad conforme a CGN, NIIF y COLGAAP, con reportes a entes de control.</td></tr><tr><td>Tesorería</td><td>Gestión de Tesorería y Flujo de Caja</td><td>Recaudo y pagos; conciliación bancaria y control de Flujo de Caja.</td></tr><tr><td>Presupuesto</td><td>Ejecución y Control Presupuestal</td><td>Ejecución y seguimiento del Presupuesto con reportes en tiempo real.</td></tr></tbody></table><div class="seg-actions"><a class="volver" href="#segments-grid">← Volver</a></div></section><section class="seg-panel" id="seg2"><div class="seg-head"><h3>2. Segmento: Gestión Administrativa y de Talento Humano</h3></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre Propuesto en la Web</th><th>Descripción Esencial para Entidades Públicas</th></tr></thead><tbody><tr><td>Nómina y RRHH</td><td>Módulo Integral de Nómina y Talento Humano</td><td>Liquidación de nómina, turnos, contratos y reportes UGPP.</td></tr><tr><td>Almacén e Inventarios</td><td>Control de Almacén e Inventarios</td><td>Control físico, valoración y trazabilidad de Inventarios y consumibles.</td></tr><tr><td>Activos Fijos</td><td>Gestión de Activos Fijos</td><td>Registro, depreciación y administración del ciclo de vida de los Activos Fijos.</td></tr></tbody></table><div class="seg-actions"><a class="volver" href="#segments-grid">← Volver</a></div></section><section class="seg-panel" id="seg3"><div class="seg-head"><h3>3. Segmento: Módulos Especializados y de Servicios Públicos</h3></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre Propuesto en la Web</th><th>Descripción Esencial para Entidades Públicas</th></tr></thead><tbody><tr><td>Gestión Comercial (ESDs)</td><td>Gestión de Servicios Públicos y Comercial (ESDs)</td><td>Cálculo de intereses y gestión comercial en empresas de servicios.</td></tr><tr><td>Propiedad Horizontal / Arrendamiento</td><td>Administración de Propiedad Horizontal e Inmuebles</td><td>Procesos de vivienda, liquidación de expensas y arrendamientos.</td></tr></tbody></table><div class="seg-actions"><a class="volver" href="#segments-grid">← Volver</a></div></section><section class="seg-panel" id="seg4"><div class="seg-head"><h3>4. Segmento: Soporte y Servicios Transversales</h3></div><table class="prod-table"><thead><tr><th>Módulo/Producto</th><th>Nombre Propuesto en la Web</th><th>Descripción Esencial para Entidades Públicas</th></tr></thead><tbody><tr><td>Capacitación y Asesoría</td><td>Asesoría Profesional y Capacitación Continua</td><td>Capacitación y asesoría para manejo óptimo y correcto registro financiero.</td></tr><tr><td>Soporte SaaS y WEB</td><td>Mantenimiento, Soporte Técnico y Actualización</td><td>Mantenimiento y actualización para asegurar cumplimiento normativo.</td></tr><tr><td>Ventanilla Única</td><td>Gestión de Cobro y Documentación</td><td>Gestión de documentos, ventanilla única y cobro con trazabilidad.</td></tr></tbody></table><div class="seg-actions"><a class="volver" href="#segments-grid">← Volver</a></div></section></div></section><section class="cta-final" id="cta-final"><h3>¿Listo para modernizar su entidad?</h3><p>Integre procesos, cumpla normativas y gane trazabilidad con SJT.</p><a class="btn btn-primary" href="index.html#contacto">Solicitar demo</a></section><footer class="footer">
+</header><main>
+<!-- CASOS DE ÉXITO 2025 (actualizado) -->
+<section id="casos-exito-2025" class="cases-updated">
+  <div class="container">
+    <h1>CASOS DE ÉXITO</h1>
+<nav class="case-chips" aria-label="Categorías">
+  <div class="chips-row">
+    <a class="chip" href="#sec-gobernación-de-caldas">GOBERNACIÓN DE CALDAS</a>
+    <a class="chip" href="#sec-contralorías">CONTRALORÍAS</a>
+    <a class="chip" href="#sec-instituciones-educativas">INSTITUCIONES EDUCATIVAS</a>
+    <a class="chip" href="#sec-alcaldías">ALCALDÍAS</a>
+    <a class="chip" href="#sec-empresas-de-servicios-públicos">EMPRESAS DE SERVICIOS PÚBLICOS</a>
+    <a class="chip" href="#sec-institutos-de-vivienda-y-financieros">INSTITUTOS DE VIVIENDA Y FINANCIEROS</a>
+    <a class="chip" href="#sec-institutos-de-cultura-y-deporte-entes-descentralizados">INSTITUTOS DE CULTURA Y DEPORTE / ENTES DESCENTRALIZADOS</a>
+  </div>
+</nav>
+
+
+    <div class="case-group" id="sec-gobernación-de-caldas" data-title="GOBERNACIÓN DE CALDAS">
+  <h2>GOBERNACIONES</h2>
+  <ul>
+  <li>
+    <span class="entity entity-right"><span class="entity">
+      
+      <strong>GOBERNACIÓN DE CALDAS</strong>
+      
+    </span><img class="badgeR" src="assets/logos/gobernacion-de-caldas.png" alt=""></span>
+    <small>SECRETARÍA DE EDUCACIÓN — 161 INSTITUCIONES EDUCATIVAS</small>
+  </li>
+</ul>
+</div>
+
+    <div class="case-group" id="sec-contralorías" data-title="CONTRALORÍAS">
+  <h2>CONTRALORÍAS</h2>
+  <ul>
+  <li><span class="entity entity-right"><span class="entity">CONTRALORÍA MUNICIPAL DE SABANETA</span><img class="badgeR" src="assets/logos/contraloria-municipal-de-sabaneta.png" alt=""></span></li>
+</ul>
+</div>
+
+    <div class="case-group" id="sec-instituciones-educativas" data-title="INSTITUCIONES EDUCATIVAS">
+  <h2>INSTITUCIONES EDUCATIVAS</h2>
+  <ul>
+      <li><span class="entity entity-right"><span class="entity">INSTITUTO TÉCNICO GONZÁLO SUÁREZ RENDÓN</span><img class="badgeR" src="assets/logos/instituto-tecnico-gonzalo-suarez-rendon.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">I.E. “INEM” CARLOS ARTURO TORRES</span><img class="badgeR" src="assets/logos/INEM.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">I.E. GUSTAVO ROJAS PINILLA</span><img class="badgeR" src="assets/logos/Gustavo.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">I.E. ESCUELA NORMAL SUPERIOR SANTIAGO DE TUNJA</span><img class="badgeR" src="assets/logos/Normal.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">I.E. ANTONIO JOSÉ SANDOVAL GÓMEZ</span><img class="badgeR" src="assets/logos/Antonio.png" alt=""></span></li>
+    </ul>
+</div>
+
+    <div class="case-group" id="sec-alcaldías" data-title="ALCALDÍAS">
+  <h2>ALCALDÍAS</h2>
+  <ul>
+      <li><span class="entity entity-right"><span class="entity">ALCALDÍA DE TUNUNGUÁ</span><img class="badgeR" src="assets/logos/Tunungua.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">ALCALDÍA DE IZA</span><img class="badgeR" src="assets/logos/Iza.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">ALCALDÍA DE PAZ DE RÍO</span><img class="badgeR" src="assets/logos/Paz-de-Rio.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">ALCALDÍA DE TAURAMENA</span><img class="badgeR" src="assets/logos/Tauramena.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">ALCALDÍA DE BARBOSA</span><img class="badgeR" src="assets/logos/Barbosa.png" alt=""></span></li>
+    </ul>
+</div>
+
+    <div class="case-group" id="sec-empresas-de-servicios-públicos" data-title="EMPRESAS DE SERVICIOS PÚBLICOS">
+  <h2>EMPRESAS DE SERVICIOS PÚBLICOS</h2>
+  <ul>
+      <li><span class="entity entity-right"><span class="entity">EMPRESA MUNICIPAL DE SERVICIOS PÚBLICOS DOMICILIARIOS DE BARBOSA — ESBARBOSA E.S.P.</span><img class="badgeR" src="assets/logos/Barbosa.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">EMPRESA DE SERVICIOS PÚBLICOS DE AGUAZUL — ESPA S.A. E.S.P.</span><img class="badgeR" src="assets/logos/Espa.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">EMPRESAS DE SERVICIOS PÚBLICOS NO DOMICILIARIAS DE DUITAMA — ESDU</span><img class="badgeR" src="assets/logos/Esdu.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">EMPRESA DE SERVICIOS PÚBLICOS DEL ORIENTE DE CALDAS — SERVIORIENTE S.A. E.S.P.</span><img class="badgeR" src="assets/logos/Servioriente.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">EMPRESA REGIONAL DE ACUEDUCTO, ALCANTARILLADO Y ASEO DEL NORTE DE CALDAS — ERAN</span><img class="badgeR" src="assets/logos/Eran.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">EMPRESA DE SERVICIOS PÚBLICOS DE SANTA ROSA DE VITERBO — EMPOVITERBO</span><img class="badgeR" src="assets/logos/Empoviterbo.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">EMPRESA DE SERVICIOS PÚBLICOS DE ACUEDUCTO, ALCANTARILLADO, ASEO Y COMPLEMENTARIOS DE NEIRA — ESP S.A.S.</span><img class="badgeR" src="assets/logos/Neira.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">EMPRESA DE ACUEDUCTO, ALCANTARILLADO Y ASEO DE YOPAL — EAAAY</span><img class="badgeR" src="assets/logos/EAAAY.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">ACUEDUCTO LA PEDREGOSA — ASUAPED</span><img class="badgeR" src="assets/logos/Asuaped.png" alt=""></span></li>
+    </ul>
+</div>
+
+    <div class="case-group" id="sec-institutos-de-vivienda-y-financieros" data-title="INSTITUTOS DE VIVIENDA Y FINANCIEROS">
+  <h2>INSTITUTOS DE VIVIENDA Y FINANCIEROS</h2>
+  <ul>
+      <li><span class="entity entity-right"><span class="entity">FONDO DE FOMENTO AGROEMPRESARIAL DEL MUNICIPIO DE AGUAZUL — FFAMA</span><img class="badgeR" src="assets/logos/Ffama.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">INSTITUTO FINANCIERO EMPRESARIAL DE YOPAL — IFEY</span><img class="badgeR" src="assets/logos/Ifey.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">FONDO DE VIVIENDA OBRERA DE DUITAMA — FOMVIDU</span><img class="badgeR" src="assets/logos/Fomvidu.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">INSTITUTO DE VIVIENDA MUNICIPAL DE YOPAL — INDEV</span><img class="badgeR" src="assets/logos/Indev.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">INSTITUTO DE VIVIENDA MUNICIPAL DE AGUAZUL — IVIMA</span><img class="badgeR" src="assets/logos/Ivima.png" alt=""></span></li>
+    </ul>
+</div>
+
+    <div class="case-group" id="sec-institutos-de-cultura-y-deporte-entes-descentralizados" data-title="INSTITUTOS DE CULTURA Y DEPORTE / ENTES DESCENTRALIZADOS">
+  <h2>INSTITUTOS DE CULTURA Y DEPORTE / ENTES DESCENTRALIZADOS</h2>
+  <ul>
+      <li><span class="entity entity-right"><span class="entity">INSTITUTO PARA LA EDUCACIÓN FÍSICA, LA RECREACIÓN Y EL DEPORTE — IERD</span><img class="badgeR" src="assets/logos/Ierd.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">DIRECCIÓN DE TRÁNSITO DE BARBOSA SANTANDER — DTTB</span><img class="badgeR" src="assets/logos/Barbosa.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">TERMINAL DE TRANSPORTES DE AGUAZUL — EL GARCERO DEL LLANO</span><img class="badgeR" src="assets/logos/Terminal.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">INSTITUTO DE CULTURA Y TURISMO DE YOPAL — ICTY</span><img class="badgeR" src="assets/logos/Icty.png" alt=""></span></li>
+      <li><span class="entity entity-right"><span class="entity">INSTITUTO DE CULTURA Y BELLAS ARTES DE DUITAMA — CULTURAMA</span><img class="badgeR" src="assets/logos/Culturama.png" alt=""></span></li>
+    </ul>
+</div>
+  </div>
+</section>
+<!-- /CASOS DE ÉXITO 2025 -->
+<section aria-label="CASOS DE ÉXITO EN LA GESTIÓN PÚBLICA" class="aliados-section"><style>
+.aliados-wrap{max-width:1100px;margin:0 auto;padding:40px 20px;}
+.aliados-title{font-weight:900;font-size:2.25rem;line-height:1.1;margin:0 0 8px;color:#113b3e;}
+.aliados-lead{font-size:1.05rem;line-height:1.8;color:#174043;max-width:980px;margin-bottom:22px;text-align:justify;hyphens:auto;text-justify:inter-word;}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px;}
+.tab-btn{border:none;background:#eef5f5;color:#113b3e;padding:10px 14px;border-radius:12px;font-weight:800;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,.08);}
+.tab-btn.active{background:#0f4e52;color:#fff}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;animation:fade .18s ease-in}
+@keyframes fade{from{opacity:.6;transform:translateY(4px)}to{opacity:1;transform:none}}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:#fff;border-radius:12px;box-shadow:0 12px 28px rgba(0,0,0,.08);padding:14px 16px}
+.card h3{margin:0 0 10px;font-size:1.05rem;color:#0f4e52}
+.card ul{margin:0;padding-left:18px;list-style:disc}
+.card li{margin:6px 0;line-height:1.6;text-align:justify;hyphens:auto;text-justify:inter-word;}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+</style><div class="aliados-wrap"><h1 class="aliados-title">CASOS DE ÉXITO EN LA GESTIÓN PÚBLICA 🇨🇴</h1><p class="aliados-lead">Más de 40 entidades del sector central, descentralizado y de control en Colombia confían en nuestras soluciones SaaS especializadas.</p><div class="tabs"><button class="tab-btn active" data-tab="tab0">Gobiernos Territoriales y Control (17) 🏛️</button><button class="tab-btn" data-tab="tab1">Servicios Públicos y Logística (14) 💧</button><button class="tab-btn" data-tab="tab2">Educación, Salud y Cultura (10) 🏥</button><button class="tab-btn" data-tab="tab3">Fomento, Vivienda y Desarrollo (8) 💰</button></div><div class="tab-panel active" id="tab0"><div class="cards"><div class="card"><h3>Alcaldías</h3><ul><li><span class="entity entity-right"><span class="entity">Alcaldía de Sogamoso</span><img class="badgeR" src="assets/logos/alcaldia-de-sogamoso.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Aguazul</span><img class="badgeR" src="assets/logos/alcaldia-de-aguazul.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Zipaquirá</span><img class="badgeR" src="assets/logos/alcaldia-de-zipaquira.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Barbosa</span><img class="badgeR" src="assets/logos/Barbosa.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Chía</span><img class="badgeR" src="assets/logos/alcaldia-de-chia.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Nobsa</span><img class="badgeR" src="assets/logos/alcaldia-de-nobsa.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Tauramena</span><img class="badgeR" src="assets/logos/Tauramena.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía San Pablo de Borbur</span><img class="badgeR" src="assets/logos/alcaldia-san-pablo-de-borbur.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía Paz del Río</span><img class="badgeR" src="assets/logos/alcaldia-paz-del-rio.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Tununguá</span><img class="badgeR" src="assets/logos/Tunungua.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Susacón</span><img class="badgeR" src="assets/logos/alcaldia-de-susacon.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Tunja</span><img class="badgeR" src="assets/logos/alcaldia-de-tunja.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Iza</span><img class="badgeR" src="assets/logos/Iza.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Santa Rosa de Viterbo Boyacá</span><img class="badgeR" src="assets/logos/alcaldia-de-santa-rosa-de-viterbo-boyaca.png" alt=""></span></li></ul></div><div class="card"><h3>Gobernaciones</h3><ul><li><span class="entity entity-right"><span class="entity">Gobernación de Caldas</span><img class="badgeR" src="assets/logos/gobernacion-de-caldas.png" alt=""></span></li></ul></div><div class="card"><h3>Control Fiscal</h3><ul><li><span class="entity entity-right"><span class="entity">Contraloría de Sabaneta</span><img class="badgeR" src="assets/logos/contraloria-de-sabaneta.png" alt=""></span></li></ul></div><div class="card"><h3>Concejos</h3><ul><li><span class="entity entity-right"><span class="entity">Concejo de Lérida</span><img class="badgeR" src="assets/logos/concejo-de-lerida.png" alt=""></span></li></ul></div><div class="card"><h3>Tránsito y Transporte</h3><ul><li><span class="entity entity-right"><span class="entity">Dirección de Tránsito y Transporte de Barbosa</span><img class="badgeR" src="assets/logos/Barbosa.png" alt=""></span></li></ul></div></div></div><div class="tab-panel" id="tab1"><div class="cards"><div class="card"><h3>Acueducto, Alcantarillado y Aseo (ESP)</h3><ul><li><span class="entity entity-right"><span class="entity">Empresa de Acueducto, Alcantarillado y Aseo de Zipaquirá EAAAZ</span><img class="badgeR" src="assets/logos/empresa-de-acueducto-alcantarillado-y-aseo-de-zipaquira-eaaaz.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos Municipales No Domiciliarios de Duitama ESDU</span><img class="badgeR" src="assets/logos/Esdu.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos Domiciliarios de Duitama "EMPODUITAMA"</span><img class="badgeR" src="assets/logos/empresa-de-servicios-publicos-domiciliarios-de-duitama-empoduitama.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Acueducto, Alcantarillado y Aseo de Yopal "EAAAY"</span><img class="badgeR" src="assets/logos/EAAAY.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos de Acueducto Alcantarillado Aseo y Complementarios de Neira Caldas SAS ESP EPN</span><img class="badgeR" src="assets/logos/Neira.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos de Santa Rosa de Viterbo S.A. E.S.P. EMPOVITERBO</span><img class="badgeR" src="assets/logos/Empoviterbo.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos del Oriente de Caldas Servioriente S.A E.S.P.</span><img class="badgeR" src="assets/logos/Servioriente.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Empresa Regional de Acueducto, Alcantarillado y Aseo del Norte de Caldas S.A. E.S.P. ERAN</span><img class="badgeR" src="assets/logos/Eran.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos de Aguazul</span><img class="badgeR" src="assets/logos/empresa-de-servicios-publicos-de-aguazul.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Empresa Municipal de Servicios Públicos Domiciliarios de Barbosa - ESBARBOSA</span><img class="badgeR" src="assets/logos/Barbosa.png" alt=""></span></li></ul></div><div class="card"><h3>Logística y Terminales</h3><ul><li><span class="entity entity-right"><span class="entity">Terminal de Transportes de Aguazul El Garcero del Llano</span><img class="badgeR" src="assets/logos/Terminal.png" alt=""></span></li></ul></div><div class="card"><h3>EICE / Agroindustrial</h3><ul><li><span class="entity entity-right"><span class="entity">Empresa Agroindustrial Casanareña de Lácteos - Casalac E.I.C.E.</span><img class="badgeR" src="assets/logos/empresa-agroindustrial-casanarena-de-lacteos-casalac-e-i-c-e.png" alt=""></span></li></ul></div></div></div><div class="tab-panel" id="tab2"><div class="cards"><div class="card"><h3>Educación (Colegios y Normales)</h3><ul><li><span class="entity entity-right"><span class="entity">Escuela Normal Superior Santiago de Tunja</span><img class="badgeR" src="assets/logos/Normal.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Escuela Normal Superior Leonor Álvarez Pinzón</span><img class="badgeR" src="assets/logos/Normal.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Institución Educativa Julius Sieber Tunja</span><img class="badgeR" src="assets/logos/institucion-educativa-julius-sieber-tunja.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Institución Educativa Inem Carlos Arturo Torres Tunja</span><img class="badgeR" src="assets/logos/INEM.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Instituto Técnico Gonzalo Suárez Rendón</span><img class="badgeR" src="assets/logos/instituto-tecnico-gonzalo-suarez-rendon.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">IE Gustavo Rojas Pinilla</span><img class="badgeR" src="assets/logos/Gustavo.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Institución Educativa Antonio José Sandoval Gómez de Tunja</span><img class="badgeR" src="assets/logos/Antonio.png" alt=""></span></li></ul></div><div class="card"><h3>Salud (Hospitales)</h3><ul><li><span class="entity entity-right"><span class="entity">Hospital Chiquinquirá</span><img class="badgeR" src="assets/logos/hospital-chiquinquira.png" alt=""></span></li></ul></div><div class="card"><h3>Cultura y Deporte</h3><ul><li><span class="entity entity-right"><span class="entity">Instituto de Cultura y Bellas Artes de Duitama Culturama</span><img class="badgeR" src="assets/logos/Culturama.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Instituto para la Educación Física, la Recreación y el Deporte de Duitama IERD</span><img class="badgeR" src="assets/logos/Ierd.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Instituto de Cultura y Turismo de Yopal</span><img class="badgeR" src="assets/logos/instituto-de-cultura-y-turismo-de-yopal.png" alt=""></span></li></ul></div></div></div><div class="tab-panel" id="tab3"><div class="cards"><div class="card"><h3>Financieras y Desarrollo</h3><ul><li><span class="entity entity-right"><span class="entity">Findeter</span><img class="badgeR" src="assets/logos/findeter.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Instituto Financiero Empresarial de Yopal EICE – IFEY</span><img class="badgeR" src="assets/logos/Ifey.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Instituto de Fomento y Desarrollo de Boyacá “IDEBOY”</span><img class="badgeR" src="assets/logos/instituto-de-fomento-y-desarrollo-de-boyaca-ideboy.png" alt=""></span></li></ul></div><div class="card"><h3>Fomento Agroindustrial</h3><ul><li><span class="entity entity-right"><span class="entity">Instituto de Fomento Agroempresarial de Tauramena "FATA"</span><img class="badgeR" src="assets/logos/Tauramena.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Fondo de Fomento Agropecuario y Microempresarial de Aguazul FFAMA</span><img class="badgeR" src="assets/logos/Ffama.png" alt=""></span></li></ul></div><div class="card"><h3>Vivienda Social</h3><ul><li><span class="entity entity-right"><span class="entity">Fondo de Vivienda Obrera de Duitama Fomvidu</span><img class="badgeR" src="assets/logos/Fomvidu.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">IVIMA Instituto de Vivienda Municipal de Aguazul</span><img class="badgeR" src="assets/logos/Ivima.png" alt=""></span></li><li><span class="entity entity-right"><span class="entity">Instituto de Vivienda de Yopal "INDEV"</span><img class="badgeR" src="assets/logos/Indev.png" alt=""></span></li></ul></div><div class="card"><h3>Fondos de Empleados</h3><ul><li><span class="entity entity-right"><span class="entity">Fondo de Empleados Alcaldía de Tauramena Fonalcat</span><img class="badgeR" src="assets/logos/Tauramena.png" alt=""></span></li></ul></div></div></div></div></section></main><section class="cta-final" id="cta-final"><h3>¿Listo para modernizar su entidad?</h3><p>Integre procesos, cumpla normativas y gane trazabilidad con SJT.</p><a class="btn btn-primary" href="index.html#contacto">Solicitar demo</a></section><footer class="footer">
 <div class="container">
 <div class="grid">
 <div>
@@ -106,7 +709,28 @@
 </div>
 <small class="copyright">© 2025 Grupo AAA. Todos los derechos reservados.</small>
 </div>
-</footer><script src="assets/js/brand-sjt.js"></script><a aria-label="Volver a inicio" class="back-home-btn" href="index.html" title="Volver a inicio">Volver a inicio</a><script>
+</footer><script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      const panel = document.getElementById(id);
+      if(panel) panel.classList.add('active');
+      if(history.pushState){ history.replaceState(null, '', '#'+id); }
+    });
+  });
+  const hash = location.hash.replace('#','');
+  if(hash && document.getElementById(hash)){
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelector(`[data-tab="${hash}"]`)?.classList.add('active');
+    document.getElementById(hash).classList.add('active');
+  }
+});
+</script><script src="assets/js/brand-sjt.js"></script><a aria-label="Volver a inicio" class="back-home-btn" href="index.html" title="Volver a inicio">Volver a inicio</a><script>
 // Google Analytics 4 (insert your Measurement ID)
 (function(){
   var gid = 'G-XXXXXXXXXX'; // TODO: Replace with your GA4 Measurement ID
@@ -135,4 +759,85 @@
 <script defer="" src="assets/js/sjt-remove-right-logo-v3.js"></script>
 <script defer="" src="assets/js/sjt-mobile-header-simple.js"></script>
 <script defer="" src="assets/js/sjt-mobile-center-cut-and-center.js"></script>
+
+<script>
+
+(function(){
+  try{
+    var root = document.getElementById('casos-exito-2025');
+    if(!root) return;
+
+    function initials(text){
+      try{
+        var t = (text||"").replace(/\s+/g,' ').trim();
+        if(!t) return "?";
+        var parts = t.split(' ');
+        var out = (parts[0][0]||'').toUpperCase();
+        for(var i=1;i<parts.length;i++){
+          if(/[A-ZÁÉÍÓÚÑ]/i.test(parts[i][0])){ out += (parts[i][0]||'').toUpperCase(); break; }
+        }
+        return out || t[0].toUpperCase();
+      }catch(e){ return "?"; }
+    }
+
+    root.querySelectorAll('.entity').forEach(function(ent){
+      var img = ent.querySelector('img.badge:not(.ghost)');
+      var mainText = (ent.textContent||"").trim();
+      function ensureMono(){
+        if(ent.querySelector('.mono')) return;
+        var m = document.createElement('span');
+        m.className = 'mono';
+        m.textContent = initials(mainText);
+        ent.insertBefore(m, ent.firstChild);
+      }
+      if(!img){
+        ensureMono();
+        return;
+      }
+      function fail(){
+        try{ img.style.display = 'none'; }catch(_){}
+        ensureMono();
+      }
+      if(!img.complete){
+        img.addEventListener('error', fail, {once:true});
+      }else if(img.naturalWidth === 0){
+        fail();
+      }
+      img.addEventListener('error', fail, {once:true});
+    });
+  }catch(e){}
+})();
+
+</script>
+
+<script>
+
+(function(){
+  try{
+    var root = document.getElementById('casos-exito-2025'); if(!root) return;
+    function initials(t){
+      t = (t||"").replace(/\s+/g,' ').trim();
+      if(!t) return "?";
+      var parts = t.split(' ');
+      var out = (parts[0][0]||'').toUpperCase();
+      for(var i=1;i<parts.length;i++){ if(/[A-ZÁÉÍÓÚÑ]/i.test(parts[i][0])){ out += (parts[i][0]||'').toUpperCase(); break; } }
+      return out || t[0].toUpperCase();
+    }
+    root.querySelectorAll('.entity.entity-right').forEach(function(ent){
+      var img = ent.querySelector('.badgeR');
+      var text = (ent.textContent||"").trim();
+      function createMono(){
+        if(ent.querySelector('.monoR')) return;
+        var m = document.createElement('span'); m.className='monoR'; m.textContent = initials(text);
+        ent.appendChild(m);
+      }
+      if(!img){ createMono(); return; }
+      if(!img.complete){ img.addEventListener('error', createMono, {once:true}); }
+      else if(img.naturalWidth===0){ createMono(); }
+      img.addEventListener('error', createMono, {once:true});
+    });
+  }catch(e){}
+})();
+
+</script>
 </body></html>
