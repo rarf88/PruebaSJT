@@ -1,0 +1,75 @@
+header .navbar-brand img,.navbar-brand img,header .logo img,.site-logo img{max-height:40px !important;height:auto !important;width:auto !important;display:block !important;filter:drop-shadow(0 1px 0 rgba(0,0,0,.35))}header .navbar,.navbar{overflow:visible !important;padding-top:6px !important;padding-bottom:6px !important}
+/* === ENFORCED Footer Brand Background (2025-10-24) === */
+footer,.footer,footer.light{
+  background-image:url("../img/footer-bg-sjt.png") !important;
+  background-repeat:no-repeat !important;
+  background-size:cover !important;
+  background-position:center !important;
+  background-color:transparent !important;
+}
+
+/* === Responsive Hard Overrides (mobile <=640px) === */
+
+@media (max-width: 640px){
+  html,body{overflow-x:hidden}
+  img,video{max-width:100%!important;height:auto!important}
+  .container,[class*="container"],[class*="Container"]{max-width:100%!important;width:100%!important}
+  .grid,[class*="grid"]{grid-auto-flow:row!important}
+}
+
+
+@media (max-width: 640px){
+  #entidad-selector-holder.entidad-chips,
+#servicios.services-bar .container,
+.awards-wrap,
+.container,
+.nos-header-dup .container,
+.nos-header-dup .container-fluid,
+.section p,
+.segments-grid,
+.service-panel .svc-columns,
+.service-panel .svc-intro,
+.services-grid,
+section.service-panel,
+}.productos-brandbox-container{min-width:auto!important;width:100%!important;max-width:100%!important}
+}
+
+
+@media (max-width: 640px){
+  .productos-brandbox-container,.productos-brandbox-container .grid{max-width:100%!important;width:100%!important}
+}
+
+
+/* === Responsive Hardening Overrides (2025-10-24) === */
+/* Global fluid media and no horizontal scroll */
+html,body{max-width:100%;overflow-x:hidden}
+img,video,iframe,embed,object{max-width:100%;height:auto}
+
+/* Reset overly aggressive fixed widths/min-widths on small screens */
+@media (max-width:1024px){
+  .container,[class*="container"],[class*="grid"],[class*="row"],[class*="col"],
+  header,nav,.navbar,.topbar,.hero,.footer,.footer .container,
+  [class*="brand"],[class*="sjt"],[class*="module"],[class*="panel"],[class*="card"]{
+    min-width:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+}
+
+/* Make product chips container wrap & center on small screens */
+@media (max-width:768px){
+  .entity-chips{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;align-items:center !important;gap:12px !important;margin-left:auto !important;margin-right:auto !important}
+  .entity-chips>*{margin:0 !important}
+}
+
+/* Flex children are allowed to shrink */
+@media (max-width:900px){
+  .flex, [class*="flex"], .grid, [class*="grid"] > *{
+    min-width:0 !important;
+  }
+}
+
+/* Header/logo safeguards for very small phones */
+@media (max-width:520px){
+  .logo, [class*="logo"]{max-width:60vw !important;height:auto !important}
+}
