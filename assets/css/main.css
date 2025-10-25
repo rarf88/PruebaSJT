@@ -8,3 +8,71 @@
     padding-bottom: 16px;
   }
 }
+
+
+/* === FORCE FIX: Header logo spacing + Mobile/Tablet menu visibility === */
+
+/* 1) Desktop/tablet header spacing (>= 992px) */
+@media (min-width: 992px){
+  header.site-header .nav-logo-link{
+    margin-right: 8px !important; /* closer to 'PRODUCTOS', not touching */
+  }
+  header.site-header .site-header__nav ul{
+    display:flex !important;
+    align-items:center !important;
+    gap: 6px !important;
+    margin-left: 6px !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* 2) Make sure header containers never clip the menu */
+header.site-header,
+header.site-header .site-header__inner,
+header.site-header .site-header__nav{
+  overflow: visible !important;
+}
+
+/* 3) Mobile/Tablet: ensure menu is visible and tappable (<= 991.98px) */
+@media (max-width: 991.98px){
+  /* prevent any overlay logo from blocking taps */
+  .mobile-logo-overlay,
+  .site-header__logo.overlay,
+  .brand-mobile-overlay{
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+
+  /* bring nav/menu to front and visible */
+  .site-header__nav,
+  .mobile-nav,
+  .nav-drawer,
+  .menu-panel{
+    z-index: 9999 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    height: auto !important;
+  }
+
+  /* ensure the list of links is displayed and scrollable */
+  .site-header__nav ul,
+  .mobile-nav .nav-list,
+  .nav-drawer .nav-list,
+  .menu-panel .nav-list{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 8px 0 12px !important;
+    padding: 0 8px !important;
+  }
+
+  /* avoid hidden text techniques */
+  .site-header__nav ul li a{
+    text-indent: 0 !important;
+    opacity: 1 !important;
+  }
+}
