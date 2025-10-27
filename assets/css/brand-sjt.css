@@ -94,3 +94,116 @@ header.site-header .site-header__nav{
     opacity: 1 !important;
   }
 }
+
+
+/* Nav logo spacing near 'PRODUCTOS' */
+header.site-header .nav-logo-link{ margin-right: 10px; }
+@media (max-width: 991.98px){
+  /* keep menu comfortable on small screens */
+  header.site-header .nav-logo-link img{ height: 30px; }
+}
+
+
+/* === Header logo placement fix (left, near menu) === */
+header.site-header .site-header__inner{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+header.site-header .nav-logo-link{
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-right: 10px !important;
+}
+@media (max-width: 991.98px){
+  header.site-header .nav-logo-link img{ height: 30px; }
+}
+
+
+/* === Header centering & spacing override === */
+header.site-header .site-header__inner{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important; /* center whole block (logo + menu) */
+}
+
+/* Desktop & large tablets */
+@media (min-width: 992px){
+  header.site-header .nav-logo-link{
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 14px 0 8px !important;  /* small left pad, comfy right gap towards PRODUCTOS */
+  }
+  header.site-header .site-header__nav ul{
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;             /* more space between menu items */
+    padding-left: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+/* Mobile & small tablets */
+@media (max-width: 991.98px){
+  header.site-header .nav-logo-link{
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 12px !important;        /* balanced spacing around logo */
+  }
+  header.site-header .nav-logo-link img{
+    height: 30px !important;          /* compact logo height in mobile */
+    width: auto !important;
+  }
+  header.site-header .site-header__nav ul{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    padding: 0 10px !important;       /* side breathing room */
+    margin: 0 !important;
+  }
+}
+
+
+/* === Header nav item spacing: increased separation === */
+@media (min-width: 992px){
+  header.site-header .site-header__nav ul{
+    gap: 22px !important;     /* was 16px */
+  }
+}
+@media (max-width: 991.98px){
+  header.site-header .site-header__nav ul{
+    gap: 14px !important;     /* was 12px */
+  }
+}
+
+
+/* === Header spacing: DOUBLE separation for nav and logo === */
+@media (min-width: 992px){
+  header.site-header .site-header__nav ul{
+    gap: 44px !important;      /* doubled from 22px */
+  }
+  header.site-header .nav-logo-link{
+    margin-right: 28px !important;  /* doubled from ~14px */
+  }
+}
+@media (max-width: 991.98px){
+  header.site-header .site-header__nav ul{
+    gap: 28px !important;      /* doubled from 14px */
+  }
+  header.site-header .nav-logo-link{
+    margin-right: 24px !important;  /* doubled from 12px */
+  }
+}
+
+
+/* === Header spacing: DOUBLE AGAIN the logo → PRODUCTOS distance === */
+@media (min-width: 992px){
+  header.site-header .nav-logo-link{
+    margin-right: 56px !important;  /* doubled from 28px */
+  }
+}
+@media (max-width: 991.98px){
+  header.site-header .nav-logo-link{
+    margin-right: 48px !important;  /* doubled from 24px */
+  }
+}
