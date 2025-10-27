@@ -1,86 +1,75 @@
+/* responsive-fix.css — v2 — SOLO tablet/móvil. Escritorio intocable. */
+.header { --headerBg: #106374; }
+.header a, .header .menu-item { --headerText: #ffffff; }
+:root { --headerH: 70px; }
 
-/* responsive-fix.css — SOLO tablet/móvil. Escritorio intocable. */
-:root { --headerH: 70px; } /* ajusta si tu header reducido en móvil mide distinto */
-
-/* 1) Tarjetas/cuadros: evitar cortes y centrar */
-@media (max-width: 991px) {
-  .card, .tile, .box, .module-card {
-    min-height: auto;
-    height: auto;
-    overflow: visible;
-    word-wrap: break-word;
-    overflow-wrap: anywhere;
-    hyphens: auto;
+@media (max-width: 991px){
+  html, body { height:100%; margin:0; padding:0; }
+  .page-wrap { min-height:100%; display:flex; flex-direction:column; }
+  main { flex:1; }
+  main > :last-child { margin-bottom:0; }
+  footer, .footer-wrap { margin:0; padding-bottom:16px; }
+  footer::after, .footer-wrap::after { content:none; }
+  .btn-flotante, .whatsapp, .badge-demo, .floating-cta {
+    position:fixed; bottom:calc(env(safe-area-inset-bottom,0px) + 16px); z-index:10001;
   }
-  .card h3, .tile h3, .box h3, .module-card h3 {
-    line-height: 1.2;
-    margin-bottom: .5rem;
+  .card, .tile, .box, .module-card, .case-card, .exito-card {
+    min-height:auto; height:auto; overflow:visible; word-wrap:break-word; overflow-wrap:anywhere; hyphens:auto;
   }
-  .card p, .tile p, .box p, .module-card p {
-    line-height: 1.45;
+  .card .content, .tile .content, .box .content, .case-card .content, .exito-card .content {
+    display:flex; flex-direction:column; justify-content:center; text-align:center; padding:12px;
   }
-  .card .content, .tile .content, .box .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 12px;
-  }
-}
-
-/* 2) Header fijo: compensar contenido y anclas */
-@media (max-width: 991px) {
   body { padding-top: var(--headerH); }
   :target { scroll-margin-top: calc(var(--headerH) + 8px); }
-}
 
-/* 3) Menú hamburguesa: visible sin tapar y sin forzar 100vh si no hace falta */
-@media (max-width: 991px) {
   .mobile-menu {
-    position: fixed;
-    top: var(--headerH);
-    left: 0;
-    right: 0;
-    max-height: calc(100vh - var(--headerH));
-    overflow-y: auto;
-    width: 100%;
-    display: block;
-    padding: 16px;
-    height: auto;
+    position:fixed; top:var(--headerH); left:0; z-index:9999;
+    background:var(--headerBg,#106374)!important; color:var(--headerText,#fff);
+    height:auto; max-height:calc(100vh - var(--headerH) - 16px); overflow-y:auto;
+    display:inline-block; width:max-content; max-width:calc(100% - 32px);
+    padding:12px 16px; box-shadow:0 8px 24px rgba(0,0,0,.18); border-radius:8px;
   }
   .mobile-menu .menu-item {
-    padding: 12px 8px;
-    font-size: 1.05rem;
+    display:block; padding:12px 8px; font-size:1.05rem; text-transform:uppercase;
+    color:inherit; border-bottom:1px solid rgba(255,255,255,.18);
   }
-}
+  .mobile-menu .menu-item:last-child{ border-bottom:none; }
+  .mobile-menu-overlay, .menu-backdrop, .nav-overlay { display:none!important; }
+  .header { z-index:10000; }
 
-/* 4) Carrusel / Pasarela: sin bandas arriba/abajo */
-@media (max-width: 991px) {
-  .carousel, .slider, .hero-slider {
-    height: auto;
-    aspect-ratio: 16 / 9; /* cambia a 21/9 si tus imágenes son más panorámicas */
-    margin: 0;
+  .carousel, .slider, .hero-slider,
+  .carousel .slick-list, .slider .slick-list, .hero-slider .slick-list {
+    height:auto!important; margin:0!important; padding:0!important;
   }
-  .carousel img, .slider img, .hero-slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .carousel, .slider, .hero-slider { aspect-ratio:16/9; }
+  .carousel img, .slider img, .hero-slider img { width:100%; height:100%; object-fit:cover; display:block; }
+  .carousel::before, .carousel::after, .slider::before, .slider::after, .hero-slider::before, .hero-slider::after {
+    content:none!important; box-shadow:none!important;
   }
-}
+  .slick-prev, .slick-next, .carousel-control-prev, .carousel-control-next, .owl-nav button, .swiper-button-prev, .swiper-button-next {
+    background:transparent!important; box-shadow:none!important; border:0!important;
+  }
+  .hero-section, .slider-wrap, .carousel-wrap { padding-top:0!important; padding-bottom:0!important; }
 
-/* 5) Footer pegado al final — SOLO móvil/tablet */
-@media (max-width: 991px) {
-  html, body { height: 100%; }
-  .page-wrap { min-height: 100%; display: flex; flex-direction: column; }
-  main { flex: 1; }
-  footer { margin-top: 0; padding-bottom: 16px; }
-  main > :last-child { margin-bottom: 0; }
-}
+  .header .logo, .logo-mobile { display:block!important; }
+  .header .logo img, .logo-mobile img { max-height:44px; height:auto; width:auto; object-fit:contain; }
+  .header { overflow:visible; }
 
-/* 6) Logo visible y consistente en móvil */
-.header .logo { position: relative; z-index: 10; }
-.header { overflow: visible; }
-@media (max-width: 991px) {
-  .header .logo img { max-height: 44px; height: auto; }
+  .entities-wrap, .chips, .chips-wrap, .entities-section .chips-list, .casos-exito .chips-list {
+    display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center; max-width:100%;
+  }
+  .chip, .entity-chip, .btn-entity, .chip-entity, .chip-pill {
+    display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:999px;
+    max-width:100%; white-space:normal; word-break:break-word; overflow-wrap:anywhere;
+    font-size:clamp(12px, 2.8vw, 16px); line-height:1.2;
+  }
+  .entities-section, .chips-section, .casos-exito-section { overflow:visible!important; }
+
+  .cases-grid, .exito-grid, .success-grid { display:grid; grid-template-columns:1fr; gap:16px; }
+  .case-card, .exito-card, .success-card { min-height:auto; overflow:visible; }
+
+  #entidades, #modulos { overflow:visible; }
+  .bloque-modulos.hidden { display:none!important; }
+
+  h1, .page-title, .section-title { margin-top:12px; margin-bottom:12px; }
 }
