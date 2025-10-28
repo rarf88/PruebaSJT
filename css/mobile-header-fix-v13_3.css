@@ -34,3 +34,30 @@
 
   body.mobi-menu-open{ overflow:hidden !important; }
 }
+
+
+
+/* v13.4 — header/logo/menu polish */
+@media (max-width:991px){
+  /* Asegurar header sin “cortes” en Chrome (compensación y estabilidad) */
+  html, body{ overscroll-behavior: none; }
+  #mobi-header{
+    position:fixed; top:0; left:0; right:0; height:72px !important;
+    background:#106374 !important; z-index:10050 !important;
+    display:flex !important; align-items:center; justify-content:space-between; padding:0 14px;
+    transform: translateZ(0); backface-visibility:hidden; will-change:transform;
+  }
+  body{ padding-top:72px !important; }
+
+  /* Logo siempre imagen (no texto) y legible */
+  #mobi-header .brand img#mobi-logo{
+    display:block !important; max-height:56px !important; height:auto !important; width:auto !important; object-fit:contain !important;
+  }
+
+  /* Menú: alto perfecto y ancho SOLO al texto más largo */
+  #mobi-menu{
+    top:72px !important; left:12px; right:auto !important;
+    width:max-content !important; max-width:calc(100% - 24px) !important; padding:10px 14px !important;
+  }
+  #mobi-menu a{ white-space:nowrap !important; }
+}
