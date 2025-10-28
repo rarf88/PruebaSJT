@@ -1,16 +1,14 @@
 
-/* v14 — MOBILE/TABLET ONLY runtime. Desktop remains untouched. */
+/* v14.1 — MOBILE/TABLET ONLY runtime. Desktop no se toca. */
 (function(){
   const mq = matchMedia('(max-width:991px)');
-  if(!mq.matches) return; // Guard: only mobile/tablet
+  if(!mq.matches) return;
 
-  // Build header/menu entirely at runtime (so desktop DOM stays pristine)
+  // Construir header/menu en tiempo de ejecución (DOM desktop limpio)
   const body = document.body;
   const header = document.createElement('div'); header.id = 'mobi-header';
   const brand = document.createElement('a'); brand.className = 'brand'; brand.href = 'index.html';
-  const logo  = document.createElement('img'); logo.id = 'mobi-logo'; logo.alt = 'Grupo AAA Asesores';
-  // Force known desktop logo path; adjust if your build uses a different file
-  logo.src = 'img/header_logo_nav.webp';
+  const logo  = document.createElement('img'); logo.id = 'mobi-logo'; logo.alt = 'Grupo AAA Asesores'; logo.src = 'img/header_logo_nav.webp';
   brand.appendChild(logo);
   const burger = document.createElement('button'); burger.id = 'mobi-burger'; burger.setAttribute('aria-label','Abrir menú');
   const bar = document.createElement('span'); burger.appendChild(bar);
@@ -19,10 +17,16 @@
   body.classList.add('mobi-has-header');
 
   const menu = document.createElement('nav'); menu.id = 'mobi-menu'; menu.setAttribute('role','menu'); menu.setAttribute('aria-label','Menú móvil');
-  const items = [['index.html','INICIO'],['productos.html','PRODUCTOS'],['servicios.html','SERVICIOS'],['nosotros.html','NOSOTROS'],['casos-de-exito.html','CASOS DE ÉXITO'],['index.html#contacto','CONTÁCTENOS']];
-  items.forEach(([href,text])=>{ const a=document.createElement('a'); a.href=href; a.textContent=text; menu.appendChild(a); });
+  [['index.html','INICIO'],['productos.html','PRODUCTOS'],['servicios.html','SERVICIOS'],['nosotros.html','NOSOTROS'],['casos-de-exito.html','CASOS DE ÉXITO'],['index.html#contacto','CONTÁCTENOS']]
+    .forEach(([href,text])=>{ const a=document.createElement('a'); a.href=href; a.textContent=text; menu.appendChild(a); });
   body.appendChild(menu);
 
+  function ensureHeaderPadding(){
+    const h = Math.round(header.getBoundingClientRect().height || 72);
+    body.style.paddingTop = h + 'px';
+    menu.style.top = h + 'px';
+    logo.style.maxHeight = (h - 10) + 'px';
+  }
   function fitMenuWidth(){
     const vw = Math.max(document.documentElement.clientWidth, window.innerWidth||0);
     let max = 0; menu.querySelectorAll('a').forEach(a=>{ max = Math.max(max, a.scrollWidth); });
@@ -34,9 +38,13 @@
 
   burger.addEventListener('click', toggleMenu, true);
   document.addEventListener('click', (e)=>{ if(e.target.closest('#mobi-menu')||e.target.closest('#mobi-burger')) return; closeMenu(); }, true);
-  addEventListener('resize', ()=>{ if(mq.matches){ fitMenuWidth(); } }, {passive:true});
+  addEventListener('resize', ()=>{ if(mq.matches){ ensureHeaderPadding(); fitMenuWidth(); } }, {passive:true});
+  if(window.visualViewport){
+    visualViewport.addEventListener('resize', ensureHeaderPadding, {passive:true});
+    visualViewport.addEventListener('scroll', ensureHeaderPadding, {passive:true});
+  }
 
-  // Safety: neutralize old headers/menus on mobile only
+  // Neutralizar headers/menús antiguos solo en móvil
   ['click','touchstart'].forEach(evt=>{
     window.addEventListener(evt, function(e){
       if(e.target.closest('.site-header, header, .navbar, .mobile-menu, .menu-mobile, .drawer, .nav-drawer')){
@@ -44,4 +52,7 @@
       }
     }, true);
   });
+
+  // Primera verificación
+  requestAnimationFrame(()=>{ ensureHeaderPadding(); fitMenuWidth(); });
 })();
