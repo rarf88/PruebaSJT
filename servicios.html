@@ -450,6 +450,83 @@ header .menu, .site-header .menu, nav .menu { flex-wrap: nowrap; }
 
   <link rel="stylesheet" href="css/responsive-v5.css" media="(max-width: 991px)">
   <link rel="stylesheet" href="css/responsive-v6.css" media="(max-width: 991px)">
+  <style id="responsive-inline-v7">
+/* v7 INLINE MOBILE/TABLET RADICAL — desktop untouched */
+@media (max-width: 991px){
+  html, body { margin:0 !important; padding:0 !important; height:100% !important; }
+  body { min-height:100% !important; display:flex !important; flex-direction:column !important; padding-top: var(--headerH, 64px) !important; }
+  main, .site-main, .content, .page-content, #content { flex:1 1 auto !important; }
+  main > :last-child, .site-main > :last-child, .content > :last-child, #content > :last-child { margin-bottom:0 !important; }
+  :target { scroll-margin-top: calc(var(--headerH, 64px) + 8px) !important; }
+
+  /* Header fixed + background + no gaps */
+  .site-header, header, .navbar {
+    position: fixed !important; top:0 !important; left:0 !important; right:0 !important; width:100% !important;
+    z-index:10000 !important; margin:0 !important; border:0 !important;
+    background: #106374 !important;
+  }
+  .site-header * { box-shadow:none !important; }
+  /* Logo */
+  .site-header .logo, .site-header .logo-link, .logo, .logo-mobile { display:block !important; visibility:visible !important; opacity:1 !important; }
+  .site-header .logo img, .site-header .logo-link img, .logo img, .logo-mobile img {
+    display:block !important; max-height:46px !important; height:auto !important; width:auto !important; object-fit:contain !important;
+  }
+
+  /* Menu hamburguesa */
+  .mobile-menu, .menu-mobile, .drawer, .nav-drawer, .site-header .mobile, nav[role="menu"], [data-mobile-menu="true"] {
+    position: fixed !important; top: var(--headerH, 64px) !important; left: 0 !important; z-index: 9999 !important;
+    background: #106374 !important; color: #fff !important;
+    height: auto !important; max-height: calc(100vh - var(--headerH, 64px) - 16px) !important;
+    overflow-y: auto !important; display: inline-block !important;
+    width: max-content !important; max-width: calc(100% - 32px) !important;
+    padding: 12px 16px !important; border-radius: 10px !important; box-shadow: 0 8px 24px rgba(0,0,0,.18) !important;
+  }
+  .mobile-menu .menu-item, .menu-mobile .menu-item, .drawer a, .nav-drawer a, .site-header .mobile a, nav[role="menu"] a, .menu a {
+    display:block !important; padding:12px 8px !important; text-transform:uppercase !important; text-decoration:none !important;
+    color:#fff !important; border-bottom:1px solid rgba(255,255,255,.18) !important;
+  }
+  .mobile-menu .menu-item:last-child, .menu-mobile .menu-item:last-child, .drawer a:last-child, nav[role="menu"] a:last-child, .menu a:last-child {
+    border-bottom:none !important;
+  }
+  .mobile-menu-overlay, .menu-backdrop, .nav-overlay, .drawer-overlay, .backdrop, .overlay, .mask { display:none !important; pointer-events:none !important; }
+
+  /* Slider / pasarela */
+  .slider, .carousel, .hero-slider, .hero, .hero-section, .slider-wrap, .carousel-wrap, .home-hero, .hero-container {
+    margin:0 !important; padding:0 !important;
+  }
+  .slider, .carousel, .hero-slider, .home-hero { aspect-ratio: 16/9 !important; height:auto !important; }
+  .slider .slick-list, .carousel .slick-list, .hero-slider .slick-list { margin:0 !important; padding:0 !important; height:auto !important; }
+  .slider img, .carousel img, .hero-slider img, .home-hero img { width:100% !important; height:100% !important; object-fit:cover !important; display:block !important; }
+  .slider::before, .slider::after, .carousel::before, .carousel::after, .hero-slider::before, .hero-slider::after,
+  .home-hero::before, .home-hero::after, .hero::before, .hero::after, .hero-section::before, .hero-section::after,
+  .slider *::before, .slider *::after, .carousel *::before, .carousel *::after, .hero-slider *::before, .hero-slider *::after { 
+    content:none !important; background:transparent !important; box-shadow:none !important; display:none !important; 
+  }
+
+  /* Chips / Entities / Casos */
+  .chips, .chips-row, .chips-wrap, .entities-wrap, .entities-row, .chips-list { 
+    display:flex !important; flex-wrap:wrap !important; gap:12px !important; align-items:center !important; justify-content:center !important; 
+    max-width:100% !important; overflow:visible !important;
+  }
+  .chip, .chip-pill, .entity, .entity-right, .entidad-chip, .btn-entity { 
+    display:inline-flex !important; align-items:center !important; justify-content:center !important;
+    padding:8px 12px !important; border-radius:999px !important; max-width:100% !important;
+    white-space:normal !important; word-break:break-word !important; overflow-wrap:anywhere !important;
+    font-size: clamp(11px, 2.4vw, 15px) !important; line-height:1.2 !important;
+  }
+  .cases-updated, .case-group, .cases-grid, .exito-grid, .success-grid, .cards-grid, .modules-grid {
+    display:grid !important; grid-template-columns:1fr !important; gap:16px !important;
+  }
+  .case-summary-card, .exito-card, .success-card, .module-card, .card, .box {
+    min-height:auto !important; height:auto !important; overflow:visible !important;
+  }
+
+  /* Productos: módulos visibles */
+  #entidades, .entidades, .entidades-wrap { overflow:visible !important; }
+  #modulos, #modulos-grid, .productos-modulos-below { overflow:visible !important; }
+  .bloque-modulos.hidden { display:none !important; }
+}
+</style>
 </head><body class="page-wrap"><header class="site-header" id="site-header"><div class="site-header__inner"><a class="nav-logo-link" href="index.html" style="display:inline-flex;align-items:center;margin-right:10px;"><img src="img/header_logo_nav.webp" alt="Logo" style="height:34px;width:auto;display:block;" loading="eager"></a>
 <nav aria-label="Navegación principal" class="site-header__nav"><ul><li><a href="productos.html">PRODUCTOS</a></li><li><a href="servicios.html">SERVICIOS</a></li><li><a href="nosotros.html">NOSOTROS</a></li><li><a href="casos-de-exito.html">CASOS DE ÉXITO</a></li><li><a href="index.html#contacto">CONTÁCTENOS</a></li></ul></nav></div></header><section class="services-bar" id="servicios"><section class="page-titlebar"><div class="container"><h1 style="color:#2E6E7E !important; -webkit-text-fill-color:#2E6E7E !important; font-weight:800 !important; opacity:1 !important; text-shadow:none !important; filter:none !important; display:block !important; margin:0 0 10px 0 !important">SERVICIOS</h1><p class="subheading" style="color:#2E6E7E !important; -webkit-text-fill-color:#2E6E7E !important; opacity:1 !important; visibility:visible !important; display:block !important; text-shadow:none !important; filter:none !important; margin:0 0 24px 0 !important; font-weight:600 !important">Siete servicios para acompañarte de principio a fin.</p></div></section></section><section class="section-servicios" id="servicios"><div class="srv-wrap"><p class="srv-intro srv-intro" style="margin-top:0">Selecciona y haz clic en cada servicio para conocer su alcance y actividades.</p><div class="services-grid" id="services-grid"><div class="service-item"><div aria-label="Ver detalles de Desarrollo de Software a la Medida" class="serv-card" role="button" tabindex="0"><div class="card-3d"><div class="front"><img alt="Desarrollo de Software a la Medida" src="assets/img/servicios/desarrollo de software a la medida.webp"/><button aria-label="Girar Desarrollo de Software a la Medida" class="flip" title="Girar"></button></div><div class="back"><div class="content"><h3>Desarrollo de Software a la Medida</h3><p>Soluciones a la medida de tu entidad: nuevas funcionalidades e integraciones.</p></div><button aria-label="Volver Desarrollo de Software a la Medida" class="flip" title="Volver"></button><ul><li>Levantamiento de requisitos y UX</li><li>Desarrollo ágil e integraciones</li><li>Pruebas, despliegue y documentación</li></ul></div></div></div></div><div class="service-item"><div aria-label="Ver detalles de Soporte Personalizado" class="serv-card" role="button" tabindex="0"><div class="card-3d"><div class="front"><img alt="Soporte Personalizado" src="assets/img/servicios/Soporte personalizado.webp"/><button aria-label="Girar Soporte Personalizado" class="flip" title="Girar"></button></div><div class="back"><div class="content"><h3>Soporte Personalizado</h3><p>Mesa de ayuda, soporte funcional y técnico, y acompañamiento continuo.</p></div><button aria-label="Volver Soporte Personalizado" class="flip" title="Volver"></button><ul><li>Atención de incidentes y requerimientos</li><li>Soporte funcional y técnico remoto</li><li>Monitoreo preventivo y acompañamiento post-implementación</li></ul></div></div></div></div><div class="service-item"><div aria-label="Ver detalles de Migración de Datos" class="serv-card" role="button" tabindex="0"><div class="card-3d"><div class="front"><img alt="Migración de Datos" src="assets/img/servicios/migración de datos.webp"/><button aria-label="Girar Migración de Datos" class="flip" title="Girar"></button></div><div class="back"><div class="content"><h3>Migración de Datos</h3><p>Extracción, depuración y carga segura de datos históricos y vigentes.</p></div><button aria-label="Volver Migración de Datos" class="flip" title="Volver"></button><ul><li>Extracción y limpieza de datos</li><li>Normalización y mapeo</li><li>Cargas controladas y validación de integridad</li></ul></div></div></div></div><div class="service-item"><div aria-label="Ver detalles de Asesorías" class="serv-card" role="button" tabindex="0"><div class="card-3d"><div class="front"><img alt="Asesorías" src="assets/img/servicios/asesorias.webp"/><button aria-label="Girar Asesorías" class="flip" title="Girar"></button></div><div class="back"><div class="content"><h3>Asesorías</h3><p>Consultoría experta y acompañamiento integral.</p></div><button aria-label="Volver Asesorías" class="flip" title="Volver"></button><ul><li>Asesorías administrativas, financieras, de calidad, de recursos humanos y físicos.</li></ul></div></div></div></div><div class="service-item"><div aria-label="Ver detalles de Gestión Administrativa y Financiera" class="serv-card" role="button" tabindex="0"><div class="card-3d"><div class="front"><img alt="Gestión Administrativa y Financiera" src="assets/img/servicios/gestión administrativa y financiera.webp"/><button aria-label="Girar Gestión Administrativa y Financiera" class="flip" title="Girar"></button></div><div class="back"><div class="content"><h3>Gestión Administrativa y Financiera</h3><p>Apoyo misional completo y cumplimiento a entes de control.</p></div><button aria-label="Volver Gestión Administrativa y Financiera" class="flip" title="Volver"></button><ul><li>Presentación de informes a entes de control (Contraloría General, Contraloría Departamental, Contaduría General de la Nación, Planeación Nacional, DIAN)</li><li>Asesorías administrativas y financieras</li><li>Levantamiento y Mejora de Procesos y Procedimientos</li><li>Reestructuraciones administrativas</li><li>Organización de Archivos</li><li>Liquidación de Nómina</li><li>Levantamiento y Organización de inventarios</li><li>Levantamiento de inventario, plaqueteo y avalúos</li></ul></div></div></div></div><div class="service-item"><div aria-label="Ver detalles de Sistema de Gestión de Calidad" class="serv-card" role="button" tabindex="0"><div class="card-3d"><div class="front"><img alt="Sistema de Gestión de Calidad" src="assets/img/servicios/sistema de gestión de calidad.webp"/><button aria-label="Girar Sistema de Gestión de Calidad" class="flip" title="Girar"></button></div><div class="back"><div class="content"><h3>Sistema de Gestión de Calidad</h3><p>Fortalecimiento de tu SGC: auditorías e implementación ISO/MECI.</p></div><button aria-label="Volver Sistema de Gestión de Calidad" class="flip" title="Volver"></button><ul><li>Auditorías Internas de Calidad</li><li>Auditorías Externas de Calidad</li><li>Auditorías de cartera</li><li>Implementación de Sistemas de Calidad bajo Norma ISO</li></ul></div></div></div></div><div class="service-item"><div aria-label="Ver detalles de Empresas de Servicios Públicos" class="serv-card" role="button" tabindex="0"><div class="card-3d"><div class="front"><img alt="Empresas de Servicios Públicos" src="assets/img/servicios/empresas de servicios publicos.webp"/><button aria-label="Girar Empresas de Servicios Públicos" class="flip" title="Girar"></button></div><div class="back"><div class="content"><h3>Empresas de Servicios Públicos</h3><p>Servicios especializados para ESP.</p></div><button aria-label="Volver Empresas de Servicios Públicos" class="flip" title="Volver"></button><ul><li>Software para servicios públicos</li><li>Generación de Informes SUI</li><li>Catastro de usuarios</li><li>Estudio tarifario en acueducto, alcantarillado y aseo</li><li>Análisis de costos ABC</li><li>Levantamiento de inventario, plaqueteo y avalúos</li></ul></div></div></div></div></div><section class="srv-panel" id="s1"><div class="srv-panel-head"><h2>Soporte Personalizado</h2><p>Mesa de ayuda, soporte funcional y técnico, y acompañamiento continuo.</p></div><ul class="srv-list"><li>Atención de incidentes y requerimientos</li><li>Soporte funcional y técnico remoto</li><li>Monitoreo preventivo y acompañamiento post-implementación</li></ul><div class="srv-actions"><a class="volver" href="#servicios">← Volver</a></div></section><section class="srv-panel" id="s2"><div class="srv-panel-head"><h2>Desarrollo de Software a la Medida</h2><p>Soluciones a la medida de tu entidad: nuevas funcionalidades e integraciones.</p></div><ul class="srv-list"><li>Levantamiento de requisitos y UX</li><li>Desarrollo ágil e integraciones</li><li>Pruebas, despliegue y documentación</li></ul><div class="srv-actions"><a class="volver" href="#servicios">← Volver</a></div></section><section class="srv-panel" id="s3"><div class="srv-panel-head"><h2>Migración de Datos</h2><p>Extracción, depuración y carga segura de datos históricos y vigentes.</p></div><ul class="srv-list"><li>Extracción y limpieza de datos</li><li>Normalización y mapeo</li><li>Cargas controladas y validación de integridad</li></ul><div class="srv-actions"><a class="volver" href="#servicios">← Volver</a></div></section><section class="srv-panel" id="s4"><div class="srv-panel-head"><h2>Asesorías</h2><p>Consultoría experta y acompañamiento integral.</p></div><ul class="srv-list"><li>Asesorías administrativas, financieras, de calidad, de recursos humanos y físicos.</li></ul><div class="srv-actions"><a class="volver" href="#servicios">← Volver</a></div></section><section class="srv-panel" id="s5"><div class="srv-panel-head"><h2>Gestión Administrativa y Financiera</h2><p>Apoyo misional completo y cumplimiento a entes de control.</p></div><ul class="srv-list"><li>Presentación de informes a entes de control (Contraloría General, Contraloría Departamental, Contaduría General de la Nación, Planeación Nacional, DIAN)</li><li>Asesorías administrativas y financieras</li><li>Levantamiento y Mejora de Procesos y Procedimientos</li><li>Reestructuraciones administrativas</li><li>Organización de Archivos</li><li>Liquidación de Nómina</li><li>Levantamiento y Organización de inventarios</li><li>Levantamiento de inventario, plaqueteo y avalúos</li></ul><div class="srv-actions"><a class="volver" href="#servicios">← Volver</a></div></section><section class="srv-panel" id="s6"><div class="srv-panel-head"><h2>Sistema de Gestión de Calidad</h2><p>Fortalecimiento de tu SGC: auditorías e implementación ISO/MECI.</p></div><ul class="srv-list"><li>Auditorías Internas de Calidad</li><li>Auditorías Externas de Calidad</li><li>Auditorías de cartera</li><li>Implementación de Sistemas de Calidad bajo Norma ISO</li><li>Implementación MECI</li></ul><div class="srv-actions"><a class="volver" href="#servicios">← Volver</a></div></section><section class="srv-panel" id="s7"><div class="srv-panel-head"><h2>Empresas de Servicios Públicos</h2><p>Servicios especializados para ESDs.</p></div><ul class="srv-list"><li>Software para servicios públicos</li><li>Generación de Informes SUI</li><li>Catastro de usuarios</li><li>Estudio tarifario en acueducto, alcantarillado y aseo</li><li>Análisis de costos ABC</li><li>Levantamiento de inventario, plaqueteo y avalúos</li></ul><div class="srv-actions"><a class="volver" href="#servicios">← Volver</a></div></section></div></section><section class="cta-final" id="cta-final"><h3>¿Listo para modernizar su entidad?</h3><p>Integre procesos, cumpla normativas y gane trazabilidad con SJT.</p><a class="btn btn-primary" href="index.html#contacto">Solicitar demo</a></section><footer class="footer"><div class="container"><div class="grid"><div><h4 style="margin:0 0 8px">Grupo AAA ASESORES</h4><p style="margin:0;opacity:.9"><a>Garantía de trabajo inteligente con SJT ERP. Optimizamos tus procesos, tiempo y talento para máxima productividad</a></p></div><div><h4 style="margin:0 0 8px">Compañía</h4><p style="margin:0;opacity:.9"><a href="index.html">Inicio</a> · <a href="productos.html">Productos</a> · <a href="servicios.html">Servicios</a> · <a href="nosotros.html">Nosotros</a> · <a href="casos-de-exito.html">Casos de éxito</a> · <a href="index.html#contacto">Contáctenos</a></p></div><div><h4 style="margin:0 0 8px">Síguenos</h4><div class="footer-social social"><a aria-label="Facebook" href="https://www.facebook.com/ERPSJT" rel="noopener noreferrer" target="_blank" title="Facebook"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M22 12.06C22 6.48 17.52 2 11.94 2 6.37 2 1.89 6.48 1.89 12.06c0 4.99 3.65 9.13 8.42 9.94v-7.03H7.9v-2.9h2.41V9.41c0-2.39 1.42-3.71 3.6-3.71 1.04 0 2.13.19 2.13.19v2.35h-1.2c-1.18 0-1.55.73-1.55 1.48v1.77h2.64l-.42 2.9h-2.22V22c4.77-.81 8.42-4.95 8.42-9.94z"></path></svg></a><a aria-label="Linkedin" href="https://www.linkedin.com/company/grupo-aaa-asesores-s-a-s/" rel="noopener noreferrer" target="_blank" title="Linkedin"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4zM9 8h3.8v2.2h.05c.53-1 1.84-2.2 3.78-2.2 4.04 0 4.79 2.66 4.79 6.1V24h-4v-7.1c0-1.7-.03-3.9-2.4-3.9-2.4 0-2.77 1.86-2.77 3.78V24H9z"></path></svg></a><a aria-label="Youtube" href="https://www.youtube.com/@grupoaaaasesores9214" rel="noopener noreferrer" target="_blank" title="Youtube"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M23.5 6.2s-.23-1.63-.95-2.35c-.9-.95-1.9-.96-2.36-1.02C16.9 2.5 12 2.5 12 2.5h-.01s-4.9 0-8.19.33c-.46.06-1.46.07-2.36 1.02-.72.72-.95 2.35-.95 2.35S0 8.1 0 10v1.9c0 1.9.23 3.8.23 3.8s.23 1.63.95 2.35c.9.95 2.08.92 2.61 1.02 1.9.18 8.21.24 8.21.24s4.9 0 8.19-.33c.46-.06 1.46-.07 2.36-1.02.72-.72.95-2.35.95-2.35s.23-1.9.23-3.8V10c0-1.9-.23-3.8-.23-3.8zM9.5 13.75V7.75l6 3-6 3z"></path></svg></a><a aria-label="X" href="https://x.com/SJT_erp" rel="noopener noreferrer" target="_blank" title="X"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M18.244 2H21.5l-7.27 8.3L22.5 22h-6.03l-4.72-5.58L5.3 22H2l7.79-8.9L2 2h6.11l4.33 5.02L18.244 2zm-1.06 18h1.75L8.9 4H7.09l10.095 16z"></path></svg></a></div></div></div><small class="copyright">© 2025 Grupo AAA. Todos los derechos reservados.</small></div><a aria-label="Volver a inicio" class="back-home-btn" href="index.html" title="Volver a inicio">Volver a inicio</a>
 </footer><script src="assets/js/brand-sjt.js"></script><script>
@@ -514,4 +591,100 @@ header .menu, .site-header .menu, nav .menu { flex-wrap: nowrap; }
 
   <script src="js/responsive-v5.js"></script>
   <script src="js/responsive-v6.js"></script>
+  <script id="responsive-inline-v7">
+/* v7 INLINE — mobile/tablet behavior */
+(function(){
+  if(!window.matchMedia || !window.matchMedia("(max-width: 991px)").matches) return;
+  const root = document.documentElement;
+  const header = document.querySelector('.site-header, header, .navbar');
+
+  function setHeaderH(){
+    if(!header) return;
+    const h = Math.round(header.getBoundingClientRect().height || 64);
+    root.style.setProperty('--headerH', h + 'px');
+    // En caso de header transparente por CSS del tema, forzamos color
+    try{ header.style.background = '#106374'; }catch(e){}
+  }
+  setHeaderH();
+  let raf = null;
+  window.addEventListener('scroll', ()=>{ if(!raf){ raf=requestAnimationFrame(()=>{ setHeaderH(); raf=null; }); } }, {passive:true});
+  window.addEventListener('resize', ()=>{
+    if(!window.matchMedia("(max-width: 991px)").matches) return;
+    setHeaderH(); placeMenu(); fitMenuWidth();
+  });
+
+  function scrollToWithOffset(el){
+    if(!el) return;
+    const h = parseInt(getComputedStyle(root).getPropertyValue('--headerH')) || 70;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - (h + 8);
+    window.scrollTo({ top:y, behavior:'smooth' });
+  }
+  window.scrollToWithOffset = scrollToWithOffset;
+
+  // Menú hamburguesa
+  const menus = Array.from(document.querySelectorAll('.mobile-menu, .menu-mobile, .drawer, .nav-drawer, .site-header .mobile, nav[role="menu"], [data-mobile-menu="true"]'));
+  function placeMenu(){
+    const h = parseInt(getComputedStyle(root).getPropertyValue('--headerH')) || 70;
+    menus.forEach(menu=>{
+      menu.style.top = h + 'px';
+      menu.style.maxHeight = `calc(100vh - ${h}px - 16px)`;
+      menu.style.background = '#106374';
+      menu.style.color = '#fff';
+    });
+  }
+  function fitMenuWidth(){
+    const vw = Math.max(document.documentElement.clientWidth, window.innerWidth||0);
+    menus.forEach(menu=>{
+      const items = menu.querySelectorAll('a, .menu-item, li');
+      let max = 0;
+      items.forEach(el=>{ max = Math.max(max, el.scrollWidth); });
+      menu.style.width = Math.min(Math.ceil(max + 32), vw - 32) + 'px';
+    });
+  }
+  placeMenu(); fitMenuWidth();
+  Array.from(document.querySelectorAll('.mobile-menu-overlay, .menu-backdrop, .nav-overlay, .drawer-overlay, .backdrop, .overlay, .mask'))
+    .forEach(el=>{ el.style.display='none'; el.style.pointerEvents='none'; });
+
+  // Slider (Slick)
+  try{
+    if(window.$ && typeof $==='function' && $('.slider').slick){
+      $('.slider').slick('slickSetOption', { centerMode:false, centerPadding:'0px' }, true);
+    }
+  }catch(e){}
+
+  // Productos: Ver módulos
+  (function(){
+    const mod = document.getElementById('modulos-grid') || document.getElementById('modulos') || document.querySelector('.productos-modulos-below');
+    const ent = document.getElementById('entidades') || document.querySelector('.entidades, .entidades-wrap');
+    if(!mod) return;
+
+    function showModules(targetId){
+      if(ent){ ent.classList.add('hidden'); ent.style.display='none'; }
+      if(targetId){
+        document.querySelectorAll('.bloque-modulos').forEach(b=>b.classList.add('hidden'));
+        const t = document.querySelector(targetId);
+        if(t){ t.classList.remove('hidden'); t.style.display=''; }
+      }
+      mod.classList.remove('hidden'); mod.style.display='';
+      scrollToWithOffset(mod);
+      try{ history.replaceState(null, '', '#modulos'); }catch(e){}
+    }
+
+    document.addEventListener('click', (ev)=>{
+      const a = ev.target.closest('.gestion-item, .btn-gestion, .ver-modulos, .link-ver-modulos, a[href^="#modulos"], a[data-target^="#modulos"]');
+      if(!a) return;
+      ev.preventDefault(); ev.stopPropagation();
+      const targetId = a.getAttribute('data-target') || (a.getAttribute('href')||'').match(/^#.+/)?.[0];
+      showModules(targetId);
+    }, true);
+
+    const mo = new MutationObserver(()=>{
+      if(mod && mod.offsetParent !== null && ent){
+        ent.classList.add('hidden'); ent.style.display='none';
+      }
+    });
+    mo.observe(document.body, {childList:true, subtree:true});
+  })();
+})();
+</script>
 </body></html>
