@@ -1,0 +1,89 @@
+
+/* v15 — MOBILE/TABLET ONLY */
+@media (max-width:991px){
+  :root{ --mobi-h:72px; --mobi-pad:14px; --brand:#106374; }
+
+  /* 0) Bloquear headers/menus legados y overlays */
+  .site-header, header, .navbar, .topbar, .site-nav, .nav, .main-nav{
+    display:none !important; visibility:hidden !important; opacity:0 !important; pointer-events:none !important;
+    height:0 !important; overflow:hidden !important; position:static !important;
+  }
+  .mobile-menu, .menu-mobile, .drawer, .nav-drawer, .offcanvas, [class*="offcanvas"],
+  .overlay, .mask, .backdrop, .mobile-menu-overlay, .menu-backdrop, .nav-overlay, .drawer-overlay, [class*="backdrop"]{
+    display:none !important; visibility:hidden !important; opacity:0 !important; pointer-events:none !important;
+  }
+
+  /* 1) Header en runtime: estilos */
+  #mobi-header{ position:fixed; inset:0 0 auto 0; height:var(--mobi-h); background:var(--brand); z-index:10050;
+                display:flex; align-items:center; justify-content:space-between; padding:0 var(--mobi-pad); }
+  body.mobi-has-header{ padding-top:var(--mobi-h) !important; }
+
+  #mobi-header .brand{ display:inline-flex; align-items:center; max-width:68vw; overflow:visible; }
+  #mobi-header .brand img{ max-height:calc(var(--mobi-h) - 10px); width:auto; height:auto; max-width:68vw; object-fit:contain; display:block; }
+
+  #mobi-burger{ width:44px; height:44px; display:grid; place-items:center; border:0; background:transparent; }
+  #mobi-burger span, #mobi-burger span::before, #mobi-burger span::after{ background:#fff; }
+  #mobi-burger span{ width:26px; height:2px; position:relative; display:block; }
+  #mobi-burger span::before, #mobi-burger span::after{ content:""; position:absolute; left:0; width:26px; height:2px; background:#fff; }
+  #mobi-burger span::before{ top:-7px } #mobi-burger span::after{ top:7px }
+
+  #mobi-menu{
+    position:fixed; top:var(--mobi-h); left:12px; z-index:10051; background:var(--brand); color:#fff;
+    border-radius:12px; max-height:calc(100dvh - (var(--mobi-h) + 16px)); overflow:auto; padding:10px 14px;
+    box-shadow:0 8px 24px rgba(0,0,0,.18); display:none; width:max-content; max-width:calc(100% - 24px);
+  }
+  #mobi-menu a{ color:#fff; text-decoration:none; display:block; padding:12px 8px; border-bottom:1px solid rgba(255,255,255,.18); text-transform:uppercase; white-space:nowrap; }
+  #mobi-menu a:last-child{ border-bottom:none; }
+  body.mobi-menu-open{ overflow:hidden; }
+
+  /* 2) Empuje de contenido (evita que la barra tape) */
+  body > main:first-of-type,
+  body > section:first-of-type,
+  body > div:first-of-type,
+  .site-main:first-of-type,
+  #main:first-of-type,
+  .hero:first-of-type,
+  .carousel:first-of-type,
+  .slider:first-of-type,
+  .banner:first-of-type{ margin-top:calc(var(--mobi-h) + 8px) !important; }
+
+  /* 3) Pasarela/Slider — limpieza */
+  .slick-list, .carousel, .swiper{ margin-top:0 !important; margin-bottom:0 !important; }
+  .slick-slide img, .carousel-item img, .swiper-slide img{ display:block; width:100%; height:auto; object-fit:cover; }
+  .slick-dots li button:before{ font-size:10px !important; opacity:.75 !important; }
+  .slick-prev, .slick-next{ width:24px !important; height:24px !important; z-index:9 !important; }
+  .slick-prev:before, .slick-next:before{ font-size:20px !important; }
+  .carousel-control-prev, .carousel-control-next{ width:28px !important; }
+  .carousel-control-prev-icon, .carousel-control-next-icon{ width:24px !important; height:24px !important; background-size:24px 24px !important; }
+  .swiper-button-prev, .swiper-button-next{ width:28px !important; height:28px !important; }
+  .swiper-button-prev:after, .swiper-button-next:after{ font-size:18px !important; }
+  /* elimina óvalos / overlays propios */
+  .slider .overlay, .carousel .overlay, .swiper .overlay{ display:none !important; }
+
+  /* 4) Chips/Entidades y grillas */
+  .chip, .entity, .chip-pill, .entidad-chip{
+    padding:10px 14px !important; font-size:clamp(12px, 2.6vw, 16px) !important;
+    word-break:normal !important; overflow-wrap:anywhere !important; white-space:normal !important; text-align:center !important;
+  }
+  .chips, .entities, .grid, .cards, [class*="grid"]{
+    grid-template-columns:1fr !important; gap:12px !important; justify-items:stretch !important;
+  }
+
+  /* 5) Productos → bajar a módulos, no volver a entidades (ajuste visual extra) */
+  #modulos, #modules{ scroll-margin-top:calc(var(--mobi-h) + 8px); }
+
+  /* 6) Casos de Éxito */
+  .cases, .success-cases, .portfolio{ display:grid !important; grid-template-columns:1fr !important; gap:14px !important; }
+  .case-card, .portfolio-item, .success-card{ overflow:hidden; }
+  .case-card img, .portfolio-item img, .success-card img{ width:100%; height:auto; object-fit:cover; display:block; }
+  .case-card .back, .portfolio-item .back, .success-card .back{ display:block !important; }
+
+  /* 7) Footer pegado al final */
+  html, body{ min-height:100%; }
+  body{ display:flex; flex-direction:column; }
+  main, .site-main, .content, .page-content, #content{ flex:1 1 auto; }
+  footer, .site-footer{ margin-top:auto !important; }
+
+  /* 8) Títulos que se cortaban */
+  h1, h2, h3, .title, .subtitle{ word-break:normal !important; overflow-wrap:anywhere !important; }
+}
