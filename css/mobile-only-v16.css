@@ -1,0 +1,45 @@
+
+/* v16 — Minimal mobile/tablet CSS (≤991px). Desktop intocable. */
+@media (max-width:991px){
+  :root{ --m16h:72px; --m16pad:14px; --m16brand:#106374; }
+
+  /* No ocultamos headers legacy por CSS para evitar efectos colaterales;
+     SOLO añadimos nuestro header y empujamos el contenido. */
+  #m16-header{
+    position:fixed; inset:0 0 auto 0; height:var(--m16h);
+    background:var(--m16brand); z-index:10050;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 var(--m16pad);
+  }
+  body.m16-has-header{ padding-top:var(--m16h) !important; }
+
+  #m16-header .m16-brand{ display:inline-flex; align-items:center; max-width:70vw; overflow:visible; }
+  #m16-header .m16-brand img{
+    max-height:calc(var(--m16h) - 10px); width:auto; height:auto; max-width:70vw; object-fit:contain; display:block;
+  }
+
+  #m16-burger{ width:44px; height:44px; display:grid; place-items:center; border:0; background:transparent; }
+  #m16-burger span, #m16-burger span::before, #m16-burger span::after{ background:#fff; }
+  #m16-burger span{ width:26px; height:2px; position:relative; display:block; }
+  #m16-burger span::before, #m16-burger span::after{ content:""; position:absolute; left:0; width:26px; height:2px; background:#fff; }
+  #m16-burger span::before{ top:-7px } #m16-burger span::after{ top:7px }
+
+  #m16-menu{
+    position:fixed; top:var(--m16h); left:12px; z-index:10051;
+    background:var(--m16brand); color:#fff; border-radius:12px;
+    max-height:calc(100dvh - (var(--m16h) + 16px)); overflow:auto;
+    padding:10px 14px; box-shadow:0 8px 24px rgba(0,0,0,.18);
+    display:none; width:max-content; max-width:calc(100% - 24px);
+  }
+  #m16-menu a{
+    color:#fff; text-decoration:none; display:block; padding:12px 8px;
+    border-bottom:1px solid rgba(255,255,255,.18); text-transform:uppercase; white-space:nowrap;
+  }
+  #m16-menu a:last-child{ border-bottom:none; }
+  body.m16-menu-open{ overflow:hidden; }
+
+  /* Empujar primer bloque por si algún layout pegaba al top */
+  body > main:first-of-type,
+  body > section:first-of-type,
+  body > div:first-of-type{ margin-top:calc(var(--m16h) + 8px); }
+}
