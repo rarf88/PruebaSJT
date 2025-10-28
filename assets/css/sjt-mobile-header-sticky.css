@@ -1,0 +1,1 @@
+@media (max-width:991px){header,.navbar,.site-header{position:fixed;top:0;left:0;right:0;z-index:10000;transition:min-height .2s ease,padding .2s ease,background-color .2s ease;will-change:min-height,padding}body{padding-top:var(--sjt-header-offset,64px)}header,.navbar,.site-header{min-height:64px}header.sjt-shrink,.navbar.sjt-shrink,.site-header.sjt-shrink{min-height:52px}

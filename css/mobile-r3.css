@@ -1,0 +1,95 @@
+/* vR3 — CSS-only Mobile/Tablet fixes (≤991px). Desktop intacto. */
+@media (max-width:991px){
+  :root{
+    /* Altura estimada de la barra para evitar solapes si la barra es fija */
+    --r3-header-guess: 72px;
+    --brand:#106374;
+  }
+
+  /* 1) Evitar que una barra fija tape contenido */
+  body{ padding-top: var(--r3-header-guess); }
+  body > main:first-of-type,
+  body > section:first-of-type,
+  body > div:first-of-type,
+  .site-main:first-of-type,
+  #main:first-of-type,
+  .hero:first-of-type,
+  .carousel:first-of-type,
+  .slider:first-of-type,
+  .banner:first-of-type{
+    margin-top: 8px;
+  }
+
+  /* 2) Logo nunca recortado (si el header ya trae un <img> de logo) */
+  img[alt*="logo" i],
+  img[src*="logo"]{
+    max-height: calc(var(--r3-header-guess) - 10px);
+    height: auto; width: auto; object-fit: contain;
+  }
+
+  /* 3) Menú hamburguesa: ancho al texto más largo (si el menú existe) */
+  .mobile-menu, .menu-mobile, .drawer, .nav-drawer,
+  nav .menu, .navbar .menu, .menu, .menu ul,
+  .offcanvas, .offcanvas-body, .dropdown-menu{
+    width: max-content;
+    max-width: calc(100% - 24px);
+    background: var(--brand, #106374);
+    color: #fff;
+    border-radius: 12px;
+    overflow: auto;
+  }
+  .mobile-menu a, .menu-mobile a, .drawer a, .nav-drawer a,
+  nav .menu a, .navbar .menu a, .menu a, .menu ul a,
+  .offcanvas a, .dropdown-menu a{
+    white-space: nowrap; color: #fff; text-transform: uppercase;
+  }
+
+  /* 4) Pasarela/slider: sin overlays ni márgenes raros; controles más pequeños */
+  .slick-list, .carousel, .swiper{ margin-top:0 !important; margin-bottom:0 !important; }
+  .slider .overlay, .carousel .overlay, .swiper .overlay, [class*="overlay"]{ display:none !important; }
+  .slick-slide img, .carousel-item img, .swiper-slide img{
+    display:block; width:100%; height:auto; object-fit:cover;
+  }
+  .slick-dots li button:before{ font-size:10px !important; opacity:.75 !important; }
+  .slick-prev, .slick-next{ width:24px !important; height:24px !important; z-index:9 !important; }
+  .slick-prev:before, .slick-next:before{ font-size:20px !important; }
+  .carousel-control-prev, .carousel-control-next{ width:28px !important; }
+  .carousel-control-prev-icon, .carousel-control-next-icon{
+    width:24px !important; height:24px !important; background-size:24px 24px !important;
+  }
+  .swiper-button-prev, .swiper-button-next{ width:28px !important; height:28px !important; }
+  .swiper-button-prev:after, .swiper-button-next:after{ font-size:18px !important; }
+
+  /* 5) Chips/Entidades: evitar cortes y montajes; 1 columna */
+  .chip, .entity, .chip-pill, .entidad-chip{
+    padding:10px 14px !important;
+    font-size: clamp(12px, 2.6vw, 16px) !important;
+    word-break: normal !important; overflow-wrap: anywhere !important;
+    white-space: normal !important; text-align: center !important;
+  }
+  .chips, .entities, .grid, .cards, [class*="grid"]{
+    grid-template-columns: 1fr !important; gap: 12px !important; justify-items: stretch !important;
+  }
+
+  /* 6) Productos: el target #modulos/#modules no queda oculto al saltar */
+  #modulos, #modules{ scroll-margin-top: calc(var(--r3-header-guess) + 8px); }
+
+  /* 7) Casos de Éxito: 1 columna; imágenes contenidas */
+  .cases, .success-cases, .portfolio{
+    display:grid !important; grid-template-columns:1fr !important; gap:14px !important;
+  }
+  .case-card, .portfolio-item, .success-card{ overflow:hidden; }
+  .case-card img, .portfolio-item img, .success-card img{
+    width:100%; height:auto; object-fit:cover; display:block;
+  }
+  .case-card .back, .portfolio-item .back, .success-card .back{ display:block !important; }
+
+  /* 8) Footer pegado al final */
+  html, body{ min-height:100%; }
+  body{ display:flex; flex-direction:column; }
+  main, .site-main, .content, .page-content, #content{ flex:1 1 auto; }
+  footer, .site-footer{ margin-top:auto !important; }
+
+  /* 9) Títulos: evita cortes de palabras en pantallas pequeñas */
+  h1, h2, h3, .title, .subtitle{ word-break: normal !important; overflow-wrap: anywhere !important; }
+}
