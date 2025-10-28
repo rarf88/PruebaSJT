@@ -149,3 +149,27 @@
     }
   })();
 })();
+
+
+
+// v13: force brand logo path + robust menu list
+(function(){
+  if(!matchMedia('(max-width:991px)').matches) return;
+  const logoEl = document.getElementById('mobi-logo');
+  if(logoEl) logoEl.src = 'img/header_logo_nav.webp'; // explicit path from desktop
+
+  // Rebuild menu to exact order if auto-clone failed
+  const menu = document.getElementById('mobi-menu');
+  if(menu) {
+    menu.innerHTML = "";
+    const items = [
+      ['index.html', 'INICIO'],
+      ['productos.html', 'PRODUCTOS'],
+      ['servicios.html', 'SERVICIOS'],
+      ['nosotros.html', 'NOSOTROS'],
+      ['casos-de-exito.html', 'CASOS DE ÉXITO'],
+      ['index.html#contacto', 'CONTÁCTENOS']
+    ];
+    items.forEach(([href,text])=>{ const a=document.createElement('a'); a.href=href; a.textContent=text; menu.appendChild(a); });
+  }
+})();

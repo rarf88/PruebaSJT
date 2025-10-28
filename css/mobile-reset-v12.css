@@ -82,3 +82,25 @@
   /* 8) Footer spacing normalized */
   footer, .site-footer{ margin-top:auto !important; }
 }
+
+
+
+/* v13 additions */
+@media (max-width:991px){
+  /* Normalize first section spacing */
+  body > *:first-child{ margin-top:0 !important; padding-top:0 !important; }
+  .hero, .hero-section, .slider, .carousel{ margin-top:0 !important; }
+
+  /* Footer pinned */
+  footer, .site-footer{ margin-top:auto !important; }
+  footer *, .site-footer *{ max-width:100% !important; }
+
+  /* Chips tighter but readable */
+  .chip, .entity, .chip-pill, .entidad-chip{ padding:10px 14px !important; font-size:clamp(12px,2.6vw,16px) !important; }
+
+  /* Ensure no hidden logo */
+  #mobi-header .brand img{ display:block !important; max-height:46px !important; }
+
+  /* Kill any fixed overlays near header */
+  .overlay, .mask, .backdrop, .nav-overlay, .drawer-overlay{ display:none !important; }
+}
