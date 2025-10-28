@@ -1,0 +1,83 @@
+
+/* FINAL v9 — ULTRA MOBILE/TABLET PATCH — Desktop untouched */
+@media (max-width: 991px){
+  :root{ --headerH:64px }
+  html,body{margin:0!important;padding:0!important;height:100%!important}
+  body{min-height:100%!important;display:flex!important;flex-direction:column!important;padding-top:var(--headerH)!important;overflow-x:hidden!important}
+  main,.site-main,.content,.page-content,#content{flex:1 1 auto!important}
+  main>:last-child,.site-main>:last-child,.content>:last-child,#content>:last-child{margin-bottom:0!important}
+  :target{scroll-margin-top:calc(var(--headerH) + 8px)!important}
+
+  /* ===== Header fijo SIN hueco + fondo sólido ===== */
+  .site-header,header,.navbar{
+    position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;
+    z-index:10000!important;margin:0!important;border:0!important;background:#106374!important
+  }
+  .site-header *{box-shadow:none!important}
+  /* Quita márgenes del primer bloque tras el header que crean hueco/transparencia */
+  body > :first-child{margin-top:0!important;padding-top:0!important}
+  .hero,.hero-section,.slider,.carousel{margin-top:0!important}
+
+  /* ===== Logo visible y legible ===== */
+  .site-header .logo,.site-header .logo-link,.logo,.logo-mobile,.brand,.brand-logo{display:block!important;visibility:visible!important;opacity:1!important}
+  .site-header .logo img,.site-header .logo-link img,.logo img,.logo-mobile img,.brand img,.brand-logo img{
+    display:block!important;max-height:46px!important;height:auto!important;width:auto!important;object-fit:contain!important
+  }
+
+  /* ===== Menú hamburguesa: bajo header, a contenido, color exacto ===== */
+  .mobile-menu,.menu-mobile,.drawer,.nav-drawer,.site-header .mobile,nav[role="menu"],[data-mobile-menu="true"],[class*="offcanvas"],[class*="drawer"]{
+    position:fixed!important;top:var(--headerH)!important;left:0!important;z-index:9999!important;
+    background:#106374!important;color:#fff!important;height:auto!important;max-height:calc(100vh - var(--headerH) - 16px)!important;
+    overflow-y:auto!important;display:inline-block!important;width:max-content!important;max-width:calc(100% - 32px)!important;
+    padding:12px 16px!important;border-radius:10px!important;box-shadow:0 8px 24px rgba(0,0,0,.18)!important;
+    right:auto!important;transform:none!important
+  }
+  .mobile-menu .menu-item,.menu-mobile .menu-item,.drawer a,.nav-drawer a,.site-header .mobile a,nav[role="menu"] a,.menu a,[class*="offcanvas"] a,[class*="drawer"] a{
+    display:block!important;padding:12px 8px!important;text-transform:uppercase!important;text-decoration:none!important;
+    color:#fff!important;border-bottom:1px solid rgba(255,255,255,.18)!important
+  }
+  .mobile-menu .menu-item:last-child,.menu-mobile .menu-item:last-child,.drawer a:last-child,nav[role="menu"] a:last-child,.menu a:last-child{
+    border-bottom:none!important
+  }
+  .mobile-menu-overlay,.menu-backdrop,.nav-overlay,.drawer-overlay,.backdrop,.overlay,.mask,[class*="offcanvas-backdrop"]{
+    display:none!important;pointer-events:none!important;opacity:0!important
+  }
+
+  /* ===== Slider/Pasarela: sin óvalos ni bandas ===== */
+  .slider,.carousel,.hero-slider,.hero,.hero-section,.slider-wrap,.carousel-wrap,.home-hero,.hero-container{
+    margin:0!important;padding:0!important;overflow:hidden!important
+  }
+  .slider,.carousel,.hero-slider,.home-hero{aspect-ratio:16/9!important;height:auto!important}
+  .slider .slick-list,.carousel .slick-list,.hero-slider .slick-list{margin:0!important;padding:0!important;height:auto!important}
+  .slider img,.carousel img,.hero-slider img,.home-hero img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+  .slider::before,.slider::after,.carousel::before,.carousel::after,.hero-slider::before,.hero-slider::after,
+  .home-hero::before,.home-hero::after,.hero::before,.hero::after,.hero-section::before,.hero-section::after,
+  .slider *::before,.slider *::after,.carousel *::before,.carousel *::after,.hero-slider *::before,.hero-slider *::after,
+  .oval,.ovals,.shape,.shapes,.mask,.cover,.gradient-overlay{content:none!important;background:transparent!important;box-shadow:none!important;display:none!important}
+
+  /* ===== Chips/Entidades/Casos ===== */
+  .chips,.chips-row,.chips-wrap,.entities-wrap,.entities-row,.chips-list{
+    display:flex!important;flex-wrap:wrap!important;gap:12px!important;align-items:center!important;justify-content:center!important;
+    max-width:100%!important;overflow:visible!important
+  }
+  .chip,.chip-pill,.entity,.entity-right,.entidad-chip,.btn-entity{
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:8px 12px!important;border-radius:999px!important;
+    max-width:100%!important;white-space:normal!important;word-break:break-word!important;overflow-wrap:anywhere!important;
+    font-size:clamp(11px,2.4vw,15px)!important;line-height:1.2!important
+  }
+  .cases-updated,.case-group,.cases-grid,.exito-grid,.success-grid,.cards-grid,.modules-grid{
+    display:grid!important;grid-template-columns:1fr!important;gap:16px!important
+  }
+  .case-summary-card,.exito-card,.success-card,.module-card,.card,.box{min-height:auto!important;height:auto!important;overflow:visible!important}
+
+  /* ===== Productos: contenedores y visibilidad ===== */
+  #entidades,.entidades,.entidades-wrap{overflow:visible!important}
+  #modulos,#modulos-grid,.productos-modulos-below{overflow:visible!important}
+  .bloque-modulos.hidden{display:none!important}
+
+  /* ===== Primer bloque después del header no debe quedar oculto por sticky ===== */
+  .page-title,.section-title,.hero,.hero-section,.slider{scroll-margin-top:calc(var(--headerH) + 8px)!important}
+}
+@supports (height:100dvh){
+  @media (max-width:991px){ .slider{min-height:100dvh!important} }
+}
