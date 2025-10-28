@@ -104,3 +104,35 @@
   /* Kill any fixed overlays near header */
   .overlay, .mask, .backdrop, .nav-overlay, .drawer-overlay{ display:none !important; }
 }
+
+
+
+/* v13.2 — targeted fixes (mobile ≤991px) */
+@media (max-width:991px){
+  /* 1) Oculta headers nativos; usa SOLO el #mobi-header */
+  .site-header, header, .navbar{ display:none !important; }
+  #mobi-header{ display:flex !important; position:fixed; top:0; left:0; right:0; height:64px; background:#106374; z-index:10000; }
+  body{ padding-top:64px !important; }
+
+  /* 2) Menú hamburguesa y menú visibles y operativos */
+  #mobi-burger{ width:40px; height:40px; display:grid; place-items:center; border:0; background:transparent; }
+  #mobi-menu{ display:none; position:fixed; top:64px; left:12px; background:#106374; color:#fff; border-radius:12px;
+              max-height:calc(100vh - 80px); overflow:auto; padding:10px 14px; box-shadow:0 8px 24px rgba(0,0,0,.18);
+              width:max-content; max-width:calc(100% - 24px); z-index:10001; }
+  #mobi-menu a{ color:#fff; text-decoration:none; display:block; padding:12px 8px; border-bottom:1px solid rgba(255,255,255,.18); text-transform:uppercase; }
+  #mobi-menu a:last-child{ border-bottom:none; }
+  body.mobi-menu-open{ overflow:hidden !important; }
+
+  /* 3) Footer pegado y sin daños */
+  html, body{ height:100%; }
+  main, .site-main, .content, .page-content, #content{ flex:1 1 auto; }
+  footer, .site-footer{ margin-top:auto !important; }
+
+  /* 4) Botones de la pasarela/slider más pequeños (Slick/Bootstrap/Swiper) */
+  .slick-prev, .slick-next{ width:24px !important; height:24px !important; z-index:9 !important; }
+  .slick-prev:before, .slick-next:before{ font-size:20px !important; }
+  .carousel-control-prev, .carousel-control-next{ width:28px !important; }
+  .carousel-control-prev-icon, .carousel-control-next-icon{ width:24px !important; height:24px !important; background-size:24px 24px !important; }
+  .swiper-button-prev, .swiper-button-next{ width:28px !important; height:28px !important; }
+  .swiper-button-prev:after, .swiper-button-next:after{ font-size:18px !important; }
+}
