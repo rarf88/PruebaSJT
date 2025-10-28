@@ -1,75 +1,63 @@
-/* responsive-fix.css — v2 — SOLO tablet/móvil. Escritorio intocable. */
-.header { --headerBg: #106374; }
-.header a, .header .menu-item { --headerText: #ffffff; }
-:root { --headerH: 70px; }
 
+/* responsive-fix.css — v3 (site-tailored) — SOLO móvil/tablet */
+:root{ --headerH: 70px; }
 @media (max-width: 991px){
-  html, body { height:100%; margin:0; padding:0; }
-  .page-wrap { min-height:100%; display:flex; flex-direction:column; }
-  main { flex:1; }
-  main > :last-child { margin-bottom:0; }
-  footer, .footer-wrap { margin:0; padding-bottom:16px; }
-  footer::after, .footer-wrap::after { content:none; }
-  .btn-flotante, .whatsapp, .badge-demo, .floating-cta {
-    position:fixed; bottom:calc(env(safe-area-inset-bottom,0px) + 16px); z-index:10001;
-  }
-  .card, .tile, .box, .module-card, .case-card, .exito-card {
-    min-height:auto; height:auto; overflow:visible; word-wrap:break-word; overflow-wrap:anywhere; hyphens:auto;
-  }
-  .card .content, .tile .content, .box .content, .case-card .content, .exito-card .content {
-    display:flex; flex-direction:column; justify-content:center; text-align:center; padding:12px;
-  }
-  body { padding-top: var(--headerH); }
-  :target { scroll-margin-top: calc(var(--headerH) + 8px); }
+  /* Layout base para footer pegado */
+  html,body{height:100%;margin:0;padding:0}
+  .page-wrap{min-height:100%;display:flex;flex-direction:column}
+  main{flex:1}
+  main>:last-child{margin-bottom:0}
+  footer{margin:0;padding-bottom:16px}
+  footer::after{content:none}
 
-  .mobile-menu {
+  /* Header + compensación sticky */
+  body{padding-top:var(--headerH)}
+  :target{scroll-margin-top:calc(var(--headerH) + 8px)}
+
+  /* Logo y header reales de este sitio */
+  .site-header{z-index:10000; overflow:visible}
+  .site-header .logo-link img,
+  .site-header .logo img{max-height:44px;height:auto;width:auto;object-fit:contain;display:block}
+
+  /* Menú hamburguesa: usar nav real si existe overlay */
+  /* Caso más común: nav dentro del header */
+  .site-header__nav{background:#106374}
+  .site-header__nav .menu, .site-header__nav .nav, .site-header__nav ul{list-style:none;margin:0;padding:0}
+  /* Drawer simplificado (si existe algún menú móvil) */
+  .site-header .mobile, .mobile-menu, .nav-overlay, .menu-backdrop{background:#106374!important}
+  .mobile-menu, .menu-mobile, .site-header .mobile{
     position:fixed; top:var(--headerH); left:0; z-index:9999;
-    background:var(--headerBg,#106374)!important; color:var(--headerText,#fff);
     height:auto; max-height:calc(100vh - var(--headerH) - 16px); overflow-y:auto;
     display:inline-block; width:max-content; max-width:calc(100% - 32px);
     padding:12px 16px; box-shadow:0 8px 24px rgba(0,0,0,.18); border-radius:8px;
   }
-  .mobile-menu .menu-item {
-    display:block; padding:12px 8px; font-size:1.05rem; text-transform:uppercase;
-    color:inherit; border-bottom:1px solid rgba(255,255,255,.18);
+  .mobile-menu .menu-item, .menu-mobile .menu-item, .site-header .mobile a{
+    display:block; padding:12px 8px; text-transform:uppercase; color:#fff;
+    border-bottom:1px solid rgba(255,255,255,.18);
   }
-  .mobile-menu .menu-item:last-child{ border-bottom:none; }
-  .mobile-menu-overlay, .menu-backdrop, .nav-overlay { display:none!important; }
-  .header { z-index:10000; }
+  .mobile-menu .menu-item:last-child, .menu-mobile .menu-item:last-child{border-bottom:none}
 
-  .carousel, .slider, .hero-slider,
-  .carousel .slick-list, .slider .slick-list, .hero-slider .slick-list {
-    height:auto!important; margin:0!important; padding:0!important;
+  /* Pasarela / slider real del sitio (.slider) */
+  .slider, .slider .slick-list{height:auto!important;margin:0!important;padding:0!important}
+  .slider{aspect-ratio:16/9}
+  .slider img{width:100%;height:100%;object-fit:cover;display:block}
+  .slider::before,.slider::after{content:none!important;box-shadow:none!important}
+  .slick-prev,.slick-next{background:transparent!important;box-shadow:none!important;border:0!important}
+
+  /* Chips usados en Casos de Éxito y Productos */
+  .chips, .chips-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;max-width:100%}
+  .chip, .entity, .entity-right, .entidad-chip{display:inline-flex;align-items:center;justify-content:center;
+    padding:10px 14px;border-radius:999px;max-width:100%;white-space:normal;word-break:break-word;overflow-wrap:anywhere;
+    font-size:clamp(12px,2.8vw,16px);line-height:1.2}
+  .cases-updated, .case-group{display:grid;grid-template-columns:1fr;gap:16px}
+
+  /* Tarjetas/cuadros */
+  .case-summary-card, .module-card, .card, .box{min-height:auto;height:auto;overflow:visible}
+}
+
+/* Guardas para iOS vh */
+@supports (height: 100dvh){
+  @media (max-width: 991px){
+    .slider{min-height:100dvh}
   }
-  .carousel, .slider, .hero-slider { aspect-ratio:16/9; }
-  .carousel img, .slider img, .hero-slider img { width:100%; height:100%; object-fit:cover; display:block; }
-  .carousel::before, .carousel::after, .slider::before, .slider::after, .hero-slider::before, .hero-slider::after {
-    content:none!important; box-shadow:none!important;
-  }
-  .slick-prev, .slick-next, .carousel-control-prev, .carousel-control-next, .owl-nav button, .swiper-button-prev, .swiper-button-next {
-    background:transparent!important; box-shadow:none!important; border:0!important;
-  }
-  .hero-section, .slider-wrap, .carousel-wrap { padding-top:0!important; padding-bottom:0!important; }
-
-  .header .logo, .logo-mobile { display:block!important; }
-  .header .logo img, .logo-mobile img { max-height:44px; height:auto; width:auto; object-fit:contain; }
-  .header { overflow:visible; }
-
-  .entities-wrap, .chips, .chips-wrap, .entities-section .chips-list, .casos-exito .chips-list {
-    display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center; max-width:100%;
-  }
-  .chip, .entity-chip, .btn-entity, .chip-entity, .chip-pill {
-    display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:999px;
-    max-width:100%; white-space:normal; word-break:break-word; overflow-wrap:anywhere;
-    font-size:clamp(12px, 2.8vw, 16px); line-height:1.2;
-  }
-  .entities-section, .chips-section, .casos-exito-section { overflow:visible!important; }
-
-  .cases-grid, .exito-grid, .success-grid { display:grid; grid-template-columns:1fr; gap:16px; }
-  .case-card, .exito-card, .success-card { min-height:auto; overflow:visible; }
-
-  #entidades, #modulos { overflow:visible; }
-  .bloque-modulos.hidden { display:none!important; }
-
-  h1, .page-title, .section-title { margin-top:12px; margin-bottom:12px; }
 }
