@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="es"><head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Casos de Éxito y Referencias – SJT ERP Sector Público</title><link as="image" href="assets/img/slide-1.webp" rel="preload"/><link href="assets/css/main.css" rel="stylesheet"/><link href="assets/css/brand-sjt.css" rel="stylesheet"/><link href="assets/css/casos-exito-chips-fix.css" rel="stylesheet"/><link href="assets/css/mobile-logo-override.css" rel="stylesheet"/><style>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<head><meta charset="utf-8"><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Casos de Éxito y Referencias – SJT ERP Sector Público</title><link as="image" href="assets/img/slide-1.webp" rel="preload"/><link href="assets/css/main.css" rel="stylesheet"/><link href="assets/css/brand-sjt.css" rel="stylesheet"/><link href="assets/css/casos-exito-chips-fix.css" rel="stylesheet"/><link href="assets/css/mobile-logo-override.css" rel="stylesheet"/><style>
 @media (max-width:1024px){ header.site-header img, header.site-header picture, header.site-header svg{ display:none !important; visibility:hidden !important; } header.site-header .sjt-mobile-logo-overlay img, header.site-header .sjt-mobile-logo-overlay picture, header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
 }
 </style><style>
@@ -269,7 +269,6 @@
 .entidad-chip { font-size: 0.85rem; padding: 6px 10px; border-radius: 18px; }
 .entidad-chips { gap: 8px; margin: 6px auto 16px; }
 </style>
-
 <style id="chip-override-inline">
 
 @media (max-width:1024px){ header.site-header img, header.site-header picture, header.site-header svg{ display:none !important; visibility:hidden !important; } header.site-header .sjt-mobile-logo-overlay img, header.site-header .sjt-mobile-logo-overlay picture, header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
@@ -926,92 +925,7 @@ img.logo, .top-logo, .header-logo-legacy{display:none !important;}
 @media(max-width:900px){.cards{grid-template-columns:1fr}}
 
 </style>
-  <style id="responsive-inline-final-v9">
-/* FINAL v9 — ULTRA MOBILE/TABLET PATCH — Desktop untouched */
-@media (max-width: 991px){
-  :root{ --headerH:64px }
-  html,body{margin:0!important;padding:0!important;height:100%!important}
-  body{min-height:100%!important;display:flex!important;flex-direction:column!important;padding-top:var(--headerH)!important;overflow-x:hidden!important}
-  main,.site-main,.content,.page-content,#content{flex:1 1 auto!important}
-  main>:last-child,.site-main>:last-child,.content>:last-child,#content>:last-child{margin-bottom:0!important}
-  :target{scroll-margin-top:calc(var(--headerH) + 8px)!important}
-
-  /* ===== Header fijo SIN hueco + fondo sólido ===== */
-  .site-header,header,.navbar{
-    position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;
-    z-index:10000!important;margin:0!important;border:0!important;background:#106374!important
-  }
-  .site-header *{box-shadow:none!important}
-  /* Quita márgenes del primer bloque tras el header que crean hueco/transparencia */
-  body > :first-child{margin-top:0!important;padding-top:0!important}
-  .hero,.hero-section,.slider,.carousel{margin-top:0!important}
-
-  /* ===== Logo visible y legible ===== */
-  .site-header .logo,.site-header .logo-link,.logo,.logo-mobile,.brand,.brand-logo{display:block!important;visibility:visible!important;opacity:1!important}
-  .site-header .logo img,.site-header .logo-link img,.logo img,.logo-mobile img,.brand img,.brand-logo img{
-    display:block!important;max-height:46px!important;height:auto!important;width:auto!important;object-fit:contain!important
-  }
-
-  /* ===== Menú hamburguesa: bajo header, a contenido, color exacto ===== */
-  .mobile-menu,.menu-mobile,.drawer,.nav-drawer,.site-header .mobile,nav[role="menu"],[data-mobile-menu="true"],[class*="offcanvas"],[class*="drawer"]{
-    position:fixed!important;top:var(--headerH)!important;left:0!important;z-index:9999!important;
-    background:#106374!important;color:#fff!important;height:auto!important;max-height:calc(100vh - var(--headerH) - 16px)!important;
-    overflow-y:auto!important;display:inline-block!important;width:max-content!important;max-width:calc(100% - 32px)!important;
-    padding:12px 16px!important;border-radius:10px!important;box-shadow:0 8px 24px rgba(0,0,0,.18)!important;
-    right:auto!important;transform:none!important
-  }
-  .mobile-menu .menu-item,.menu-mobile .menu-item,.drawer a,.nav-drawer a,.site-header .mobile a,nav[role="menu"] a,.menu a,[class*="offcanvas"] a,[class*="drawer"] a{
-    display:block!important;padding:12px 8px!important;text-transform:uppercase!important;text-decoration:none!important;
-    color:#fff!important;border-bottom:1px solid rgba(255,255,255,.18)!important
-  }
-  .mobile-menu .menu-item:last-child,.menu-mobile .menu-item:last-child,.drawer a:last-child,nav[role="menu"] a:last-child,.menu a:last-child{
-    border-bottom:none!important
-  }
-  .mobile-menu-overlay,.menu-backdrop,.nav-overlay,.drawer-overlay,.backdrop,.overlay,.mask,[class*="offcanvas-backdrop"]{
-    display:none!important;pointer-events:none!important;opacity:0!important
-  }
-
-  /* ===== Slider/Pasarela: sin óvalos ni bandas ===== */
-  .slider,.carousel,.hero-slider,.hero,.hero-section,.slider-wrap,.carousel-wrap,.home-hero,.hero-container{
-    margin:0!important;padding:0!important;overflow:hidden!important
-  }
-  .slider,.carousel,.hero-slider,.home-hero{aspect-ratio:16/9!important;height:auto!important}
-  .slider .slick-list,.carousel .slick-list,.hero-slider .slick-list{margin:0!important;padding:0!important;height:auto!important}
-  .slider img,.carousel img,.hero-slider img,.home-hero img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
-  .slider::before,.slider::after,.carousel::before,.carousel::after,.hero-slider::before,.hero-slider::after,
-  .home-hero::before,.home-hero::after,.hero::before,.hero::after,.hero-section::before,.hero-section::after,
-  .slider *::before,.slider *::after,.carousel *::before,.carousel *::after,.hero-slider *::before,.hero-slider *::after,
-  .oval,.ovals,.shape,.shapes,.mask,.cover,.gradient-overlay{content:none!important;background:transparent!important;box-shadow:none!important;display:none!important}
-
-  /* ===== Chips/Entidades/Casos ===== */
-  .chips,.chips-row,.chips-wrap,.entities-wrap,.entities-row,.chips-list{
-    display:flex!important;flex-wrap:wrap!important;gap:12px!important;align-items:center!important;justify-content:center!important;
-    max-width:100%!important;overflow:visible!important
-  }
-  .chip,.chip-pill,.entity,.entity-right,.entidad-chip,.btn-entity{
-    display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:8px 12px!important;border-radius:999px!important;
-    max-width:100%!important;white-space:normal!important;word-break:break-word!important;overflow-wrap:anywhere!important;
-    font-size:clamp(11px,2.4vw,15px)!important;line-height:1.2!important
-  }
-  .cases-updated,.case-group,.cases-grid,.exito-grid,.success-grid,.cards-grid,.modules-grid{
-    display:grid!important;grid-template-columns:1fr!important;gap:16px!important
-  }
-  .case-summary-card,.exito-card,.success-card,.module-card,.card,.box{min-height:auto!important;height:auto!important;overflow:visible!important}
-
-  /* ===== Productos: contenedores y visibilidad ===== */
-  #entidades,.entidades,.entidades-wrap{overflow:visible!important}
-  #modulos,#modulos-grid,.productos-modulos-below{overflow:visible!important}
-  .bloque-modulos.hidden{display:none!important}
-
-  /* ===== Primer bloque después del header no debe quedar oculto por sticky ===== */
-  .page-title,.section-title,.hero,.hero-section,.slider{scroll-margin-top:calc(var(--headerH) + 8px)!important}
-}
-@supports (height:100dvh){
-  @media (max-width:991px){ .slider{min-height:100dvh!important} }
-}
-</style>
-  <link rel="stylesheet" href="css/responsive-v9-ultra.css" media="(max-width: 991px)">
-</head><style> /* Centrar título principal en Aliados */ .aliados-title { text-align: center !important; margin-left: auto !important; margin-right: auto !important; } </style><style> /* Centrar todo el contenido del footer */ footer { text-align: center !important; } footer .grid { justify-items: center !important; } footer h4, footer p, footer li, footer a { text-align: center !important; margin-left: auto; margin-right: auto; } </style><meta content="Nuestros aliados y clientes del sector público en Colombia que confían en SJT." name="description"/><link href="assets/css/expand-content-fix.css" rel="stylesheet"/><link href="assets/css/footer-icons-fix.css" rel="stylesheet"/><link href="assets/css/header-nav-carousel-fix.css" rel="stylesheet"/><script defer="True" src="assets/js/header-nav-carousel-fix.js"></script><link href="assets/css/quick-actions-v2.css" rel="stylesheet"/><link href="assets/css/mobile-logo-override.css" rel="stylesheet"/><style>
+</meta></head><style> /* Centrar título principal en Aliados */ .aliados-title { text-align: center !important; margin-left: auto !important; margin-right: auto !important; } </style><style> /* Centrar todo el contenido del footer */ footer { text-align: center !important; } footer .grid { justify-items: center !important; } footer h4, footer p, footer li, footer a { text-align: center !important; margin-left: auto; margin-right: auto; } </style><meta content="Nuestros aliados y clientes del sector público en Colombia que confían en SJT." name="description"/><link href="assets/css/expand-content-fix.css" rel="stylesheet"/><link href="assets/css/footer-icons-fix.css" rel="stylesheet"/><link href="assets/css/header-nav-carousel-fix.css" rel="stylesheet"/><script defer="True" src="assets/js/header-nav-carousel-fix.js"></script><link href="assets/css/quick-actions-v2.css" rel="stylesheet"/><link href="assets/css/mobile-logo-override.css" rel="stylesheet"/><style>
 @media (max-width:1024px){ header.site-header img, header.site-header picture, header.site-header svg{ display:none !important; visibility:hidden !important; } header.site-header .sjt-mobile-logo-overlay img, header.site-header .sjt-mobile-logo-overlay picture, header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
 }
 </style><link href="assets/css/sjt-mobile-logo-centered.css" rel="stylesheet"/><link href="assets/css/sjt-mobile-header-sticky.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-mobile-header-sticky.js"></script><link href="assets/css/sjt-hamburger-x.css" rel="stylesheet"/><script defer="True" src="assets/js/sjt-hamburger-state-sync.js"></script><style>
@@ -1240,7 +1154,61 @@ header .menu, .site-header .menu, nav .menu { flex-wrap: nowrap; }
 }
 .back-home-btn{position: fixed; right: 1rem; bottom: 1rem; display:inline-flex;align-items:center;justify-content:center; padding:.65rem 1rem; border-radius:9999px; font-weight:600; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,.2); z-index:9999; border:2px solid transparent;background-color:#356B78 !important; border-color:#356B78 !important; color:#fff !important;}
 .back-home-btn:hover{ background: var(--sjt-brand-hover, #0b3c3f); transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.18); }
-.back-home-btn{position: fixed; right: 1rem; bottom: 1rem; display:inline-flex;align-items:center;justify-content:center; padding:.65rem 1rem; border-radius:9999px; font-weight:600; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,.2); z-index:9999; border:2px solid transparent;background-color:#356B78 !important; border-color:#356B78 !important; color:#fff !important;}.back-home-btn:hover{ background: var(--sjt-brand-hover, #0b3c3f); transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.18); } .back-home-btn{position: fixed; right: 1rem; bottom: 1rem; display:inline-flex;align-items:center;justify-content:center; padding:.65rem 1rem; border-radius:9999px; font-weight:600; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,.2); z-index:9999; border:2px solid transparent;background-color:#356B78 !important; border-color:#356B78 !important; color:#fff !important;}</style></head><body class="page-wrap"><header class="site-header" id="site-header"><div class="site-header__inner"><a class="nav-logo-link" href="index.html" style="display:inline-flex;align-items:center;margin-right:10px;"><img src="img/header_logo_nav.webp" alt="Logo" style="height:34px;width:auto;display:block;" loading="eager"></a>
+.back-home-btn{position: fixed; right: 1rem; bottom: 1rem; display:inline-flex;align-items:center;justify-content:center; padding:.65rem 1rem; border-radius:9999px; font-weight:600; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,.2); z-index:9999; border:2px solid transparent;background-color:#356B78 !important; border-color:#356B78 !important; color:#fff !important;}.back-home-btn:hover{ background: var(--sjt-brand-hover, #0b3c3f); transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.18); } .back-home-btn{position: fixed; right: 1rem; bottom: 1rem; display:inline-flex;align-items:center;justify-content:center; padding:.65rem 1rem; border-radius:9999px; font-weight:600; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,.2); z-index:9999; border:2px solid transparent;background-color:#356B78 !important; border-color:#356B78 !important; color:#fff !important;}</style><style id="responsive-inline-final-v10">
+/* v10 DIRECT — mobile/tablet only; desktop untouched */
+@media (max-width:991px){
+  :root{ --headerH:64px }
+  html,body{margin:0!important;padding:0!important;height:100%!important}
+  body{min-height:100%!important;display:flex!important;flex-direction:column!important;padding-top:var(--headerH)!important;overflow-x:hidden!important}
+  main,.site-main,.content,.page-content,#content{flex:1 1 auto!important}
+  main>:last-child,.site-main>:last-child,.content>:last-child,#content>:last-child{margin-bottom:0!important}
+  :target{scroll-margin-top:calc(var(--headerH) + 8px)!important}
+
+  /* Header fijo con fondo (evita hueco/transparencia) */
+  .site-header,header,.navbar{position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;z-index:10000!important;background:#106374!important}
+  .site-header *{box-shadow:none!important}
+  body>*:first-child{margin-top:0!important;padding-top:0!important}
+  .hero,.hero-section,.slider,.carousel{margin-top:0!important}
+
+  /* Logo visible */
+  .site-header .logo img,.site-header .logo-link img,.logo img,.logo-mobile img,.brand img,.brand-logo img{max-height:46px!important;height:auto!important;width:auto!important;object-fit:contain!important;display:block!important}
+
+  /* Menú hamburguesa */
+  .mobile-menu,.menu-mobile,.drawer,.nav-drawer,.site-header .mobile,nav[role="menu"],[data-mobile-menu="true"],[class*="offcanvas"],[class*="drawer"]{
+    position:fixed!important;top:var(--headerH)!important;left:0!important;background:#106374!important;color:#fff!important;z-index:9999!important;
+    height:auto!important;max-height:calc(100vh - var(--headerH) - 16px)!important;overflow-y:auto!important;display:inline-block!important;
+    width:max-content!important;max-width:calc(100% - 32px)!important;padding:12px 16px!important;border-radius:10px!important;box-shadow:0 8px 24px rgba(0,0,0,.18)!important;right:auto!important;transform:none!important
+  }
+  .mobile-menu a,.menu-mobile a,.drawer a,.nav-drawer a,nav[role="menu"] a,[class*="offcanvas"] a,[class*="drawer"] a{
+    color:#fff!important;text-decoration:none!important;display:block!important;padding:12px 8px!important;border-bottom:1px solid rgba(255,255,255,.18)!important;text-transform:uppercase!important
+  }
+  .mobile-menu a:last-child,.menu-mobile a:last-child,.drawer a:last-child,.nav-drawer a:last-child,nav[role="menu"] a:last-child,[class*="offcanvas"] a:last-child,[class*="drawer"] a:last-child{border-bottom:none!important}
+  .mobile-menu-overlay,.menu-backdrop,.nav-overlay,.drawer-overlay,.backdrop,.overlay,.mask,[class*="offcanvas-backdrop"]{display:none!important;pointer-events:none!important;opacity:0!important}
+
+  /* Slider / Pasarela */
+  .slider,.carousel,.hero-slider,.hero,.hero-section,.slider-wrap,.carousel-wrap,.home-hero,.hero-container{margin:0!important;padding:0!important;overflow:hidden!important}
+  .slider,.carousel,.hero-slider,.home-hero{aspect-ratio:16/9!important;height:auto!important}
+  .slider .slick-list,.carousel .slick-list,.hero-slider .slick-list{margin:0!important;padding:0!important;height:auto!important}
+  .slider img,.carousel img,.hero-slider img,.home-hero img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+  .slider::before,.slider::after,.carousel::before,.carousel::after,.hero-slider::before,.hero-slider::after,
+  .home-hero::before,.home-hero::after,.hero::before,.hero::after,.hero-section::before,.hero-section::after,
+  .slider *::before,.slider *::after,.carousel *::before,.carousel *::after,.hero-slider *::before,.hero-slider *::after{content:none!important;background:transparent!important;box-shadow:none!important;display:none!important}
+
+  /* Chips y grids */
+  .chips,.chips-row,.chips-wrap,.entities-wrap,.entities-row,.chips-list{display:flex!important;flex-wrap:wrap!important;gap:12px!important;align-items:center!important;justify-content:center!important;max-width:100%!important;overflow:visible!important}
+  .chip,.chip-pill,.entity,.entity-right,.entidad-chip,.btn-entity{display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:8px 12px!important;border-radius:999px!important;max-width:100%!important;white-space:normal!important;word-break:break-word!important;overflow-wrap:anywhere!important;font-size:clamp(11px,2.4vw,15px)!important;line-height:1.2!important}
+  .cases-updated,.case-group,.cases-grid,.exito-grid,.success-grid,.cards-grid,.modules-grid{display:grid!important;grid-template-columns:1fr!important;gap:16px!important}
+  .case-summary-card,.exito-card,.success-card,.module-card,.card,.box{min-height:auto!important;height:auto!important;overflow:visible!important}
+
+  /* Productos */
+  #entidades,.entidades,.entidades-wrap{overflow:visible!important}
+  #modulos,#modulos-grid,.productos-modulos-below{overflow:visible!important}
+  .bloque-modulos.hidden{display:none!important}
+}
+@supports (height:100dvh){
+  @media (max-width:991px){ .slider{min-height:100dvh!important} }
+}
+</style></head><body class="page-wrap"><header class="site-header" id="site-header"><div class="site-header__inner"><a class="nav-logo-link" href="index.html" style="display:inline-flex;align-items:center;margin-right:10px;"><img alt="Logo" loading="eager" src="img/header_logo_nav.webp" style="height:34px;width:auto;display:block;"/></a>
 <nav aria-label="Navegación principal" class="site-header__nav"><ul><li><a href="productos.html">PRODUCTOS</a></li><li><a href="servicios.html">SERVICIOS</a></li><li><a href="nosotros.html">NOSOTROS</a></li><li><a class="is-active" href="casos-de-exito.html">CASOS DE ÉXITO</a></li><li><a href="index.html#contacto">CONTÁCTENOS</a></li></ul></nav></div></header><main><section class="cases-updated" id="casos-exito-2025"><div class="container"><h1>NUESTROS CASOS DE ÉXITO EN LA GESTIÓN PÚBLICA <span class="co-flag">co</span></h1><nav aria-label="Categorías" class="case-chips"><div class="chips-row"><a class="chip" href="#sec-gobernación-de-caldas">GOBERNACIONES</a><a class="chip" href="#sec-contralorías">CONTRALORÍAS</a><a class="chip" href="#sec-instituciones-educativas">INSTITUCIONES EDUCATIVAS</a><a class="chip" href="#sec-alcaldías">ALCALDÍAS</a><a class="chip" href="#sec-empresas-de-SERVICIOS-públicos">EMPRESAS DE SERVICIOS PÚBLICOS</a><a class="chip" href="#sec-institutos-de-vivienda-y-financieros">INSTITUTOS DE VIVIENDA Y FINANCIEROS</a><a class="chip" href="#sec-institutos-de-cultura-y-deporte-entes-descentralizados">INSTITUTOS DE CULTURA Y DEPORTE / ENTES DESCENTRALIZADOS</a></div></nav><div class="case-group" data-title="GOBERNACIÓN DE CALDAS" id="sec-gobernación-de-caldas"><h2>GOBERNACIONES</h2><div class="case-summary-card"><div class="sum-content"><div class="sum-body">La implementación de SJT ERP centralizó la gestión educativa y financiera de las entidades departamentales. Hoy la planeación, el seguimiento a metas y la rendición de cuentas se realizan en tiempo real, con reportes unificados para secretarías y rectores. Reducimos tiempos de consolidación, eliminamos reprocesos y aumentamos la transparencia presupuestal.</div></div></div><ul><li><span class="entity entity-right"><span class="entity"><strong>GOBERNACIÓN DE CALDAS</strong></span><img alt="" class="badgeR" src="assets/logos/gobernacion-de-caldas.png"/></span><small>SECRETARÍA DE EDUCACIÓN — 161 INSTITUCIONES EDUCATIVAS</small></li></ul></div><div class="case-group" data-title="CONTRALORÍAS" id="sec-contralorías"><h2>CONTRALORÍAS</h2><div class="case-summary-card"><div class="sum-content"><div class="sum-body">Con módulos de gestión documental, procesos judiciales y tableros de control, las contralorías agilizan el control fiscal. Automatizamos el seguimiento a hallazgos, estandarizamos informes y aseguramos trazabilidad completa, elevando eficiencia y cumplimiento normativo.</div></div></div><ul><li><span class="entity entity-right"><span class="entity">CONTRALORÍA MUNICIPAL DE SABANETA</span><img alt="" class="badgeR" src="assets/logos/contraloria-municipal-de-sabaneta.png"/></span></li></ul></div><div class="case-group" data-title="INSTITUCIONES EDUCATIVAS" id="sec-instituciones-educativas"><h2>INSTITUCIONES EDUCATIVAS</h2><div class="case-summary-card"><div class="sum-content"><div class="sum-body">SJT ERP moderniza matrículas, pagos, planillas y reportes oficiales. La automatización reduce carga operativa y uso de papel, mejora la trazabilidad académica y libera tiempo de los equipos para enfocarse en la calidad educativa.</div></div></div><ul><li><span class="entity entity-right"><span class="entity">INSTITUTO TÉCNICO GONZÁLO SUÁREZ RENDÓN</span><img alt="" class="badgeR" src="assets/logos/instituto-tecnico-gonzalo-suarez-rendon.png"/></span></li><li><span class="entity entity-right"><span class="entity">I.E. “INEM” CARLOS ARTURO TORRES</span><img alt="" class="badgeR" src="assets/logos/INEM.webp"/></span></li><li><span class="entity entity-right"><span class="entity">I.E. GUSTAVO ROJAS PINILLA</span><img alt="" class="badgeR" src="assets/logos/Gustavo.webp"/></span></li><li><span class="entity entity-right"><span class="entity">I.E. ESCUELA NORMAL SUPERIOR SANTIAGO DE TUNJA</span><img alt="" class="badgeR" src="assets/logos/Normal.webp"/></span></li><li><span class="entity entity-right"><span class="entity">I.E. ANTONIO JOSÉ SANDOVAL GÓMEZ</span><img alt="" class="badgeR" src="assets/logos/Antonio.webp"/></span></li></ul></div><div class="case-group" data-title="ALCALDÍAS" id="sec-alcaldías"><h2>ALCALDÍAS</h2><div class="case-summary-card"><div class="sum-content"><div class="sum-body">Digitalizamos la gestión tributaria, contractual y de atención al ciudadano. Predial, industria y comercio, PQRS y contratación operan con datos en línea y flujos automatizados, aumentando recaudo, reduciendo tiempos de respuesta y soportando decisiones basadas en evidencia.</div></div></div><ul><li><span class="entity entity-right"><span class="entity">ALCALDÍA DE TUNUNGUÁ</span><img alt="" class="badgeR" src="assets/logos/Tunungua.webp"/></span></li><li><span class="entity entity-right"><span class="entity">ALCALDÍA DE IZA</span><img alt="" class="badgeR" src="assets/logos/Iza.webp"/></span></li><li><span class="entity entity-right"><span class="entity">ALCALDÍA DE PAZ DE RÍO</span><img alt="" class="badgeR" src="assets/logos/Paz-de-Rio.webp"/></span></li><li><span class="entity entity-right"><span class="entity">ALCALDÍA DE TAURAMENA</span><img alt="" class="badgeR" src="assets/logos/Tauramena.webp"/></span></li><li><span class="entity entity-right"><span class="entity">ALCALDÍA DE BARBOSA</span><img alt="" class="badgeR" src="assets/logos/Barbosa.webp"/></span></li></ul></div><div class="case-group" data-title="EMPRESAS DE SERVICIOS PÚBLICOS" id="sec-empresas-de-servicios-públicos"><h2>EMPRESAS DE SERVICIOS PÚBLICOS</h2><div class="case-summary-card"><div class="sum-content"><div class="sum-body">Desde lectura y facturación hasta cartera y servicio al usuario, SJT ERP estandariza la operación y minimiza errores. Las empresas mejoran la exactitud de la facturación, fortalecen la recaudo y elevan la satisfacción del usuario con procesos digitales seguros.</div></div></div><ul><li><span class="entity entity-right"><span class="entity">EMPRESA MUNICIPAL DE SERVICIOS PÚBLICOS DOMICILIARIOS DE BARBOSA — ESBARBOSA E.S.P.</span><img alt="" class="badgeR" src="assets/logos/Barbosa.webp"/></span></li><li><span class="entity entity-right"><span class="entity">EMPRESA DE SERVICIOS PÚBLICOS DE AGUAZUL — ESPA S.A. E.S.P.</span><img alt="" class="badgeR" src="assets/logos/Espa.webp"/></span></li><li><span class="entity entity-right"><span class="entity">EMPRESAS DE SERVICIOS PÚBLICOS NO DOMICILIARIAS DE DUITAMA — ESDU</span><img alt="" class="badgeR" src="assets/logos/Esdu.webp"/></span></li><li><span class="entity entity-right"><span class="entity">EMPRESA DE SERVICIOS PÚBLICOS DEL ORIENTE DE CALDAS — SERVIORIENTE S.A. E.S.P.</span><img alt="" class="badgeR" src="assets/logos/Servioriente.webp"/></span></li><li><span class="entity entity-right"><span class="entity">EMPRESA REGIONAL DE ACUEDUCTO, ALCANTARILLADO Y ASEO DEL NORTE DE CALDAS — ERAN</span><img alt="" class="badgeR" src="assets/logos/Eran.webp"/></span></li><li><span class="entity entity-right"><span class="entity">EMPRESA DE SERVICIOS PÚBLICOS DE SANTA ROSA DE VITERBO — EMPOVITERBO</span><img alt="" class="badgeR" src="assets/logos/Empoviterbo.webp"/></span></li><li><span class="entity entity-right"><span class="entity">EMPRESA DE SERVICIOS PÚBLICOS DE ACUEDUCTO, ALCANTARILLADO, ASEO Y COMPLEMENTARIOS DE NEIRA — ESP S.A.S.</span><img alt="" class="badgeR" src="assets/logos/Neira.webp"/></span></li><li><span class="entity entity-right"><span class="entity">EMPRESA DE ACUEDUCTO, ALCANTARILLADO Y ASEO DE YOPAL — EAAAY</span><img alt="" class="badgeR" src="assets/logos/EAAAY.webp"/></span></li><li><span class="entity entity-right"><span class="entity">ACUEDUCTO LA PEDREGOSA — ASUAPED</span><img alt="" class="badgeR" src="assets/logos/Asuaped.webp"/></span></li></ul></div><div class="case-group" data-title="INSTITUTOS DE VIVIENDA Y FINANCIEROS" id="sec-institutos-de-vivienda-y-financieros"><h2>INSTITUTOS DE VIVIENDA Y FINANCIEROS</h2><div class="case-summary-card"><div class="sum-content"><div class="sum-body">Postulaciones, evaluaciones y asignaciones de vivienda se gestionan 100% en línea, con trazabilidad y alertas. Los proyectos avanzan con información confiable, disminuyendo tiempos de evaluación y fortaleciendo la confianza ciudadana.</div></div></div><ul><li><span class="entity entity-right"><span class="entity">FONDO DE FOMENTO AGROEMPRESARIAL DEL MUNICIPIO DE AGUAZUL — FFAMA</span><img alt="" class="badgeR" src="assets/logos/Ffama.webp"/></span></li><li><span class="entity entity-right"><span class="entity">INSTITUTO FINANCIERO EMPRESARIAL DE YOPAL — IFEY</span><img alt="" class="badgeR" src="assets/logos/Ifey.webp"/></span></li><li><span class="entity entity-right"><span class="entity">FONDO DE VIVIENDA OBRERA DE DUITAMA — FOMVIDU</span><img alt="" class="badgeR" src="assets/logos/Fomvidu.webp"/></span></li><li><span class="entity entity-right"><span class="entity">INSTITUTO DE VIVIENDA MUNICIPAL DE YOPAL — INDEV</span><img alt="" class="badgeR" src="assets/logos/Indev.webp"/></span></li><li><span class="entity entity-right"><span class="entity">INSTITUTO DE VIVIENDA MUNICIPAL DE AGUAZUL — IVIMA</span><img alt="" class="badgeR" src="assets/logos/Ivima.webp"/></span></li></ul></div><div class="case-group" data-title="INSTITUTOS DE CULTURA Y DEPORTE / ENTES DESCENTRALIZADOS" id="sec-institutos-de-cultura-y-deporte-entes-descentralizados"><h2>INSTITUTOS DE CULTURA Y DEPORTE / ENTES DESCENTRALIZADOS</h2><div class="case-summary-card"><div class="sum-content"><div class="sum-body">Planificación de eventos, contratos, presupuestos y medición de impacto en una plataforma unificada. SJT ERP impulsa la eficiencia operativa y la difusión de resultados hacia la comunidad, con control y transparencia.</div></div></div><ul><li><span class="entity entity-right"><span class="entity">INSTITUTO PARA LA EDUCACIÓN FÍSICA, LA RECREACIÓN Y EL DEPORTE — IERD</span><img alt="" class="badgeR" src="assets/logos/Ierd.webp"/></span></li><li><span class="entity entity-right"><span class="entity">DIRECCIÓN DE TRÁNSITO DE BARBOSA SANTANDER — DTTB</span><img alt="" class="badgeR" src="assets/logos/Barbosa.webp"/></span></li><li><span class="entity entity-right"><span class="entity">TERMINAL DE TRANSPORTES DE AGUAZUL — EL GARCERO DEL LLANO</span><img alt="" class="badgeR" src="assets/logos/Terminal.webp"/></span></li><li><span class="entity entity-right"><span class="entity">INSTITUTO DE CULTURA Y TURISMO DE YOPAL — ICTY</span><img alt="" class="badgeR" src="assets/logos/Icty.webp"/></span></li><li><span class="entity entity-right"><span class="entity">INSTITUTO DE CULTURA Y BELLAS ARTES DE DUITAMA — CULTURAMA</span><img alt="" class="badgeR" src="assets/logos/Culturama.webp"/></span></li></ul></div></div></section><section aria-label="CASOS DE ÉXITO EN LA GESTIÓN PÚBLICA" class="aliados-section"><style>
 .aliados-wrap{max-width:1100px;margin:0 auto;padding:40px 20px;}
 .aliados-title{font-weight:900;font-size:2.25rem;line-height:1.1;margin:0 0 8px;color:#113b3e;}
@@ -1258,7 +1226,7 @@ header .menu, .site-header .menu, nav .menu { flex-wrap: nowrap; }
 .card li{margin:6px 0;line-height:1.6;text-align:justify;hyphens:auto;text-justify:inter-word;}
 @media(max-width:900px){.cards{grid-template-columns:1fr}}
 </style><div class="aliados-wrap"><h1 class="aliados-title">CASOS DE ÉXITO EN LA GESTIÓN PÚBLICA 🇨🇴</h1><p class="aliados-lead">Más de 40 entidades del sector central, descentralizado y de control en Colombia confían en nuestras soluciones SaaS especializadas.</p><div class="tabs"><button class="tab-btn active" data-tab="tab0">Gobiernos Territoriales y Control (17) 🏛️</button><button class="tab-btn" data-tab="tab1">Servicios Públicos y Logística (14) 💧</button><button class="tab-btn" data-tab="tab2">Educación, Salud y Cultura (10) 🏥</button><button class="tab-btn" data-tab="tab3">Fomento, Vivienda y Desarrollo (8) 💰</button></div><div class="tab-panel active" id="tab0"><div class="cards"><div class="card"><h3>Alcaldías</h3><ul><li><span class="entity entity-right"><span class="entity">Alcaldía de Sogamoso</span><img alt="" class="badgeR" src="assets/logos/alcaldia-de-sogamoso.png"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Aguazul</span><img alt="" class="badgeR" src="assets/logos/alcaldia-de-aguazul.png"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Zipaquirá</span><img alt="" class="badgeR" src="assets/logos/alcaldia-de-zipaquira.png"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Barbosa</span><img alt="" class="badgeR" src="assets/logos/Barbosa.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Chía</span><img alt="" class="badgeR" src="assets/logos/alcaldia-de-chia.png"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Nobsa</span><img alt="" class="badgeR" src="assets/logos/alcaldia-de-nobsa.png"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Tauramena</span><img alt="" class="badgeR" src="assets/logos/Tauramena.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía San Pablo de Borbur</span><img alt="" class="badgeR" src="assets/logos/alcaldia-san-pablo-de-borbur.png"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía Paz del Río</span><img alt="" class="badgeR" src="assets/logos/alcaldia-paz-del-rio.png"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Tununguá</span><img alt="" class="badgeR" src="assets/logos/Tunungua.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Susacón</span><img alt="" class="badgeR" src="assets/logos/alcaldia-de-susacon.png"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Tunja</span><img alt="" class="badgeR" src="assets/logos/alcaldia-de-tunja.png"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Iza</span><img alt="" class="badgeR" src="assets/logos/Iza.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Alcaldía de Santa Rosa de Viterbo Boyacá</span><img alt="" class="badgeR" src="assets/logos/alcaldia-de-santa-rosa-de-viterbo-boyaca.png"/></span></li></ul></div><div class="card"><h3>Gobernaciones</h3><ul><li><span class="entity entity-right"><span class="entity">Gobernación de Caldas</span><img alt="" class="badgeR" src="assets/logos/gobernacion-de-caldas.png"/></span></li></ul></div><div class="card"><h3>Control Fiscal</h3><ul><li><span class="entity entity-right"><span class="entity">Contraloría de Sabaneta</span><img alt="" class="badgeR" src="assets/logos/contraloria-de-sabaneta.png"/></span></li></ul></div><div class="card"><h3>Concejos</h3><ul><li><span class="entity entity-right"><span class="entity">Concejo de Lérida</span><img alt="" class="badgeR" src="assets/logos/concejo-de-lerida.png"/></span></li></ul></div><div class="card"><h3>Tránsito y Transporte</h3><ul><li><span class="entity entity-right"><span class="entity">Dirección de Tránsito y Transporte de Barbosa</span><img alt="" class="badgeR" src="assets/logos/Barbosa.webp"/></span></li></ul></div></div></div><div class="tab-panel" id="tab1"><div class="cards"><div class="card"><h3>Acueducto, Alcantarillado y Aseo (ESP)</h3><ul><li><span class="entity entity-right"><span class="entity">Empresa de Acueducto, Alcantarillado y Aseo de Zipaquirá EAAAZ</span><img alt="" class="badgeR" src="assets/logos/empresa-de-acueducto-alcantarillado-y-aseo-de-zipaquira-eaaaz.png"/></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos Municipales No Domiciliarios de Duitama ESDU</span><img alt="" class="badgeR" src="assets/logos/Esdu.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos Domiciliarios de Duitama "EMPODUITAMA"</span><img alt="" class="badgeR" src="assets/logos/empresa-de-servicios-publicos-domiciliarios-de-duitama-empoduitama.png"/></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Acueducto, Alcantarillado y Aseo de Yopal "EAAAY"</span><img alt="" class="badgeR" src="assets/logos/EAAAY.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos de Acueducto Alcantarillado Aseo y Complementarios de Neira Caldas SAS ESP EPN</span><img alt="" class="badgeR" src="assets/logos/Neira.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos de Santa Rosa de Viterbo S.A. E.S.P. EMPOVITERBO</span><img alt="" class="badgeR" src="assets/logos/Empoviterbo.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos del Oriente de Caldas Servioriente S.A E.S.P.</span><img alt="" class="badgeR" src="assets/logos/Servioriente.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Empresa Regional de Acueducto, Alcantarillado y Aseo del Norte de Caldas S.A. E.S.P. ERAN</span><img alt="" class="badgeR" src="assets/logos/Eran.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Empresa de Servicios Públicos de Aguazul</span><img alt="" class="badgeR" src="assets/logos/empresa-de-servicios-publicos-de-aguazul.png"/></span></li><li><span class="entity entity-right"><span class="entity">Empresa Municipal de Servicios Públicos Domiciliarios de Barbosa - ESBARBOSA</span><img alt="" class="badgeR" src="assets/logos/Barbosa.webp"/></span></li></ul></div><div class="card"><h3>Logística y Terminales</h3><ul><li><span class="entity entity-right"><span class="entity">Terminal de Transportes de Aguazul El Garcero del Llano</span><img alt="" class="badgeR" src="assets/logos/Terminal.webp"/></span></li></ul></div><div class="card"><h3>EICE / Agroindustrial</h3><ul><li><span class="entity entity-right"><span class="entity">Empresa Agroindustrial Casanareña de Lácteos - Casalac E.I.C.E.</span><img alt="" class="badgeR" src="assets/logos/empresa-agroindustrial-casanarena-de-lacteos-casalac-e-i-c-e.png"/></span></li></ul></div></div></div><div class="tab-panel" id="tab2"><div class="cards"><div class="card"><h3>Educación (Colegios y Normales)</h3><ul><li><span class="entity entity-right"><span class="entity">Escuela Normal Superior Santiago de Tunja</span><img alt="" class="badgeR" src="assets/logos/Normal.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Escuela Normal Superior Leonor Álvarez Pinzón</span><img alt="" class="badgeR" src="assets/logos/Normal.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Institución Educativa Julius Sieber Tunja</span><img alt="" class="badgeR" src="assets/logos/institucion-educativa-julius-sieber-tunja.png"/></span></li><li><span class="entity entity-right"><span class="entity">Institución Educativa Inem Carlos Arturo Torres Tunja</span><img alt="" class="badgeR" src="assets/logos/INEM.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Instituto Técnico Gonzalo Suárez Rendón</span><img alt="" class="badgeR" src="assets/logos/instituto-tecnico-gonzalo-suarez-rendon.png"/></span></li><li><span class="entity entity-right"><span class="entity">IE Gustavo Rojas Pinilla</span><img alt="" class="badgeR" src="assets/logos/Gustavo.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Institución Educativa Antonio José Sandoval Gómez de Tunja</span><img alt="" class="badgeR" src="assets/logos/Antonio.webp"/></span></li></ul></div><div class="card"><h3>Salud (Hospitales)</h3><ul><li><span class="entity entity-right"><span class="entity">Hospital Chiquinquirá</span><img alt="" class="badgeR" src="assets/logos/hospital-chiquinquira.png"/></span></li></ul></div><div class="card"><h3>Cultura y Deporte</h3><ul><li><span class="entity entity-right"><span class="entity">Instituto de Cultura y Bellas Artes de Duitama Culturama</span><img alt="" class="badgeR" src="assets/logos/Culturama.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Instituto para la Educación Física, la Recreación y el Deporte de Duitama IERD</span><img alt="" class="badgeR" src="assets/logos/Ierd.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Instituto de Cultura y Turismo de Yopal</span><img alt="" class="badgeR" src="assets/logos/instituto-de-cultura-y-turismo-de-yopal.png"/></span></li></ul></div></div></div><div class="tab-panel" id="tab3"><div class="cards"><div class="card"><h3>Financieras y Desarrollo</h3><ul><li><span class="entity entity-right"><span class="entity">Findeter</span><img alt="" class="badgeR" src="assets/logos/findeter.png"/></span></li><li><span class="entity entity-right"><span class="entity">Instituto Financiero Empresarial de Yopal EICE – IFEY</span><img alt="" class="badgeR" src="assets/logos/Ifey.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Instituto de Fomento y Desarrollo de Boyacá “IDEBOY”</span><img alt="" class="badgeR" src="assets/logos/instituto-de-fomento-y-desarrollo-de-boyaca-ideboy.png"/></span></li></ul></div><div class="card"><h3>Fomento Agroindustrial</h3><ul><li><span class="entity entity-right"><span class="entity">Instituto de Fomento Agroempresarial de Tauramena "FATA"</span><img alt="" class="badgeR" src="assets/logos/Tauramena.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Fondo de Fomento Agropecuario y Microempresarial de Aguazul FFAMA</span><img alt="" class="badgeR" src="assets/logos/Ffama.webp"/></span></li></ul></div><div class="card"><h3>Vivienda Social</h3><ul><li><span class="entity entity-right"><span class="entity">Fondo de Vivienda Obrera de Duitama Fomvidu</span><img alt="" class="badgeR" src="assets/logos/Fomvidu.webp"/></span></li><li><span class="entity entity-right"><span class="entity">IVIMA Instituto de Vivienda Municipal de Aguazul</span><img alt="" class="badgeR" src="assets/logos/Ivima.webp"/></span></li><li><span class="entity entity-right"><span class="entity">Instituto de Vivienda de Yopal "INDEV"</span><img alt="" class="badgeR" src="assets/logos/Indev.webp"/></span></li></ul></div><div class="card"><h3>Fondos de Empleados</h3><ul><li><span class="entity entity-right"><span class="entity">Fondo de Empleados Alcaldía de Tauramena Fonalcat</span><img alt="" class="badgeR" src="assets/logos/Tauramena.webp"/></span></li></ul></div></div></div></div></section>
-  <a aria-label="Volver a inicio" class="back-home-btn" href="index.html" title="Volver a inicio">Volver a inicio</a>
+<a aria-label="Volver a inicio" class="back-home-btn" href="index.html" title="Volver a inicio">Volver a inicio</a>
 </main><section class="cta-final" id="cta-final"><h3>¿Listo para modernizar su entidad?</h3><p>Integre procesos, cumpla normativas y gane trazabilidad con SJT.</p><a class="btn btn-primary" href="index.html#contacto">Solicitar demo</a></section><footer class="footer"><div class="container"><div class="grid"><div><h4 style="margin:0 0 8px">Grupo AAA ASESORES</h4><p style="margin:0;opacity:.9"><a>Garantía de trabajo inteligente con SJT ERP. Optimizamos tus procesos, tiempo y talento para máxima productividad</a></p></div><div><h4 style="margin:0 0 8px">Compañía</h4><p style="margin:0;opacity:.9"><a href="index.html">Inicio</a> · <a href="productos.html">Productos</a> · <a href="servicios.html">Servicios</a> · <a href="nosotros.html">Nosotros</a> · <a href="casos-de-exito.html">Casos de éxito</a> · <a href="index.html#contacto">Contáctenos</a></p></div><div><h4 style="margin:0 0 8px">Síguenos</h4><div class="footer-social social"><a aria-label="Facebook" href="https://www.facebook.com/ERPSJT" rel="noopener noreferrer" target="_blank" title="Facebook"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M22 12.06C22 6.48 17.52 2 11.94 2 6.37 2 1.89 6.48 1.89 12.06c0 4.99 3.65 9.13 8.42 9.94v-7.03H7.9v-2.9h2.41V9.41c0-2.39 1.42-3.71 3.6-3.71 1.04 0 2.13.19 2.13.19v2.35h-1.2c-1.18 0-1.55.73-1.55 1.48v1.77h2.64l-.42 2.9h-2.22V22c4.77-.81 8.42-4.95 8.42-9.94z"></path></svg></a><a aria-label="Linkedin" href="https://www.linkedin.com/company/grupo-aaa-asesores-s-a-s/" rel="noopener noreferrer" target="_blank" title="Linkedin"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4zM9 8h3.8v2.2h.05c.53-1 1.84-2.2 3.78-2.2 4.04 0 4.79 2.66 4.79 6.1V24h-4v-7.1c0-1.7-.03-3.9-2.4-3.9-2.4 0-2.77 1.86-2.77 3.78V24H9z"></path></svg></a><a aria-label="Youtube" href="https://www.youtube.com/@grupoaaaasesores9214" rel="noopener noreferrer" target="_blank" title="Youtube"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M23.5 6.2s-.23-1.63-.95-2.35c-.9-.95-1.9-.96-2.36-1.02C16.9 2.5 12 2.5 12 2.5h-.01s-4.9 0-8.19.33c-.46.06-1.46.07-2.36 1.02-.72.72-.95 2.35-.95 2.35S0 8.1 0 10v1.9c0 1.9.23 3.8.23 3.8s.23 1.63.95 2.35c.9.95 2.08.92 2.61 1.02 1.9.18 8.21.24 8.21.24s4.9 0 8.19-.33c.46-.06 1.46-.07 2.36-1.02.72-.72.95-2.35.95-2.35s.23-1.9.23-3.8V10c0-1.9-.23-3.8-.23-3.8zM9.5 13.75V7.75l6 3-6 3z"></path></svg></a><a aria-label="X" href="https://x.com/SJT_erp" rel="noopener noreferrer" target="_blank" title="X"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M18.244 2H21.5l-7.27 8.3L22.5 22h-6.03l-4.72-5.58L5.3 22H2l7.79-8.9L2 2h6.11l4.33 5.02L18.244 2zm-1.06 18h1.75L8.9 4H7.09l10.095 16z"></path></svg></a></div></div></div><small class="copyright">© 2025 Grupo AAA. Todos los derechos reservados.</small></div></footer><script>
 document.addEventListener('DOMContentLoaded', function(){ document.querySelectorAll('.tab-btn').forEach(btn=>{ btn.addEventListener('click', ()=>{ const id = btn.dataset.tab; document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active')); btn.classList.add('active'); const panel = document.getElementById(id); if(panel) panel.classList.add('active'); if(history.pushState){ history.replaceState(null, '', '#'+id); } }); }); const hash = location.hash.replace('#',''); if(hash && document.getElementById(hash)){ document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active')); document.querySelector(`[data-tab="${hash}"]`)?.classList.add('active'); document.getElementById(hash).classList.add('active'); }
 });
@@ -1315,42 +1283,55 @@ document.addEventListener('DOMContentLoaded', function(){ try{ function getChips
   if (document.readyState==='loading') document.addEventListener('DOMContentLoaded', apply); else apply();
 })();
 </script>
-
-  <script id="responsive-inline-final-v9">
-/* FINAL v9 — ULTRA mobile/tablet self-healing runtime (desktop untouched) */
+<script id="responsive-inline-final-v10">
+/* v10 DIRECT — DOM patcher for mobile/tablet */
 (function(){
   if(!window.matchMedia || !window.matchMedia("(max-width: 991px)").matches) return;
   const root = document.documentElement;
-  const headerSel = '.site-header, header, .navbar';
-  const header = document.querySelector(headerSel);
+  const header = document.querySelector('.site-header, header, .navbar');
 
   function setH(){
     if(!header) return;
     const h = Math.round(header.getBoundingClientRect().height || 64);
     root.style.setProperty('--headerH', h + 'px');
-    try{ header.style.background = '#106374'; }catch(e){}
+    header.style.background = '#106374';
   }
   setH();
 
-  // Keep fixing on scroll/resize/hash changes
-  let raf=null;
-  addEventListener('scroll', ()=>{ if(!raf){ raf=requestAnimationFrame(()=>{ setH(); healMenu(); }); } }, {passive:true});
-  addEventListener('resize', ()=>{ if(matchMedia("(max-width:991px)").matches){ setH(); healMenu(); }}, {passive:true});
-  addEventListener('hashchange', ()=>{ setTimeout(setH, 0); }, {passive:true});
+  // === LOGO: clonar el logo de escritorio si falta en móvil ===
+  (function cloneLogo(){
+    try{
+      const headerEl = document.querySelector('.site-header, header, .navbar');
+      if(!headerEl) return;
+      const hasLogo = headerEl.querySelector('img[src*="logo"], img[alt*="logo"], img[alt*="Logo"]');
+      if(!hasLogo){
+        // buscar logo en todo el DOM (el primero que parezca de marca)
+        const candidate = document.querySelector('img[src*="logo"], img[alt*="logo"], img[alt*="Logo"]');
+        if(candidate){
+          const img = candidate.cloneNode(true);
+          img.style.maxHeight = '46px'; img.style.height='auto'; img.style.width='auto'; img.style.objectFit='contain';
+          const wrapper = document.createElement('a');
+          wrapper.href = '/';
+          wrapper.style.display='inline-block';
+          wrapper.style.padding='8px 12px';
+          wrapper.appendChild(img);
+          headerEl.insertBefore(wrapper, headerEl.firstChild);
+        }
+      }else{
+        const img = hasLogo; img.style.maxHeight='46px'; img.style.height='auto'; img.style.width='auto'; img.style.objectFit='contain';
+      }
+    }catch(e){}
+  })();
 
-  // Heal menu positioning/width periodically (handles frameworks that re-render)
+  // === MENÚ: bajo header, ancho a contenido, sin overlays (auto-heal) ===
   function healMenu(){
     const h = parseInt(getComputedStyle(root).getPropertyValue('--headerH')) || 70;
     document.querySelectorAll('.mobile-menu, .menu-mobile, .drawer, .nav-drawer, .site-header .mobile, nav[role="menu"], [data-mobile-menu="true"], [class*="offcanvas"], [class*="drawer"]').forEach(menu=>{
-      Object.assign(menu.style, {
-        position: 'fixed', top: h+'px', left:'0px', right:'auto', transform:'none', maxHeight: `calc(100vh - ${h}px - 16px)`,
-        width: 'max-content', maxWidth: 'calc(100% - 32px)', background:'#106374', color:'#fff', display:'inline-block',
-        padding:'12px 16px', borderRadius:'10px', zIndex: '9999'
-      });
-      // width fit to longest item
+      menu.style.position='fixed'; menu.style.top=h+'px'; menu.style.left='0'; menu.style.right='auto'; menu.style.transform='none';
+      menu.style.maxHeight=`calc(100vh - ${h}px - 16px)`; menu.style.background='#106374'; menu.style.color='#fff';
+      menu.style.display='inline-block'; menu.style.padding='12px 16px'; menu.style.borderRadius='10px'; menu.style.zIndex='9999';
       const vw = Math.max(document.documentElement.clientWidth, window.innerWidth||0);
-      let max = 0;
-      menu.querySelectorAll('a, .menu-item, li').forEach(el=>{ max = Math.max(max, el.scrollWidth); });
+      let max = 0; menu.querySelectorAll('a, .menu-item, li').forEach(el=>{ max = Math.max(max, el.scrollWidth); });
       menu.style.width = Math.min(Math.ceil(max + 32), vw - 32) + 'px';
     });
     document.querySelectorAll('.mobile-menu-overlay, .menu-backdrop, .nav-overlay, .drawer-overlay, .backdrop, .overlay, .mask, [class*="offcanvas-backdrop"]').forEach(el=>{
@@ -1358,20 +1339,15 @@ document.addEventListener('DOMContentLoaded', function(){ try{ function getChips
     });
   }
   healMenu();
-  setInterval(healMenu, 500); // self-heal twice per second
 
-  // Force hero/slider clean — remove pseudo-like overlays added dynamically
-  function healHero(){
-    document.querySelectorAll('.slider, .carousel, .hero-slider, .home-hero, .hero, .hero-section').forEach(el=>{
-      el.style.marginTop = '0';
-      el.style.paddingTop = '0';
-      el.style.overflow = 'hidden';
-    });
-  }
-  healHero();
-  setInterval(healHero, 1000);
+  // === SLIDER: desactiva centerMode/padding de Slick si aplica ===
+  try{
+    if(window.$ && typeof $==='function' && $('.slider').slick){
+      $('.slider').slick('slickSetOption', { centerMode:false, centerPadding:'0px' }, true);
+    }
+  }catch(e){}
 
-  // PRODUCTOS: ensure "Ver módulos" scrolls down and not up
+  // === PRODUCTOS: “Ver módulos” baja al bloque correcto ===
   (function(){
     const mod = document.getElementById('modulos-grid') || document.getElementById('modulos') || document.querySelector('.productos-modulos-below');
     const ent = document.getElementById('entidades') || document.querySelector('.entidades, .entidades-wrap');
@@ -1387,11 +1363,10 @@ document.addEventListener('DOMContentLoaded', function(){ try{ function getChips
       mod.classList.remove('hidden'); mod.style.display='';
       const h = parseInt(getComputedStyle(root).getPropertyValue('--headerH')) || 70;
       const y = mod.getBoundingClientRect().top + pageYOffset - (h + 8);
-      scrollTo({ top:y, behavior:'smooth' });
+      setTimeout(()=>{ scrollTo({ top:y, behavior:'smooth' }); }, 30);
       try{ history.replaceState(null, '', '#modulos'); }catch(e){}
     }
 
-    // Capture clicks globally
     document.addEventListener('click', (ev)=>{
       const a = ev.target.closest('.gestion-item, .btn-gestion, .ver-modulos, .link-ver-modulos, a[href^="#modulos"], a[data-target^="#modulos"]');
       if(!a) return;
@@ -1400,7 +1375,6 @@ document.addEventListener('DOMContentLoaded', function(){ try{ function getChips
       showModules(targetId);
     }, true);
 
-    // Keep entities hidden if modules already shown
     const mo = new MutationObserver(()=>{
       if(mod && mod.offsetParent !== null && ent){
         ent.classList.add('hidden'); ent.style.display='none';
@@ -1409,17 +1383,8 @@ document.addEventListener('DOMContentLoaded', function(){ try{ function getChips
     mo.observe(document.body, {childList:true, subtree:true});
   })();
 
-  // Ensure logo never hidden by theme CSS
-  function healLogo(){
-    document.querySelectorAll('.site-header .logo, .site-header .logo-link, .logo, .logo-mobile, .brand, .brand-logo').forEach(el=>{
-      el.style.display='block'; el.style.visibility='visible'; el.style.opacity='1';
-      const img = el.querySelector('img');
-      if(img){ img.style.maxHeight='46px'; img.style.height='auto'; img.style.width='auto'; img.style.objectFit='contain'; }
-    });
-  }
-  healLogo();
-  setInterval(healLogo, 800);
+  // === Auto-heal timers (por si el tema reescribe estilos dinámicamente) ===
+  setInterval(setH, 500);
+  setInterval(healMenu, 500);
 })();
-</script>
-  <script src="js/responsive-v9-ultra.js"></script>
-</body></html>
+</script></body></html>
