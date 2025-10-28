@@ -119,13 +119,11 @@ nav a, .main-nav a, .menu > li > a { display: inline-flex; align-items: center; 
 }
 /* Avoid double rows due to wrap; allow graceful overflow on tight screens */
 header .menu, .site-header .menu, nav .menu { flex-wrap: nowrap; }
-</style>  
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="css/mobile-reset-v12.css" media="(max-width: 991px)">
-
+</style>
+<link rel="stylesheet" href="css/mobile-header-fix-v13_3.css" media="(max-width: 991px)">
 </head><body class="index-page">
 
-<div id="mobi-header" style="display:none">
+<div id="mobi-header" style="display:flex">
   <a class="brand" href="/"><img id="mobi-logo" alt="Logo"></a>
   <button id="mobi-burger" aria-label="Abrir menú"><span></span></button>
 </div>
@@ -194,7 +192,6 @@ document.querySelector('.contacto-form')?.addEventListener('submit', function(e)
 })();
 </script>
 
-  
-<script src="js/mobile-reset-v12.js"></script>
 
+<script src="js/mobile-header-fix-v13_3.js"></script>
 </body></html>

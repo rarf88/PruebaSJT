@@ -926,10 +926,8 @@ img.logo, .top-logo, .header-logo-legacy{display:none !important;}
 @media(max-width:900px){.cards{grid-template-columns:1fr}}
 
 </style>
-  
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="css/mobile-reset-v12.css" media="(max-width: 991px)">
 
+<link rel="stylesheet" href="css/mobile-header-fix-v13_3.css" media="(max-width: 991px)">
 </head><style> /* Centrar título principal en Aliados */ .aliados-title { text-align: center !important; margin-left: auto !important; margin-right: auto !important; } </style><style> /* Centrar todo el contenido del footer */ footer { text-align: center !important; } footer .grid { justify-items: center !important; } footer h4, footer p, footer li, footer a { text-align: center !important; margin-left: auto; margin-right: auto; } </style><meta content="Nuestros aliados y clientes del sector público en Colombia que confían en SJT." name="description"/><link href="assets/css/expand-content-fix.css" rel="stylesheet"/><link href="assets/css/footer-icons-fix.css" rel="stylesheet"/><link href="assets/css/header-nav-carousel-fix.css" rel="stylesheet"/><script defer="True" src="assets/js/header-nav-carousel-fix.js"></script><link href="assets/css/quick-actions-v2.css" rel="stylesheet"/><link href="assets/css/mobile-logo-override.css" rel="stylesheet"/><style>
 @media (max-width:1024px){ header.site-header img, header.site-header picture, header.site-header svg{ display:none !important; visibility:hidden !important; } header.site-header .sjt-mobile-logo-overlay img, header.site-header .sjt-mobile-logo-overlay picture, header.site-header .sjt-mobile-logo-overlay svg{ display:block !important; visibility:visible !important; }
 }
@@ -1161,7 +1159,7 @@ header .menu, .site-header .menu, nav .menu { flex-wrap: nowrap; }
 .back-home-btn:hover{ background: var(--sjt-brand-hover, #0b3c3f); transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.18); }
 .back-home-btn{position: fixed; right: 1rem; bottom: 1rem; display:inline-flex;align-items:center;justify-content:center; padding:.65rem 1rem; border-radius:9999px; font-weight:600; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,.2); z-index:9999; border:2px solid transparent;background-color:#356B78 !important; border-color:#356B78 !important; color:#fff !important;}.back-home-btn:hover{ background: var(--sjt-brand-hover, #0b3c3f); transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.18); } .back-home-btn{position: fixed; right: 1rem; bottom: 1rem; display:inline-flex;align-items:center;justify-content:center; padding:.65rem 1rem; border-radius:9999px; font-weight:600; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,.2); z-index:9999; border:2px solid transparent;background-color:#356B78 !important; border-color:#356B78 !important; color:#fff !important;}</style></head><body>
 
-<div id="mobi-header" style="display:none">
+<div id="mobi-header" style="display:flex">
   <a class="brand" href="/"><img id="mobi-logo" alt="Logo"></a>
   <button id="mobi-burger" aria-label="Abrir menú"><span></span></button>
 </div>
@@ -1242,7 +1240,6 @@ document.addEventListener('DOMContentLoaded', function(){ try{ function getChips
 })();
 </script>
 
-  
-<script src="js/mobile-reset-v12.js"></script>
 
+<script src="js/mobile-header-fix-v13_3.js"></script>
 </body></html>

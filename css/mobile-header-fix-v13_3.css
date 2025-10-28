@@ -1,0 +1,36 @@
+
+/* v13.3 — HEADER FIX ONLY (mobile ≤991px) — Desktop untouched */
+@media (max-width:991px){
+  /* Unify to a single, brand header */
+  .site-header, header, .navbar{
+    display:none !important; visibility:hidden !important; opacity:0 !important; pointer-events:none !important;
+    position:static !important; height:0 !important; overflow:hidden !important;
+  }
+
+  #mobi-header{
+    display:flex !important; position:fixed; top:0; left:0; right:0;
+    height:72px !important; background:#106374 !important; z-index:10050 !important;
+    align-items:center; justify-content:space-between; padding:0 14px;
+  }
+  body{ padding-top:72px !important; }
+
+  #mobi-header .brand img#mobi-logo{
+    max-height:56px !important; height:auto !important; width:auto !important; object-fit:contain !important; display:block !important;
+  }
+
+  #mobi-burger{ width:44px !important; height:44px !important; display:grid !important; place-items:center !important; border:0; background:transparent; }
+  #mobi-burger span, #mobi-burger span::before, #mobi-burger span::after{ background:#fff !important; }
+  #mobi-burger span{ width:26px; height:2px; display:block; position:relative; }
+  #mobi-burger span::before, #mobi-burger span::after{ content:""; position:absolute; left:0; width:26px; height:2px; }
+  #mobi-burger span::before{ top:-7px } #mobi-burger span::after{ top:7px }
+
+  #mobi-menu{
+    position:fixed; top:72px !important; left:12px; background:#106374 !important; color:#fff !important;
+    border-radius:12px; max-height:calc(100vh - 88px); overflow:auto; padding:10px 14px;
+    box-shadow:0 8px 24px rgba(0,0,0,.18); display:none; width:max-content; max-width:calc(100% - 24px); z-index:10051 !important;
+  }
+  #mobi-menu a{ color:#fff !important; text-decoration:none !important; display:block !important; padding:12px 8px !important; border-bottom:1px solid rgba(255,255,255,.18) !important; text-transform:uppercase !important; }
+  #mobi-menu a:last-child{ border-bottom:none !important; }
+
+  body.mobi-menu-open{ overflow:hidden !important; }
+}
