@@ -1,0 +1,47 @@
+
+/* v12 RESET — Fresh mobile/tablet CSS built from desktop. Desktop untouched. */
+@media (max-width:991px){
+  :root{ --mh:64px }
+  html,body{margin:0;padding:0;height:100%}
+  body{min-height:100%;display:flex;flex-direction:column;overflow-x:hidden;padding-top:var(--mh)}
+
+  /* Hide any original mobile header/menus from previous site */
+  .site-header .mobile, .mobile-menu, .menu-mobile, .nav-drawer, .drawer, 
+  .mobile-menu-overlay, .menu-backdrop, .nav-overlay, .drawer-overlay { display:none !important; }
+
+  /* New clean mobile header */
+  #mobi-header{position:fixed;inset:0 0 auto 0;height:var(--mh);display:flex;align-items:center;justify-content:space-between;z-index:10000;background:#106374;padding:0 12px}
+  #mobi-header .brand img{max-height:46px;height:auto;width:auto;display:block;object-fit:contain}
+  #mobi-burger{width:40px;height:40px;display:grid;place-items:center;cursor:pointer;background:transparent;border:0}
+  #mobi-burger span{width:24px;height:2px;background:#fff;display:block;position:relative}
+  #mobi-burger span::before,#mobi-burger span::after{content:"";position:absolute;left:0;width:24px;height:2px;background:#fff}
+  #mobi-burger span::before{top:-7px} #mobi-burger span::after{top:7px}
+
+  /* New clean mobile menu */
+  #mobi-menu{position:fixed;top:var(--mh);left:12px;background:#106374;color:#fff;border-radius:12px;max-height:calc(100vh - var(--mh) - 24px);overflow:auto;
+             padding:10px 14px;box-shadow:0 8px 24px rgba(0,0,0,.18);display:none;width:max-content;max-width:calc(100% - 24px)}
+  #mobi-menu a{color:#fff;text-decoration:none;display:block;padding:12px 8px;border-bottom:1px solid rgba(255,255,255,.18);text-transform:uppercase}
+  #mobi-menu a:last-child{border-bottom:none}
+
+  /* Content & footer layout */
+  main,.site-main,.content,.page-content,#content{flex:1 1 auto}
+  main>:last-child,.site-main>:last-child,.content>:last-child,#content>:last-child{margin-bottom:0}
+
+  /* Slider/Pasarela clean */
+  .slider,.carousel,.hero,.hero-section,.home-hero{margin:0;padding:0;overflow:hidden;aspect-ratio:16/9}
+  .slider img,.carousel img,.hero img,.home-hero img{width:100%;height:100%;object-fit:cover;display:block}
+  .slider::before,.slider::after,.carousel::before,.carousel::after,.hero::before,.hero::after,
+  .slider *::before,.slider *::after,.carousel *::before,.carousel *::after{content:none !important;display:none !important;background:transparent !important;box-shadow:none !important}
+
+  /* Chips & grids */
+  .chips,.chips-row,.entities-row,.chips-wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .chip,.entity{white-space:normal;overflow-wrap:anywhere;word-break:break-word;padding:8px 12px;border-radius:999px;font-size:clamp(11px,2.4vw,15px);line-height:1.2}
+  .cases-grid,.exito-grid,.modules-grid,.cards-grid{display:grid;grid-template-columns:1fr;gap:16px}
+  .case-summary-card,.exito-card,.success-card,.module-card,.card,.box{min-height:auto;height:auto;overflow:visible}
+
+  /* Productos: ensure modules container present */
+  #modulos,#modulos-grid,.productos-modulos-below{display:block}
+}
+@supports(height:100dvh){
+  @media (max-width:991px){ .slider{min-height:100dvh} }
+}
