@@ -72,3 +72,80 @@
   // 4) Slider (Slick): remove center paddings if present
   try{ if(window.$ && $('.slider').slick){ $('.slider').slick('slickSetOption',{centerMode:false,centerPadding:'0px'},true); } }catch(e){}
 })();
+
+
+
+// v12.r2 runtime additions
+(function(){
+  if(!matchMedia('(max-width:991px)').matches) return;
+
+  // 0) Safe-area aware header height
+  const mh = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--mh')) || 64;
+
+  // 1) Menu toggle -> lock body scroll & auto-fit width
+  const menu  = document.getElementById('mobi-menu');
+  const burger = document.getElementById('mobi-burger');
+  function fitMenuWidth(){
+    if(!menu) return;
+    const vw = Math.max(document.documentElement.clientWidth, window.innerWidth||0);
+    let maxW = 0;
+    menu.querySelectorAll('a').forEach(a=>{ maxW = Math.max(maxW, a.scrollWidth); });
+    menu.style.width = Math.min(Math.ceil(maxW + 32), vw - 24) + 'px';
+  }
+  if(burger && menu){
+    burger.addEventListener('click', ()=>{
+      const isOpen = getComputedStyle(menu).display !== 'none';
+      if(isOpen){
+        menu.style.display = 'none';
+        document.body.classList.remove('mobi-menu-open');
+      }else{
+        menu.style.display = 'inline-block';
+        fitMenuWidth();
+        document.body.classList.add('mobi-menu-open');
+      }
+    });
+  }
+  addEventListener('resize', ()=>{ if(matchMedia('(max-width:991px)').matches){ fitMenuWidth(); } }, {passive:true});
+
+  // 2) Slider (Slick) hard reset options if present
+  try{ if(window.$ && $('.slider').slick){ $('.slider').slick('slickSetOption',{centerMode:false,centerPadding:'0px',arrows:false,dots:true},true); } }catch(e){}
+
+  // 3) Productos: make entities->modules robust
+  (function(){
+    const mod = document.getElementById('modulos-grid') || document.getElementById('modulos') || document.querySelector('.productos-modulos-below');
+    const ent = document.getElementById('entidades') || document.querySelector('.entidades, .entidades-wrap');
+    function goModules(targetId){
+      if(ent){ ent.style.display='none'; ent.classList.add('hidden'); }
+      if(targetId){
+        document.querySelectorAll('.bloque-modulos').forEach(b=>b.classList.add('hidden'));
+        const t = document.querySelector(targetId); if(t){ t.classList.remove('hidden'); t.style.display='block'; }
+      }
+      if(mod){
+        mod.style.display='block';
+        const y = mod.getBoundingClientRect().top + pageYOffset - (mh + 8);
+        setTimeout(()=>{ scrollTo({ top:y, behavior:'smooth' }); }, 10);
+        try{ history.replaceState(null,'','#modulos'); }catch(e){}
+      }
+    }
+    document.addEventListener('click', (ev)=>{
+      const a = ev.target.closest('.gestion-item, .btn-gestion, .ver-modulos, .link-ver-modulos, a[href^="#modulos"], a[data-target^="#modulos"], .entity, .entidad-chip');
+      if(!a) return;
+      const href = a.getAttribute('href') || '';
+      if(href.startsWith('#modulos') || a.classList.contains('ver-modulos') || a.classList.contains('link-ver-modulos') || a.classList.contains('gestion-item') || a.classList.contains('btn-gestion') || a.classList.contains('entity') || a.classList.contains('entidad-chip')){
+        ev.preventDefault(); ev.stopPropagation();
+        goModules(a.getAttribute('data-target') || (href.match(/^#.+/)||[])[0]);
+      }
+    }, true);
+  })();
+
+  // 4) Header color & logo visibility enforcement
+  (function enforceHeader(){
+    const header = document.getElementById('mobi-header');
+    if(header){ header.style.background = '#106374'; }
+    const logo = document.getElementById('mobi-logo');
+    if(logo && !logo.src){
+      const srcLogo = document.querySelector('.site-header img, header img, .navbar img, img[src*="logo"], img[alt*="logo" i]');
+      if(srcLogo){ logo.src = srcLogo.currentSrc || srcLogo.src; }
+    }
+  })();
+})();

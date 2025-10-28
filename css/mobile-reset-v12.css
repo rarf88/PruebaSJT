@@ -45,3 +45,40 @@
 @supports(height:100dvh){
   @media (max-width:991px){ .slider{min-height:100dvh} }
 }
+
+
+
+/* v12.r2 additions */
+@media (max-width:991px){
+  /* 0) Safe-area for iOS */
+  :root{ --mh: calc(64px + env(safe-area-inset-top, 0px)); }
+  #mobi-header{ padding-top: env(safe-area-inset-top, 0px); height: var(--mh); }
+  #mobi-menu{ top: var(--mh); }
+
+  /* 1) Prevent body scroll when menu open */
+  body.mobi-menu-open{ overflow: hidden; }
+
+  /* 2) Fit menu width to longest item */
+  #mobi-menu{ width: max-content; max-width: calc(100% - 24px); }
+
+  /* 3) Global scroll-margin to avoid header cover */
+  :target, .section, .page-title, .hero, .hero-section, .slider, .modules-grid, #modulos, #modulos-grid{ scroll-margin-top: calc(var(--mh) + 8px); }
+
+  /* 4) Strong kill overlays/ovals on sliders */
+  .oval, .ovals, .shape, .shapes, .mask, .cover, .gradient-overlay,
+  .hero::before, .hero::after, .hero-section::before, .hero-section::after,
+  .home-hero::before, .home-hero::after{ display:none !important; content:none !important; background:transparent !important; }
+
+  /* 5) Ensure slider takes full width and image covers */
+  .slider, .carousel, .hero, .hero-section, .home-hero{ aspect-ratio: 16/9; height:auto; margin:0 !important; padding:0 !important; overflow:hidden !important; }
+  .slider img, .carousel img, .hero img, .home-hero img{ width:100% !important; height:100% !important; display:block !important; object-fit:cover !important; }
+
+  /* 6) Chips text clamp + center + wrap */
+  .chip, .entity, .chip-pill, .entidad-chip{ text-align:center; word-break:break-word; overflow-wrap:anywhere; }
+
+  /* 7) Cards/grids single column */
+  .cases-grid, .exito-grid, .modules-grid, .cards-grid, .success-grid{ grid-template-columns: 1fr !important; gap: 16px !important; }
+
+  /* 8) Footer spacing normalized */
+  footer, .site-footer{ margin-top:auto !important; }
+}
